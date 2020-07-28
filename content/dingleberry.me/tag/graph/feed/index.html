@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/graph/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Making munin plugins install and configure themselves if they are suitable for the system</title>
+		<link>http://dingleberry.me/2009/01/making-munin-plugins-install-and-configure-themselves-if-they-are-suitable-for-the-system/</link>
+		<comments>http://dingleberry.me/2009/01/making-munin-plugins-install-and-configure-themselves-if-they-are-suitable-for-the-system/#comments</comments>
+		<pubDate>Thu, 08 Jan 2009 10:07:27 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[autoconf]]></category>
+		<category><![CDATA[graph]]></category>
+		<category><![CDATA[munin]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[xen]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=232</guid>
+		<description><![CDATA[The other day i was trying to graph some of my xen virtualization servers with munin. Munin gives you a default set of plugins which will install and configure themselves upon installation of the munin package. So what happens when you want to add additional plugins? Well you can either stick the plugins directly in [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>The other day i was trying to graph some of my <a href="http://xensource.com">xen virtualization</a> servers with <a href="http://munin.projects.linpro.no/">munin</a>. Munin gives you a default set of plugins which will install and configure themselves upon installation of the munin package.</p>
+<p>So what happens when you want to add additional plugins? Well you can either stick the plugins directly in the /etc/munin/plugins directory directly or place them in /usr/share/munin/plugins and make a symlink to them from the /etc/munin/plugins dir (like at least debian does by default).</p>
+<p>If you place them directly in the /etc/munin/plugins dir all you need to do is restart the munin-node. If you place them under /usr/&#8230;&#8230;. and symlink them yourself its the same. Lets say you just copy the plugin to the /usr/&#8230;&#8230; dir and want to make munin automagically install it if it fits your system. Then you can issue the command</p>
+<p><code>/usr/sbin/munin-node-configure --shell | sh</code><br />
+However in order to do so the plugin has to have the &#8220;autoconf&#8221; ability. To check if the plugin you want to install has this, just issue the following command</p>
+<p><code>munin-run --servicedir /path/to/where/you/placed/your/plugin name_of_your_plugin autoconf</code><br />
+It should say just &#8220;Yes&#8221; if it has. So what if the if command above returns YES but still nothing happens? I had this problem the other day and i had to visit the #munin channel on irc.linpro.no to get answers from the dudes that knows this shit the best. It dialogue went like this:</p>
+<p><code>18:39 < Kristian> does the plugin have the manual magic marker?<br />
+18:39 < me> :)<br />
+18:39 < me> which is ?<br />
+18:39 < me> hehe<br />
+18:40 < Kristian> a line in the script that reads something like: #%# family=manual<br />
+18:40 < me> ah<br />
+18:40 < me> h<br />
+18:40 < me> m<br />
+18:41 < me> it might not<br />
+18:41 < me> is that all it takes to make it do what i want?<br />
+18:41 < me> http://muninexchange.projects.linpro.no/?view&#038;phid=185<br />
+18:41 < me> thats the code<br />
+18:41 < me> so nope it doesnt<br />
+18:43 < Kristian> ah, no family at all. One second :) (I'm really no expert here, I'm just equally curious)<br />
+18:43 < me>  14 #%# family=auto<br />
+18:43 < me>  15 #%# capabilities=autoconf<br />
+18:43 < me> i added those two<br />
+18:47 < me> works now :)<br />
+18:47 < me> thanks :)<br />
+18:47 < Kristian> well, munin-node-configure tries the family=auto by default, if the plugin doesn't have a family set, it's assumed to be contrib<br />
+18:47 < Kristian> so adding --families contrib,auto will do roughly what you want<br />
+18:47 < Kristian> but they still need the capabilities=autoconf marker<br />
+18:49 < me> right<br />
+18:49 < me> then that plugin i linked to should be updated<br />
+18:49 < Kristian> yeah<br />
+18:49 < me> since it has autoconf capabilities</code></p>
+<p>So even tho the plugin presumably has autoconf ability, check if it also specifies it by including something like:</p>
+<p><code>#%# family=auto<br />
+#%# capabilities=autoconf</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/making-munin-plugins-install-and-configure-themselves-if-they-are-suitable-for-the-system/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/hardware/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Monitoring Dell hardware in Nagios on the Debian Etch 64bit Platform</title>
+		<link>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/</link>
+		<comments>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/#comments</comments>
+		<pubDate>Thu, 29 Jan 2009 10:56:05 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[hardware]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=273</guid>
+		<description><![CDATA[Getting Dell&#8217;s linux-software to work on other platforms than Redhat can be a bitch, but I was lucky to come across this article. Following those steps I had dellomsa up and running a couple of minutes later. Then I went to nagiosexchange and downloaded the perl script check_dell_sensors.pl. In this case I use check_by_ssh to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Getting Dell&#8217;s linux-software to work on other platforms than Redhat can be a bitch, but I was lucky to come across <a href="http://blog.zztopping.com/2008/04/29/dell-omsa-debian-64bit/">this</a> article. Following those steps I had dellomsa up and running a couple of minutes later.<br />
+Then I went to <a href="http://www.nagiosexchange.org">nagiosexchange</a> and downloaded the perl script <a href="http://www.nagiosexchange.org/cgi-bin/page.cgi?g=1923.html;d=1">check_dell_sensors.pl</a>.</p>
+<p>In this case I use check_by_ssh to run the check on each host, so here&#8217;s the <strong>command.cfg</strong> setup</p>
+<p><code>define command{<br />
+command_name    check_dell_sensors<br />
+command_line    $USER1$/check_by_ssh -l someuser -t 30 -H $HOSTADDRESS$ -C "/usr/lib/nagios/plugins/check_dell_sensors.pl"<br />
+}<br />
+</code></p>
+<p>and finally the <strong>services.cfg</strong></p>
+<p><code><br />
+define service{<br />
+use                             generic-service<br />
+hostgroup_name                  cfg_CHECK_DELL_SENSORS<br />
+service_description             CHECK_DELL_SENSORS<br />
+is_volatile                     0<br />
+max_check_attempts              3<br />
+normal_check_interval           5<br />
+retry_check_interval            1<br />
+contact_groups                  linux-admins<br />
+notification_period             24x7<br />
+notification_options            c,w,r<br />
+check_command                   check_dell_sensors<br />
+}<br />
+</code></p>
+<p>This will monitor your dell hardware on all hosts in your cfg_CHECK_DELL_SENSORS hostgroup, giving you an output like :<br />
+<code>/usr/lib/nagios/plugins/check_dell_sensors.pl<br />
+OK -- Hardware Log=Ok; Memory=Ok; Power Supplies=Ok; Processors=Ok; Temperatures=Ok; Voltages=Ok;</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

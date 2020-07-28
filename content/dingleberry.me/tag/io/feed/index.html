@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/io/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Tools for monitoring I/O</title>
+		<link>http://dingleberry.me/2008/11/tools-for-monitoring-io/</link>
+		<comments>http://dingleberry.me/2008/11/tools-for-monitoring-io/#comments</comments>
+		<pubDate>Wed, 05 Nov 2008 08:43:52 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[io]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[tools]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=209</guid>
+		<description><![CDATA[Allright so you wanna check I/O on your machine, where it all goes and all that kinda shit. apt-get install iotop sysstat Then you have two tools for checking your I/O problems: First one: iotop This one shows which processes read and write, how much they r/w. This one is really good if you wonder [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Allright so you wanna check I/O on your machine, where it all goes and all that kinda shit.</p>
+<p><code>apt-get install iotop sysstat</code></p>
+<p>Then you have two tools for checking your I/O problems:</p>
+<p><strong>First one:</strong> <code>iotop</code><br />
+<a href="http://dingleberry.me/wp-content/uploads/2008/11/iotop_big.png" rel="shadowbox[sbpost-209];player=img;"><img class="alignnone size-medium wp-image-214" title="iotop_big" src="http://dingleberry.me/wp-content/uploads/2008/11/iotop_big-300x197.png" alt="" width="300" height="197" /></a><br />
+This one shows which processes read and write, how much they r/w.<br />
+This one is really good if you wonder which procs are making your machine stall.</p>
+<p><strong>Second one:</strong> <code>iostat -m 1</code><br />
+<a href="http://dingleberry.me/wp-content/uploads/2008/11/iostat_big.png" rel="shadowbox[sbpost-209];player=img;"><img class="alignnone size-medium wp-image-215" title="iostat_big" src="http://dingleberry.me/wp-content/uploads/2008/11/iostat_big-300x172.png" alt="" width="300" height="172" /></a><br />
+This one shows you the I/O for devices and partitions. Very nice if you wanna check which disks are written/read to in a sw-raid or lvm array</p>
+<p>Please comment on other useful tools that should be mentionable <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/11/tools-for-monitoring-io/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

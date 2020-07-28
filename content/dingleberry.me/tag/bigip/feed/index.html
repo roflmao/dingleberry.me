@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/bigip/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Easy Big-IP LTM backup</title>
+		<link>http://dingleberry.me/2010/01/easy-bigip-backup/</link>
+		<comments>http://dingleberry.me/2010/01/easy-bigip-backup/#comments</comments>
+		<pubDate>Mon, 18 Jan 2010 12:49:15 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[bigip]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=622</guid>
+		<description><![CDATA[Recently we upgraded the sw on our bigips, and then all our custom local scripts were gone. Thats why i wanna blog this easy bigip recipe in case we are stupid enough to do this again. This is the backup procedure for BIG-IP 9.4.x /usr/local/bin/bigipbackup.sh: here /etc/cron.d/backup: 0 21 * * * root /usr/local/bin/bipipbackup.sh > [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Recently we upgraded the sw on our bigips, and then all our custom local scripts were gone.<br />
+Thats why i wanna blog this easy bigip recipe in case we are stupid enough to do this again.<br />
+This is the backup procedure for BIG-IP 9.4.x</p>
+<p>/usr/local/bin/bigipbackup.sh: <a href="http://dingleberry.me/wp-content/uploads/bigipbackup.sh">here</a></p>
+<p>/etc/cron.d/backup:<br />
+<code>0 21 * * *      root    /usr/local/bin/bipipbackup.sh > /dev/null</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/01/easy-bigip-backup/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Monitoring F5 BigIP TMM Utilization with Nagios and snmp</title>
+		<link>http://dingleberry.me/2009/10/monitoring-f5-bigip-tmm-utilization-with-nagios-and-snmp/</link>
+		<comments>http://dingleberry.me/2009/10/monitoring-f5-bigip-tmm-utilization-with-nagios-and-snmp/#comments</comments>
+		<pubDate>Thu, 22 Oct 2009 11:36:53 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[bigip]]></category>
+		<category><![CDATA[f5]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[snmp]]></category>
+		<category><![CDATA[tmm]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=525</guid>
+		<description><![CDATA[I came across a post on the Cacti-forums where a guy has posted a perl script for finding the F5 BigIP TMM Utilization via the commandline, so I modified it a bit, and now it works as a nagios-plugin. I&#8217;ve also added performancedata to it, for usage with graphing tools like for instance pnp4nagios. Here&#8217;s [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I came across a <a href="http://forums.cacti.net/post-116512.html&amp;highlight=">post</a> on the Cacti-forums where a guy has posted a perl script for finding the F5 BigIP TMM Utilization via the commandline, so I modified it a bit, and now it works as a nagios-plugin.<br />
+I&#8217;ve also added performancedata to it, for usage with graphing tools like for instance <a href="http://docs.pnp4nagios.org/start">pnp4nagios</a>.</p>
+<p>Here&#8217;s the complete modified script : <a href="http://dingleberry.me/wp-content/uploads/check_tmm_utilization">check_tmm_utilization</a></p>
+<p>Then you can simply add 4 lines to your commands.cfg file in Nagios.</p>
+<p><code>define command{<br />
+command_name check_tmm_utilization<br />
+command_line $USER1$/check_tmm_utilization $HOSTADDRESS$ yoursnmpcommunitystring $ARG1$ $ARG2$<br />
+}</code></p>
+<p>…and finally update services with something like :</p>
+<p><code>define service{<br />
+use generic-service<br />
+host_name bigip-box<br />
+service_description CHECK_TMM_UTILIZATION<br />
+is_volatile 0<br />
+max_check_attempts 3<br />
+normal_check_interval 5<br />
+retry_check_interval 1<br />
+contact_groups linux-admins<br />
+notification_period 24x7<br />
+notification_options c,w,r<br />
+process_perf_data 1<br />
+check_command check_tmm_utilization!75!90<br />
+}</code></p>
+<p>check config and restart</p>
+<p>woohooo</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/monitoring-f5-bigip-tmm-utilization-with-nagios-and-snmp/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Debugging Health Monitors on BigIP 9</title>
+		<link>http://dingleberry.me/2009/10/debugging-health-monitors-on-bigip-9/</link>
+		<comments>http://dingleberry.me/2009/10/debugging-health-monitors-on-bigip-9/#comments</comments>
+		<pubDate>Fri, 16 Oct 2009 09:13:30 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[bigip]]></category>
+		<category><![CDATA[curl]]></category>
+		<category><![CDATA[health]]></category>
+		<category><![CDATA[monitor]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=519</guid>
+		<description><![CDATA[We experienced that a lot of our health monitors didnt work on our BigIP boxes, and we sure as hell didnt see why. After surfing a bit on the magical devcentral.f5.com, we found out that the BigIP only recieves the first 5120 bytes of a fetched result in a health monitor. This is how to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We experienced that a lot of our health monitors didnt work on our BigIP boxes, and we sure as hell didnt see why.<br />
+After surfing a bit on the magical <a href="http://devcentral.f5.com">devcentral.f5.com</a>, we found out that the BigIP only recieves the first 5120 bytes of a fetched result in a health monitor. </p>
+<p>This is how to debug with curl:<br />
+<code>curl -H 'Host: virtualhost.webserver1.com' -D - "webserver1.com80/index.html?q=bladdibla" | head -c 5120</code></p>
+<p>Now you can ex. grep for a string to see if your healthcheck will do fine on a webserver (within the 5120 first bytes) </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/debugging-health-monitors-on-bigip-9/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

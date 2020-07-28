@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:24:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta name="verify-v1" content="2rXzy+cQDUSahcuL4FvfXvDHZf0neGFXRtWQjgvNFSg=" />
+<meta name="verify-v1" content="cAY9vxAYMdRz6Fqo2XC7yBXodW8+0qyJVN+Jm4NaCjs=" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>running nagiosplugins via saltstacks peer communicationsystem | dingleberry.me</title>
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/style.css" />
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/blue.css" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me RSS Feed" href="../../../feed/index.html" />
+
+<link rel="pingback" href="../../../xmlrpc.php" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me &raquo; running nagiosplugins via saltstacks peer communicationsystem Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='shadowbox-css-css'  href='../../../wp-content/uploads/shadowbox-js/src/shadowbox19ce.css?ver=3.0.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='shadowbox-extras-css'  href='../../../wp-content/plugins/shadowbox-js/css/extrasc393.css?ver=3.0.3.10' type='text/css' media='screen' />
+<link rel='stylesheet' id='sociablecss-css'  href='../../../wp-content/plugins/sociable/css/sociable7e2e.css?ver=3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='quotescollection-style-css'  href='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.css?ver=1.5.7' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var QCAjax = {"ajaxurl":"http:\/\/dingleberry.me\/wp-admin\/admin-ajax.php","nonce":"413e2c4400","nextquote":"Next quote\u00a0\u00bb","loading":"Loading...","error":"Error getting quote","auto_refresh_max":"30","auto_refresh_count":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.js?ver=1.5.7'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/sociable7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/vuible7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/addtofavorites7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery.form.min018d.js?ver=3.37.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPWallSettings = {"refreshtime":"0","expand_box":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/wp-wall/wp-wall7e2e.js?ver=3.8.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Running nagios-plugins via saltstack' href='../../../2013/11/running-nagios-plugins-via-saltstack/index.html' />
+<link rel='next' title='Retrieving files from a broken harddrive on linux' href='../../04/retrieving-files-from-a-broken-harddrive-on-linux/index.html' />
+<meta name="generator" content="WordPress 3.8.1" />
+<link rel='shortlink' href='../../../indexd13e.html?p=719' />
+<!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
+<meta name="description" content="technical blog about technical stuff for sysadmins etc" />
+<meta name="keywords" content="monitoring,nagios,nagios dashboard bigip f5 varnish munin debian lisa curl linux sysadmin,nrpe,salt,saltstack,zmq" />
+<!-- HeadSpace -->
+<script type='text/javascript'>var base_url_sociable = 'http://dingleberry.me/wp-content/plugins/sociable/'</script><script type='text/javascript' src='http://apis.google.com/js/plusone.js'></script><link rel="stylesheet" href="../../../wp-content/plugins/wp-wall/wp-wall.css" type="text/css" />
+<!-- All in One SEO Pack 2.1.3 by Michael Torbert of Semper Fi Web Design[410,506] -->
+<meta name="description" content="So ...my previous post was similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let" />
+
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+
+</head>
+
+
+
+<body>
+
+
+
+   <!-- Begin Wrapper -->
+
+   <div id="wrapper">
+
+   
+
+         <!-- Begin Header -->
+
+         <div id="header">
+
+		 
+
+		       <h1><a href="../../../index.html">dingleberry.me</a></h1>
+
+				<div class="description">technical blog shit</div>
+
+			   
+
+		 </div>
+
+		 <!-- End Header -->
+
+		 
+
+		 <!-- Begin Navigation -->
+
+		 <div id="navigation">
+
+		 
+
+		       <ul>
+
+			   <li><a href="../../../index.html">Home</a></li>
+
+			<li class="page_item page-item-2"><a href="../../../about/index.html">About Us</a></li>
+
+				</ul>
+
+		 </div>
+		 <!-- End Navigation -->
+
+<br/>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0660223234642083";
+/* 728x90, created 11/9/09 */
+google_ad_slot = "8516937673";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		 
+
+		 <!-- Begin Content -->
+
+		 <div id="content">
+
+		 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="index.html" rel="bookmark" title="Permanent Link to running nagiosplugins via saltstacks peer communicationsystem">running nagiosplugins via saltstacks peer communicationsystem</a></h2>
+
+
+
+<div class="post-info">Posted March 21, 2014 by morten</div>
+
+			   
+
+			   <p>So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own peer communication system.</p>
+<p>First of all, read this : <a title="http://docs.saltstack.com/ref/peer.html" href="http://docs.saltstack.com/ref/peer.html" target="_blank">http://docs.saltstack.com/ref/peer.html</a></p>
+<p>Then check out my wrapper here : <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" target="_blank">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py</a></p>
+<p>Yay! Now you can throw away NRPE forever and stop using ssh-keys for the nagiosuser if you are doing that allready.</p>
+<p>Nagiosplugins over zmq? I like it <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<!-- Start Sociable --><div class="sociable"><div class="sociable_tagline">Be Sociable, Share!</div><ul class='clearfix'><li><a title="Twitter" class="option1_32" style="background-position:-288px -32px" rel="nofollow" target="_blank" href="http://twitter.com/intent/tweet?text=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem%20-%20http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F%20"></a></li><li><a title="Facebook" class="option1_32" style="background-position:-96px 0px" rel="nofollow" target="_blank" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;t=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem"></a></li><li><a title="email" class="option1_32" style="background-position:-160px 0px" rel="nofollow" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to&amp;su=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;body=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;ui=2&amp;tf=1&amp;shva=1"></a></li><li><a onClick="javascript:var ipinsite='Good%20Vibes.%20Vuible.com',ipinsiteurl='http://vuible.com/';(function(){if(window.ipinit!==undefined){ipinit();}else{document.body.appendChild(document.createElement('script')).src='http://vuible.com/wp-content/themes/ipinpro/js/ipinit.js';}})();" style="cursor:pointer" rel="nofollow" title="Vuible.com | Share positive messages (images and videos only)"><img style='' src='../../../wp-content/plugins/sociable/images/option1/32/vuible.png'></a></li><li><a class="option1_32" style="cursor:pointer;background-position:-128px 0px" rel="nofollow" title="Add to favorites - doesn't work in Chrome"  onClick="javascript:AddToFavorites();"></a></li><li><a title="StumbleUpon" class="option1_32" style="background-position:-224px -32px" rel="nofollow" target="_blank" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem"></a></li><li><a title="Delicious" class="option1_32" style="background-position:-32px 0px" rel="nofollow" target="_blank" href="http://delicious.com/post?url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;notes=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li><li><a title="Google Reader" class="option1_32" style="background-position:-224px 0px" rel="nofollow" target="_blank" href="http://www.google.com/reader/link?url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;srcURL=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;srcTitle=dingleberry.me+technical+blog+shit"></a></li><li><a title="LinkedIn" class="option1_32" style="background-position:-288px 0px" rel="nofollow" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;source=dingleberry.me+technical+blog+shit&amp;summary=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li><li><a style="cursor:pointer" rel="nofollow" onMouseOut="fixOnMouseOut(document.getElementById('sociable-post-719'), event, 'post-719')" onMouseOver="more(this,'post-719')"><img style='margin-top:9px' src='../../../wp-content/plugins/sociable/images/more.png'></a></li></ul><div onMouseout="fixOnMouseOut(this,event,'post-719')" id="sociable-post-719" style="display:none;">   
+
+    <div style="top: auto; left: auto; display: block;" id="sociable">
+
+
+
+		<div class="popup">
+
+			<div class="content">
+
+				<ul><li style="heigth:32px;width:32px"><a title="Myspace" class="option1_32" style="background-position:0px -32px" rel="nofollow" target="_blank" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;t=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem"></a></li><li style="heigth:32px;width:32px"><a title="Digg" class="option1_32" style="background-position:-64px 0px" rel="nofollow" target="_blank" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;bodytext=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li><li style="heigth:32px;width:32px"><a title="Reddit" class="option1_32" style="background-position:-128px -32px" rel="nofollow" target="_blank" href="http://reddit.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem"></a></li><li style="heigth:32px;width:32px"><a title="Google Bookmarks" class="option1_32" style="background-position:-192px 0px" rel="nofollow" target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;annotation=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li><li style="heigth:32px;width:32px"><a title="HackerNews" class="option1_32" style="background-position:-256px 0px" rel="nofollow" target="_blank" href="http://news.ycombinator.com/submitlink?u=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;t=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem"></a></li><li style="heigth:32px;width:32px"><a title="MSNReporter" class="option1_32" style="background-position:-352px 0px" rel="nofollow" target="_blank" href="http://reporter.es.msn.com/?fn=contribute&amp;Title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;URL=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;cat_id=6&amp;tag_id=31&amp;Remark=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li><li style="heigth:32px;width:32px"><a title="BlinkList" class="option1_32" style="background-position:0px 0px" rel="nofollow" target="_blank" href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;Title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem"></a></li><li style="heigth:32px;width:32px"><a title="Sphinn" class="option1_32" style="background-position:-192px -32px" rel="nofollow" target="_blank" href="http://sphinn.com/index.php?c=post&amp;m=submit&amp;link=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F"></a></li><li style="heigth:32px;width:32px"><a title="Posterous" class="option1_32" style="background-position:-64px -32px" rel="nofollow" target="_blank" href="http://posterous.com/share?linkto=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;title=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;selection=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li><li style="heigth:32px;width:32px"><a title="Tumblr" class="option1_32" style="background-position:-256px -32px" rel="nofollow" target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=http%3A%2F%2Fdingleberry.me%2F2014%2F03%2Frunning-nagiosplugins-via-saltstacks-peer-communication%2F&amp;t=running%20nagiosplugins%20via%20saltstacks%20peer%20communicationsystem&amp;s=So%20...my%20previous%20post%20was%C2%A0%20similar%20to%20this%2C%20but%20you%20most%20likely%20dont%20want%20to%20run%20the%20salt-master%20and%20nagios%20on%20the%20same%20server%2C%20so%20I%20had%20to%20find%20a%20way%20to%20let%20the%20nagios-server%20execute%20its%20plugins%20on%20hosts%20via%20the%20salt-master.%20This%20can%20be%20done%20using"></a></li></ul>			
+
+			</div>        
+
+		  <a style="cursor:pointer" onclick="hide_sociable('post-719',true)" class="close">
+
+		  <img onclick="hide_sociable('post-719',true)" title="close" src="../../../wp-content/plugins/sociable/images/closelabel.png">
+
+		  </a>
+
+		</div>
+
+	</div> 
+
+  </div></div><div class='sociable' style='float:none'><ul class='clearfix'><li id="Twitter_Counter"><a href="https://twitter.com/share" data-text="running nagiosplugins via saltstacks peer communicationsystem - http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/" data-url="http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li><li id="Facebook_Counter"><iframe src="http://www.facebook.com/plugins/like.php?href=http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font" scrolling="no" frameborder="0" style="border:none; overflow:hidden;height:32px;width:100px" allowTransparency="true"></iframe></li><li id="Google_p"><g:plusone annotation="bubble" href="index.html" size="medium"></g:plusone></li><li id="LinkedIn_Counter"><script src="http://platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/" data-counter="right"></script></li><li id="StumbleUpon_Counter"><script src="http://www.stumbleupon.com/hostedbadge.php?s=2&amp;r=http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/"></script></li><li id="vuible_Counter"><a  title='Vuible.com | Share positive messages (images and videos only)'><img onClick='ipinit();' style='cursor:pointer' src='../../../wp-content/plugins/sociable/images/vuible.png'></a></li></ul></div><!-- End Sociable -->
+
+
+<p>Tags: <a href="../../../tag/monitoring/index.html" rel="tag">monitoring</a>, <a href="../../../tag/nagios/index.html" rel="tag">nagios</a>, <a href="../../../tag/nrpe/index.html" rel="tag">nrpe</a>, <a href="../../../tag/salt/index.html" rel="tag">salt</a>, <a href="../../../tag/saltstack/index.html" rel="tag">saltstack</a>, <a href="../../../tag/zmq/index.html" rel="tag">zmq</a></p>
+
+
+
+
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">6 Responses to &#8220;running nagiosplugins via saltstacks peer communicationsystem&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+
+		<li class="alt" id="comment-44605">
+<img alt='' src='http://0.gravatar.com/avatar/0f3801dc714d3b894181a4a3da2a97f1?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://candice.blog.com/' rel='external nofollow' class='url'>Judy</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44605" title="">September 28th, 2014 at 16:20</a> </small>
+
+			<p>I read a lot of interesting articles here. Probably you  spend a lot of time writing, i know how to save you a lot of work,<br />
+there is an online tool that creates unique, SEO friendly posts in seconds, just type in google  &#8211;<br />
+laranitas free content source</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-49326">
+<img alt='' src='http://0.gravatar.com/avatar/abfc108bb58597082ec780a635fd2340?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://glen.thoughts.com/' rel='external nofollow' class='url'>Chas</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-49326" title="">January 27th, 2015 at 17:46</a> </small>
+
+			<p>Your site&#8217;s wp theme looks crappy. You schould change it.</p>
+<p>Better graphics means a lot more conversions, faster load<br />
+and greater confidence of visitors. This is something that<br />
+can be useful for you, type in google:<br />
+Juicklor&#8217;s templates source</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-61723">
+<img alt='' src='http://0.gravatar.com/avatar/26ffd907a9d30042bd9772f75d75f740?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://free.yudu.com/item/details/3393939/Rick-Harrison-Of--pawn-Stars--Responds-To-Letter-F' rel='external nofollow' class='url'>bhph Bulk Notes</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-61723" title="">August 30th, 2015 at 23:59</a> </small>
+
+			<p>Just want to say your article is as astonishing.<br />
+The clearness in your put up is just spectacular and that i can suppose you&#8217;re knowledgeable in this subject.</p>
+<p>Well along with your permission let me to snatch your RSS feed to stay updated with impending post.<br />
+Thank you a million and please keep up the gratifying work.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-64809">
+<img alt='' src='http://0.gravatar.com/avatar/4826a8751b6431e05c247f244e4eff65?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.taktikpoker.com/' rel='external nofollow' class='url'>pukimak</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-64809" title="">December 20th, 2015 at 08:50</a> </small>
+
+			<p>You can definitely see your enthusiasm within the article you write.<br />
+The world hopes for even more passionate writers like you who are not<br />
+afraid to mention how they believe. All the time follow<br />
+your heart.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-105547">
+<img alt='' src='http://0.gravatar.com/avatar/eb3df041251813b1b0b0e0861ae5cfd5?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://charli.blog.co.uk/' rel='external nofollow' class='url'>Dora</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-105547" title="">September 13th, 2016 at 04:45</a> </small>
+
+			<p>If you are interested in topic: earn cash online australian business &#8211; you should read about Bucksflooder first</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-121837">
+<img alt='' src='http://1.gravatar.com/avatar/744785f1fbb25e1b89c9b970fb41c0aa?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://web.com/' rel='external nofollow' class='url'>website</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-121837" title="">December 20th, 2018 at 17:52</a> </small>
+
+			<p>I have been exploring for a bit for any high quality articles<br />
+or weblog posts in this kind of house . Exploring in Yahoo I eventually stumbled upon this site.<br />
+Studying this information So i&#8217;m satisfied to express that I&#8217;ve an incredibly just right uncanny feeling I came<br />
+upon just what I needed. I such a lot definitely will make sure to don?t omit this website and<br />
+provides it a glance regularly.</p>
+
+
+		</li>
+
+	
+
+	
+
+	</ol>
+
+ 
+
+
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+
+<form action="http://dingleberry.me/wp-comments-post.php" method="post" id="commentform">
+
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name </small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) </small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="50%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="" />
+<input type="hidden" name="comment_post_ID" value="719" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4a1492e64b" /></p>
+
+</form>
+
+
+
+
+			   
+
+			   </div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	   
+
+		 
+
+		 </div>
+
+		 <!-- End Content -->
+
+		 
+
+		 <!-- Begin Sidebar -->
+		 <div id="sidebar">
+
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Tags</h3></div><div class="sidebar-content"><div class="tagcloud"><a href='../../../tag/apache/index.html' class='tag-link-35' title='3 topics' style='font-size: 10.153846153846pt;'>apache</a>
+<a href='../../../tag/apple/index.html' class='tag-link-74' title='4 topics' style='font-size: 11.948717948718pt;'>apple</a>
+<a href='../../../tag/appletv/index.html' class='tag-link-257' title='3 topics' style='font-size: 10.153846153846pt;'>appletv</a>
+<a href='../../../tag/atv/index.html' class='tag-link-266' title='3 topics' style='font-size: 10.153846153846pt;'>atv</a>
+<a href='../../../tag/authentication/index.html' class='tag-link-111' title='2 topics' style='font-size: 8pt;'>authentication</a>
+<a href='../../../tag/bigip/index.html' class='tag-link-234' title='3 topics' style='font-size: 10.153846153846pt;'>bigip</a>
+<a href='../../../tag/broadcom/index.html' class='tag-link-255' title='3 topics' style='font-size: 10.153846153846pt;'>broadcom</a>
+<a href='../../../tag/cfengine/index.html' class='tag-link-144' title='2 topics' style='font-size: 8pt;'>cfengine</a>
+<a href='../../../tag/check_http/index.html' class='tag-link-166' title='2 topics' style='font-size: 8pt;'>check_http</a>
+<a href='../../../tag/crystal/index.html' class='tag-link-263' title='4 topics' style='font-size: 11.948717948718pt;'>crystal</a>
+<a href='../../../tag/crystalhd/index.html' class='tag-link-259' title='4 topics' style='font-size: 11.948717948718pt;'>crystalhd</a>
+<a href='../../../tag/curl/index.html' class='tag-link-67' title='2 topics' style='font-size: 8pt;'>curl</a>
+<a href='../../../tag/dd/index.html' class='tag-link-17' title='2 topics' style='font-size: 8pt;'>dd</a>
+<a href='../../../tag/debian/index.html' class='tag-link-4' title='8 topics' style='font-size: 16.435897435897pt;'>debian</a>
+<a href='../../../tag/dell/index.html' class='tag-link-138' title='4 topics' style='font-size: 11.948717948718pt;'>dell</a>
+<a href='../../../tag/etch/index.html' class='tag-link-210' title='3 topics' style='font-size: 10.153846153846pt;'>etch</a>
+<a href='../../../tag/ext3/index.html' class='tag-link-12' title='2 topics' style='font-size: 8pt;'>ext3</a>
+<a href='../../../tag/firefox/index.html' class='tag-link-167' title='4 topics' style='font-size: 11.948717948718pt;'>firefox</a>
+<a href='../../../tag/firefuck/index.html' class='tag-link-208' title='3 topics' style='font-size: 10.153846153846pt;'>firefuck</a>
+<a href='../../../tag/funny/index.html' class='tag-link-182' title='4 topics' style='font-size: 11.948717948718pt;'>funny</a>
+<a href='../../../tag/hd/index.html' class='tag-link-264' title='4 topics' style='font-size: 11.948717948718pt;'>hd</a>
+<a href='../../../tag/iphone/index.html' class='tag-link-75' title='3 topics' style='font-size: 10.153846153846pt;'>iphone</a>
+<a href='../../../tag/kernel/index.html' class='tag-link-73' title='2 topics' style='font-size: 8pt;'>kernel</a>
+<a href='../../../tag/linux/index.html' class='tag-link-72' title='10 topics' style='font-size: 18.051282051282pt;'>linux</a>
+<a href='../../../tag/login/index.html' class='tag-link-150' title='2 topics' style='font-size: 8pt;'>login</a>
+<a href='../../../tag/monitoring/index.html' class='tag-link-29' title='11 topics' style='font-size: 18.769230769231pt;'>monitoring</a>
+<a href='../../../tag/mplayer/index.html' class='tag-link-55' title='3 topics' style='font-size: 10.153846153846pt;'>mplayer</a>
+<a href='../../../tag/mysql/index.html' class='tag-link-88' title='3 topics' style='font-size: 10.153846153846pt;'>mysql</a>
+<a href='../../../tag/nagios/index.html' class='tag-link-25' title='17 topics' style='font-size: 22pt;'>nagios</a>
+<a href='../../../tag/network/index.html' class='tag-link-94' title='2 topics' style='font-size: 8pt;'>network</a>
+<a href='../../../tag/osx/index.html' class='tag-link-163' title='3 topics' style='font-size: 10.153846153846pt;'>osx</a>
+<a href='../../../tag/ping/index.html' class='tag-link-81' title='3 topics' style='font-size: 10.153846153846pt;'>ping</a>
+<a href='../../../tag/plugins/index.html' class='tag-link-165' title='3 topics' style='font-size: 10.153846153846pt;'>plugins</a>
+<a href='../../../tag/rar/index.html' class='tag-link-57' title='2 topics' style='font-size: 8pt;'>rar</a>
+<a href='../../../tag/salt/index.html' class='tag-link-316' title='3 topics' style='font-size: 10.153846153846pt;'>salt</a>
+<a href='../../../tag/saltstack/index.html' class='tag-link-317' title='3 topics' style='font-size: 10.153846153846pt;'>saltstack</a>
+<a href='../../../tag/sarge/index.html' class='tag-link-113' title='2 topics' style='font-size: 8pt;'>sarge</a>
+<a href='../../../tag/slow/index.html' class='tag-link-158' title='2 topics' style='font-size: 8pt;'>slow</a>
+<a href='../../../tag/ssh/index.html' class='tag-link-109' title='2 topics' style='font-size: 8pt;'>ssh</a>
+<a href='../../../tag/tv/index.html' class='tag-link-271' title='3 topics' style='font-size: 10.153846153846pt;'>tv</a>
+<a href='../../../tag/ubuntu/index.html' class='tag-link-173' title='6 topics' style='font-size: 14.641025641026pt;'>ubuntu</a>
+<a href='../../../tag/varnish/index.html' class='tag-link-31' title='4 topics' style='font-size: 11.948717948718pt;'>varnish</a>
+<a href='../../../tag/video/index.html' class='tag-link-27' title='2 topics' style='font-size: 8pt;'>video</a>
+<a href='../../../tag/xbmc/index.html' class='tag-link-256' title='3 topics' style='font-size: 10.153846153846pt;'>xbmc</a>
+<a href='../../../tag/xen/index.html' class='tag-link-39' title='4 topics' style='font-size: 11.948717948718pt;'>xen</a></div>
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Links</h3></div><div class="sidebar-content">
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.debian.org/" title="Debian">Debian</a></li>
+<li><a href="http://www.usenix.org/lisa08/going" title="We are going to LISA &#8217;08">LISA &#8217;08</a></li>
+<li><a href="http://marcus.nordaaker.com/" title="marcus ramberg">marcus ramberg</a></li>
+
+	</ul>
+</div></div>
+<!-- WP Wall -->
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Wall</h3></div><div class="sidebar-content">
+<div id="wp_wall">
+		<div class="wallnav">
+					<img alt="Previous" id="img_left" src="../../../wp-content/plugins/wp-wall/i/left.png" />
+					<img alt="Next" id="img_right" src="../../../wp-content/plugins/wp-wall/i/right.png" />
+					  </div> 
+	<div id="wallcomments">
+			<div id="wp_latest">Latest on Thu, 04:38 pm</div><p class="wall-1 "><span class="wallauthor" title="Iliya#ivanov[IvanovRukidssqu,2,5] on 2020-07-02 16:38:51" >Iliya#ivanov[IvanovRukidssqu,2,5]</span><span class="wallcomment" title="Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 
+ 
+Установил софт  запрет входящих вызовов наборы остановились. 
+Что совершать с займом дальше предложите?" >: Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 [...]</span></p><p class="wall-2 wall-alt "><span class="wallauthor" title="Colton Ward on 2020-04-14 09:12:09" >Colton Ward</span><span class="wallcomment" title="Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that I did not want to purchase 
+any more products and spend more money and just wanted to 
+try out the cosmetic procedures I had purchased which was already $300.
+
+
+
+Once I was finally seen by the \   https://gome.com.cn" >: Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that [...]</span></p><p class="wall-3 "><span class="wallauthor" title="eticobysu on 2020-01-27 23:11:02" >eticobysu</span><span class="wallcomment" title="kategoriyab.ru" >: kategoriyab.ru</span></p><p class="wall-4 wall-alt "><span class="wallauthor" title="txcyperoz61 on 2019-12-17 21:41:07" >txcyperoz61</span><span class="wallcomment" title="Огромное тебе СПАСИБО" >: Огромное тебе СПАСИБО</span></p><p class="wall-5 "><span class="wallauthor" title="Dallas on 2019-10-30 06:16:11" >Dallas</span><span class="wallcomment" title="Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors chicago phentermine weight loss doctors chicago phentermine" >: Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors [...]</span></p><input type="hidden" name="wallpage" id="wallpage" value="1" /><input type="hidden" name="page_left" id="page_left" value="1" /><input type="hidden" name="page_right" id="page_right" value="2" />	</div> 
+
+	
+	
+		
+					
+			<p><a id="wall_post_toggle"> &raquo; Leave a reply</a></p>	
+		
+				
+	
+
+	<div id="wall_post">
+		<form action="http://dingleberry.me/wp-content/plugins/wp-wall/wp-wall-ajax.php" method="post" id="wallform">
+		
+						
+			<p>
+			<label for="wpwall_author"><small>Name</small></label><br/>
+			<input type="text" name="wpwall_author" id="wpwall_author" value=""  tabindex="11"  />
+			</p>
+			
+						
+						
+			<p>
+			<label for="wpwall_comment"><small>Comment</small></label><br/>
+			<textarea name="wpwall_comment" id="wpwall_comment" rows="3" cols="" tabindex="13" ></textarea>
+			</p>
+					
+			<p><input name="submit_wall_post" type="submit" id="submit_wall_post" tabindex="14" value="Submit" /></p>
+			
+		</form> 								
+	</div>
+	
+	<div id="wallresponse"></div>
+	
+</div>
+<br />
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Meta</h3></div><div class="sidebar-content">			<ul>
+						<li><a href="../../../wp-login.html">Log in</a></li>
+			<li><a href="../../../feed/index.html" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="../../../comments/feed/index.html" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>						</ul>
+</div></div><div class="sidebar-item">	          	 <div class="sidebar-item">
+				 <div class="sidebar-heading"><h3>Search</h3></div>
+				 <div class="sidebar-content">
+<form method="get" id="searchform" action="http://dingleberry.me/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="" />
+</div>
+</form>
+				</div>
+				</div></div></div>
+
+		 </div>
+		 <!-- End Sidebar -->
+<div id="footer">
+
+Copyright &copy; 2008.  Design by <a href="http://imanto.com/">imanto.com</a>.  Theme by <a href="http://www.themelab.com/">Theme Lab</a> and <a href="http://www.websiteoffice.com/">Online Marketing</a>.  Powered by <a href="http://wordpress.org/">WordPress</a>.
+
+33 queries in 0.208  seconds.
+
+   </div>
+
+   <!-- End Wrapper -->
+
+<script type='text/javascript' src='../../../wp-content/uploads/shadowbox-js/afc2df7514bde3dd091bff35b266117519ce.js?ver=3.0.3'></script>
+
+<!-- Begin Shadowbox JS v3.0.3.10 -->
+<!-- Selected Players: html, iframe, img, qt, swf, wmp -->
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		animate: true,
+		animateFade: true,
+		animSequence: "sync",
+		modal: false,
+		showOverlay: true,
+		overlayColor: "#000",
+		overlayOpacity: "0.8",
+		flashBgColor: "#000000",
+		autoplayMovies: true,
+		showMovieControls: true,
+		slideshowDelay: "0",
+		resizeDuration: "0.35",
+		fadeDuration: "0.35",
+		displayNav: true,
+		continuous: false,
+		displayCounter: true,
+		counterType: "default",
+		counterLimit: "10",
+		viewportPadding: "20",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		autoDimensions: false,
+		initialHeight: "160",
+		initialWidth: "320",
+		enableKeys: true,
+		skipSetup: false,
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0",
+		useSizzle: false
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+<!-- End Shadowbox JS -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5928000-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+
+<!-- Mirrored from dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:24:48 GMT -->
+</html>

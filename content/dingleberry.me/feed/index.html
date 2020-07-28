@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Playing with SaltStack and external classifiers</title>
+		<link>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/</link>
+		<comments>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/#comments</comments>
+		<pubDate>Fri, 06 Jun 2014 17:38:05 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cmdb]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=731</guid>
+		<description><![CDATA[We have been discussing this a lot lately. How do we structure our SaltStack-config in a way that lets us do changes without possibly breaking abseloutly everything. Finding a good hierarchy is not always easy. How do we build it so that we can open it up later&#8230;. How can we manage to mostly leave [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We have been discussing this a lot lately. How do we structure our SaltStack-config in a way that lets us do changes without possibly breaking abseloutly everything. Finding a good hierarchy is not always easy. How do we build it so that we can open it up later&#8230;. How can we manage to mostly leave the top.sls file alone and how do we include the right config for the right minions without having to maintain a list of minions in the config and make it so large its unreadable.</p>
+<p>Turns out&#8230; the solution was pretty easy for us, as soon as we came up with the idea.</p>
+<p>We allready have an internally written CMDB-solution and we wanted to use that as an external classifier.<br />
+First we had to write a simple module that made pillars from the data in our CMDB. More about that some other time. This post is about the structure we went for.<br />
+Anyway, our cmdb-module creates pillars for all hosts containing hostname, status (dev,qa,prod) and product (or role if you prefer).<br />
+This will typically look like this for a dev-server:<br />
+<code><br />
+ourservername:<br />
+  status: development<br />
+  product: ourwebsite<br />
+</code></p>
+<p>So what we ended up with, was using file_roots in salt, matching each our environments like this:<br />
+(top.sls)<br />
+<code>base:<br />
+  "*"<br />
+    - somebasestuff<br />
+  "cmdb:status:prod*":<br />
+    - match: pillar<br />
+    - role<br />
+  "cmdb:status:qa":<br />
+    - match: pillar<br />
+    - role<br />
+  "cmdb:status:dev*":<br />
+    - match: pillar<br />
+    - role</code></p>
+<p>This will match the role.sls file in all 3 environments.<br />
+In all 3 environments we have 2 subfolders. &#8220;products&#8221; and &#8220;services&#8221;.<br />
+The &#8220;product&#8221; folders contain the state of the final product, using services<br />
+from the &#8220;services&#8221; folder. For instance, say you have a product called &#8220;yourwebsite&#8221;.<br />
+It will probably contain installation and configuration of web, cache and db. Those 3 are<br />
+reusable services under the services folder and doesnt change much.<br />
+In our role.sls we are now matching on the pillar &#8220;product&#8221; in our CMDB like this:</p>
+<p><code>include:<br />
+  - products/{{ pillar.get('cmdb', {}).get('product') }}</code></p>
+<p>What this will do, is look for the CMDB-value for &#8220;product&#8221; and then include the matching item in the products-folder &#8230;and so, we do not need to maintain the top.sls OR any hostnames in the salt-config. So far we think it is a good idea, but we will see in a few weeks if it actually lives up to our expectations. </p>
+<p>Anyways, figured I should share our thoughts. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Retrieving files from a broken harddrive on linux</title>
+		<link>http://dingleberry.me/2014/04/retrieving-files-from-a-broken-harddrive-on-linux/</link>
+		<comments>http://dingleberry.me/2014/04/retrieving-files-from-a-broken-harddrive-on-linux/#comments</comments>
+		<pubDate>Fri, 25 Apr 2014 13:36:04 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dd]]></category>
+		<category><![CDATA[ddrescue]]></category>
+		<category><![CDATA[dmesg]]></category>
+		<category><![CDATA[e2fsck]]></category>
+		<category><![CDATA[harddrive]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[mdadm]]></category>
+		<category><![CDATA[mke2fs]]></category>
+		<category><![CDATA[raid]]></category>
+		<category><![CDATA[superblock]]></category>
+		<category><![CDATA[testdisk]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=725</guid>
+		<description><![CDATA[We recently had some trouble with a software raid (raid1 in this case) that was set up with mdadm. Dmesg showed that the drive had errors and so we replaced it. After the disk was replaced the other disk also started reporting errors and fsck would tell us that the superblock was fucked up and [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We recently had some trouble with a software raid (raid1 in this case) that was set up with mdadm. Dmesg showed that the drive had errors and so we replaced it. After the disk was replaced the other disk also started reporting errors and fsck would tell us that the superblock was fucked up and couldnt be read.</p>
+<p>First thing we did was to dd the broken disk to the new one using <a href="http://www.gnu.org/software/ddrescue/">ddrescue .</a></p>
+<p>We tried rebuilding it by finding backup superblocks :<br />
+<code>mke2fs -n /dev/sdb1 # lists superblocks</code><br />
+<code>e2fsck -b number_from_output_above /dev/sdb1</code><br />
+While the above works in many cases, it didnt help us. All the superblocks where gone.</p>
+<p>Thankfully we came across a tool named <a href="http://www.cgsecurity.org/wiki/TestDisk_Download">TestDisk</a> that let us view and copy the data from the disk. Check it out, it&#8217;s awesome <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/04/retrieving-files-from-a-broken-harddrive-on-linux/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>running nagiosplugins via saltstacks peer communicationsystem</title>
+		<link>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/</link>
+		<comments>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/#comments</comments>
+		<pubDate>Fri, 21 Mar 2014 20:11:49 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[nrpe]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+		<category><![CDATA[zmq]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=719</guid>
+		<description><![CDATA[So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own peer communication system.</p>
+<p>First of all, read this : <a title="http://docs.saltstack.com/ref/peer.html" href="http://docs.saltstack.com/ref/peer.html" target="_blank">http://docs.saltstack.com/ref/peer.html</a></p>
+<p>Then check out my wrapper here : <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" target="_blank">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py</a></p>
+<p>Yay! Now you can throw away NRPE forever and stop using ssh-keys for the nagiosuser if you are doing that allready.</p>
+<p>Nagiosplugins over zmq? I like it <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Running nagios-plugins via saltstack</title>
+		<link>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/</link>
+		<comments>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/#comments</comments>
+		<pubDate>Tue, 26 Nov 2013 11:15:25 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[icinga]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=715</guid>
+		<description><![CDATA[I&#8217;m so sick of maintaining NRPE-config on my servers, and I dont really want root-sshkeys all over the place. Recently I discovered saltstack and started to play with it a bit. I came up with the idea of running Nagios(or Icinga) on the same server as my salt-master and so I created a little wrapper [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;m so sick of maintaining NRPE-config on my servers, and I dont really want root-sshkeys all over the place. Recently I discovered saltstack and started to play with it a bit. I came up with the idea of running Nagios(or Icinga) on the same server as my salt-master and so I created a little wrapper that lets me run nagios-checks via saltstack.</p>
+<p>Here&#8217;s how it works.</p>
+<p>This is my little wrapper-script written in python: <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py</a></p>
+<p>The wrapper takes hostname, plugin and a timeoutvalue as arguments:</p>
+<p>$ python check_by_salt.py -H examplehost -p &#8220;/path/to/existing/nagiosplugin arg1 arg2&#8243; -t 10</p>
+<p>The wrapper imports salt and runs commands on minions with cmd.run_all and returns the output and the exitcode.</p>
+<p>For this to work as the nagios/icinga user, you will have to configure the client_acl for the user in the salt-master config, so go ahead and edit the master-configfile (default: /etc/salt/master)</p>
+<p>Search for &#8220;client_acl&#8221; in the file and add this :</p>
+<p>client_acl:<br />
+icinga:<br />
+- cmd.*</p>
+<p>Yeeaaaap, thats quite the security risk right there, but read up on how to limit what can be done with the cmd-state in salt and atleast it will be safer than using ssh-keys <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>check_by_salt in combination with <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py">https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py</a> will instantly give you monitoring of all your disks with no clientside-configuration.</p>
+<p>Use it if you like it and feel free to improve it.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>How a nerd monitors his wife&#8217;s weight</title>
+		<link>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/</link>
+		<comments>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/#comments</comments>
+		<pubDate>Mon, 17 Sep 2012 09:24:32 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[bodyscale]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[plugins]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[wife]]></category>
+		<category><![CDATA[withings]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=709</guid>
+		<description><![CDATA[So I got myself a new bodyscale recently. Ofcourse it had to be something of a gadget so I went for this Withings BodyScale. Withings allready has a nice webpage with graphs and stuff and also a couple of really nice iphone/ipad apps for it. The fact that it is integrated with other services like [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So I got myself a new bodyscale recently. Ofcourse it had to be something of a gadget so I went for this <a title="Withings BodyScale" href="http://withings.com/en/bodyscale">Withings BodyScale</a>. Withings allready has a nice webpage with graphs and stuff and also a couple of really nice iphone/ipad apps for it. The fact that it is integrated with other services like Runkeeper and such, made me think about if they had an API i could query. And it had. Also a quick search for &#8220;python withings api&#8221; gave some results with examples on how to use it.</p>
+<p>I came across this thing : <a title="https://github.com/mote/python-withings" href="https://github.com/mote/python-withings">https://github.com/mote/python-withings</a> &#8230;and then it was pretty much just about writing a bit of nagios-logic around it to make it into a plugin.</p>
+<p>The first result is here: <a title="https://github.com/mortis1337/check_wife" href="https://github.com/mortis1337/check_wife">https://github.com/mortis1337/check_wife</a></p>
+<p>The script takes a userid, an apikey and a name as arguments.</p>
+<p>$ ./check_wife.py  -u 1111111 -k xxxxxxxxxxxxx -n Your(or your wife&#8217;s;)name<br />
+WARNING: &lt;yourname&gt;&#8217;s overweight. Size: &lt;yoursize&gt; &#8211; Weight: &lt;yourweight&gt; BMI: &lt;yourbmi&gt;</p>
+<p>The script will give a WARNING whenever the BMI-value is about 25 or below 18,5.</p>
+<p>Add this to your nagios-config and your operators can come point and laugh at you whenever a WARNING occurs <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>( yes, the &#8220;wife&#8221;-part is a joke&#8230;. go monitor your own weight;) )</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>gzip support in check_http</title>
+		<link>http://dingleberry.me/2011/05/gzip-support-in-check_http/</link>
+		<comments>http://dingleberry.me/2011/05/gzip-support-in-check_http/#comments</comments>
+		<pubDate>Mon, 30 May 2011 08:51:13 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[1.4.15]]></category>
+		<category><![CDATA[check_http]]></category>
+		<category><![CDATA[gzip]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=702</guid>
+		<description><![CDATA[If you need gzip support in your nagios check_http plugin, here&#8217;s what you need to do. First of all, fetch the latest version (1.4.15) of the nagios-plugins : http://sourceforge.net/projects/nagiosplug/files/nagiosplug/1.4.15/ tar xzfv the downloaded file somewhere and enter the nagios-plugins-1.4.15/plugins directory&#8230; Here you&#8217;ll find the check_http.c sourcefile which needs to be patched. You can find the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>If you need gzip support in your nagios check_http plugin, here&#8217;s what you need to do.<br />
+First of all, fetch the latest version (1.4.15) of the nagios-plugins : </p>
+<p>http://sourceforge.net/projects/nagiosplug/files/nagiosplug/1.4.15/</p>
+<p>tar xzfv the downloaded file somewhere and enter the nagios-plugins-1.4.15/plugins directory&#8230;<br />
+Here you&#8217;ll find the check_http.c sourcefile which needs to be patched.<br />
+You can find the patch here : </p>
+<p>http://sourceforge.net/tracker/index.php?func=detail&#038;aid=3294169&#038;group_id=29880&#038;atid=397599</p>
+<p>patch the sourcefile with the patch command : patch check_http.c checkhttpgzipdeflate.patch<br />
+Go down one directory and run ./configure &amp;&amp; make<br />
+You&#8217;ll have a freshly compiled check_http plugin with gzip support in the plugins-directory.<br />
+Copy it to your nagios-plugins directory or wherever you keep maintained versions.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/05/gzip-support-in-check_http/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Fun with sudo</title>
+		<link>http://dingleberry.me/2011/04/fun-with-sudo/</link>
+		<comments>http://dingleberry.me/2011/04/fun-with-sudo/#comments</comments>
+		<pubDate>Tue, 19 Apr 2011 08:17:20 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[funny]]></category>
+		<category><![CDATA[insults]]></category>
+		<category><![CDATA[sudo]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=696</guid>
+		<description><![CDATA[Wanna have some fun with sudo? A couple of neat tricks: 1. Insults when you type wrong password: echo "Defaults insults" >> /etc/sudoers When your users type incorrect password they are insulted: $ sudo su - Password: Are you on drugs? 2. Make custom password-prompt when your users sudo Add line to /etc/sudoers: Defaults passprompt="YOU [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Wanna have some fun with sudo?</p>
+<p>A couple of neat tricks:</p>
+<p>1. Insults when you type wrong password:<br />
+<code>echo "Defaults insults" >> /etc/sudoers</code><br />
+ When your users type incorrect password they are insulted:<br />
+<code>$ sudo su -<br />
+Password:<br />
+Are you on drugs?</code></p>
+<p>2. Make custom password-prompt when your users sudo<br />
+Add line to /etc/sudoers: <code>Defaults passprompt="YOU BREAK IT, YOU FIX IT!:"</code><br />
+When ppl log in and try to use sudo they get a modified passwordprompt:<br />
+<code>user@server:~$ sudo su -<br />
+YOU BREAK IT, YOU FIX IT!:</code></p>
+<p>Any more tricks? Use comments :></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/04/fun-with-sudo/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Monitor Dell servers on Debian Squeeze with Nagios</title>
+		<link>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/</link>
+		<comments>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/#comments</comments>
+		<pubDate>Thu, 10 Feb 2011 07:57:20 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[dellomsa]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[squeeze]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=691</guid>
+		<description><![CDATA[Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0. I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc) I used some hours to try to get it working with a newer dellomsa but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0.</p>
+<p>I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc)</p>
+<p>I used some hours to try to get it working with a newer dellomsa but that didnt work either.<br />
+Then i found some official Dell Ubuntu packages, which i found working excellent on Debian Squeeze as well:<br />
+<code>dpkg -P dellomsa #Make sure dellomsa isnt installed.<br />
+echo 'deb http://linux.dell.com/repo/community/deb/latest /' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list<br />
+apt-get update<br />
+apt-get install srvadmin-base smbios-utils</code></p>
+<p>You will also need the <a href="http://security.ubuntu.com/ubuntu/pool/universe/libs/libsmbios/libsmbios2_2.2.13-0ubuntu4_amd64.deb">libsmbios2_2.2.13-0ubuntu4_amd64.deb</a> from Ubuntu Lucid to get smbios stuff working.<br />
+<code>dpkg -i libsmbios2_2.2.13-0ubuntu4_amd64.deb<br />
+/etc/init.d/dataeng start #if this starts, omreport works!</code></p>
+<p>Now you have the newer Debian Squeeze Dell stuff working.</p>
+<p>We have deployed our hwmonitoring of our Dell servers with <a href="http://folk.uio.no/trondham/software/check_openmanage.html">check_openmanage </a> and<a href="http://www.nagios.org"> Nagios</a><br />
+Read more about the check_openmanage on the check_openmanage site (this is a great plugin btw!)</p>
+<p>Resources:<br />
+<a href="http://folk.uio.no/trondham/software/check_openmanage.html">http://folk.uio.no/trondham/software/check_openmanage.html</a><br />
+<a href="http://linux.dell.com/repo/community/deb/latest/">http://linux.dell.com/repo/community/deb/latest/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Use screen instead of !&#8221;¤#¤&#8221;&amp;&#8221;# minicom</title>
+		<link>http://dingleberry.me/2011/02/use-screen-instead-of-%c2%a4%c2%a4-minicom/</link>
+		<comments>http://dingleberry.me/2011/02/use-screen-instead-of-%c2%a4%c2%a4-minicom/#comments</comments>
+		<pubDate>Thu, 03 Feb 2011 11:27:57 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[minicom]]></category>
+		<category><![CDATA[screen]]></category>
+		<category><![CDATA[serial]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=686</guid>
+		<description><![CDATA[I didn&#8217;t know this until the other day, but how awesome is this &#8211; You can use screen to connect to your serial console screen /dev/ttyS0 9600 VOILA &#8211; you&#8217;re in]]></description>
+				<content:encoded><![CDATA[<p>I didn&#8217;t know this until the other day, but how awesome is this &#8211; You can use screen to connect to your serial console <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>screen /dev/ttyS0 9600</p>
+<p>VOILA &#8211; you&#8217;re in</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/use-screen-instead-of-%c2%a4%c2%a4-minicom/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Test your jumbo frame enabled network with ping</title>
+		<link>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/</link>
+		<comments>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/#comments</comments>
+		<pubDate>Thu, 03 Feb 2011 11:23:34 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[frame]]></category>
+		<category><![CDATA[jumbo]]></category>
+		<category><![CDATA[jumboframe]]></category>
+		<category><![CDATA[jumboframe jumbo frame network ping test]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[test]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=683</guid>
+		<description><![CDATA[ping -Mdo -s If it works: $ ping -Mdo -s 8001 10.0.20.26 PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data. 8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms 8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!) 8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms If it doesnt: $ ping -Mdo -s 2001 195.10.34.51 -c3 PING [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>ping -Mdo -s <size in bytes above 1500> <another ip on jumbo frame enabled network></p>
+<p>If it works:<br />
+$ ping -Mdo -s 8001 10.0.20.26<br />
+PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data.<br />
+8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms<br />
+8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!)<br />
+8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms</p>
+<p>If it doesnt:<br />
+$ ping -Mdo -s 2001 195.10.34.51 -c3<br />
+PING 195.10.34.51 (195.10.34.51) 2001(2029) bytes of data.<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

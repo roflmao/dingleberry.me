@@ -1,0 +1,20 @@
+body {
+ background-image: url(images/blue-bg.gif);
+}
+
+#content a {
+ color: #1a91f1;
+}
+
+#sidebar .sidebar-heading {
+ height: 29px;
+ background: url(images/blue-side.gif) #1b66df repeat-x;
+}
+
+#searchsubmit {
+ background: url(images/blue-search.gif) no-repeat;
+}
+
+#submit {
+ background: url(images/blue-submit.gif) no-repeat;
+}

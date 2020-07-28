@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/ssh/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Slow ssh login</title>
+		<link>http://dingleberry.me/2009/03/slow-ssh-login/</link>
+		<comments>http://dingleberry.me/2009/03/slow-ssh-login/#comments</comments>
+		<pubDate>Tue, 03 Mar 2009 20:49:31 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[login]]></category>
+		<category><![CDATA[slow]]></category>
+		<category><![CDATA[ssh]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=313</guid>
+		<description><![CDATA[Having problems with ssh login? Dont care for waiting 10 extra seconds for ssh login? We have the recipe for it! Append this to your /etc/ssh/sshd_config: UseDNS no Then restart ssh: /etc/init.d/ssh restart This will disable reverse resolving of your ip when you connect (which makes the delay) HURAYH!]]></description>
+				<content:encoded><![CDATA[<p>Having problems with ssh login? Dont care for waiting 10 extra seconds for ssh login?</p>
+<p>We have the recipe for it!<br />
+Append this to your /etc/ssh/sshd_config:</p>
+<p><code>UseDNS no</code></p>
+<p>Then restart ssh:</p>
+<p><code>/etc/init.d/ssh restart</code></p>
+<p>This will disable reverse resolving of your ip when you connect (which makes the delay)</p>
+<p>HURAYH!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/slow-ssh-login/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Easy peasy ssh key authentication</title>
+		<link>http://dingleberry.me/2008/11/easy-peasy-ssh-key-authentication/</link>
+		<comments>http://dingleberry.me/2008/11/easy-peasy-ssh-key-authentication/#comments</comments>
+		<pubDate>Mon, 10 Nov 2008 06:53:07 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[authentication]]></category>
+		<category><![CDATA[keygen]]></category>
+		<category><![CDATA[keys]]></category>
+		<category><![CDATA[ssh]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=220</guid>
+		<description><![CDATA[You are on your job workstation, and you are SICK and TIRED of typing your password everytime you ssh to one of your corporate l33t h4xx0r boxes. Lets see how we easy as hell can use ssh keys to authenticate: As your normal user on your workstation: ssh-keygen -t rsa This command makes your unique [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>You are on your job workstation, and you are SICK and TIRED of typing your password everytime you ssh to one of your corporate l33t h4xx0r boxes. Lets see how we easy as hell can use ssh keys to authenticate:</p>
+<p>As your normal user on your workstation:<br />
+<code>ssh-keygen -t rsa</code><br />
+This command makes your unique id for other servers to recognize when you ssh to them.<br />
+If you want passphrase you make one, everything else goes by default.</p>
+<p>Lets make your servers recognize you and your key:<br />
+<code>ssh-copy-id -i ~/.ssh/id_rsa.pub user@superhaxxorserver.com</code></p>
+<p>Now you can do this without having to type a password:<br />
+<code>dingle@berry-desktop:~$ ssh horsepr0n.mine.nu apt-get moo<br />
+         (__)<br />
+         (oo)<br />
+   /------\/<br />
+  / |    ||<br />
+ *  /\---/\<br />
+    ~~   ~~<br />
+...."Have you mooed today?"...<br />
+</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/11/easy-peasy-ssh-key-authentication/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

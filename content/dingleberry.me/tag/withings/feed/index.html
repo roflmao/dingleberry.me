@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/withings/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>How a nerd monitors his wife&#8217;s weight</title>
+		<link>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/</link>
+		<comments>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/#comments</comments>
+		<pubDate>Mon, 17 Sep 2012 09:24:32 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[bodyscale]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[plugins]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[wife]]></category>
+		<category><![CDATA[withings]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=709</guid>
+		<description><![CDATA[So I got myself a new bodyscale recently. Ofcourse it had to be something of a gadget so I went for this Withings BodyScale. Withings allready has a nice webpage with graphs and stuff and also a couple of really nice iphone/ipad apps for it. The fact that it is integrated with other services like [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So I got myself a new bodyscale recently. Ofcourse it had to be something of a gadget so I went for this <a title="Withings BodyScale" href="http://withings.com/en/bodyscale">Withings BodyScale</a>. Withings allready has a nice webpage with graphs and stuff and also a couple of really nice iphone/ipad apps for it. The fact that it is integrated with other services like Runkeeper and such, made me think about if they had an API i could query. And it had. Also a quick search for &#8220;python withings api&#8221; gave some results with examples on how to use it.</p>
+<p>I came across this thing : <a title="https://github.com/mote/python-withings" href="https://github.com/mote/python-withings">https://github.com/mote/python-withings</a> &#8230;and then it was pretty much just about writing a bit of nagios-logic around it to make it into a plugin.</p>
+<p>The first result is here: <a title="https://github.com/mortis1337/check_wife" href="https://github.com/mortis1337/check_wife">https://github.com/mortis1337/check_wife</a></p>
+<p>The script takes a userid, an apikey and a name as arguments.</p>
+<p>$ ./check_wife.py  -u 1111111 -k xxxxxxxxxxxxx -n Your(or your wife&#8217;s;)name<br />
+WARNING: &lt;yourname&gt;&#8217;s overweight. Size: &lt;yoursize&gt; &#8211; Weight: &lt;yourweight&gt; BMI: &lt;yourbmi&gt;</p>
+<p>The script will give a WARNING whenever the BMI-value is about 25 or below 18,5.</p>
+<p>Add this to your nagios-config and your operators can come point and laugh at you whenever a WARNING occurs <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>( yes, the &#8220;wife&#8221;-part is a joke&#8230;. go monitor your own weight;) )</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/faulty/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Seagate harddrives with faulty firmware</title>
+		<link>http://dingleberry.me/2009/01/seagate-harddrives-with-faulty-firmware/</link>
+		<comments>http://dingleberry.me/2009/01/seagate-harddrives-with-faulty-firmware/#comments</comments>
+		<pubDate>Mon, 19 Jan 2009 11:36:47 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[barracuda]]></category>
+		<category><![CDATA[drives]]></category>
+		<category><![CDATA[faulty]]></category>
+		<category><![CDATA[hdparm]]></category>
+		<category><![CDATA[seagate]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=247</guid>
+		<description><![CDATA[I read as of today a post about some new 1tb 7200.11 disks having problems with corrupted data. Links: http://www.theregister.co.uk/2009/01/16/barracuda_failure_plague/ http://seagate.custkb.com/seagate/crm/selfservice/search.jsp?DocId=207931 And of course, after checking my disks with hdparm i found out that my disk is possible faulty %#&#8221;&#38;&#38;#&#8221; root@smagoth:~# hdparm -I /dev/sdb /dev/sdb:ATA device, with non-removable media Model Number: ST31000340AS Serial Number: 3QJ08QG3 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I read as of today a post about some new 1tb 7200.11 disks having problems with corrupted data.</p>
+<p>Links:<br />
+<a href="http://www.theregister.co.uk/2009/01/16/barracuda_failure_plague/">http://www.theregister.co.uk/2009/01/16/barracuda_failure_plague/</a><br />
+<a href="http://seagate.custkb.com/seagate/crm/selfservice/search.jsp?DocId=207931">http://seagate.custkb.com/seagate/crm/selfservice/search.jsp?DocId=207931</a></p>
+<p>And of course, after checking my disks with hdparm i found out that my disk is possible faulty %#&#8221;&amp;&amp;#&#8221;</p>
+<p><code>root@smagoth:~# hdparm -I /dev/sdb<br />
+/dev/sdb:ATA device, with non-removable media<br />
+Model Number:       ST31000340AS<br />
+Serial Number:      3QJ08QG3<br />
+Firmware Revision:  SD15<br />
+Transport:          Serial</p>
+<p></code></p>
+<p>Guess i will have to upgrade the firmware with their fancy boot ISO :s</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/seagate-harddrives-with-faulty-firmware/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

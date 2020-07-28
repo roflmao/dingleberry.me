@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/local/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>New local root hole in linux kernel in kernels back to 2001</title>
+		<link>http://dingleberry.me/2009/08/new-local-root-hole-in-linux-kernel-in-kernels-back-to-2001/</link>
+		<comments>http://dingleberry.me/2009/08/new-local-root-hole-in-linux-kernel-in-kernels-back-to-2001/#comments</comments>
+		<pubDate>Fri, 14 Aug 2009 07:15:40 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[exploit]]></category>
+		<category><![CDATA[kernel]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[local]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=423</guid>
+		<description><![CDATA[UPDATE: This exploit doesnt seem to affect my Debian Lenny, anyone else tried? Someone please confirm if the temp-fix does NOT work. http://blog.cr0.org/2009/08/linux-null-pointer-dereference-due-to.html http://www.theregister.co.uk/2009/08/14/critical_linux_bug/ Second time this summer linux kernel experiences big security holes. *shrug* And this time around its for _ALL_ kernels all the way back to 2001. Proposed temp-fix: #!/bin/bash # temp-fix until [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>UPDATE: This exploit doesnt seem to affect my Debian Lenny, anyone else tried? Someone please confirm if the temp-fix does NOT work.</strong></p>
+<p><a href="http://blog.cr0.org/2009/08/linux-null-pointer-dereference-due-to.html">http://blog.cr0.org/2009/08/linux-null-pointer-dereference-due-to.html</a><br />
+<a href="http://www.theregister.co.uk/2009/08/14/critical_linux_bug/">http://www.theregister.co.uk/2009/08/14/critical_linux_bug/</a></p>
+<p>Second time this summer linux kernel experiences big security holes. *shrug*<br />
+And this time around its for _ALL_ kernels all the way back to 2001.</p>
+<p>Proposed temp-fix:<br />
+<code>#!/bin/bash<br />
+# temp-fix until patched for<br />
+# http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2692<br />
+# http://www.theregister.co.uk/2009/08/14/critical_linux_bug/<br />
+cd /lib/modules/$(uname -r)/kernel/ &#038;&#038; \<br />
+for i in \<br />
+net/ipx/ipx.ko \<br />
+net/irda/irda.ko net/x25/x25.ko \<br />
+net/ax25/ax25.ko \<br />
+net/bluetooth/bluetooth.ko \<br />
+net/sctp/sctp.ko \<br />
+drivers/net/pppoe.ko \<br />
+drivers/net/pppox.ko;<br />
+do rm -f $i;done</code></p>
+<p>This should hopefully solve this security hole until debian/other dists releases updates.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/new-local-root-hole-in-linux-kernel-in-kernels-back-to-2001/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

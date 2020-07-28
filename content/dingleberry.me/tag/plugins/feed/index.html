@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/plugins/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>How a nerd monitors his wife&#8217;s weight</title>
+		<link>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/</link>
+		<comments>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/#comments</comments>
+		<pubDate>Mon, 17 Sep 2012 09:24:32 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[bodyscale]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[plugins]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[wife]]></category>
+		<category><![CDATA[withings]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=709</guid>
+		<description><![CDATA[So I got myself a new bodyscale recently. Ofcourse it had to be something of a gadget so I went for this Withings BodyScale. Withings allready has a nice webpage with graphs and stuff and also a couple of really nice iphone/ipad apps for it. The fact that it is integrated with other services like [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So I got myself a new bodyscale recently. Ofcourse it had to be something of a gadget so I went for this <a title="Withings BodyScale" href="http://withings.com/en/bodyscale">Withings BodyScale</a>. Withings allready has a nice webpage with graphs and stuff and also a couple of really nice iphone/ipad apps for it. The fact that it is integrated with other services like Runkeeper and such, made me think about if they had an API i could query. And it had. Also a quick search for &#8220;python withings api&#8221; gave some results with examples on how to use it.</p>
+<p>I came across this thing : <a title="https://github.com/mote/python-withings" href="https://github.com/mote/python-withings">https://github.com/mote/python-withings</a> &#8230;and then it was pretty much just about writing a bit of nagios-logic around it to make it into a plugin.</p>
+<p>The first result is here: <a title="https://github.com/mortis1337/check_wife" href="https://github.com/mortis1337/check_wife">https://github.com/mortis1337/check_wife</a></p>
+<p>The script takes a userid, an apikey and a name as arguments.</p>
+<p>$ ./check_wife.py  -u 1111111 -k xxxxxxxxxxxxx -n Your(or your wife&#8217;s;)name<br />
+WARNING: &lt;yourname&gt;&#8217;s overweight. Size: &lt;yoursize&gt; &#8211; Weight: &lt;yourweight&gt; BMI: &lt;yourbmi&gt;</p>
+<p>The script will give a WARNING whenever the BMI-value is about 25 or below 18,5.</p>
+<p>Add this to your nagios-config and your operators can come point and laugh at you whenever a WARNING occurs <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>( yes, the &#8220;wife&#8221;-part is a joke&#8230;. go monitor your own weight;) )</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2012/09/how-a-nerd-monitors-his-wifes-weight/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Firefox is slow and crashes&#8230; ALL THE TIME!</title>
+		<link>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/</link>
+		<comments>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/#comments</comments>
+		<pubDate>Thu, 12 Mar 2009 10:30:53 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[add-ons]]></category>
+		<category><![CDATA[crashes]]></category>
+		<category><![CDATA[firebug]]></category>
+		<category><![CDATA[firecookie]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[plugins]]></category>
+		<category><![CDATA[profiles]]></category>
+		<category><![CDATA[slow]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[yslow]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=333</guid>
+		<description><![CDATA[I&#8217;ve recently become more and more and more and more and more and more annoyed with firefox. It is slow, it crashes (several times a day) and it is using ALOT of memory. This is ofcourse because of various plugins I added, but damnit &#8211; I need them! So what can you do if the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;ve recently become more and more and more and more and more and more annoyed with firefox. It is slow, it crashes (several times a day) and it is using ALOT of memory. This is ofcourse because of various plugins I added, but damnit &#8211; I need them! So what can you do if the plugins you so desperately need renders the browser itself unusable??? :S</p>
+<p>YOU CREATE SEPARATE PROFILES!!!</p>
+<p>I dont know why on gods green earth noone told me about this sooner..<br />
+You simply just add -P profilename to the firefox cmd. On my ubuntu the firefox launcher button had the following cmd:</p>
+<p>&#8220;firefox %u&#8221;, now it looks like this: &#8220;firefox %u -P firebug -no-remote&#8221;<br />
+In the above example I&#8217;m launching the profile I named &#8220;firebug&#8221;. In this profile I installed firebug, firecookie and the Yslow plugins. The &#8220;normal&#8221; launcher button has the &#8220;-P default&#8221; option to launch my &#8220;regular&#8221; firefox install.</p>
+<p>Additional firefox about:config adjustments i made:<br />
+1) Adjust the browser pipelining<br />
+1a) network.http.pipelining = true<br />
+1b) network.http.pipelining.maxrequests = 10<br />
+1c) network.http.proxy.pipelining = true<br />
+2) Turn off ALL caching<br />
+2a) browser.cache.disk.enable = false<br />
+2b) browser.cache.memory.enable = false<br />
+2c) browser.cache.offline.enable = false<br />
+2d) network.http.use-cache = false</p>
+<p>Be warned that with all caching turned off, sites that use for instance alot of tiny tiny &#8220;see-through&#8221; images to adjust their html layout AND using for instance mod-evasive in apache will block your ass for DOS attacking them. (as you will be requesting that little .gif ALOT of times over a very short period of time)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>nagios-plugins and check_http version 1.4.12</title>
+		<link>http://dingleberry.me/2009/03/nagios-plugins-and-check_http-version-1412/</link>
+		<comments>http://dingleberry.me/2009/03/nagios-plugins-and-check_http-version-1412/#comments</comments>
+		<pubDate>Fri, 06 Mar 2009 17:44:53 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[check_http]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[plugins]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=318</guid>
+		<description><![CDATA[Yes, it&#8217;s broken! I found out today after moving to a new nagios-server. My old http checks did not work, they only resulted in WARNINGS. Seems this is a redirect problem in check_http. It is fixed in the latest version. I did not have time to go trough all the plugins this evening (friday and [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Yes, it&#8217;s broken! I found out today after moving to a new nagios-server. My old http checks did not work, they only resulted in WARNINGS. Seems this is a redirect problem in check_http. It is fixed in the latest version.<br />
+I did not have time to go trough all the plugins this evening (friday and all) so I simply downloaded the latest tar.gz pluginpack from nagios.org, extracted it, ran &#8220;./configure&#8221; and then make all. After that I just moved the check_http from the freshly compiled plugin folder to my nagios plugins folder. Problem solved. 1.4.13 works fine.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/nagios-plugins-and-check_http-version-1412/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

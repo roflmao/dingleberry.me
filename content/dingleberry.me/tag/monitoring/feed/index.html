@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/monitoring/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>running nagiosplugins via saltstacks peer communicationsystem</title>
+		<link>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/</link>
+		<comments>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/#comments</comments>
+		<pubDate>Fri, 21 Mar 2014 20:11:49 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[nrpe]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+		<category><![CDATA[zmq]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=719</guid>
+		<description><![CDATA[So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own peer communication system.</p>
+<p>First of all, read this : <a title="http://docs.saltstack.com/ref/peer.html" href="http://docs.saltstack.com/ref/peer.html" target="_blank">http://docs.saltstack.com/ref/peer.html</a></p>
+<p>Then check out my wrapper here : <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" target="_blank">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py</a></p>
+<p>Yay! Now you can throw away NRPE forever and stop using ssh-keys for the nagiosuser if you are doing that allready.</p>
+<p>Nagiosplugins over zmq? I like it <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Running nagios-plugins via saltstack</title>
+		<link>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/</link>
+		<comments>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/#comments</comments>
+		<pubDate>Tue, 26 Nov 2013 11:15:25 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[icinga]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=715</guid>
+		<description><![CDATA[I&#8217;m so sick of maintaining NRPE-config on my servers, and I dont really want root-sshkeys all over the place. Recently I discovered saltstack and started to play with it a bit. I came up with the idea of running Nagios(or Icinga) on the same server as my salt-master and so I created a little wrapper [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;m so sick of maintaining NRPE-config on my servers, and I dont really want root-sshkeys all over the place. Recently I discovered saltstack and started to play with it a bit. I came up with the idea of running Nagios(or Icinga) on the same server as my salt-master and so I created a little wrapper that lets me run nagios-checks via saltstack.</p>
+<p>Here&#8217;s how it works.</p>
+<p>This is my little wrapper-script written in python: <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py</a></p>
+<p>The wrapper takes hostname, plugin and a timeoutvalue as arguments:</p>
+<p>$ python check_by_salt.py -H examplehost -p &#8220;/path/to/existing/nagiosplugin arg1 arg2&#8243; -t 10</p>
+<p>The wrapper imports salt and runs commands on minions with cmd.run_all and returns the output and the exitcode.</p>
+<p>For this to work as the nagios/icinga user, you will have to configure the client_acl for the user in the salt-master config, so go ahead and edit the master-configfile (default: /etc/salt/master)</p>
+<p>Search for &#8220;client_acl&#8221; in the file and add this :</p>
+<p>client_acl:<br />
+icinga:<br />
+- cmd.*</p>
+<p>Yeeaaaap, thats quite the security risk right there, but read up on how to limit what can be done with the cmd-state in salt and atleast it will be safer than using ssh-keys <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>check_by_salt in combination with <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py">https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py</a> will instantly give you monitoring of all your disks with no clientside-configuration.</p>
+<p>Use it if you like it and feel free to improve it.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Monitor Dell servers on Debian Squeeze with Nagios</title>
+		<link>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/</link>
+		<comments>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/#comments</comments>
+		<pubDate>Thu, 10 Feb 2011 07:57:20 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[dellomsa]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[squeeze]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=691</guid>
+		<description><![CDATA[Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0. I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc) I used some hours to try to get it working with a newer dellomsa but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0.</p>
+<p>I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc)</p>
+<p>I used some hours to try to get it working with a newer dellomsa but that didnt work either.<br />
+Then i found some official Dell Ubuntu packages, which i found working excellent on Debian Squeeze as well:<br />
+<code>dpkg -P dellomsa #Make sure dellomsa isnt installed.<br />
+echo 'deb http://linux.dell.com/repo/community/deb/latest /' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list<br />
+apt-get update<br />
+apt-get install srvadmin-base smbios-utils</code></p>
+<p>You will also need the <a href="http://security.ubuntu.com/ubuntu/pool/universe/libs/libsmbios/libsmbios2_2.2.13-0ubuntu4_amd64.deb">libsmbios2_2.2.13-0ubuntu4_amd64.deb</a> from Ubuntu Lucid to get smbios stuff working.<br />
+<code>dpkg -i libsmbios2_2.2.13-0ubuntu4_amd64.deb<br />
+/etc/init.d/dataeng start #if this starts, omreport works!</code></p>
+<p>Now you have the newer Debian Squeeze Dell stuff working.</p>
+<p>We have deployed our hwmonitoring of our Dell servers with <a href="http://folk.uio.no/trondham/software/check_openmanage.html">check_openmanage </a> and<a href="http://www.nagios.org"> Nagios</a><br />
+Read more about the check_openmanage on the check_openmanage site (this is a great plugin btw!)</p>
+<p>Resources:<br />
+<a href="http://folk.uio.no/trondham/software/check_openmanage.html">http://folk.uio.no/trondham/software/check_openmanage.html</a><br />
+<a href="http://linux.dell.com/repo/community/deb/latest/">http://linux.dell.com/repo/community/deb/latest/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Automatically create bugs in Jira with a Nagios eventhandler</title>
+		<link>http://dingleberry.me/2010/03/automatically-create-bugs-in-jira-with-a-nagios-eventhandler/</link>
+		<comments>http://dingleberry.me/2010/03/automatically-create-bugs-in-jira-with-a-nagios-eventhandler/#comments</comments>
+		<pubDate>Tue, 09 Mar 2010 13:51:22 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[eventhandler]]></category>
+		<category><![CDATA[jira]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=631</guid>
+		<description><![CDATA[The most important part about this is &#8230;.dont use it too often, but it CAN make sense on really critical events, like warnings/criticals on partitionspace. For instance, if your mysql server is running out of space on /var/lib/mysql and your operationsteam didnt see the WARNING/CRITICAL notification from Nagios, it might be a good idea to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>The most important part about this is  &#8230;.dont use it too often, but it CAN make sense on really critical events, like warnings/criticals on partitionspace. For instance, if your mysql server is running out of space on /var/lib/mysql and your operationsteam didnt see the WARNING/CRITICAL notification from <a href="http://www.nagios.org">Nagios</a>, it might be a good idea to have the bug created in <a href="http://www.atlassian.com/software/jira/">Jira</a> to make it even more visible. </p>
+<p>Here&#8217;s how you do it.<br />
+First of all, be sure to have <a href="http://nagios.sourceforge.net/docs/3_0/eventhandlers.html">eventhandlers</a> enabled in <a href="http://www.nagios.org">Nagios</a>.</p>
+<p>Configure your commands.cfg file to have something similar to this : </p>
+<p><code>define command{<br />
+        command_name    jira_eventhandler<br />
+        command_line    $USER1$/jira_eventhandler -a morten -s $SERVICESTATE$ -t $SERVICESTATETYPE$ -A $SERVICEATTEMPT$ -H $HOSTNAME$ -S $SERVICEDESC$<br />
+        }<br />
+</code></p>
+<p>Configure your services.cfg to have something similar to this :<br />
+<code>define service{<br />
+        use                             generic-service<br />
+        host_name                       myhost<br />
+        service_description             CHECK_DISK_ROOT<br />
+        is_volatile                     0<br />
+        max_check_attempts              3<br />
+        normal_check_interval           10<br />
+        retry_check_interval            1<br />
+        contact_groups                  linux-admins<br />
+        notification_period             24x7<br />
+        notification_options            c,w,r<br />
+        check_command                   check_remote_disk_nagios!10%!5%!/<br />
+        process_perf_data               1<br />
+        event_handler                   jira_eventhandler<br />
+        flap_detection_enabled          0<br />
+        }</code></p>
+<p>And be sure to have the jira_eventhandler script in place. You can download mine here : <a href='http://dingleberry.me/wp-content/uploads/2010/03/jira_eventhandler.txt'>jira_eventhandler</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/03/automatically-create-bugs-in-jira-with-a-nagios-eventhandler/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Nagios Operations Dashboard</title>
+		<link>http://dingleberry.me/2009/11/nagios-operations-dashboard/</link>
+		<comments>http://dingleberry.me/2009/11/nagios-operations-dashboard/#comments</comments>
+		<pubDate>Thu, 12 Nov 2009 09:36:03 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dashboard]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=551</guid>
+		<description><![CDATA[We had an idea of putting up an operations monitoring screen in our workplace for more effecient discover alerts from nagios. We found a php nagios dash app which parses status.dat (Nagios Dashboard &#8211; PHP) We modified this to only show criticals/warnings, made a ajax interface for refreshing/showing the data, and modified the css a [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We had an idea of putting up an operations monitoring screen in our workplace for more effecient discover alerts from nagios.<br />
+We found a php nagios dash app which parses status.dat (<a href="http://forums.meulie.net/viewtopic.php?f=60&#038;t=3384&#038;start=0&#038;hilit=dashboard">Nagios Dashboard &#8211; PHP</a>)<br />
+We modified this to only show criticals/warnings, made a ajax interface for refreshing/showing the data, and modified the css a bit (Thanks Jonas!)</p>
+<p>Here is the modified version:<br />
+<a href='http://dingleberry.me/wp-content/uploads/2009/11/dash.tar'>dash.tar</a></p>
+<p>To install just extract this on your nagios server and edit the $file in nagios_get.php to your status.dat file of your nagios <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>Here is a demo of the dash in real surroundings:</p>
+<p><a href="http://dingleberry.me/wp-content/uploads/2009/11/operations1.jpg" rel="shadowbox[sbpost-551];player=img;"><img src="http://dingleberry.me/wp-content/uploads/2009/11/operations1-300x225.jpg" alt="operations dashboard" title="operations dashboard" width="300" height="225" class="alignnone size-medium wp-image-550" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/nagios-operations-dashboard/feed/</wfw:commentRss>
+		<slash:comments>1912</slash:comments>
+		</item>
+		<item>
+		<title>A quick note about the Nagios check_procs plugin</title>
+		<link>http://dingleberry.me/2009/02/a-quick-note-about-the-nagios-check_procs-plugin/</link>
+		<comments>http://dingleberry.me/2009/02/a-quick-note-about-the-nagios-check_procs-plugin/#comments</comments>
+		<pubDate>Tue, 24 Feb 2009 11:33:28 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[check_procs]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=310</guid>
+		<description><![CDATA[I had an issue today where check_procs returned &#8220;0 processes with command name &#8216;some-process-name&#8217; &#8220;. When I did a ps -ef &#124; grep some-process-name I could see the process running, so I was like &#8220;wtf?!&#8221;, but then a collegue told me he had seen this before. Seems the check_procs uses something like ps -cA to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I had an issue today where <code>check_procs</code> returned &#8220;0 processes with command name &#8216;some-process-name&#8217; &#8220;. When I did a <code>ps -ef | grep some-process-name</code> I could see the process running, so I was like &#8220;wtf?!&#8221;, but then a collegue told me he had seen this before. Seems the <code>check_procs</code> uses something like <code>ps -cA</code> to check for running-processes and using those parameters, you only see part of the process name, so while it wouldnt match &#8220;some-process-name&#8221; it would match &#8220;some-process-n&#8221;. So if you wonder why it returns 0 processes, do a <code>ps -cA</code> to find the right process name to match in your config.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/02/a-quick-note-about-the-nagios-check_procs-plugin/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>htop, great alternative to regular top</title>
+		<link>http://dingleberry.me/2009/02/htop-alternative-to-regular-top/</link>
+		<comments>http://dingleberry.me/2009/02/htop-alternative-to-regular-top/#comments</comments>
+		<pubDate>Wed, 18 Feb 2009 19:36:11 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[htop]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[top]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=292</guid>
+		<description><![CDATA[Recently discovered &#8220;htop&#8221;, a fancyer &#8220;top&#8221;. Check it out : apt-get install htop]]></description>
+				<content:encoded><![CDATA[<p>Recently discovered &#8220;htop&#8221;, a fancyer &#8220;top&#8221;.</p>
+<p>Check it out : <code>apt-get install htop</code></p>
+<p><a href="http://dingleberry.me/wp-content/uploads/2009/02/htop.png" rel="shadowbox[sbpost-292];player=img;"><img width="70%" height="60%" src="http://dingleberry.me/wp-content/uploads/2009/02/htop.png" alt="htop screenie" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/02/htop-alternative-to-regular-top/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Monitoring web apps using html forms for logging in</title>
+		<link>http://dingleberry.me/2009/02/monitoring-web-apps-using-html-forms-for-logging-in/</link>
+		<comments>http://dingleberry.me/2009/02/monitoring-web-apps-using-html-forms-for-logging-in/#comments</comments>
+		<pubDate>Wed, 18 Feb 2009 19:27:20 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[authentication]]></category>
+		<category><![CDATA[forms]]></category>
+		<category><![CDATA[html]]></category>
+		<category><![CDATA[login]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[post]]></category>
+		<category><![CDATA[variables]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=287</guid>
+		<description><![CDATA[Several times I&#8217;ve wanted to monitor if login actually works on webapplications that uses html forms for user validation. Today I made a simple bash nagios plugin to do that. It uses curl and checks it&#8217;s output. Curl supports POST variables. The plugin also checks the unixtime before and after the curl command is being [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Several times I&#8217;ve wanted to monitor if login actually works on webapplications that uses html forms for user validation. Today I made a simple bash nagios plugin to do that. It uses curl and checks it&#8217;s output. Curl supports POST variables.<br />
+The plugin also checks the unixtime before and after the curl command is being run, then does and expr to find the diff and makes nagios performance data of it.</p>
+<p>Feel free to copy paste the code and use it for your own purpose.</p>
+<p><code>#!/bin/sh<br />
+#my %ERRORS=('OK'=&amp;gt;0,'WARNING'=&amp;gt;1,'CRITICAL'=&amp;gt;2,'UNKNOWN'=&amp;gt;3,'DEPENDENT'=&amp;gt;4);<br />
+#This is what we get after a successful login<br />
+MATCH="bladiblah successful login bladiblah"<br />
+#delete the tmp file before writing a new one<br />
+rm /tmp/login_check<br />
+#Grab the unixtime before the command runs<br />
+BEFORE=`date +%s`<br />
+#Login to the app<br />
+/usr/bin/curl -H "host: example.com" -F mail="mail@example.com" -F userPassword="fail" http://111.111.111.111 -o /tmp/login_check &amp;gt; /dev/null 2&amp;gt;&amp;amp;1<br />
+#Grab the unixtime after the command have been run<br />
+AFTER=`date +%s`<br />
+DIFF=`/usr/bin/expr $AFTER - $BEFORE`<br />
+#Check tmp file if it matches our successful login<br />
+CHECK=`grep "$MATCH" /tmp/login_check`<br />
+if [ "$CHECK" = "$MATCH" ]; then<br />
+#WIN!!<br />
+echo "OK. Login successful. | response=$DIFF"<br />
+exit 0<br />
+else<br />
+#FAIL!!<br />
+echo "CRITICAL. Login failed."<br />
+exit 2<br />
+</code></p>
+<p>And as always, sorry about the wordpress formating of the code.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/02/monitoring-web-apps-using-html-forms-for-logging-in/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Monitoring Dell hardware in Nagios on the Debian Etch 64bit Platform</title>
+		<link>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/</link>
+		<comments>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/#comments</comments>
+		<pubDate>Thu, 29 Jan 2009 10:56:05 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[hardware]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=273</guid>
+		<description><![CDATA[Getting Dell&#8217;s linux-software to work on other platforms than Redhat can be a bitch, but I was lucky to come across this article. Following those steps I had dellomsa up and running a couple of minutes later. Then I went to nagiosexchange and downloaded the perl script check_dell_sensors.pl. In this case I use check_by_ssh to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Getting Dell&#8217;s linux-software to work on other platforms than Redhat can be a bitch, but I was lucky to come across <a href="http://blog.zztopping.com/2008/04/29/dell-omsa-debian-64bit/">this</a> article. Following those steps I had dellomsa up and running a couple of minutes later.<br />
+Then I went to <a href="http://www.nagiosexchange.org">nagiosexchange</a> and downloaded the perl script <a href="http://www.nagiosexchange.org/cgi-bin/page.cgi?g=1923.html;d=1">check_dell_sensors.pl</a>.</p>
+<p>In this case I use check_by_ssh to run the check on each host, so here&#8217;s the <strong>command.cfg</strong> setup</p>
+<p><code>define command{<br />
+command_name    check_dell_sensors<br />
+command_line    $USER1$/check_by_ssh -l someuser -t 30 -H $HOSTADDRESS$ -C "/usr/lib/nagios/plugins/check_dell_sensors.pl"<br />
+}<br />
+</code></p>
+<p>and finally the <strong>services.cfg</strong></p>
+<p><code><br />
+define service{<br />
+use                             generic-service<br />
+hostgroup_name                  cfg_CHECK_DELL_SENSORS<br />
+service_description             CHECK_DELL_SENSORS<br />
+is_volatile                     0<br />
+max_check_attempts              3<br />
+normal_check_interval           5<br />
+retry_check_interval            1<br />
+contact_groups                  linux-admins<br />
+notification_period             24x7<br />
+notification_options            c,w,r<br />
+check_command                   check_dell_sensors<br />
+}<br />
+</code></p>
+<p>This will monitor your dell hardware on all hosts in your cfg_CHECK_DELL_SENSORS hostgroup, giving you an output like :<br />
+<code>/usr/lib/nagios/plugins/check_dell_sensors.pl<br />
+OK -- Hardware Log=Ok; Memory=Ok; Power Supplies=Ok; Processors=Ok; Temperatures=Ok; Voltages=Ok;</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Tools for monitoring I/O</title>
+		<link>http://dingleberry.me/2008/11/tools-for-monitoring-io/</link>
+		<comments>http://dingleberry.me/2008/11/tools-for-monitoring-io/#comments</comments>
+		<pubDate>Wed, 05 Nov 2008 08:43:52 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[io]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[tools]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=209</guid>
+		<description><![CDATA[Allright so you wanna check I/O on your machine, where it all goes and all that kinda shit. apt-get install iotop sysstat Then you have two tools for checking your I/O problems: First one: iotop This one shows which processes read and write, how much they r/w. This one is really good if you wonder [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Allright so you wanna check I/O on your machine, where it all goes and all that kinda shit.</p>
+<p><code>apt-get install iotop sysstat</code></p>
+<p>Then you have two tools for checking your I/O problems:</p>
+<p><strong>First one:</strong> <code>iotop</code><br />
+<a href="http://dingleberry.me/wp-content/uploads/2008/11/iotop_big.png" rel="shadowbox[sbpost-209];player=img;"><img class="alignnone size-medium wp-image-214" title="iotop_big" src="http://dingleberry.me/wp-content/uploads/2008/11/iotop_big-300x197.png" alt="" width="300" height="197" /></a><br />
+This one shows which processes read and write, how much they r/w.<br />
+This one is really good if you wonder which procs are making your machine stall.</p>
+<p><strong>Second one:</strong> <code>iostat -m 1</code><br />
+<a href="http://dingleberry.me/wp-content/uploads/2008/11/iostat_big.png" rel="shadowbox[sbpost-209];player=img;"><img class="alignnone size-medium wp-image-215" title="iostat_big" src="http://dingleberry.me/wp-content/uploads/2008/11/iostat_big-300x172.png" alt="" width="300" height="172" /></a><br />
+This one shows you the I/O for devices and partitions. Very nice if you wanna check which disks are written/read to in a sw-raid or lvm array</p>
+<p>Please comment on other useful tools that should be mentionable <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/11/tools-for-monitoring-io/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

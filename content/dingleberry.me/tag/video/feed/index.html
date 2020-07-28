@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/video/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Open Source Conference Videos</title>
+		<link>http://dingleberry.me/2009/02/open-source-conference-videos/</link>
+		<comments>http://dingleberry.me/2009/02/open-source-conference-videos/#comments</comments>
+		<pubDate>Mon, 23 Feb 2009 08:01:39 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[conference]]></category>
+		<category><![CDATA[open source]]></category>
+		<category><![CDATA[video]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/2009/02/open-source-conference-videos/</guid>
+		<description><![CDATA[Tired of having to do all the reading about new stuff? Care to lay down on the couch and let someone do some open source talking for you? Here are some links: (Yes some are oldies, but goldies!) http://video.fosdem.org (FOSDEM, free open source software conference) http://linuxcom.blip.tv/rss (Linux.com&#8217;s RSS for Videos) http://podcast.utos.org (Utah Open Source Podcast. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Tired of having to do all the reading about new stuff? Care to lay down on the couch and let someone do some open source talking for you?</p>
+<p>Here are some links: (Yes some are oldies, but goldies!)<br />
+<a href="http://video.fosdem.org">http://video.fosdem.org</a> (FOSDEM, free open source software conference)<br />
+<a href="http://linuxcom.blip.tv/rss">http://linuxcom.blip.tv/rss</a> (Linux.com&#8217;s RSS for Videos)<br />
+<a href="http://podcast.utos.org">http://podcast.utos.org</a> (Utah Open Source Podcast. Just audio, close your eyes!)<br />
+<a href="http://events.ccc.de/congress/2008/wiki/Conference_Recordings">http://events.ccc.de/congress/2008/wiki/Conference_Recordings</a> (f0r 411 j00 h4xx0rz)<br />
+<a href="http://oscon.blip.tv">http://oscon.blip.tv</a> (OSCon 08)<br />
+<a href="http://river-valley.tv/conferences">http://river-valley.tv/conferences</a> (Some multimedia/graphics software)</p>
+<p>The more the merrier!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/02/open-source-conference-videos/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Monitoring videostreams with Nagios</title>
+		<link>http://dingleberry.me/2008/10/monitoring-videostreams-with-nagios/</link>
+		<comments>http://dingleberry.me/2008/10/monitoring-videostreams-with-nagios/#comments</comments>
+		<pubDate>Wed, 08 Oct 2008 21:07:45 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mms]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[stream]]></category>
+		<category><![CDATA[video]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=42</guid>
+		<description><![CDATA[Recently I wanted to monitor a streamingservice via Nagios and started thinking about how it could be done on the commandline so it could easily be monitored without doing silly gui stuff. Came to think of mplayer and its ability to play streams ..and so I started playing with it for a bit. Running the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Recently I wanted to monitor a streamingservice via <a title="Nagios" href="http://www.nagios.org/" target="_blank">Nagios</a> and started thinking about how it could be done on the commandline so it could easily be monitored without doing silly gui stuff. Came to think of <a title="mplayer" href="http://www.mplayerhq.hu/design7/news.html" target="_blank">mplayer</a> and its ability to play streams ..and so I started playing with it for a bit.</p>
+<p>Running the command : <code>mplayer -noframedrop -quiet -dumpstream "http://someurl" -dumpfile "some_local_dumpfile"</code> does everything i need. It streams the video and dumps it in a local file. This means you can assume that the stream is working if your dumped file is the right size. To find the size, just simply dump the video one time, check its size and use the size as a parameter to the nagios plugin.</p>
+<p>Here’s the plugin. Feel free to copy &amp; paste it and use it for your own monitoring.<br />
+You will ofcourse have to have <a title="mplayer" href="http://www.mplayerhq.hu/design7/news.html" target="_blank">mplayer</a> installed.</p>
+<p><code>#!/usr/bin/perl -w<br />
+# This check uses mplayer to dump a videostream, check the size of it<br />
+# and determine if the streaming service is working or not.<br />
+# ...uh ...yeah :-)<br />
+#morten bekkelund 2008<br />
+<br />
+use Getopt::Long;<br />
+use File::stat;<br />
+<br />
+my %ERRORS=('OK'=&gt;0,'WARNING'=&gt;1,'CRITICAL'=&gt;2,'UNKNOWN'=&gt;3,'DEPENDENT'=&gt;4);<br />
+<br />
+sub print_usage {<br />
+print "Usage: check_xstream -u &lt;url&gt; -d &lt;dumped stream filename&gt; -s &lt;expected size of dumped file&gt; \n";<br />
+print "Example: ./check_xstream -u mms://streamserver/stream -d /tmp/dump -s 4533646 \n";<br />
+}<br />
+<br />
+sub help {<br />
+print_usage();<br />
+}<br />
+<br />
+Getopt::Long::Configure ("bundling");<br />
+GetOptions(<br />
+'u:s'   =&gt; \$url,                  'url'                =&gt; \$url,<br />
+'d:s'   =&gt; \$dump,                 'dump'               =&gt; \$dump,<br />
+'s:i'     =&gt; \$expected_size,        'size'             =&gt; \$expected_size<br />
+);<br />
+<br />
+if(!$url or !$expected_size or !$dump) {<br />
+print_usage();<br />
+exit $ERRORS{"UNKNOWN"};<br />
+}<br />
+<br />
+unlink($dump);<br />
+my $check_stream=`/usr/bin/mplayer -noframedrop -quiet -dumpstream "$url" -dumpfile "$dump" 2&gt;&amp;1`;<br />
+my $file_size=stat("$dump")-&gt;size;<br />
+<br />
+if(!$file_size) {<br />
+print "UNKNOWN: Cannot find dumped stream.\n";<br />
+exit $ERRORS{"UNKNOWN"};<br />
+}<br />
+<br />
+if($file_size != $expected_size) {<br />
+print "CRITICAL: The size of the stream diffs from the expected size. Streaming doesnt appear to work correctly.\n";<br />
+exit $ERRORS{"CRITICAL"};<br />
+}<br />
+<br />
+if($file_size == $expected_size) {<br />
+print "OK: The size of the stream is correct. Streaming appears to work correctly.\n";<br />
+exit $ERRORS{"OK"};<br />
+}<br />
+<br />
+print "UNKNOWN: Something really fishy is going on here....\n";<br />
+exit $ERRORS{"UNKNOWN"};<br />
+# end</code></p>
+<p>You can call the script check_stream or whatever you prefer and put it in your nagios plugins directory.</p>
+<p>Configure commands.cfg for the new plugin :<br />
+<code>define command{<br />
+command_name    check_stream<br />
+command_line    $USER1$/check_stream -u "$ARG1$" -s "$ARG2$" -d "$ARG3$"<br />
+}<br />
+</code></p>
+<p>and finally configure your services file to something like this :</p>
+<p><code>define service{<br />
+use                             generic-service<br />
+host_name                       yourhost<br />
+service_description             CHECK_STREAM<br />
+is_volatile                     0<br />
+max_check_attempts              3<br />
+normal_check_interval           5<br />
+retry_check_interval            1<br />
+contact_groups                  yourcontacts<br />
+notification_period             24x7<br />
+notification_options            c,w,r<br />
+process_perf_data               1<br />
+check_command                   check_stream!"mms://someurl"!expected_dump_size!"/tmp/streamdump"<br />
+}</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/monitoring-videostreams-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/cfengine/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Ideas of CMDB, cfengine and nagios integration</title>
+		<link>http://dingleberry.me/2009/07/ideas-of-cmdb-cfengine-and-nagios-integration/</link>
+		<comments>http://dingleberry.me/2009/07/ideas-of-cmdb-cfengine-and-nagios-integration/#comments</comments>
+		<pubDate>Fri, 03 Jul 2009 09:07:45 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cfengine]]></category>
+		<category><![CDATA[cmdb]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=366</guid>
+		<description><![CDATA[For a while we’ve been discussing how we can become as lazy as possible when it comes to systemadministration, and this time we’ve made a quite neat integration between our homemade CMDB, cfengine and nagios. Here’s the idea: First of all, nobody likes to manually update a CMDB. Also its never really possible to maintain [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>For a while we’ve been discussing how we can become as lazy as possible when it comes to systemadministration, and this time we’ve made a quite neat integration between our homemade CMDB, cfengine and nagios.</p>
+<p>Here’s the idea:</p>
+<p>First of all, nobody likes to manually update a CMDB. Also its never really possible to maintain it in a way that makes its info become obsolete after some time. This is why we made a script, cfcmdb, that is triggered from cfengine on every host. This script fills the CMDB database with all sort of info from tools like dmidecode and also from standard commandline tools. (Memory, networkingcards, os version, cpu, vendor etc etc). So now our CMDB pretty much keeps itself up to date.</p>
+<p>Lately we came up with the idea to fill our CMDB with cfengine classes information. So adding to the cfcmdb script mentioned above :</p>
+<p>cfagent –no-splay -p -v | grep Defined</p>
+<p>..and a little perl split and join, we now have all the classes in our CMDB bount to hostid’s.</p>
+<p>Cool. On our nagios-server, we made another script, cmdb2nagios, which takes the parameters “hosts”, “hostgroups” or “services”.</p>
+<p>cmdb2nagios hosts : creates the nagios host-config file</p>
+<p>cmdb2nagios hostgroups : creates the nagios hostgroup-config file</p>
+<p>cmdb2nagios services : creates the servicefile</p>
+<p>The services parsing is quite nice now, cause we can automatically monitor any services set up with cfengine. Lets say we have a bunch of hosts installed with cfengine and cfengine tells them to have apache2 running. That means that this will be part of a cfengine class, that will be available in our CMDB.</p>
+<p>Example of cmdb2nagios service parsing :</p>
+<p>[snip]</p>
+<p>$sql = “select hosts.name from hosts,classes where classes.name = ‘class_apache’ and hosts.hostid = classes.hostid”;<br />
+$execute = $connect-&gt;query($sql) or die “wtf? it didnt work …check syntax.”;<br />
+my @servicehosts;<br />
+while (@results = $execute-&gt;fetchrow()) {<br />
+push(@servicehosts, $results[0]);<br />
+}</p>
+<p>$hosts = join(”,”,@servicehosts);<br />
+print “define service{\n”;<br />
+print “\tuse\t\t\tgeneric-service\n”;<br />
+print “\thost_name\t\t” . $hosts . “\n”;<br />
+print “\tservice_description\tcfg_CHECK_APACHE\n”;<br />
+print “\tis_volatile\t\t0\n”;<br />
+print “\tmax_check_attempts\t1\n”;<br />
+print “\tnormal_check_interval\t5\n”;<br />
+print “\tretry_check_interval\t1\n”;<br />
+print “\tcontact_groups\t\tlinux-admins\n”;<br />
+print “\tnotification_period\t24×7\n”;<br />
+print “\tnotification_options\tc,w,r\n”;<br />
+print “\tprocess_perf_data\t1\n”;<br />
+print “\tcheck_command\t\tcheck_apache\n”;<br />
+print “\t}\n\n”;<br />
+[snip]</p>
+<p>As you can see, monitoring apache will be applied to all hosts running apache.</p>
+<p>This leaves us to really only having to  maintain our cfengine configuration, while the CMDB is auto-updated and the nagios-config is auto-parsed.</p>
+<p>Also our eventhandlers in nagios tells cfengine to do this and that, so now we can sit back, enjoy a coffee and watch this show.</p>
+<p>(see previous post about eventhandlers and cfengine : http://www.sladder.org/?p=261)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/ideas-of-cmdb-cfengine-and-nagios-integration/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Monitor it with nagios, fix it with cfengine.</title>
+		<link>http://dingleberry.me/2009/01/monitor-it-with-nagios-fix-it-with-cfengine/</link>
+		<comments>http://dingleberry.me/2009/01/monitor-it-with-nagios-fix-it-with-cfengine/#comments</comments>
+		<pubDate>Thu, 22 Jan 2009 11:20:20 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[cfengine]]></category>
+		<category><![CDATA[cfrun]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=262</guid>
+		<description><![CDATA[This is something we started doing some time during the end of last year. We wanted to have nagios and cfengine to cooperate. We didn&#8217;t want cfengine to monitor if processes were running, cause thats nagios&#8217; job and we didnt want nagios to fix problems occuring, cause that&#8217;s cfengine&#8217;s job &#8230;.SO ..we found out that [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>This is something we started doing some time during the end of last year. We wanted to have nagios and cfengine to cooperate. We didn&#8217;t want cfengine to monitor if processes were running, cause thats nagios&#8217; job and we didnt want nagios to fix problems occuring, cause that&#8217;s cfengine&#8217;s job &#8230;.SO ..we found out that cfrun could help us out with this problem and make a simple integration. Here&#8217;s how we did it.</p>
+<p>In this particular scenario, we had some segfaults in our apache logs caused by some PHP errors we couldnt fix, which ended up in apache spawning a lot of child processes and giving us lots of defuncts and we had to restart apache every now and then.</p>
+<p>So first we configured a check in our services config file in nagios. Something like this :</p>
+<p><strong>services.cfg</strong></p>
+<p><code>define service{<br />
+use generic-service<br />
+host_name webserver.somedomain.com<br />
+service_description CHECK_LOG_SEGFAULT<br />
+is_volatile 0<br />
+max_check_attempts 1<br />
+normal_check_interval 5<br />
+retry_check_interval 1<br />
+contact_groups admins<br />
+notification_period 24x7<br />
+notification_options c,w,r<br />
+process_perf_data 1<br />
+check_command check_log_segfault<br />
+event_handler restart-apache<br />
+}</code></p>
+<p>Now configure the commands. One command for the event-handler,n ame it &#8220;restart-apache&#8221; which is what the &#8220;event_handler&#8221; option in the example above says. One command for the logcheck, &#8220;check_command check_log_segfault&#8221;</p>
+<p><strong>commands.cfg : </strong></p>
+<p><code>define command{<br />
+command_name  restart-apache<br />
+command_line  /usr/bin/sudo /usr/sbin/cfrun $HOSTNAME$ -T -- -q -D restart_apache2_now<br />
+}<br />
+define command{<br />
+        command_name    check_log_segfault<br />
+        command_line    $USER1$/check_by_ssh -l root -t 30 -H $HOSTADDRESS$ -C "/usr/lib/nagios/plugins/check_log -F /var/log/apache2/error.log -O /var/log/apache2/check_log_oldlog -q Segmentation"<br />
+}<br />
+</code><br />
+(The check_log command is being run on every host that needs it, but you could for instance call it via net-snmp&#8217;s EXEC function if you dont want to use ssh. NRPE is prolly also an alternative).<br />
+Be sure to enable eventhandlers in nagios.cfg for this to work.</p>
+<p><strong>nagios.cfg :</strong></p>
+<p><code>enable_event_handlers=1</code></p>
+<p>Thats what&#8217;s needed for nagios. Let&#8217;s conf some cfengine.</p>
+<p>In the nagios config you can see we&#8217;re running the cfengine class &#8220;restart_apache2_now&#8221;, so lets create a cfengine class with the same name.</p>
+<p><strong>cf.apache2 : </strong><br />
+<code><br />
+###############################################################<br />
+control:<br />
+actionsequence = ( packages shellcommands )<br />
+AddInstallable = ( has_apache2 )<br />
+IfElapsed = ( 0 )<br />
+###############################################################<br />
+classes:<br />
+###############################################################<br />
+packages:<br />
+debian::<br />
+apache2<br />
+pkgmgr=dpkg<br />
+define=has_apache2<br />
+################################################################<br />
+shellcommands:<br />
+# apache2 initscript<br />
+# Usage: /etc/init.d/apache2 {start|stop|restart|reload|force-reload}<br />
+debian.has_apache2.restart_apache2_now::<br />
+"/etc/init.d/apache2 restart"</code></p>
+<p>Be sure to include this class in your cfengine config so that cfengine knows about it.</p>
+<p>So now nagios monitors the logfile, checks for segfault messages and tells cfengine to restart apache if a segfault is found. (The nagios plugin check_log takes care of comparing new and old segfault messages, so that&#8217;s nothing to worry about). Everyone is happy and we (the sysadmins) dont have to do shit. Just the way we want it.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/monitor-it-with-nagios-fix-it-with-cfengine/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

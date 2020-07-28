@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/debian/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Monitor Dell servers on Debian Squeeze with Nagios</title>
+		<link>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/</link>
+		<comments>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/#comments</comments>
+		<pubDate>Thu, 10 Feb 2011 07:57:20 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[dellomsa]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[squeeze]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=691</guid>
+		<description><![CDATA[Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0. I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc) I used some hours to try to get it working with a newer dellomsa but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0.</p>
+<p>I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc)</p>
+<p>I used some hours to try to get it working with a newer dellomsa but that didnt work either.<br />
+Then i found some official Dell Ubuntu packages, which i found working excellent on Debian Squeeze as well:<br />
+<code>dpkg -P dellomsa #Make sure dellomsa isnt installed.<br />
+echo 'deb http://linux.dell.com/repo/community/deb/latest /' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list<br />
+apt-get update<br />
+apt-get install srvadmin-base smbios-utils</code></p>
+<p>You will also need the <a href="http://security.ubuntu.com/ubuntu/pool/universe/libs/libsmbios/libsmbios2_2.2.13-0ubuntu4_amd64.deb">libsmbios2_2.2.13-0ubuntu4_amd64.deb</a> from Ubuntu Lucid to get smbios stuff working.<br />
+<code>dpkg -i libsmbios2_2.2.13-0ubuntu4_amd64.deb<br />
+/etc/init.d/dataeng start #if this starts, omreport works!</code></p>
+<p>Now you have the newer Debian Squeeze Dell stuff working.</p>
+<p>We have deployed our hwmonitoring of our Dell servers with <a href="http://folk.uio.no/trondham/software/check_openmanage.html">check_openmanage </a> and<a href="http://www.nagios.org"> Nagios</a><br />
+Read more about the check_openmanage on the check_openmanage site (this is a great plugin btw!)</p>
+<p>Resources:<br />
+<a href="http://folk.uio.no/trondham/software/check_openmanage.html">http://folk.uio.no/trondham/software/check_openmanage.html</a><br />
+<a href="http://linux.dell.com/repo/community/deb/latest/">http://linux.dell.com/repo/community/deb/latest/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Backporting varnish from debian unstable/testing to etch</title>
+		<link>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/</link>
+		<comments>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/#comments</comments>
+		<pubDate>Wed, 07 Oct 2009 07:10:15 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[2.0.4]]></category>
+		<category><![CDATA[backporting]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[testing]]></category>
+		<category><![CDATA[unstable]]></category>
+		<category><![CDATA[varnish]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=491</guid>
+		<description><![CDATA[Recently i wanted to upgrade Varnish to latest stable &#8211; 2.0.4 on our debian etch boxes. Do you think debian has the latest version in the etch repos? Ofcourse not.. However, backporting turned out to be allmost too easy Here is how I did it; 1. Edit your /etc/apt/sources.list deb-src entry to reflect which debian [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Recently i wanted to upgrade Varnish to latest stable &#8211; 2.0.4 on our debian etch boxes. Do you think debian has the latest version in the etch repos? Ofcourse not.. However, backporting turned out to be allmost too easy <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  Here is how I did it;</p>
+<p>1. Edit your /etc/apt/sources.list deb-src entry to reflect which debian version you want to backport packages from. My entry looks like this:<br />
+<code>deb-src http://ftp.no.debian.org/debian/ unstable main non-free contrib</code><br />
+2. Download the source code from the repo:<br />
+<code>apt-get source varnish</code><br />
+3. Make sure you have all the deps needed:<br />
+<code>apt-get build-dep varnish</code><br />
+4. (might not be necessary) I was missing the fakeroot package:<br />
+<code>apt-get install fakeroot</code><br />
+5. Build the package(s):<br />
+<code>cd varnish-2.0.4<br />
+dpkg-buildpackage -rfakeroot -uc -b</code><br />
+6. And finally install your newly created packages:<br />
+<code>cd ..<br />
+dpkg -i *.deb</code></p>
+<p>Reference(s):<br />
+<a href="http://www.debian.org/doc/manuals/apt-howto/ch-sourcehandling.en.html">http://www.debian.org/doc/manuals/apt-howto/ch-sourcehandling.en.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Making Debian Etch boot with UUID, not hardcoded blockdevicename</title>
+		<link>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/</link>
+		<comments>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/#comments</comments>
+		<pubDate>Mon, 07 Sep 2009 07:08:26 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[blockdevice]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[uuid]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=475</guid>
+		<description><![CDATA[You got additional disk controllers in your server and the etch kernel is fucking up your devicenames from time to time. Suddenly when you reboot the etch kernel decides to make /dev/sda become /dev/sdf etc. Ubuntu has learned from this and they use UUID. This is a unique ID the filesystem becomes, and when you [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>You got additional disk controllers in your server and the etch kernel is fucking up your devicenames from time to time.<br />
+Suddenly when you reboot the etch kernel decides to make /dev/sda become /dev/sdf etc.<br />
+Ubuntu has learned from this and they use <a href="http://en.wikipedia.org/wiki/UUID">UUID</a>.<br />
+This is a unique ID the filesystem becomes, and when you boot, you really want to catch the right device for the root filesystem, or get a crappy Busybox shell.</p>
+<p>This is how you implement it on Debian Etch (and possibly Lenny, if its not default there either):</p>
+<p><code>fittafeis:~# /lib/udev/vol_id /dev/sda1<br />
+ID_FS_USAGE=filesystem<br />
+ID_FS_TYPE=ext3<br />
+ID_FS_VERSION=1.0<br />
+ID_FS_UUID=3abbdf59-4a9e-4be1-ac56-f474609e637c<br />
+ID_FS_LABEL=<br />
+ID_FS_LABEL_SAFE= </code></p>
+<p>Now edit this line in /boot/grub/menu.lst:</p>
+<p>From:  <code># kopt=root=/dev/sda1 ro</code><br />
+To: <code># kopt=root=UUID=3abbdf59-4a9e-4be1-ac56-f474609e637c ro </code></p>
+<p>Then run update-grub and it will update all your kernel entries using UUID <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Mysql authentication backwards compability</title>
+		<link>http://dingleberry.me/2009/09/mysql-authentication-backwards-compability/</link>
+		<comments>http://dingleberry.me/2009/09/mysql-authentication-backwards-compability/#comments</comments>
+		<pubDate>Fri, 04 Sep 2009 11:34:46 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[sarge]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=453</guid>
+		<description><![CDATA[Had an issue today where an old mysql-client on debian sarge failed to connect to a newer mysql-server on debian etch. I was happy to find out that it&#8217;s easily fixed : update mysql.user set password=OLD_PASSWORD('supahsecretpassword') where user='theuser' and host='some-ip-address'; then just : flush privileges; and you&#8217;re gooooood to goooooooooo]]></description>
+				<content:encoded><![CDATA[<p>Had an issue today where an old mysql-client on debian sarge failed to connect to a newer mysql-server on debian etch.</p>
+<p>I was happy to find out that it&#8217;s easily fixed : </p>
+<p><code>update mysql.user set password=OLD_PASSWORD('supahsecretpassword') where user='theuser' and host='some-ip-address';</code></p>
+<p>then just :</p>
+<p><code>flush privileges;</code></p>
+<p>and you&#8217;re gooooood  to goooooooooo <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/mysql-authentication-backwards-compability/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Setting up postgres loadbalancing on debian</title>
+		<link>http://dingleberry.me/2009/08/setting-up-postgres-loadbalancing-on-debian/</link>
+		<comments>http://dingleberry.me/2009/08/setting-up-postgres-loadbalancing-on-debian/#comments</comments>
+		<pubDate>Wed, 26 Aug 2009 11:29:54 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[pgpool]]></category>
+		<category><![CDATA[pgpool2]]></category>
+		<category><![CDATA[postgres]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=435</guid>
+		<description><![CDATA[There&#8217;s a few ways to do it, but I personally found pgpool2 to be very nice and easy to set up. Here&#8217;s a quick and dirty guide to get it up and running. First of all, you want your database backends to look exactly the same. So dump the database and restore it on your [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>There&#8217;s a few ways to do it, but I personally found pgpool2 to be very nice and easy to set up.<br />
+Here&#8217;s a quick and dirty guide to get it up and running.</p>
+<p>First of all, you want your database backends to look exactly the same.<br />
+So dump the database and restore it on your second server.<br />
+Make sure your postgres backends allows your pgpool host to connect to them.</p>
+<p>Pick a host where you wanna run pgtool2.</p>
+<p><code>apt-get install pgpool2</code></p>
+<p>It will automatically install a config file under <code>/etc/pgpool.conf</code> and start up pgpool2. Not very useful yet, since you need to do some configuring, so just kill it and open the config file for editing.<br />
+Note: pgpool has several config options that you can play with. I&#8217;m not gonna go through them here, but just show how to get the basics up and running.</p>
+<p>First of all, you need to config access to the master/system dbserver: </p>
+<p><code># system DB info<br />
+system_db_hostname = 'test-dbserver1'<br />
+system_db_port = 5432<br />
+system_db_dbname = 'pgpool'<br />
+system_db_schema = 'pgpool_catalog'<br />
+system_db_user = 'someuser'<br />
+system_db_password = 'md5hashedvalue'<br />
+</code></p>
+<p>To find your md5 hashed password value, you can just use the command pg_md5 :</p>
+<p><code>pg_md5 yourpasswordhere</code></p>
+<p>After that you should configure info about your backend servers : </p>
+<p><code>backend_hostname0 = 'test-dbserver1'<br />
+backend_port0 = 5432<br />
+backend_weight0 = 1<br />
+backend_hostname1 = 'test-dbserver2'<br />
+backend_port1 = 5432<br />
+backend_weight1 = 1<br />
+</code></p>
+<p>&#8230;.and that&#8217;s about it. Now fire up pgpool2 on your host by typing : </p>
+<p><code>pgpool -n -d</code></p>
+<p>This will start pgpool in the foreground and display all debug info about whats going on. Handy when checking if things work properly. If they do, you can restart it by typing : </p>
+<p><code>pgpool -f /etc/pgpool.conf</code></p>
+<p>If you want to turn on replication, just change the parameter to: </p>
+<p><code>replication_mode = true</code></p>
+<p>..and restart pgpool.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/setting-up-postgres-loadbalancing-on-debian/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Debian Lenny, Xen and live migration using iscsi storage backend</title>
+		<link>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/</link>
+		<comments>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/#comments</comments>
+		<pubDate>Fri, 10 Jul 2009 08:02:47 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[block-iscsi]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[lenny]]></category>
+		<category><![CDATA[xen]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=369</guid>
+		<description><![CDATA[After alot of google-ing for iscsi powered live migration i found references to these two block-iscsi scripts: http://kinkrsoftware.nl/contrib/xen/block-iscsi http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi However none of them worked &#8220;out of the box&#8221; with Debian Lenny. After alot of messing around with adding debug output in the scripts i found the script in the first link to work when i [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>After alot of google-ing for iscsi powered live migration i found references to these two block-iscsi scripts:</p>
+<p><a href="http://kinkrsoftware.nl/contrib/xen/block-iscsi">http://kinkrsoftware.nl/contrib/xen/block-iscsi</a><br />
+<a href="http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi">http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi</a></p>
+<p>However none of them worked &#8220;out of the box&#8221; with Debian Lenny. After alot of messing around with adding debug output in the scripts i found the script in the first link to work when i changed the path to iscsiadm from /usr/sbin to /usr/bin (since the open-iscsi lenny package installs iscsiadm to /usr/bin) and when using the following in my VMs .cfg:</p>
+<p><code>disk = [ 'iscsi:iqn.2006-01.com.openfiler:tsn.64b04dcbd835,hda1,w' ]</code></p>
+<p>Dont forget to stick the block-iscsi script in /etc/xen/scripts and chmod +x ! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Debian sarge (3.1) repositories gone</title>
+		<link>http://dingleberry.me/2009/01/debian-sarge-31-repositories-gone/</link>
+		<comments>http://dingleberry.me/2009/01/debian-sarge-31-repositories-gone/#comments</comments>
+		<pubDate>Sun, 04 Jan 2009 17:14:34 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apt]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[repo]]></category>
+		<category><![CDATA[sarge]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=229</guid>
+		<description><![CDATA[Yes so the sarge repos is gone from all official debian mirrors. Still got an old sarge box and want to install some packages? Add this line to your /etc/apt/sources.list: deb http://archive.debian.org/debian/ sarge main And remove all the others. Now do: apt-get update Now you should be able to install packages for your sarge. (But [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Yes so the sarge repos is gone from all official debian mirrors.</p>
+<p>Still got an old sarge box and want to install some packages?</p>
+<p>Add this line to your /etc/apt/sources.list:</p>
+<p><code> deb http://archive.debian.org/debian/ sarge main</code></p>
+<p>And remove all the others.</p>
+<p>Now do:<br />
+<code>apt-get update</code></p>
+<p>Now you should be able to install packages for your sarge. (But you really should upgrade due to big security risks!)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/debian-sarge-31-repositories-gone/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>I just installed a new debian etch box with dhcp, changed the /etc/network/interfaces to a static setup and now /etc/init.d/network restart does not work&#8230;.</title>
+		<link>http://dingleberry.me/2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/</link>
+		<comments>http://dingleberry.me/2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/#comments</comments>
+		<pubDate>Fri, 17 Oct 2008 09:28:01 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[ifdown]]></category>
+		<category><![CDATA[ifup]]></category>
+		<category><![CDATA[init script]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[networking]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=194</guid>
+		<description><![CDATA[gah&#8230; We use FAI to auto install our debian servers. It installs the system with dhcp and when it reboots for the first time the box comes perfectly online. However, I want the box to have a static address and so far this is a manual operations in our setup. So i change my /etc/network/interfaces [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>gah&#8230; We use <a href="http://www.informatik.uni-koeln.de/fai/">FAI</a> to auto install our debian servers. It installs the system with dhcp and when it reboots for the first time the box comes perfectly online. However, I want the box to have a static address and so far this is a manual operations in our setup. So i change my /etc/network/interfaces file to reflect a static setup, something like:</p>
+<p><code>host:~# cat /etc/network/interfaces<br />
+# The loopback network interface<br />
+auto lo<br />
+iface lo inet loopback<br />
+<br />
+# The primary network interface<br />
+allow-hotplug eth0<br />
+iface eth0 inet static<br />
+        address 192.168.1.250<br />
+        netmask 255.255.255.0<br />
+        network 192.168.1.0<br />
+        broadcast 192.168.1.255<br />
+        gateway 192.168.1.1<br />
+</code><br />
+I just copy/pasted this setup from another box on the same network and changed the &#8220;address&#8221; field. And then i issued:</p>
+<p><code>host:~# /etc/init.d/networking restart<br />
+Reconfiguring network interfaces...done.<br />
+</code><br />
+Hmmm nothing happens&#8230; Lets take a peak in the init.d script and see what the hell it does:</p>
+<p><code>host:~# cat /etc/init.d/networking<br />
+#!/bin/sh -e<br />
+### BEGIN INIT INFO<br />
+# Provides:          networking<br />
+# Required-Start:    mountkernfs ifupdown $local_fs<br />
+# Required-Stop:     ifupdown $local_fs<br />
+# Default-Start:     S<br />
+# Default-Stop:      0 6<br />
+# Short-Description: Raise network interfaces.<br />
+### END INIT INFO<br />
+<br />
+PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin"<br />
+<br />
+[ -x /sbin/ifup ] || exit 0<br />
+<br />
+. /lib/lsb/init-functions<br />
+<br />
+spoofprotect_rp_filter() {<br />
+    [ -e /proc/sys/net/ipv4/conf/all/rp_filter ] || return 1<br />
+    RC=0<br />
+    for f in /proc/sys/net/ipv4/conf/*/rp_filter; do<br />
+	echo 1 > $f || RC=1<br />
+    done<br />
+    return $RC<br />
+}<br />
+<br />
+spoofprotect() {<br />
+    log_action_begin_msg "Setting up IP spoofing protection"<br />
+    if spoofprotect_rp_filter; then<br />
+	log_action_end_msg 0 "rp_filter"<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+ip_forward() {<br />
+    log_action_begin_msg "Enabling packet forwarding"<br />
+    if echo 1 > /proc/sys/net/ipv4/ip_forward; then<br />
+        log_action_end_msg 0<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+syncookies() {<br />
+    log_action_begin_msg "Enabling TCP SYN cookies"<br />
+    if echo 1 > /proc/sys/net/ipv4/tcp_syncookies; then<br />
+        log_action_end_msg 0<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+doopt() {<br />
+    optname=$1<br />
+    default=$2<br />
+    opt=`grep "^$optname=" /etc/network/options || true`<br />
+    if [ -z "$opt" ]; then<br />
+	opt="$optname=$default"<br />
+    fi<br />
+    optval=${opt#$optname=}<br />
+    if [ "$optval" = "yes" ]; then<br />
+	eval $optname<br />
+    fi<br />
+}<br />
+<br />
+process_options() {<br />
+    [ -e /etc/network/options ] || return 0<br />
+    log_warning_msg "/etc/network/options is deprecated (see README.Debian of netbase)."<br />
+    doopt spoofprotect yes<br />
+    doopt syncookies no<br />
+    doopt ip_forward no<br />
+}<br />
+<br />
+case "$1" in<br />
+start)<br />
+	process_options<br />
+	log_action_begin_msg "Configuring network interfaces"<br />
+	if ifup -a; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+stop)<br />
+	if sed -n 's/^[^ ]* \([^ ]*\) \([^ ]*\) .*$/\2/p' /proc/mounts |<br />
+		grep -qE '^(nfs[1234]?|smbfs|ncp|ncpfs|coda|cifs)$'; then<br />
+	    log_warning_msg "not deconfiguring network interfaces: network shares still mounted."<br />
+	    exit 0<br />
+	fi<br />
+<br />
+	log_action_begin_msg "Deconfiguring network interfaces"<br />
+	if ifdown -a --exclude=lo; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+force-reload|restart)<br />
+	process_options<br />
+	log_action_begin_msg "Reconfiguring network interfaces"<br />
+	ifdown -a --exclude=lo || true<br />
+	if ifup -a --exclude=lo; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+*)<br />
+	echo "Usage: /etc/init.d/networking {start|stop|restart|force-reload}"<br />
+	exit 1<br />
+	;;<br />
+esac<br />
+<br />
+exit 0<br />
+</code><br />
+The interesting part is the restart|reload function:</p>
+<p><code>	log_action_begin_msg "Reconfiguring network interfaces"<br />
+	ifdown -a --exclude=lo || true<br />
+	if ifup -a --exclude=lo; then<br />
+</code><br />
+Oki so lets try to issue these commands manually and see what happens:</p>
+<p><code>host:~# ifdown eth0<br />
+ifdown: interface eth0 not configured<br />
+</code><br />
+&#8230;. *sigh*. Now what, I just configured it&#8230; Its time to look at some other boxes where this doesnt happen. And I find that some boxes does not have the &#8220;allow-hotplug eth0&#8243;, but instead just &#8220;auto eth0&#8243;. So I changed my setup to the following:</p>
+<p><code>host:~# cat /etc/network/interfaces<br />
+# The loopback network interface<br />
+auto lo<br />
+iface lo inet loopback<br />
+<br />
+# The primary network interface<br />
+auto eth0<br />
+iface eth0 inet static<br />
+        address 192.168.1.250<br />
+        netmask 255.255.255.0<br />
+        network 192.168.1.0<br />
+        broadcast 192.168.1.255<br />
+        gateway 192.168.1.1<br />
+</code><br />
+And what do you know&#8230;. IT WORKED!!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

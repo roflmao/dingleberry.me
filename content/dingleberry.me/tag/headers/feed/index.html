@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/headers/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Show headers for a http request using curl(with specified virtualhost)</title>
+		<link>http://dingleberry.me/2008/10/show-headers-for-a-http-request-using-curl/</link>
+		<comments>http://dingleberry.me/2008/10/show-headers-for-a-http-request-using-curl/#comments</comments>
+		<pubDate>Mon, 13 Oct 2008 12:07:59 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[curl]]></category>
+		<category><![CDATA[headers]]></category>
+		<category><![CDATA[inspect]]></category>
+		<category><![CDATA[lighttpd]]></category>
+		<category><![CDATA[virtualhost]]></category>
+		<category><![CDATA[webserver]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=121</guid>
+		<description><![CDATA[Normally when I want to see what the hell a webserver returns for any given request i would use telnet wrky ~ # telnet webserver01 80 Trying 123.123.123.4... Connected to webserver01.example.org. Escape character is '^]'. GET / HTTP/1.0 HTTP/1.1 301 Moved Permanently Date: Mon, 13 Oct 2008 11:58:12 GMT Server: Apache/1.3.34 Location: http://localhost/index.html Content-Length: 100 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Normally when I want to see what the hell a webserver returns for any given request i would use telnet</p>
+<p><code>wrky ~ # telnet webserver01 80<br />
+Trying 123.123.123.4...<br />
+Connected to webserver01.example.org.<br />
+Escape character is '^]'.<br />
+GET / HTTP/1.0<br />
+<br />
+HTTP/1.1 301 Moved Permanently<br />
+Date: Mon, 13 Oct 2008 11:58:12 GMT<br />
+Server: Apache/1.3.34<br />
+Location: http://localhost/index.html<br />
+Content-Length: 100<br />
+Connection: close<br />
+Content-Type: text/html; charset=utf-8<br />
+<br />
+This item has moved here<br />
+</code><br />
+But wait, why not do it the more sane way; using curl with the dump headers trigger:<br />
+<code><br />
+wrky # curl -D - webserver01.example.org<br />
+HTTP/1.1 301 Moved Permanently<br />
+Date: Mon, 13 Oct 2008 11:58:28 GMT<br />
+Server: Apache/1.3.34<br />
+Location: http://webserver01.example.org/index.html<br />
+Content-Length: 111<br />
+Connection: close<br />
+Content-Type: text/html; charset=utf-8<br />
+<br />
+This item has moved here.</code></p>
+<p>And if, like me, you have several virtualhosts (vhosts) on the same webserver; add the host header with the -H header trigger;<br />
+<code><br />
+wrky ~ # curl -H 'host: picsearch.example.org' -D - webserver01.example.org<br />
+HTTP/1.1 200 OK<br />
+Date: Mon, 13 Oct 2008 12:05:49 GMT<br />
+Server: Apache/1.3.34<br />
+Content-Length: 6171<br />
+Connection: close<br />
+Content-Type: text/html; charset=utf-8<br />
+<br />
+This item has moved here.</code></p>
+<p>Be aware that the -H does NOT stand for Host, but Header &#8211; you need to put the word &#8220;Host:&#8221; before the virtualhost address. Somehing like -H &#8216;Host: www.cnn.com&#8217;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/show-headers-for-a-http-request-using-curl/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+	</channel>
+</rss>

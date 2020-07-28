@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/block-iscsi/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Debian Lenny, Xen and live migration using iscsi storage backend</title>
+		<link>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/</link>
+		<comments>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/#comments</comments>
+		<pubDate>Fri, 10 Jul 2009 08:02:47 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[block-iscsi]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[lenny]]></category>
+		<category><![CDATA[xen]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=369</guid>
+		<description><![CDATA[After alot of google-ing for iscsi powered live migration i found references to these two block-iscsi scripts: http://kinkrsoftware.nl/contrib/xen/block-iscsi http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi However none of them worked &#8220;out of the box&#8221; with Debian Lenny. After alot of messing around with adding debug output in the scripts i found the script in the first link to work when i [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>After alot of google-ing for iscsi powered live migration i found references to these two block-iscsi scripts:</p>
+<p><a href="http://kinkrsoftware.nl/contrib/xen/block-iscsi">http://kinkrsoftware.nl/contrib/xen/block-iscsi</a><br />
+<a href="http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi">http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi</a></p>
+<p>However none of them worked &#8220;out of the box&#8221; with Debian Lenny. After alot of messing around with adding debug output in the scripts i found the script in the first link to work when i changed the path to iscsiadm from /usr/sbin to /usr/bin (since the open-iscsi lenny package installs iscsiadm to /usr/bin) and when using the following in my VMs .cfg:</p>
+<p><code>disk = [ 'iscsi:iqn.2006-01.com.openfiler:tsn.64b04dcbd835,hda1,w' ]</code></p>
+<p>Dont forget to stick the block-iscsi script in /etc/xen/scripts and chmod +x ! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

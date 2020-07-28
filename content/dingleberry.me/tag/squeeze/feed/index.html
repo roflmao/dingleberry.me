@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/squeeze/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Monitor Dell servers on Debian Squeeze with Nagios</title>
+		<link>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/</link>
+		<comments>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/#comments</comments>
+		<pubDate>Thu, 10 Feb 2011 07:57:20 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[dellomsa]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[squeeze]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=691</guid>
+		<description><![CDATA[Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0. I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc) I used some hours to try to get it working with a newer dellomsa but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0.</p>
+<p>I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc)</p>
+<p>I used some hours to try to get it working with a newer dellomsa but that didnt work either.<br />
+Then i found some official Dell Ubuntu packages, which i found working excellent on Debian Squeeze as well:<br />
+<code>dpkg -P dellomsa #Make sure dellomsa isnt installed.<br />
+echo 'deb http://linux.dell.com/repo/community/deb/latest /' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list<br />
+apt-get update<br />
+apt-get install srvadmin-base smbios-utils</code></p>
+<p>You will also need the <a href="http://security.ubuntu.com/ubuntu/pool/universe/libs/libsmbios/libsmbios2_2.2.13-0ubuntu4_amd64.deb">libsmbios2_2.2.13-0ubuntu4_amd64.deb</a> from Ubuntu Lucid to get smbios stuff working.<br />
+<code>dpkg -i libsmbios2_2.2.13-0ubuntu4_amd64.deb<br />
+/etc/init.d/dataeng start #if this starts, omreport works!</code></p>
+<p>Now you have the newer Debian Squeeze Dell stuff working.</p>
+<p>We have deployed our hwmonitoring of our Dell servers with <a href="http://folk.uio.no/trondham/software/check_openmanage.html">check_openmanage </a> and<a href="http://www.nagios.org"> Nagios</a><br />
+Read more about the check_openmanage on the check_openmanage site (this is a great plugin btw!)</p>
+<p>Resources:<br />
+<a href="http://folk.uio.no/trondham/software/check_openmanage.html">http://folk.uio.no/trondham/software/check_openmanage.html</a><br />
+<a href="http://linux.dell.com/repo/community/deb/latest/">http://linux.dell.com/repo/community/deb/latest/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+	</channel>
+</rss>

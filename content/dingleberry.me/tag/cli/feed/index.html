@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/cli/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>CLI fun @ commandlinefu.com</title>
+		<link>http://dingleberry.me/2009/03/cli-fun-commandlinefucom/</link>
+		<comments>http://dingleberry.me/2009/03/cli-fun-commandlinefucom/#comments</comments>
+		<pubDate>Tue, 17 Mar 2009 21:14:30 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cli]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=349</guid>
+		<description><![CDATA[Care for some latenight CLI fun? Go to http://www.commandlinefu.com and vote your favorites and contrib your own superh4xx0r cli&#8217;s! Some of my favorites: $ python -m SimpleHTTPServer #Serve current directory tree at http://$HOSTNAME:8000/ :w !sudo tee % #Save a file you edited in vim without the needed permissions I often forget to sudo before editing [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Care for some latenight CLI fun?<br />
+Go to <a href="http://www.commandlinefu.com">http://www.commandlinefu.com</a> and vote your favorites and contrib your own superh4xx0r cli&#8217;s!</p>
+<p>Some of my favorites:</p>
+<p><code>$ python -m SimpleHTTPServer<br />
+#Serve current directory tree at http://$HOSTNAME:8000/</code></p>
+<p><code>:w !sudo tee %<br />
+#Save a file you edited in vim without the needed permissions<br />
+I often forget to sudo before editing a file I don't have write permissions on. When you come to save that file and get the infamous "E212: Can't open file for writing", just issue that vim command in order to save the file without the need to save it to a temp file and then copy it back again.</code></p>
+<p><code>$ curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuses/update.xml<br />
+#Update twitter via curl</code></p>
+<p><code>$ dd if=/dev/mem | cat | strings<br />
+#A fun thing to do with ram is actually open it up and take a peek. #This command will show you all the string (plain text) values in ram</code></p>
+<p><code>$ du -s * | sort -n | tail<br />
+#Get the 10 biggest files/folders for the current direcotry</code></p>
+<p><code>$ du --max-depth=1 | sort -r -n | awk '{split("k m g",v); s=1; while($1&gt;1024){$1/=1024; s++} print int($1)" "v[s]"\t"$2}'<br />
+#Show biggest files/directories, biggest first with 'k,m,g' eyecandy</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/cli-fun-commandlinefucom/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

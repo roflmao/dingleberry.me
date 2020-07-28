@@ -1,0 +1,66 @@
+#!/usr/bin/perl
+#
+# Usage: f5-bigip-tmm-cpu.pl <hostname> <snmp community>
+#
+#
+
+use Net::SNMP qw(:snmp);
+
+my %ERRORS=('OK'=>0,'WARNING'=>1,'CRITICAL'=>2,'UNKNOWN'=>3,'DEPENDENT'=>4);
+my $host 	= $ARGV[0];
+my $snmp_comm 	= $ARGV[1];
+my $warn 	= $ARGV[2];
+my $crit 	= $ARGV[3];
+
+chomp $host;
+chomp $snmp_comm;
+chomp $warn;
+chomp $crit;
+
+my $tmmTotalCyl = '.1.3.6.1.4.1.3375.2.1.1.2.1.41.0';
+my $tmmIdleCyl  = '.1.3.6.1.4.1.3375.2.1.1.2.1.42.0';
+my $tmmSleepCyl = '.1.3.6.1.4.1.3375.2.1.1.2.1.43.0';
+
+my ($session, $error) = Net::SNMP->session(
+        -hostname       => $host,
+        -community      => $snmp_comm,
+        -port           => 161,
+        -version        => 'snmpv2c',
+        -nonblocking    => 0
+        );
+
+if (!defined $session)
+{
+	print "Received no SNMP response from $host\n";
+	print STDERR "Error: $error\n";
+	exit -1;
+}
+
+# poll CPU oids
+my $polled_oids_0 = $session->get_request(
+                  -varbindlist =>
+                  [$tmmTotalCyl, $tmmIdleCyl, $tmmSleepCyl] );
+
+# calculate CPU Utilization
+#my $tmm_cpu = (( $polled_oids->{$tmmTotalCyl} - ($polled_oids->{$tmmIdleCyl} + $polled_oids->{$tmmSleepCyl})) / $polled_oids->{$tmmTotalCyl} ) * 100;
+
+sleep 10; 
+my $polled_oids_1 = $session->get_request(-varbindlist => [$tmmTotalCyl, $tmmIdleCyl, $tmmSleepCyl]);
+my $tmm_cpu = (( ($polled_oids_1->{$tmmTotalCyl} - $polled_oids_0->{$tmmTotalCyl}) - ( ($polled_oids_1->{$tmmIdleCyl} - $polled_oids_0->{$tmmIdleCyl}) + ($polled_oids_1->{$tmmSleepCyl} - $polled_oids_0->{$tmmSleepCyl}) )) / ($polled_oids_1->{$tmmTotalCyl} - $polled_oids_0->{$tmmTotalCyl}) ) * 100 ; 
+
+
+# Round to integer
+$tmm_cpu = int($tmm_cpu + .5);
+
+
+if($tmm_cpu > $crit) {
+	print "CRITICAL: TMM utilization is higher than $crit ($tmm_cpu). | pct=$tmm_cpu\n";
+	exit $ERRORS{"CRITICAL"};
+}
+if($tmm_cpu > $warn) {
+	print "WARNING: TMM utilization is higher than $warn ($tmm_cpu). | pct=$tmm_cpu\n";
+	exit $ERRORS{"WARNING"};
+}
+
+print "OK: TMM utilization is $tmm_cpu. | pct=$tmm_cpu\n";
+exit $ERRORS{"OK"};

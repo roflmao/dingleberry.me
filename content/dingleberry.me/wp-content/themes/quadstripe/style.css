@@ -1,0 +1,480 @@
+/*
+
+Theme Name: QuadStripe
+
+Theme URI: http://www.themelab.com/free-wordpress-themes/
+
+Description: Design by <a href="http://imanto.com">imanto.com</a>.  WordPressed by <a href="http://www.themelab.com">Theme Lab</a>
+
+Version: 1.0
+
+Author: Theme Lab
+
+Author URI: http://www.themelab.com/
+
+*/
+
+
+
+* { padding: 0; margin: 0; }
+
+
+
+img { border: 0; }
+
+
+
+body {
+
+ font-family: Arial, Helvetica, sans-serif;
+
+ font-size: 11px;
+
+ background: #000;
+
+ color: #fff;
+
+ background-repeat: repeat-x;
+
+}
+
+#wrapper { 
+
+ margin: 0 auto;
+
+ width: 800px;
+
+}
+
+#header {
+
+ width: 800px;
+
+ height: 102px;
+
+}
+
+#header h1 {
+
+ font-size: 36px;
+
+ font-weight: normal;
+
+ padding: 29px 0 0 20px;
+
+}
+
+#header h1 a {
+
+ color: #fff;
+
+ text-decoration: none;
+
+}
+
+#header .description {
+
+ font-size: 12px;
+
+ padding-left: 30px;
+
+}
+
+#navigation {
+
+ float: left;
+
+ width: 800px;
+
+ height: 34px;
+
+ margin: 0;
+
+ font-size: 12px;
+
+ font-weight: bold;
+
+}
+
+#navigation ul {
+
+ list-style: none;
+
+ padding: 10px 0 0 16px;
+
+}
+
+#navigation li {
+
+ display: inline;
+
+ margin-right: 10px;
+
+}
+
+#navigation a {
+
+ color: #fff;
+
+ text-decoration: none;
+
+}
+
+#navigation a:hover {
+
+ text-decoration: underline;
+
+}
+
+#content { 
+
+ margin: 0;
+
+ min-height: 350px;
+
+ width: 562px;
+
+ padding: 21px 13px 21px 13px;
+
+ float: left;
+
+}
+
+#content h2 {
+
+ font-size: 14px;
+
+}
+
+#content h2 a {
+
+ color: #fff;
+
+ text-decoration: none;
+
+}
+
+#content p {
+
+ padding: 10px 0 0 0;
+
+}
+
+#content .post {
+
+ width: 525px;
+
+ background: #202020;
+
+ border: 1px solid #3c3c3c;
+
+ padding: 15px 10px 15px 10px;
+
+ clear: left;
+
+}
+
+#content a {
+
+ text-decoration: none;
+
+ font-weight: bold;
+
+}
+
+#content .info-box {
+
+ background: #202020;
+
+ border: 1px solid #3c3c3c;
+
+ float:left;
+
+ padding: 5px;
+
+ margin: 10px 10px 20px 0;
+
+}
+
+#content .info-box a {
+
+ color: #636363;
+
+ text-decoration: none;
+
+}
+
+#content .info-box a:hover {
+
+ text-decoration: underline;
+
+}
+
+#sidebar { 
+
+ float: right;
+
+ margin: 20px 20px 0px 0px;
+
+ min-height: 350px;
+
+ width: 190px;
+
+ display: inline;
+
+ position: relative;
+
+}
+
+#sidebar ul {
+
+list-style: none;
+
+}
+
+#sidebar li {
+
+ margin-bottom: 10px;
+
+}
+
+#sidebar a {
+
+ color: #fff;
+
+ text-decoration: none;
+
+}
+
+#sidebar .sidebar-item {
+
+ background: #202020;
+
+ border: 1px solid #3c3c3c;
+
+ margin-bottom: 20px;
+
+}
+
+#sidebar .sidebar-heading {
+
+ height: 29px;
+
+}
+
+
+
+#sidebar .sidebar-heading h3 {
+
+ font-size: 14px;
+
+ padding: 6px 0 0 8px;
+
+}
+
+#sidebar .sidebar-content {
+
+ padding: 10px;
+
+}
+
+.clear {
+
+ clear: both;
+
+}
+
+#comments {
+
+ padding: 10px 0 10px 0;
+
+}
+
+#respond {
+
+ padding-top: 10px;
+
+}
+
+#content ul, #content ol {
+
+ padding-left: 20px;
+
+}
+
+.commentlist li {
+
+ padding-bottom: 10px
+
+}
+
+
+
+#submit {
+
+ width: 57px;
+
+ height: 23px;
+
+ border: 0;
+
+}
+
+#s {
+
+ padding-top:8px;
+
+ height: 15px;
+
+ width: 100px;
+
+ border: 0;
+
+}
+
+#searchsubmit {
+
+ padding-top:6.5px;
+
+ width: 57px;
+
+ height: 23px;
+
+ border: 0;
+
+}
+
+
+
+#footer {
+
+ clear: both;
+
+ text-align: center;
+
+ margin-bottom: 10px;
+
+}
+
+
+
+#footer a {
+
+ color: #fff;
+
+}
+
+ 
+
+
+
+/* WordPress CSS */
+
+
+
+img.avatar {
+
+ float: left;
+
+ margin-right: 5px;
+
+}
+
+
+
+.aligncenter,
+
+div.aligncenter {
+
+   display: block;
+
+   margin-left: auto;
+
+   margin-right: auto;
+
+}
+
+
+
+.alignleft {
+
+   float: left;
+
+}
+
+
+
+.alignright {
+
+   float: right;
+
+}
+
+
+
+.wp-caption {
+
+   border: 1px solid #ddd;
+
+   text-align: center;
+
+   background-color: #f3f3f3;
+
+   padding-top: 4px;
+
+   margin: 10px;
+
+   /* optional rounded corners for browsers that support it */
+
+   -moz-border-radius: 3px;
+
+   -khtml-border-radius: 3px;
+
+   -webkit-border-radius: 3px;
+
+   border-radius: 3px;
+
+}
+
+
+
+.wp-caption img {
+
+   margin: 0;
+
+   padding: 0;
+
+   border: 0 none;
+
+}
+
+
+
+.wp-caption p.wp-caption-text {
+
+   font-size: 11px;
+
+   line-height: 17px;
+
+   padding: 0 4px 5px;
+
+   margin: 0;
+
+}
+
+code	{
+	background:#333;
+	border:1px dotted gray;
+	display:block;
+	padding:5px 10px;
+	}
+blockquote	{
+	background:#333;
+	border:1px dotted gray;
+	display:block;
+	padding:5px 10px;
+	}
+
+#google_ads_frame1 {
+    margin: 10px 0 0 0;
+}

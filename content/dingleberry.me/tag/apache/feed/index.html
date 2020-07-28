@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/apache/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Monitor it with nagios, fix it with cfengine.</title>
+		<link>http://dingleberry.me/2009/01/monitor-it-with-nagios-fix-it-with-cfengine/</link>
+		<comments>http://dingleberry.me/2009/01/monitor-it-with-nagios-fix-it-with-cfengine/#comments</comments>
+		<pubDate>Thu, 22 Jan 2009 11:20:20 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[cfengine]]></category>
+		<category><![CDATA[cfrun]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=262</guid>
+		<description><![CDATA[This is something we started doing some time during the end of last year. We wanted to have nagios and cfengine to cooperate. We didn&#8217;t want cfengine to monitor if processes were running, cause thats nagios&#8217; job and we didnt want nagios to fix problems occuring, cause that&#8217;s cfengine&#8217;s job &#8230;.SO ..we found out that [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>This is something we started doing some time during the end of last year. We wanted to have nagios and cfengine to cooperate. We didn&#8217;t want cfengine to monitor if processes were running, cause thats nagios&#8217; job and we didnt want nagios to fix problems occuring, cause that&#8217;s cfengine&#8217;s job &#8230;.SO ..we found out that cfrun could help us out with this problem and make a simple integration. Here&#8217;s how we did it.</p>
+<p>In this particular scenario, we had some segfaults in our apache logs caused by some PHP errors we couldnt fix, which ended up in apache spawning a lot of child processes and giving us lots of defuncts and we had to restart apache every now and then.</p>
+<p>So first we configured a check in our services config file in nagios. Something like this :</p>
+<p><strong>services.cfg</strong></p>
+<p><code>define service{<br />
+use generic-service<br />
+host_name webserver.somedomain.com<br />
+service_description CHECK_LOG_SEGFAULT<br />
+is_volatile 0<br />
+max_check_attempts 1<br />
+normal_check_interval 5<br />
+retry_check_interval 1<br />
+contact_groups admins<br />
+notification_period 24x7<br />
+notification_options c,w,r<br />
+process_perf_data 1<br />
+check_command check_log_segfault<br />
+event_handler restart-apache<br />
+}</code></p>
+<p>Now configure the commands. One command for the event-handler,n ame it &#8220;restart-apache&#8221; which is what the &#8220;event_handler&#8221; option in the example above says. One command for the logcheck, &#8220;check_command check_log_segfault&#8221;</p>
+<p><strong>commands.cfg : </strong></p>
+<p><code>define command{<br />
+command_name  restart-apache<br />
+command_line  /usr/bin/sudo /usr/sbin/cfrun $HOSTNAME$ -T -- -q -D restart_apache2_now<br />
+}<br />
+define command{<br />
+        command_name    check_log_segfault<br />
+        command_line    $USER1$/check_by_ssh -l root -t 30 -H $HOSTADDRESS$ -C "/usr/lib/nagios/plugins/check_log -F /var/log/apache2/error.log -O /var/log/apache2/check_log_oldlog -q Segmentation"<br />
+}<br />
+</code><br />
+(The check_log command is being run on every host that needs it, but you could for instance call it via net-snmp&#8217;s EXEC function if you dont want to use ssh. NRPE is prolly also an alternative).<br />
+Be sure to enable eventhandlers in nagios.cfg for this to work.</p>
+<p><strong>nagios.cfg :</strong></p>
+<p><code>enable_event_handlers=1</code></p>
+<p>Thats what&#8217;s needed for nagios. Let&#8217;s conf some cfengine.</p>
+<p>In the nagios config you can see we&#8217;re running the cfengine class &#8220;restart_apache2_now&#8221;, so lets create a cfengine class with the same name.</p>
+<p><strong>cf.apache2 : </strong><br />
+<code><br />
+###############################################################<br />
+control:<br />
+actionsequence = ( packages shellcommands )<br />
+AddInstallable = ( has_apache2 )<br />
+IfElapsed = ( 0 )<br />
+###############################################################<br />
+classes:<br />
+###############################################################<br />
+packages:<br />
+debian::<br />
+apache2<br />
+pkgmgr=dpkg<br />
+define=has_apache2<br />
+################################################################<br />
+shellcommands:<br />
+# apache2 initscript<br />
+# Usage: /etc/init.d/apache2 {start|stop|restart|reload|force-reload}<br />
+debian.has_apache2.restart_apache2_now::<br />
+"/etc/init.d/apache2 restart"</code></p>
+<p>Be sure to include this class in your cfengine config so that cfengine knows about it.</p>
+<p>So now nagios monitors the logfile, checks for segfault messages and tells cfengine to restart apache if a segfault is found. (The nagios plugin check_log takes care of comparing new and old segfault messages, so that&#8217;s nothing to worry about). Everyone is happy and we (the sysadmins) dont have to do shit. Just the way we want it.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/monitor-it-with-nagios-fix-it-with-cfengine/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Show headers for a http request using curl(with specified virtualhost)</title>
+		<link>http://dingleberry.me/2008/10/show-headers-for-a-http-request-using-curl/</link>
+		<comments>http://dingleberry.me/2008/10/show-headers-for-a-http-request-using-curl/#comments</comments>
+		<pubDate>Mon, 13 Oct 2008 12:07:59 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[curl]]></category>
+		<category><![CDATA[headers]]></category>
+		<category><![CDATA[inspect]]></category>
+		<category><![CDATA[lighttpd]]></category>
+		<category><![CDATA[virtualhost]]></category>
+		<category><![CDATA[webserver]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=121</guid>
+		<description><![CDATA[Normally when I want to see what the hell a webserver returns for any given request i would use telnet wrky ~ # telnet webserver01 80 Trying 123.123.123.4... Connected to webserver01.example.org. Escape character is '^]'. GET / HTTP/1.0 HTTP/1.1 301 Moved Permanently Date: Mon, 13 Oct 2008 11:58:12 GMT Server: Apache/1.3.34 Location: http://localhost/index.html Content-Length: 100 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Normally when I want to see what the hell a webserver returns for any given request i would use telnet</p>
+<p><code>wrky ~ # telnet webserver01 80<br />
+Trying 123.123.123.4...<br />
+Connected to webserver01.example.org.<br />
+Escape character is '^]'.<br />
+GET / HTTP/1.0<br />
+<br />
+HTTP/1.1 301 Moved Permanently<br />
+Date: Mon, 13 Oct 2008 11:58:12 GMT<br />
+Server: Apache/1.3.34<br />
+Location: http://localhost/index.html<br />
+Content-Length: 100<br />
+Connection: close<br />
+Content-Type: text/html; charset=utf-8<br />
+<br />
+This item has moved here<br />
+</code><br />
+But wait, why not do it the more sane way; using curl with the dump headers trigger:<br />
+<code><br />
+wrky # curl -D - webserver01.example.org<br />
+HTTP/1.1 301 Moved Permanently<br />
+Date: Mon, 13 Oct 2008 11:58:28 GMT<br />
+Server: Apache/1.3.34<br />
+Location: http://webserver01.example.org/index.html<br />
+Content-Length: 111<br />
+Connection: close<br />
+Content-Type: text/html; charset=utf-8<br />
+<br />
+This item has moved here.</code></p>
+<p>And if, like me, you have several virtualhosts (vhosts) on the same webserver; add the host header with the -H header trigger;<br />
+<code><br />
+wrky ~ # curl -H 'host: picsearch.example.org' -D - webserver01.example.org<br />
+HTTP/1.1 200 OK<br />
+Date: Mon, 13 Oct 2008 12:05:49 GMT<br />
+Server: Apache/1.3.34<br />
+Content-Length: 6171<br />
+Connection: close<br />
+Content-Type: text/html; charset=utf-8<br />
+<br />
+This item has moved here.</code></p>
+<p>Be aware that the -H does NOT stand for Host, but Header &#8211; you need to put the word &#8220;Host:&#8221; before the virtualhost address. Somehing like -H &#8216;Host: www.cnn.com&#8217;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/show-headers-for-a-http-request-using-curl/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+		<item>
+		<title>mod_security2 blocking wp-admin</title>
+		<link>http://dingleberry.me/2008/10/mod_security2-blocking-wp-admin/</link>
+		<comments>http://dingleberry.me/2008/10/mod_security2-blocking-wp-admin/#comments</comments>
+		<pubDate>Wed, 08 Oct 2008 20:37:12 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[mod_security]]></category>
+		<category><![CDATA[mod_security2]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=35</guid>
+		<description><![CDATA[mod_security2 seems to block wp-admin when trying to post: “Method Not Implemented POST to /wp-admin/post.php not supported.” From the mod_security audit file: [08/Oct/2008:22:29:32 +0200] [dingleberry.me/sid#83ee2f0][rid#8616950][/wp-admin/post.php][1] Access denied with code 501 (phase 2). Pattern match "(?:\b(?:\.(?:ht(?:access&#124;passwd&#124;group)&#124;www_?acl)&#124;global\.asa&#124;httpd\.conf&#124;boot\.ini)\b&#124;\/etc\/)" at ARGS:content. [file "/etc/modsecurity2/modsecurity_crs_40_generic_attacks.conf"] [line "114"] [id "950005"] [msg "Remote File Access Attempt"] [data "/etc/"] [severity "CRITICAL"] [tag "WEB_ATTACK/FILE_INJECTION"] The [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>mod_security2 seems to block wp-admin when trying to post:</p>
+<p><code>“Method Not Implemented POST to /wp-admin/post.php not supported.”</code></p>
+<p>From the mod_security audit file:<br />
+<code>[08/Oct/2008:22:29:32 +0200] [dingleberry.me/sid#83ee2f0][rid#8616950][/wp-admin/post.php][1] Access denied with code 501 (phase 2). Pattern match "(?:\b(?:\.(?:ht(?:access|passwd|group)|www_?acl)|global\.asa|httpd\.conf|boot\.ini)\b|\/etc\/)" at ARGS:content. [file "/etc/modsecurity2/modsecurity_crs_40_generic_attacks.conf"] [line "114"] [id "950005"] [msg "Remote File Access Attempt"] [data "/etc/"] [severity "CRITICAL"] [tag "WEB_ATTACK/FILE_INJECTION"]</code></p>
+<p>The solution was to add this to the virtualhost:<br />
+<code>SecRuleInheritance Off</code></p>
+<p>Guess its got pros and cons on being to strict on the security. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/mod_security2-blocking-wp-admin/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

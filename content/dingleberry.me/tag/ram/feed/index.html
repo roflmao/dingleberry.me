@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/ram/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Over 3,2 gb RAM with Ubuntu Desktop 32-bit</title>
+		<link>http://dingleberry.me/2009/08/over-32-gb-ram-with-ubuntu-desktop-32-bit/</link>
+		<comments>http://dingleberry.me/2009/08/over-32-gb-ram-with-ubuntu-desktop-32-bit/#comments</comments>
+		<pubDate>Thu, 06 Aug 2009 18:30:13 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[32bit]]></category>
+		<category><![CDATA[ram]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=389</guid>
+		<description><![CDATA[Ubuntu Desktop kernel (generic/desktop) doesnt support PAE (Physical Address Extension) To get PAE support and usage of more than 3,2 gb ram in 32bits kernelspace you have to install the server kernel: sudo apt-get install linux-headers-server linux-image-server Reboot, and whoops you can use all your RAM The alternative would be to install a 64-bit kernel, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Ubuntu Desktop kernel (generic/desktop) doesnt support PAE (<a href="http://en.wikipedia.org/wiki/Physical_Address_Extension">Physical Address Extension</a>)</p>
+<p>To get PAE support and usage of more than 3,2 gb ram in 32bits kernelspace you have to install the server kernel:<br />
+<code>sudo apt-get install linux-headers-server linux-image-server</code></p>
+<p>Reboot, and whoops you can use all your RAM <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>The alternative would be to install a 64-bit kernel, but you probably wouldnt want this on a desktop because of restricted drivers mostly only support 32-bit (and e.x. multimedia codecs/flash doesnt have good 64-bit support)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/over-32-gb-ram-with-ubuntu-desktop-32-bit/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

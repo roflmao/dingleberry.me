@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/tune2fs/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>ext3 full but not _FULL_</title>
+		<link>http://dingleberry.me/2009/03/ext3-full-but-not-_full_/</link>
+		<comments>http://dingleberry.me/2009/03/ext3-full-but-not-_full_/#comments</comments>
+		<pubDate>Tue, 31 Mar 2009 05:40:54 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ext3]]></category>
+		<category><![CDATA[tune2fs]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=363</guid>
+		<description><![CDATA[root@horsepr0n:~# df -h Filesystem Size Used Avail Use% Mounted on /dev/sde1 9.3G 8.8G 0 100% / 8.8gb of 9.3gb isnt 100%. This is because the default behaviour of ext3 is to reserve 5% of the filesystem to the superuser. (in case things get full, so your system wont ubercrash) How to fix: root@horsepr0n:~# tune2fs -m [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><code>root@horsepr0n:~# df -h<br />
+Filesystem            Size  Used Avail Use% Mounted on<br />
+/dev/sde1             9.3G  8.8G     0 100% /</code></p>
+<p>8.8gb of 9.3gb isnt 100%. This is because the default behaviour of ext3 is to reserve 5% of the filesystem to the superuser. (in case things get full, so your system wont ubercrash)</p>
+<p>How to fix:<br />
+<code>root@horsepr0n:~# tune2fs -m 0 /dev/sde1<br />
+tune2fs 1.41.3 (12-Oct-2008)<br />
+Setting reserved blocks percentage to 0% (0 blocks)</code></p>
+<p>Now we got room for some more horsepr0n:</p>
+<p><code>root@horsepr0n:~# df -h<br />
+Filesystem            Size  Used Avail Use% Mounted on<br />
+/dev/sde1             9.3G  8.8G  473M  96% /</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/ext3-full-but-not-_full_/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/cafe/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>free internet on cafes or airports with dnstunnel or icmp ping tunnel</title>
+		<link>http://dingleberry.me/2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/</link>
+		<comments>http://dingleberry.me/2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/#comments</comments>
+		<pubDate>Mon, 03 Nov 2008 13:58:48 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[airport]]></category>
+		<category><![CDATA[cafe]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[free]]></category>
+		<category><![CDATA[icmp]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[tunnel]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=203</guid>
+		<description><![CDATA[aptitude install libmime-base32-perl libwww-perl libnet-dns-perl to use this server as a http proxy (which is what we will do here), do the following as well: aptitude install privoxy wget http://www.doxpara.com/ozymandns_src_0.1.tgz tar xvzf ozymandns_src_0.1.tgz ./nomde.pl -i 0.0.0.0 hesten.XXXXXXXX.no on client, follow the same procedure to install packages and download scripts etc&#8230; to get a shell on [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><code>aptitude install libmime-base32-perl libwww-perl libnet-dns-perl</code><br />
+to use this server as a http proxy (which is what we will do here), do the following as well:<br />
+<code>aptitude install privoxy</code><br />
+<code>wget http://www.doxpara.com/ozymandns_src_0.1.tgz</code><br />
+<code>tar xvzf ozymandns_src_0.1.tgz</code><br />
+<code>./nomde.pl -i 0.0.0.0 hesten.XXXXXXXX.no</code><br />
+on client, follow the same procedure to install packages and download scripts etc&#8230;</p>
+<p>to get a shell on the dns server:<br />
+<code>ssh -C -o ProxyCommand="./droute.pl -v sshdns.hesten.XXXXXXXX.no" user@localhost</code><br />
+to use the proxy we installed on the dns server:<br />
+<code>ssh -C -o ProxyCommand="./droute.pl -v sshdns.hesten.XXXXXXXX.no" -NL 8118:localhost:8118 user@localhost</code><br />
+open a new window and :<br />
+<code>export http_proxy=http://localhost:8118</code><br />
+and launch your fav browser..</p>
+<p>For a full, and more thorough guide &#8211; check <a href="http://dnstunnel.de/">dnstunnel.de</a></p>
+<p>I never could get the icmp ping tunnel to work &#8211; which sux &#8211; because it supposedly had alot better throughput :s<br />
+Check the authors webpage for details regarding the project <a href="http://www.cs.uit.no/~daniels/PingTunnel/">here</a> &#8211; oh, and if you get it to work, please leave a comment <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

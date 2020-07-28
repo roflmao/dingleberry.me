@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:31:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta name="verify-v1" content="2rXzy+cQDUSahcuL4FvfXvDHZf0neGFXRtWQjgvNFSg=" />
+<meta name="verify-v1" content="cAY9vxAYMdRz6Fqo2XC7yBXodW8+0qyJVN+Jm4NaCjs=" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Compile xbmc with broadcom crystalhd support on linux | dingleberry.me</title>
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/style.css" />
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/blue.css" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me RSS Feed" href="../../../feed/index.html" />
+
+<link rel="pingback" href="../../../xmlrpc.php" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me &raquo; Compile xbmc with broadcom crystalhd support on linux Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='shadowbox-css-css'  href='../../../wp-content/uploads/shadowbox-js/src/shadowbox19ce.css?ver=3.0.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='shadowbox-extras-css'  href='../../../wp-content/plugins/shadowbox-js/css/extrasc393.css?ver=3.0.3.10' type='text/css' media='screen' />
+<link rel='stylesheet' id='sociablecss-css'  href='../../../wp-content/plugins/sociable/css/sociable7e2e.css?ver=3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='quotescollection-style-css'  href='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.css?ver=1.5.7' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var QCAjax = {"ajaxurl":"http:\/\/dingleberry.me\/wp-admin\/admin-ajax.php","nonce":"413e2c4400","nextquote":"Next quote\u00a0\u00bb","loading":"Loading...","error":"Error getting quote","auto_refresh_max":"30","auto_refresh_count":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.js?ver=1.5.7'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/sociable7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/vuible7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/addtofavorites7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery.form.min018d.js?ver=3.37.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPWallSettings = {"refreshtime":"0","expand_box":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/wp-wall/wp-wall7e2e.js?ver=3.8.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder' href='../ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/index.html' />
+<link rel='next' title='CrystalHD AppleTV OSX kext lib is ready for download' href='../../../2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/index.html' />
+<meta name="generator" content="WordPress 3.8.1" />
+<link rel='shortlink' href='../../../index4f61.html?p=589' />
+<!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
+<meta name="description" content="technical blog about technical stuff for sysadmins etc" />
+<meta name="keywords" content="8.04,apple,appletv,atv,bcm70012,broadcom,compile,crystal,crystalhd,driver,hardy,hd,linux,nagios dashboard bigip f5 varnish munin debian lisa curl linux sysadmin,tv,ubuntu,xbmc" />
+<!-- HeadSpace -->
+<script type='text/javascript'>var base_url_sociable = 'http://dingleberry.me/wp-content/plugins/sociable/'</script><script type='text/javascript' src='http://apis.google.com/js/plusone.js'></script><link rel="stylesheet" href="../../../wp-content/plugins/wp-wall/wp-wall.css" type="text/css" />
+<!-- All in One SEO Pack 2.1.3 by Michael Torbert of Semper Fi Web Design[410,506] -->
+<meta name="description" content="Broadcom CrystalHD is a Mini-PCIe expansioncard to make your box do hardware decoding of HD video material (h264, vc1++) Got a old AppleTV which you dont use?" />
+
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+
+</head>
+
+
+
+<body>
+
+
+
+   <!-- Begin Wrapper -->
+
+   <div id="wrapper">
+
+   
+
+         <!-- Begin Header -->
+
+         <div id="header">
+
+		 
+
+		       <h1><a href="../../../index.html">dingleberry.me</a></h1>
+
+				<div class="description">technical blog shit</div>
+
+			   
+
+		 </div>
+
+		 <!-- End Header -->
+
+		 
+
+		 <!-- Begin Navigation -->
+
+		 <div id="navigation">
+
+		 
+
+		       <ul>
+
+			   <li><a href="../../../index.html">Home</a></li>
+
+			<li class="page_item page-item-2"><a href="../../../about/index.html">About Us</a></li>
+
+				</ul>
+
+		 </div>
+		 <!-- End Navigation -->
+
+<br/>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0660223234642083";
+/* 728x90, created 11/9/09 */
+google_ad_slot = "8516937673";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		 
+
+		 <!-- Begin Content -->
+
+		 <div id="content">
+
+		 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="index.html" rel="bookmark" title="Permanent Link to Compile xbmc with broadcom crystalhd support on linux">Compile xbmc with broadcom crystalhd support on linux</a></h2>
+
+
+
+<div class="post-info">Posted November 30, 2009 by MrDingle</div>
+
+			   
+
+			   <p>Broadcom CrystalHD is a Mini-PCIe expansioncard to make your box do hardware decoding of HD video material (h264, vc1++)<br />
+Got a old AppleTV which you dont use? Buy a CrystalHD chip on ebay for 30 dollars, and it will play 1080p for you <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>Install Ubuntu 8.04 Hardy on your box, if you are going to use an AppleTV you can follow the guide here:<br />
+<a href="../ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/index.html">http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/</a></p>
+<p>Download the xbmc crystalhd branch and the lib directory from the xdmx branch which has the necessary crystalhd include files:<br />
+<code>svn co -r 22347 https://xbmc.svn.sourceforge.net/svnroot/xbmc/branches/xdmx/XBMC/xbmc/lib/<br />
+svn co -r 25101 https://xbmc.svn.sourceforge.net/svnroot/xbmc/branches/crystalhd<br />
+</code><br />
+prepare the system for crystalhd support:<br />
+<code>mkdir /usr/include/crystalhd<br />
+cp -a lib/crystalhd/include/* /usr/include/crystalhd<br />
+cp /usr/include/crystalhd/windows/bc_drv_if.h /usr/include/crystalhd/bc_ldil_if.h<br />
+</code><br />
+Edit /usr/include/crystalhd/bc_dts_types.h and comment out line 59 so it looks like this:<br />
+<code>//typedef void          VOID;<br />
+</code><br />
+Copy the crystalhd include files to the crystalhd branch source:<br />
+<code>cp -a /usr/include/crystalhd crystalhd/xbmc/lib/<br />
+</code></p>
+<p>Download the bcm70012 source and build the module:<br />
+<code>wget http://www.norco.net.cn/UpLoadFile/Driver/bcm70012_linux_01142009.rar<br />
+unrar e bcm70012_linux_01142009.rar<br />
+tar xf bcm70012_linux_01142009<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+apt-get -f install<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+cd /usr/src/<br />
+m-a -t a-i bcm70012kmod<br />
+cd -<br />
+</code><br />
+Install the gstreamer plugin from the HP mini 110 distro (the file came with the driver download in the step above)<br />
+<code>dpkg -i --force-all gst-broadcom-70012_0.9.30_lpia.deb<br />
+</code></p>
+<p>Now follow the steps from the README.ubuntu file inside the crystalhd source:<br />
+<code>sudo aptitude install subversion make g++ gcc gawk pmount libtool nasm automake cmake gperf unzip bison libsdl-dev libsdl-image1.2-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev libfribidi-dev liblzo2-dev libfreetype6-dev libsqlite3-dev libogg-dev libasound-dev python-sqlite libglew-dev libcurl3 libcurl4-openssl-dev x11proto-xinerama-dev libxinerama-dev libxrandr-dev libxrender-dev libmad0-dev libogg-dev libvorbis-dev libsmbclient-dev libmysqlclient-dev libpcre3-dev libdbus-1-dev libhal-dev libhal-storage-dev libjasper-dev libfontconfig-dev libbz2-dev libboost-dev libfaac-dev libenca-dev libxt-dev libxtst-dev libxmu-dev libpng-dev libjpeg-dev libpulse-dev mesa-utils libcdio-dev libsamplerate-dev libmms-dev libmpeg3-dev libfaad-dev libflac-dev libiso9660-dev libass-dev libssl-dev</code></p>
+<p>On 8.04 and older versions, libmms is outdated and thus XBMC will not compile properly.<br />
+In this case you will have to manually compile the latest version.<br />
+<code>wget "http://launchpad.net/libmms/trunk/0.4/+download/libmms-0.4.tar.gz"<br />
+   tar zxvf libmms-0.4.tar.gz<br />
+   cd libmms-0.4<br />
+   ./configure --prefix=/usr<br />
+   make<br />
+   sudo make install<br />
+</code><br />
+After all deps has been installed and libmms has been compiled and installed you are ready to compile xbmc. cd to the crystalhd source and do:<br />
+<code>./bootstrap<br />
+./configure<br />
+make<br />
+make install<br />
+</code><br />
+Finito! <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>POST-install tweaks:<br />
+<a href="http://xbmc.org/forum/showpost.php?p=447128&amp;postcount=15">Enable Pixel Buffer Objects</a><br />
+<a href="http://xbmc.org/forum/showpost.php?p=447551&amp;postcount=32">Start xbmc without loading Gnome</a><br />
+And some more AppleTV specific stuff:<br />
+<a href="http://xbmc.org/forum/showpost.php?p=447082&amp;postcount=12">Set fixed cpu frequency</a><br />
+<a href="http://code.google.com/p/atv-bootloader/wiki/PostMythbuntuHardy">Various fixes for Ubuntu on ATV</a></p>
+<!-- Start Sociable --><div class="sociable"><div class="sociable_tagline">Be Sociable, Share!</div><ul class='clearfix'><li><a title="Twitter" class="option1_32" style="background-position:-288px -32px" rel="nofollow" target="_blank" href="http://twitter.com/intent/tweet?text=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux%20-%20http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F%20"></a></li><li><a title="Facebook" class="option1_32" style="background-position:-96px 0px" rel="nofollow" target="_blank" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;t=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux"></a></li><li><a title="email" class="option1_32" style="background-position:-160px 0px" rel="nofollow" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to&amp;su=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;body=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;ui=2&amp;tf=1&amp;shva=1"></a></li><li><a onClick="javascript:var ipinsite='Good%20Vibes.%20Vuible.com',ipinsiteurl='http://vuible.com/';(function(){if(window.ipinit!==undefined){ipinit();}else{document.body.appendChild(document.createElement('script')).src='http://vuible.com/wp-content/themes/ipinpro/js/ipinit.js';}})();" style="cursor:pointer" rel="nofollow" title="Vuible.com | Share positive messages (images and videos only)"><img style='' src='../../../wp-content/plugins/sociable/images/option1/32/vuible.png'></a></li><li><a class="option1_32" style="cursor:pointer;background-position:-128px 0px" rel="nofollow" title="Add to favorites - doesn't work in Chrome"  onClick="javascript:AddToFavorites();"></a></li><li><a title="StumbleUpon" class="option1_32" style="background-position:-224px -32px" rel="nofollow" target="_blank" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux"></a></li><li><a title="Delicious" class="option1_32" style="background-position:-32px 0px" rel="nofollow" target="_blank" href="http://delicious.com/post?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;notes=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li><li><a title="Google Reader" class="option1_32" style="background-position:-224px 0px" rel="nofollow" target="_blank" href="http://www.google.com/reader/link?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;srcURL=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;srcTitle=dingleberry.me+technical+blog+shit"></a></li><li><a title="LinkedIn" class="option1_32" style="background-position:-288px 0px" rel="nofollow" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;source=dingleberry.me+technical+blog+shit&amp;summary=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li><li><a style="cursor:pointer" rel="nofollow" onMouseOut="fixOnMouseOut(document.getElementById('sociable-post-589'), event, 'post-589')" onMouseOver="more(this,'post-589')"><img style='margin-top:9px' src='../../../wp-content/plugins/sociable/images/more.png'></a></li></ul><div onMouseout="fixOnMouseOut(this,event,'post-589')" id="sociable-post-589" style="display:none;">   
+
+    <div style="top: auto; left: auto; display: block;" id="sociable">
+
+
+
+		<div class="popup">
+
+			<div class="content">
+
+				<ul><li style="heigth:32px;width:32px"><a title="Myspace" class="option1_32" style="background-position:0px -32px" rel="nofollow" target="_blank" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;t=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux"></a></li><li style="heigth:32px;width:32px"><a title="Digg" class="option1_32" style="background-position:-64px 0px" rel="nofollow" target="_blank" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;bodytext=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li><li style="heigth:32px;width:32px"><a title="Reddit" class="option1_32" style="background-position:-128px -32px" rel="nofollow" target="_blank" href="http://reddit.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux"></a></li><li style="heigth:32px;width:32px"><a title="Google Bookmarks" class="option1_32" style="background-position:-192px 0px" rel="nofollow" target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;annotation=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li><li style="heigth:32px;width:32px"><a title="HackerNews" class="option1_32" style="background-position:-256px 0px" rel="nofollow" target="_blank" href="http://news.ycombinator.com/submitlink?u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;t=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux"></a></li><li style="heigth:32px;width:32px"><a title="MSNReporter" class="option1_32" style="background-position:-352px 0px" rel="nofollow" target="_blank" href="http://reporter.es.msn.com/?fn=contribute&amp;Title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;URL=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;cat_id=6&amp;tag_id=31&amp;Remark=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li><li style="heigth:32px;width:32px"><a title="BlinkList" class="option1_32" style="background-position:0px 0px" rel="nofollow" target="_blank" href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;Title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux"></a></li><li style="heigth:32px;width:32px"><a title="Sphinn" class="option1_32" style="background-position:-192px -32px" rel="nofollow" target="_blank" href="http://sphinn.com/index.php?c=post&amp;m=submit&amp;link=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F"></a></li><li style="heigth:32px;width:32px"><a title="Posterous" class="option1_32" style="background-position:-64px -32px" rel="nofollow" target="_blank" href="http://posterous.com/share?linkto=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;title=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;selection=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li><li style="heigth:32px;width:32px"><a title="Tumblr" class="option1_32" style="background-position:-256px -32px" rel="nofollow" target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fcompile-xbmc-with-broadcom-crystalhd-support-on-linux%2F&amp;t=Compile%20xbmc%20with%20broadcom%20crystalhd%20support%20on%20linux&amp;s=Broadcom%20CrystalHD%20is%20a%20Mini-PCIe%20expansioncard%20to%20make%20your%20box%20do%20hardware%20decoding%20of%20HD%20video%20material%20%28h264%2C%20vc1%2B%2B%29%0D%0AGot%20a%20old%20AppleTV%20which%20you%20dont%20use%3F%20Buy%20a%20CrystalHD%20chip%20on%20ebay%20for%2030%20dollars%2C%20and%20it%20will%20play%201080p%20for%20you%20%3A%29%0D%0A%0D%0AInstall%20"></a></li></ul>			
+
+			</div>        
+
+		  <a style="cursor:pointer" onclick="hide_sociable('post-589',true)" class="close">
+
+		  <img onclick="hide_sociable('post-589',true)" title="close" src="../../../wp-content/plugins/sociable/images/closelabel.png">
+
+		  </a>
+
+		</div>
+
+	</div> 
+
+  </div></div><div class='sociable' style='float:none'><ul class='clearfix'><li id="Twitter_Counter"><a href="https://twitter.com/share" data-text="Compile xbmc with broadcom crystalhd support on linux - http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/" data-url="http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li><li id="Facebook_Counter"><iframe src="http://www.facebook.com/plugins/like.php?href=http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font" scrolling="no" frameborder="0" style="border:none; overflow:hidden;height:32px;width:100px" allowTransparency="true"></iframe></li><li id="Google_p"><g:plusone annotation="bubble" href="index.html" size="medium"></g:plusone></li><li id="LinkedIn_Counter"><script src="http://platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/" data-counter="right"></script></li><li id="StumbleUpon_Counter"><script src="http://www.stumbleupon.com/hostedbadge.php?s=2&amp;r=http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/"></script></li><li id="vuible_Counter"><a  title='Vuible.com | Share positive messages (images and videos only)'><img onClick='ipinit();' style='cursor:pointer' src='../../../wp-content/plugins/sociable/images/vuible.png'></a></li></ul></div><!-- End Sociable -->
+
+
+<p>Tags: <a href="../../../tag/8-04/index.html" rel="tag">8.04</a>, <a href="../../../tag/apple/index.html" rel="tag">apple</a>, <a href="../../../tag/appletv/index.html" rel="tag">appletv</a>, <a href="../../../tag/atv/index.html" rel="tag">atv</a>, <a href="../../../tag/bcm70012/index.html" rel="tag">bcm70012</a>, <a href="../../../tag/broadcom/index.html" rel="tag">broadcom</a>, <a href="../../../tag/compile/index.html" rel="tag">compile</a>, <a href="../../../tag/crystal/index.html" rel="tag">crystal</a>, <a href="../../../tag/crystalhd/index.html" rel="tag">crystalhd</a>, <a href="../../../tag/driver/index.html" rel="tag">driver</a>, <a href="../../../tag/hardy/index.html" rel="tag">hardy</a>, <a href="../../../tag/hd/index.html" rel="tag">hd</a>, <a href="../../../tag/linux/index.html" rel="tag">linux</a>, <a href="../../../tag/tv/index.html" rel="tag">tv</a>, <a href="../../../tag/ubuntu/index.html" rel="tag">ubuntu</a>, <a href="../../../tag/xbmc/index.html" rel="tag">xbmc</a></p>
+
+
+
+
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">14 Responses to &#8220;Compile xbmc with broadcom crystalhd support on linux&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+
+		<li class="alt" id="comment-1114">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>Anonymous Coward</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1114" title="">November 30th, 2009 at 20:45</a> </small>
+
+			<p>Do you have to check out those revisions? Is there any reason not to check out the latest?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1116">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>MrDingle</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1116" title="">November 30th, 2009 at 21:52</a> </small>
+
+			<p>Hey, yes, the revisions matter. The files you need has been removed from the xdmx branch which is why you have to checkout the revision specified. For the crystalhd branch, the revision specified is a known &#8220;good&#8221; one as far bleeding edge development goes..</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1125">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>DingleBerryFan</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1125" title="">December 1st, 2009 at 15:32</a> </small>
+
+			<p>Hey MrDingle,</p>
+<p>Is it possible to send me an image of your hard drive with Linux and XBMC on it so I can just restore it.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1126">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1126" title="">December 1st, 2009 at 15:35</a> </small>
+
+			<p>uhm, i know its christmas soon, but im afraid not <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  But seriously, its dead simple to install linux. And its semi-simple to compile xbmc after that. I&#8217;ll help you out as much as i can from here, but thats about all I can do..</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1130">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>DingleBerryFan</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1130" title="">December 1st, 2009 at 21:04</a> </small>
+
+			<p>Do you hang out on IRC or MSN/Skype so I can contact you.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1134">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1134" title="">December 2nd, 2009 at 00:13</a> </small>
+
+			<p>I think we&#8217;re gonna keep it to the xbmc forums and here <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1135">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1135" title="">December 2nd, 2009 at 00:43</a> </small>
+
+			<p>Thanks to davilla@xbmc for the solution to the increasinly annoying blinking light on the front of the appletv when running linux: <a href="http://xbmc.org/forum/showpost.php?p=449632&amp;postcount=753" rel="nofollow">http://xbmc.org/forum/showpost.php?p=449632&#038;postcount=753</a></p>
+<p>(google atvtool)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1212">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1212" title="">December 5th, 2009 at 11:52</a> </small>
+
+			<p>I compiled and am now running the latest revision of the crystalhd branch; 25287</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1420">
+<img alt='' src='http://0.gravatar.com/avatar/87bffd1c2a593c4d46e8b3d19d82256b?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>nerpissad</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1420" title="">December 19th, 2009 at 01:52</a> </small>
+
+			<p>I&#8217;ve gotten to the final step where it says that I should cd to do crystalhd source.<br />
+I cd to /usr/include/crystalhd   but I don&#8217;t seem to be able to use the commands following the instructions:<br />
+./bootstrap<br />
+..etc.<br />
+am I not cd-ing to the correct source?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1421">
+<img alt='' src='http://0.gravatar.com/avatar/87bffd1c2a593c4d46e8b3d19d82256b?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>nerpissad</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1421" title="">December 19th, 2009 at 03:13</a> </small>
+
+			<p>gotten a little further already..</p>
+<p>now I missing a required package after executing :</p>
+<p>dimitri@aTV-ubuntu:~/crystalhd$ sudo ./bootstrap<br />
+autoreconf: Entering directory `.&#8217;<br />
+autoreconf: configure.in: not using Gettext<br />
+autoreconf: running: aclocal &#8211;force<br />
+autoreconf: configure.in: tracing<br />
+autoreconf: configure.in: not using Libtool<br />
+autoreconf: running: /usr/bin/autoconf &#8211;force<br />
+autoreconf: running: /usr/bin/autoheader &#8211;force<br />
+autoreconf: configure.in: not using Automake<br />
+autoreconf: Leaving directory `.&#8217;<br />
+autoreconf: Entering directory `xbmc/lib/libass&#8217;<br />
+autoreconf: configure.ac: not using Gettext<br />
+autoreconf: running: aclocal &#8211;force -I shave<br />
+autoreconf: configure.ac: tracing<br />
+autoreconf: running: libtoolize &#8211;copy &#8211;force<br />
+autoreconf: running: /usr/bin/autoconf &#8211;force<br />
+autoreconf: running: /usr/bin/autoheader &#8211;force<br />
+autoreconf: running: automake &#8211;add-missing &#8211;copy &#8211;force-missing<br />
+autoreconf: Leaving directory `xbmc/lib/libass&#8217;<br />
+Please (re)run configure&#8230;<br />
+dimitri@aTV-ubuntu:~/crystalhd$ sudo ./configure<br />
+configure: Ensuring config.guess and config.sub exist and is executable<br />
+checking build system type&#8230; i686-pc-linux-gnu<br />
+checking host system type&#8230; i686-pc-linux-gnu<br />
+checking for ccache&#8230; none<br />
+checking for g++&#8230; g++<br />
+checking for C++ compiler default output file name&#8230; a.out<br />
+checking whether the C++ compiler works&#8230; yes<br />
+checking whether we are cross compiling&#8230; no<br />
+checking for suffix of executables&#8230;<br />
+checking for suffix of object files&#8230; o<br />
+checking whether we are using the GNU C++ compiler&#8230; yes<br />
+checking whether g++ accepts -g&#8230; yes<br />
+checking for gcc&#8230; gcc<br />
+checking whether we are using the GNU C compiler&#8230; yes<br />
+checking whether gcc accepts -g&#8230; yes<br />
+checking for gcc option to accept ISO C89&#8230; none needed<br />
+checking for gawk&#8230; gawk<br />
+checking whether ln -s works&#8230; yes<br />
+checking whether make sets $(MAKE)&#8230; yes<br />
+checking how to run the C++ preprocessor&#8230; g++ -E<br />
+checking for grep that handles long lines and -e&#8230; /bin/grep<br />
+checking for egrep&#8230; /bin/grep -E<br />
+checking for ANSI C header files&#8230; yes<br />
+checking for sys/types.h&#8230; yes<br />
+checking for sys/stat.h&#8230; yes<br />
+checking for stdlib.h&#8230; yes<br />
+checking for string.h&#8230; yes<br />
+checking for memory.h&#8230; yes<br />
+checking for strings.h&#8230; yes<br />
+checking for inttypes.h&#8230; yes<br />
+checking for stdint.h&#8230; yes<br />
+checking for unistd.h&#8230; yes<br />
+checking boost/shared_ptr.hpp usability&#8230; yes<br />
+checking boost/shared_ptr.hpp presence&#8230; yes<br />
+checking for boost/shared_ptr.hpp&#8230; yes<br />
+checking for main in -lGL&#8230; yes<br />
+checking for main in -lGLEW&#8230; yes<br />
+checking for main in -lGLU&#8230; yes<br />
+checking how to run the C preprocessor&#8230; gcc -E<br />
+checking mad.h usability&#8230; yes<br />
+checking mad.h presence&#8230; yes<br />
+checking for mad.h&#8230; yes<br />
+checking jpeglib.h usability&#8230; yes<br />
+checking jpeglib.h presence&#8230; yes<br />
+checking for jpeglib.h&#8230; yes<br />
+checking samplerate.h usability&#8230; yes<br />
+checking samplerate.h presence&#8230; yes<br />
+checking for samplerate.h&#8230; yes<br />
+checking ogg/ogg.h usability&#8230; yes<br />
+checking ogg/ogg.h presence&#8230; yes<br />
+checking for ogg/ogg.h&#8230; yes<br />
+checking vorbis/vorbisfile.h usability&#8230; yes<br />
+checking vorbis/vorbisfile.h presence&#8230; yes<br />
+checking for vorbis/vorbisfile.h&#8230; yes<br />
+checking vorbis/vorbisenc.h usability&#8230; yes<br />
+checking vorbis/vorbisenc.h presence&#8230; yes<br />
+checking for vorbis/vorbisenc.h&#8230; yes<br />
+checking for main in -lbz2&#8230; yes<br />
+checking for main in -lmysqlclient&#8230; yes<br />
+checking for main in -ljpeg&#8230; yes<br />
+checking for main in -lpthread&#8230; yes<br />
+checking for main in -llzo2&#8230; yes<br />
+checking for main in -lz&#8230; yes<br />
+checking for main in -lssl&#8230; yes<br />
+checking for main in -lcrypto&#8230; yes<br />
+checking for pkg-config&#8230; /usr/bin/pkg-config<br />
+checking pkg-config is at least version 0.9.0&#8230; yes<br />
+checking for MAD&#8230; yes<br />
+checking for FONTCONFIG&#8230; no<br />
+configure: error: Could not find a required library. Please see the README for your platform.<br />
+dimitri@aTV-ubuntu:~/crystalhd$ sudo make<br />
+make: *** Geen doelen opgegeven en geen makefile gevonden.  Gestopt.<br />
+dimitri@aTV-ubuntu:~/crystalhd$</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1498">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>MrDingle</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1498" title="">December 30th, 2009 at 00:33</a> </small>
+
+			<p>Broadcom finally released the official linux driver source! :<br />
+<a href="http://www.broadcom.com/support/crystal_hd/" rel="nofollow">http://www.broadcom.com/support/crystal_hd/</a><br />
+The crystalhd branch has now been merged to trunk <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /><br />
+( <a href="http://xbmc.org/forum/showpost.php?p=468454&amp;postcount=215" rel="nofollow">http://xbmc.org/forum/showpost.php?p=468454&#038;postcount=215</a> )</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1556">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1556" title="">January 5th, 2010 at 10:15</a> </small>
+
+			<p>osx lib/kext is out! <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p><a href="../../../2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/index.html" rel="nofollow">http://dingleberry.me/2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1706">
+<img alt='' src='http://1.gravatar.com/avatar/d9b2df1edc1ab2f97712c20cf5833b72?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://toponlinecasino.weebly.com/' rel='external nofollow' class='url'>topcasinomayflow</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1706" title="">January 20th, 2010 at 21:11</a> </small>
+
+			<p>MAYFLOWER CASINO &#8211; $ 5500 WELCOME BONUS!<br />
+<a href="http://toponlinecasino.weebly.com/" rel="nofollow">http://toponlinecasino.weebly.com</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-40511">
+<img alt='' src='http://1.gravatar.com/avatar/3b4c0cdd48929c4537e2864a60a3f1b4?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://kit.weebly.com/' rel='external nofollow' class='url'>Yvette</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40511" title="">July 26th, 2014 at 10:33</a> </small>
+
+			<p>I see a lot of interesting articles on your website. You have to spend a lot of time writing,<br />
+i know how to save you a lot of work, there is a tool that creates readable, google friendly posts in couple of minutes,<br />
+just search in google  &#8211; k2 unlimited content</p>
+
+
+		</li>
+
+	
+
+	
+
+	</ol>
+
+ 
+
+
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+
+<form action="http://dingleberry.me/wp-comments-post.php" method="post" id="commentform">
+
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name </small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) </small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="50%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="" />
+<input type="hidden" name="comment_post_ID" value="589" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2ae1222e77" /></p>
+
+</form>
+
+
+
+
+			   
+
+			   </div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	   
+
+		 
+
+		 </div>
+
+		 <!-- End Content -->
+
+		 
+
+		 <!-- Begin Sidebar -->
+		 <div id="sidebar">
+
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Tags</h3></div><div class="sidebar-content"><div class="tagcloud"><a href='../../../tag/apache/index.html' class='tag-link-35' title='3 topics' style='font-size: 10.153846153846pt;'>apache</a>
+<a href='../../../tag/apple/index.html' class='tag-link-74' title='4 topics' style='font-size: 11.948717948718pt;'>apple</a>
+<a href='../../../tag/appletv/index.html' class='tag-link-257' title='3 topics' style='font-size: 10.153846153846pt;'>appletv</a>
+<a href='../../../tag/atv/index.html' class='tag-link-266' title='3 topics' style='font-size: 10.153846153846pt;'>atv</a>
+<a href='../../../tag/authentication/index.html' class='tag-link-111' title='2 topics' style='font-size: 8pt;'>authentication</a>
+<a href='../../../tag/bigip/index.html' class='tag-link-234' title='3 topics' style='font-size: 10.153846153846pt;'>bigip</a>
+<a href='../../../tag/broadcom/index.html' class='tag-link-255' title='3 topics' style='font-size: 10.153846153846pt;'>broadcom</a>
+<a href='../../../tag/cfengine/index.html' class='tag-link-144' title='2 topics' style='font-size: 8pt;'>cfengine</a>
+<a href='../../../tag/check_http/index.html' class='tag-link-166' title='2 topics' style='font-size: 8pt;'>check_http</a>
+<a href='../../../tag/crystal/index.html' class='tag-link-263' title='4 topics' style='font-size: 11.948717948718pt;'>crystal</a>
+<a href='../../../tag/crystalhd/index.html' class='tag-link-259' title='4 topics' style='font-size: 11.948717948718pt;'>crystalhd</a>
+<a href='../../../tag/curl/index.html' class='tag-link-67' title='2 topics' style='font-size: 8pt;'>curl</a>
+<a href='../../../tag/dd/index.html' class='tag-link-17' title='2 topics' style='font-size: 8pt;'>dd</a>
+<a href='../../../tag/debian/index.html' class='tag-link-4' title='8 topics' style='font-size: 16.435897435897pt;'>debian</a>
+<a href='../../../tag/dell/index.html' class='tag-link-138' title='4 topics' style='font-size: 11.948717948718pt;'>dell</a>
+<a href='../../../tag/etch/index.html' class='tag-link-210' title='3 topics' style='font-size: 10.153846153846pt;'>etch</a>
+<a href='../../../tag/ext3/index.html' class='tag-link-12' title='2 topics' style='font-size: 8pt;'>ext3</a>
+<a href='../../../tag/firefox/index.html' class='tag-link-167' title='4 topics' style='font-size: 11.948717948718pt;'>firefox</a>
+<a href='../../../tag/firefuck/index.html' class='tag-link-208' title='3 topics' style='font-size: 10.153846153846pt;'>firefuck</a>
+<a href='../../../tag/funny/index.html' class='tag-link-182' title='4 topics' style='font-size: 11.948717948718pt;'>funny</a>
+<a href='../../../tag/hd/index.html' class='tag-link-264' title='4 topics' style='font-size: 11.948717948718pt;'>hd</a>
+<a href='../../../tag/iphone/index.html' class='tag-link-75' title='3 topics' style='font-size: 10.153846153846pt;'>iphone</a>
+<a href='../../../tag/kernel/index.html' class='tag-link-73' title='2 topics' style='font-size: 8pt;'>kernel</a>
+<a href='../../../tag/linux/index.html' class='tag-link-72' title='10 topics' style='font-size: 18.051282051282pt;'>linux</a>
+<a href='../../../tag/login/index.html' class='tag-link-150' title='2 topics' style='font-size: 8pt;'>login</a>
+<a href='../../../tag/monitoring/index.html' class='tag-link-29' title='11 topics' style='font-size: 18.769230769231pt;'>monitoring</a>
+<a href='../../../tag/mplayer/index.html' class='tag-link-55' title='3 topics' style='font-size: 10.153846153846pt;'>mplayer</a>
+<a href='../../../tag/mysql/index.html' class='tag-link-88' title='3 topics' style='font-size: 10.153846153846pt;'>mysql</a>
+<a href='../../../tag/nagios/index.html' class='tag-link-25' title='17 topics' style='font-size: 22pt;'>nagios</a>
+<a href='../../../tag/network/index.html' class='tag-link-94' title='2 topics' style='font-size: 8pt;'>network</a>
+<a href='../../../tag/osx/index.html' class='tag-link-163' title='3 topics' style='font-size: 10.153846153846pt;'>osx</a>
+<a href='../../../tag/ping/index.html' class='tag-link-81' title='3 topics' style='font-size: 10.153846153846pt;'>ping</a>
+<a href='../../../tag/plugins/index.html' class='tag-link-165' title='3 topics' style='font-size: 10.153846153846pt;'>plugins</a>
+<a href='../../../tag/rar/index.html' class='tag-link-57' title='2 topics' style='font-size: 8pt;'>rar</a>
+<a href='../../../tag/salt/index.html' class='tag-link-316' title='3 topics' style='font-size: 10.153846153846pt;'>salt</a>
+<a href='../../../tag/saltstack/index.html' class='tag-link-317' title='3 topics' style='font-size: 10.153846153846pt;'>saltstack</a>
+<a href='../../../tag/sarge/index.html' class='tag-link-113' title='2 topics' style='font-size: 8pt;'>sarge</a>
+<a href='../../../tag/slow/index.html' class='tag-link-158' title='2 topics' style='font-size: 8pt;'>slow</a>
+<a href='../../../tag/ssh/index.html' class='tag-link-109' title='2 topics' style='font-size: 8pt;'>ssh</a>
+<a href='../../../tag/tv/index.html' class='tag-link-271' title='3 topics' style='font-size: 10.153846153846pt;'>tv</a>
+<a href='../../../tag/ubuntu/index.html' class='tag-link-173' title='6 topics' style='font-size: 14.641025641026pt;'>ubuntu</a>
+<a href='../../../tag/varnish/index.html' class='tag-link-31' title='4 topics' style='font-size: 11.948717948718pt;'>varnish</a>
+<a href='../../../tag/video/index.html' class='tag-link-27' title='2 topics' style='font-size: 8pt;'>video</a>
+<a href='../../../tag/xbmc/index.html' class='tag-link-256' title='3 topics' style='font-size: 10.153846153846pt;'>xbmc</a>
+<a href='../../../tag/xen/index.html' class='tag-link-39' title='4 topics' style='font-size: 11.948717948718pt;'>xen</a></div>
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Links</h3></div><div class="sidebar-content">
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.debian.org/" title="Debian">Debian</a></li>
+<li><a href="http://www.usenix.org/lisa08/going" title="We are going to LISA &#8217;08">LISA &#8217;08</a></li>
+<li><a href="http://marcus.nordaaker.com/" title="marcus ramberg">marcus ramberg</a></li>
+
+	</ul>
+</div></div>
+<!-- WP Wall -->
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Wall</h3></div><div class="sidebar-content">
+<div id="wp_wall">
+		<div class="wallnav">
+					<img alt="Previous" id="img_left" src="../../../wp-content/plugins/wp-wall/i/left.png" />
+					<img alt="Next" id="img_right" src="../../../wp-content/plugins/wp-wall/i/right.png" />
+					  </div> 
+	<div id="wallcomments">
+			<div id="wp_latest">Latest on Thu, 04:38 pm</div><p class="wall-1 "><span class="wallauthor" title="Iliya#ivanov[IvanovRukidssqu,2,5] on 2020-07-02 16:38:51" >Iliya#ivanov[IvanovRukidssqu,2,5]</span><span class="wallcomment" title="Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 
+ 
+Установил софт  запрет входящих вызовов наборы остановились. 
+Что совершать с займом дальше предложите?" >: Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 [...]</span></p><p class="wall-2 wall-alt "><span class="wallauthor" title="Colton Ward on 2020-04-14 09:12:09" >Colton Ward</span><span class="wallcomment" title="Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that I did not want to purchase 
+any more products and spend more money and just wanted to 
+try out the cosmetic procedures I had purchased which was already $300.
+
+
+
+Once I was finally seen by the \   https://gome.com.cn" >: Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that [...]</span></p><p class="wall-3 "><span class="wallauthor" title="eticobysu on 2020-01-27 23:11:02" >eticobysu</span><span class="wallcomment" title="kategoriyab.ru" >: kategoriyab.ru</span></p><p class="wall-4 wall-alt "><span class="wallauthor" title="txcyperoz61 on 2019-12-17 21:41:07" >txcyperoz61</span><span class="wallcomment" title="Огромное тебе СПАСИБО" >: Огромное тебе СПАСИБО</span></p><p class="wall-5 "><span class="wallauthor" title="Dallas on 2019-10-30 06:16:11" >Dallas</span><span class="wallcomment" title="Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors chicago phentermine weight loss doctors chicago phentermine" >: Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors [...]</span></p><input type="hidden" name="wallpage" id="wallpage" value="1" /><input type="hidden" name="page_left" id="page_left" value="1" /><input type="hidden" name="page_right" id="page_right" value="2" />	</div> 
+
+	
+	
+		
+					
+			<p><a id="wall_post_toggle"> &raquo; Leave a reply</a></p>	
+		
+				
+	
+
+	<div id="wall_post">
+		<form action="http://dingleberry.me/wp-content/plugins/wp-wall/wp-wall-ajax.php" method="post" id="wallform">
+		
+						
+			<p>
+			<label for="wpwall_author"><small>Name</small></label><br/>
+			<input type="text" name="wpwall_author" id="wpwall_author" value=""  tabindex="11"  />
+			</p>
+			
+						
+						
+			<p>
+			<label for="wpwall_comment"><small>Comment</small></label><br/>
+			<textarea name="wpwall_comment" id="wpwall_comment" rows="3" cols="" tabindex="13" ></textarea>
+			</p>
+					
+			<p><input name="submit_wall_post" type="submit" id="submit_wall_post" tabindex="14" value="Submit" /></p>
+			
+		</form> 								
+	</div>
+	
+	<div id="wallresponse"></div>
+	
+</div>
+<br />
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Meta</h3></div><div class="sidebar-content">			<ul>
+						<li><a href="../../../wp-login.html">Log in</a></li>
+			<li><a href="../../../feed/index.html" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="../../../comments/feed/index.html" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>						</ul>
+</div></div><div class="sidebar-item">	          	 <div class="sidebar-item">
+				 <div class="sidebar-heading"><h3>Search</h3></div>
+				 <div class="sidebar-content">
+<form method="get" id="searchform" action="http://dingleberry.me/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="" />
+</div>
+</form>
+				</div>
+				</div></div></div>
+
+		 </div>
+		 <!-- End Sidebar -->
+<div id="footer">
+
+Copyright &copy; 2008.  Design by <a href="http://imanto.com/">imanto.com</a>.  Theme by <a href="http://www.themelab.com/">Theme Lab</a> and <a href="http://www.websiteoffice.com/">Online Marketing</a>.  Powered by <a href="http://wordpress.org/">WordPress</a>.
+
+33 queries in 0.237  seconds.
+
+   </div>
+
+   <!-- End Wrapper -->
+
+<script type='text/javascript' src='../../../wp-content/uploads/shadowbox-js/afc2df7514bde3dd091bff35b266117519ce.js?ver=3.0.3'></script>
+
+<!-- Begin Shadowbox JS v3.0.3.10 -->
+<!-- Selected Players: html, iframe, img, qt, swf, wmp -->
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		animate: true,
+		animateFade: true,
+		animSequence: "sync",
+		modal: false,
+		showOverlay: true,
+		overlayColor: "#000",
+		overlayOpacity: "0.8",
+		flashBgColor: "#000000",
+		autoplayMovies: true,
+		showMovieControls: true,
+		slideshowDelay: "0",
+		resizeDuration: "0.35",
+		fadeDuration: "0.35",
+		displayNav: true,
+		continuous: false,
+		displayCounter: true,
+		counterType: "default",
+		counterLimit: "10",
+		viewportPadding: "20",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		autoDimensions: false,
+		initialHeight: "160",
+		initialWidth: "320",
+		enableKeys: true,
+		skipSetup: false,
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0",
+		useSizzle: false
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+<!-- End Shadowbox JS -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5928000-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+
+<!-- Mirrored from dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:31:07 GMT -->
+</html>

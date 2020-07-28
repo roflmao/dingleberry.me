@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/pts/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>PTY allocation request failed on channel 0</title>
+		<link>http://dingleberry.me/2009/11/pty-allocation-request-failed-on-channel-0/</link>
+		<comments>http://dingleberry.me/2009/11/pty-allocation-request-failed-on-channel-0/#comments</comments>
+		<pubDate>Fri, 27 Nov 2009 09:19:55 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[allocation]]></category>
+		<category><![CDATA[domU]]></category>
+		<category><![CDATA[fstab]]></category>
+		<category><![CDATA[pts]]></category>
+		<category><![CDATA[udev]]></category>
+		<category><![CDATA[xen]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=569</guid>
+		<description><![CDATA[Got this on your xen domU when trying to ssh? There are 2 possible fixes (prolly even more, but ill show you 2 easy ones) Fix 1: (Needs reboot) apt-get install udev &#038;&#038; reboot Fix 2: (Needs no reboot) Add to fstab: none /dev/pts devpts defaults 0 0 Then do a couple of commands: rm [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Got this on your xen domU when trying to ssh?</p>
+<p>There are 2 possible fixes (prolly even more, but ill show you 2 easy ones)</p>
+<p>Fix 1: (Needs reboot)<br />
+<code>apt-get install udev &#038;&#038; reboot</code></p>
+<p>Fix 2: (Needs <strong>no</strong> reboot)</p>
+<p>Add to fstab:<br />
+<code>none /dev/pts devpts defaults 0 0</code></p>
+<p>Then do a couple of commands:<br />
+<code>rm -rf /dev/ptmx<br />
+mknod /dev/ptmx c 5 2<br />
+chmod 666 /dev/ptmx<br />
+umount /dev/pts<br />
+rm -rf /dev/pts<br />
+mkdir /dev/pts<br />
+mount /dev/pts<br />
+/etc/init.d/ssh restart</code></p>
+<p>World domination!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/pty-allocation-request-failed-on-channel-0/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

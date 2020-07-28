@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/mobile/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Mobile redirects using Varnish</title>
+		<link>http://dingleberry.me/2010/03/mobile-redirects-using-varnish/</link>
+		<comments>http://dingleberry.me/2010/03/mobile-redirects-using-varnish/#comments</comments>
+		<pubDate>Wed, 17 Mar 2010 11:57:18 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mobile]]></category>
+		<category><![CDATA[redirect]]></category>
+		<category><![CDATA[varnish]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=641</guid>
+		<description><![CDATA[Our loadbalancers TMM has gone up quite a bit lately, so I started looking into how to move some of the workload to Varnish instead. I came across this configexample and pulled out the mobile redirects part. It&#8217;s a rather dirty hack, but it works. Varnish does not have support of HTTP redirects, so you [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Our loadbalancers TMM has gone up quite a bit lately, so I started looking into how to move some of the workload to Varnish instead. I came across <a href="http://varnish-cache.org/wiki/VCLExampleAlexc">this</a> configexample and pulled out the mobile redirects part. It&#8217;s a rather dirty hack, but it works. Varnish does not have support of HTTP redirects, so you have to trigger an error and then pick it up in the vcl_error subroutine later.<br />
+This is what the redirect-config looks like on my test-system :</p>
+<p><code>sub vcl_recv {<br />
+if ( req.http.user-agent ~ "(.*Blackberry.*|.*BlackBerry.*|.*Blazer.*|.*Ericsson.*|.*htc.*<br />
+|.*Huawei.*|.*iPhone.*|.*iPod.*|.*MobilePhone.*|.*Motorola.*|.*nokia.*<br />
+|.*Novarra.*|.*O2.*|.*Palm.*|.*Samsung.*|.*Sanyo.*|.*Smartphone.*<br />
+|.*SonyEricsson.*|.*Symbian.*|.*Toshiba.*|.*Treo.*|.*vodafone.*<br />
+|.*Xda.*|^Alcatel.*|^Amoi.*|^ASUS.*<br />
+|^Audiovox.*|^AU-MIC.*|^BenQ.*|^Bird.*|^CDM.*|^DoCoMo.*|^dopod.*<br />
+|^Fly.*|^Haier.*|^HP.*iPAQ.*|^imobile.*|^KDDI.*|^KONKA.*|^KWC.*<br />
+|^Lenovo.*|^LG.*|^NEWGEN.*|^Panasonic.*|^PANTECH.*|^PG.*|^Philips.*<br />
+|^portalmmm.*|^PPC.*|^PT.*|^Qtek.*|^Sagem.*|^SCH.*|^SEC.*|^Sendo.*<br />
+|^SGH.*|^Sharp.*|^SIE.*|^SoftBank.*|^SPH.*|^UTS.*|^Vertu.*<br />
+|.*Opera.Mobi.*|.*Windows.CE.*|^ZTE.*)"<br />
+&amp;&amp; req.http.host ~ "(www.somehost.com)"<br />
+&amp;&amp; req.url == "/") {<br />
+set req.http.newhost = regsub(req.http.host, "(www)?\.(.*)", "http://m.\2");<br />
+error 750 req.http.newhost;<br />
+}</code></p>
+<p><code><br />
+sub vcl_error {<br />
+if (obj.status == 750) {<br />
+set obj.http.Location = obj.response;<br />
+set obj.status = 302;<br />
+deliver;<br />
+}<br />
+}<br />
+</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/03/mobile-redirects-using-varnish/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+	</channel>
+</rss>

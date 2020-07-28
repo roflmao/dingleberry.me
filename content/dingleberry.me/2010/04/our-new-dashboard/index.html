@@ -1,0 +1,1579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from dingleberry.me/2010/04/our-new-dashboard/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:27:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta name="verify-v1" content="2rXzy+cQDUSahcuL4FvfXvDHZf0neGFXRtWQjgvNFSg=" />
+<meta name="verify-v1" content="cAY9vxAYMdRz6Fqo2XC7yBXodW8+0qyJVN+Jm4NaCjs=" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Our new dashboard | dingleberry.me</title>
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/style.css" />
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/blue.css" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me RSS Feed" href="../../../feed/index.html" />
+
+<link rel="pingback" href="../../../xmlrpc.php" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me &raquo; Our new dashboard Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='shadowbox-css-css'  href='../../../wp-content/uploads/shadowbox-js/src/shadowbox19ce.css?ver=3.0.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='shadowbox-extras-css'  href='../../../wp-content/plugins/shadowbox-js/css/extrasc393.css?ver=3.0.3.10' type='text/css' media='screen' />
+<link rel='stylesheet' id='sociablecss-css'  href='../../../wp-content/plugins/sociable/css/sociable7e2e.css?ver=3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='quotescollection-style-css'  href='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.css?ver=1.5.7' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var QCAjax = {"ajaxurl":"http:\/\/dingleberry.me\/wp-admin\/admin-ajax.php","nonce":"413e2c4400","nextquote":"Next quote\u00a0\u00bb","loading":"Loading...","error":"Error getting quote","auto_refresh_max":"30","auto_refresh_count":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.js?ver=1.5.7'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/sociable7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/vuible7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/addtofavorites7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery.form.min018d.js?ver=3.37.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPWallSettings = {"refreshtime":"0","expand_box":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/wp-wall/wp-wall7e2e.js?ver=3.8.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Mobile redirects using Varnish' href='../../03/mobile-redirects-using-varnish/index.html' />
+<link rel='next' title='Nvidia and invalid checksum for EDID (Xorg-issues)' href='../../06/nvidia-and-invalid-checksum-for-edid-xorg-issues/index.html' />
+<meta name="generator" content="WordPress 3.8.1" />
+<link rel='shortlink' href='../../../indexc9c1.html?p=658' />
+<!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
+<meta name="description" content="technical blog about technical stuff for sysadmins etc" />
+<meta name="keywords" content="dashboard,merlin,nagios,nagios dashboard bigip f5 varnish munin debian lisa curl linux sysadmin" />
+<!-- HeadSpace -->
+<script type='text/javascript'>var base_url_sociable = 'http://dingleberry.me/wp-content/plugins/sociable/'</script><script type='text/javascript' src='http://apis.google.com/js/plusone.js'></script><link rel="stylesheet" href="../../../wp-content/plugins/wp-wall/wp-wall.css" type="text/css" />
+<!-- All in One SEO Pack 2.1.3 by Michael Torbert of Semper Fi Web Design[410,506] -->
+<meta name="description" content="The old dashboard we used earlier had a couple of issues. It showed all SOFT nagios states and it also listed every service pr host that was down. Since it's" />
+
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+
+</head>
+
+
+
+<body>
+
+
+
+   <!-- Begin Wrapper -->
+
+   <div id="wrapper">
+
+   
+
+         <!-- Begin Header -->
+
+         <div id="header">
+
+		 
+
+		       <h1><a href="../../../index.html">dingleberry.me</a></h1>
+
+				<div class="description">technical blog shit</div>
+
+			   
+
+		 </div>
+
+		 <!-- End Header -->
+
+		 
+
+		 <!-- Begin Navigation -->
+
+		 <div id="navigation">
+
+		 
+
+		       <ul>
+
+			   <li><a href="../../../index.html">Home</a></li>
+
+			<li class="page_item page-item-2"><a href="../../../about/index.html">About Us</a></li>
+
+				</ul>
+
+		 </div>
+		 <!-- End Navigation -->
+
+<br/>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0660223234642083";
+/* 728x90, created 11/9/09 */
+google_ad_slot = "8516937673";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		 
+
+		 <!-- Begin Content -->
+
+		 <div id="content">
+
+		 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="index.html" rel="bookmark" title="Permanent Link to Our new dashboard">Our new dashboard</a></h2>
+
+
+
+<div class="post-info">Posted April 28, 2010 by morten</div>
+
+			   
+
+			   <p><a href="../../../2009/11/nagios-operations-dashboard/index.html">The old dashboard</a> we used earlier had a couple of issues. It showed all SOFT nagios states and it also listed every service pr host that was down. Since it&#8217;s pretty obvious that a service is down on a host that is down, we wanted to change that. Instead of continuing the rather hard work of changing the dirty status.dat parsing, we just dropped that project and checked out <a href="http://www.op5.org/community/projects/merlin">Merlin</a>. Once installed and configured correctly, merlin will enable an eventbrokermodule in the nagiosconfig and update merlins mysql database via the eventbroker. The database contains all hosts and statuses state changes and so on, so this is what we ended up with : (Pic of our current dashboard in our office)</p>
+<p><a href="../../../wp-content/uploads/2010/04/dashern1.jpg" rel="shadowbox[sbpost-658];player=img;"><img class="alignnone size-medium wp-image-660" src="../../../wp-content/uploads/2010/04/dashern1-300x225.jpg" alt="dashern" width="300" height="225" /></a></p>
+<p>This dashboard lists only hosts that are down and not acknowledged in nagios in its upper left corner. Then there&#8217;s a little tactical overview in the upper right corner (this will have more info shortly) and finally all unhandled serviceproblem listed below. Exactly what we want.</p>
+<p>The bottom &#8220;toolbar&#8221; is transparent and has a countdown timer for page refresh and shows the current time.<br />
+Thanks again to Jonas, for the design!</p>
+<p>You can download the files from git : <a title="https://github.com/mortis1337/nagios-dashboard" href="https://github.com/mortis1337/nagios-dashboard" target="_blank">https://github.com/mortis1337/nagios-dashboard</a><br />
+Just change the login info in merlin.php to match your merlin database and it should run smoothly.</p>
+<p>Note: The dashboard needs firefox 3.6.<br />
+Enjoy.</p>
+<p>http://dingleberry.me/2010/04/our-new-dashboard/</p>
+<!-- Start Sociable --><div class="sociable"><div class="sociable_tagline">Be Sociable, Share!</div><ul class='clearfix'><li><a title="Twitter" class="option1_32" style="background-position:-288px -32px" rel="nofollow" target="_blank" href="http://twitter.com/intent/tweet?text=Our%20new%20dashboard%20-%20http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F%20"></a></li><li><a title="Facebook" class="option1_32" style="background-position:-96px 0px" rel="nofollow" target="_blank" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;t=Our%20new%20dashboard"></a></li><li><a title="email" class="option1_32" style="background-position:-160px 0px" rel="nofollow" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to&amp;su=Our%20new%20dashboard&amp;body=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;ui=2&amp;tf=1&amp;shva=1"></a></li><li><a onClick="javascript:var ipinsite='Good%20Vibes.%20Vuible.com',ipinsiteurl='http://vuible.com/';(function(){if(window.ipinit!==undefined){ipinit();}else{document.body.appendChild(document.createElement('script')).src='http://vuible.com/wp-content/themes/ipinpro/js/ipinit.js';}})();" style="cursor:pointer" rel="nofollow" title="Vuible.com | Share positive messages (images and videos only)"><img style='' src='../../../wp-content/plugins/sociable/images/option1/32/vuible.png'></a></li><li><a class="option1_32" style="cursor:pointer;background-position:-128px 0px" rel="nofollow" title="Add to favorites - doesn't work in Chrome"  onClick="javascript:AddToFavorites();"></a></li><li><a title="StumbleUpon" class="option1_32" style="background-position:-224px -32px" rel="nofollow" target="_blank" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard"></a></li><li><a title="Delicious" class="option1_32" style="background-position:-32px 0px" rel="nofollow" target="_blank" href="http://delicious.com/post?url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard&amp;notes=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li><li><a title="Google Reader" class="option1_32" style="background-position:-224px 0px" rel="nofollow" target="_blank" href="http://www.google.com/reader/link?url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard&amp;srcURL=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;srcTitle=dingleberry.me+technical+blog+shit"></a></li><li><a title="LinkedIn" class="option1_32" style="background-position:-288px 0px" rel="nofollow" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard&amp;source=dingleberry.me+technical+blog+shit&amp;summary=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li><li><a style="cursor:pointer" rel="nofollow" onMouseOut="fixOnMouseOut(document.getElementById('sociable-post-658'), event, 'post-658')" onMouseOver="more(this,'post-658')"><img style='margin-top:9px' src='../../../wp-content/plugins/sociable/images/more.png'></a></li></ul><div onMouseout="fixOnMouseOut(this,event,'post-658')" id="sociable-post-658" style="display:none;">   
+
+    <div style="top: auto; left: auto; display: block;" id="sociable">
+
+
+
+		<div class="popup">
+
+			<div class="content">
+
+				<ul><li style="heigth:32px;width:32px"><a title="Myspace" class="option1_32" style="background-position:0px -32px" rel="nofollow" target="_blank" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;t=Our%20new%20dashboard"></a></li><li style="heigth:32px;width:32px"><a title="Digg" class="option1_32" style="background-position:-64px 0px" rel="nofollow" target="_blank" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard&amp;bodytext=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li><li style="heigth:32px;width:32px"><a title="Reddit" class="option1_32" style="background-position:-128px -32px" rel="nofollow" target="_blank" href="http://reddit.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard"></a></li><li style="heigth:32px;width:32px"><a title="Google Bookmarks" class="option1_32" style="background-position:-192px 0px" rel="nofollow" target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard&amp;annotation=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li><li style="heigth:32px;width:32px"><a title="HackerNews" class="option1_32" style="background-position:-256px 0px" rel="nofollow" target="_blank" href="http://news.ycombinator.com/submitlink?u=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;t=Our%20new%20dashboard"></a></li><li style="heigth:32px;width:32px"><a title="MSNReporter" class="option1_32" style="background-position:-352px 0px" rel="nofollow" target="_blank" href="http://reporter.es.msn.com/?fn=contribute&amp;Title=Our%20new%20dashboard&amp;URL=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;cat_id=6&amp;tag_id=31&amp;Remark=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li><li style="heigth:32px;width:32px"><a title="BlinkList" class="option1_32" style="background-position:0px 0px" rel="nofollow" target="_blank" href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;Title=Our%20new%20dashboard"></a></li><li style="heigth:32px;width:32px"><a title="Sphinn" class="option1_32" style="background-position:-192px -32px" rel="nofollow" target="_blank" href="http://sphinn.com/index.php?c=post&amp;m=submit&amp;link=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F"></a></li><li style="heigth:32px;width:32px"><a title="Posterous" class="option1_32" style="background-position:-64px -32px" rel="nofollow" target="_blank" href="http://posterous.com/share?linkto=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;title=Our%20new%20dashboard&amp;selection=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li><li style="heigth:32px;width:32px"><a title="Tumblr" class="option1_32" style="background-position:-256px -32px" rel="nofollow" target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=http%3A%2F%2Fdingleberry.me%2F2010%2F04%2Four-new-dashboard%2F&amp;t=Our%20new%20dashboard&amp;s=The%20old%20dashboard%20we%20used%20earlier%20had%20a%20couple%20of%20issues.%20It%20showed%20all%20SOFT%20nagios%20states%20and%20it%20also%20listed%20every%20service%20pr%20host%20that%20was%20down.%20Since%20it%27s%20pretty%20obvious%20that%20a%20service%20is%20down%20on%20a%20host%20that%20is%20down%2C%20we%20wanted%20to%20change%20that.%20Inst"></a></li></ul>			
+
+			</div>        
+
+		  <a style="cursor:pointer" onclick="hide_sociable('post-658',true)" class="close">
+
+		  <img onclick="hide_sociable('post-658',true)" title="close" src="../../../wp-content/plugins/sociable/images/closelabel.png">
+
+		  </a>
+
+		</div>
+
+	</div> 
+
+  </div></div><div class='sociable' style='float:none'><ul class='clearfix'><li id="Twitter_Counter"><a href="https://twitter.com/share" data-text="Our new dashboard - http://dingleberry.me/2010/04/our-new-dashboard/" data-url="http://dingleberry.me/2010/04/our-new-dashboard/" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li><li id="Facebook_Counter"><iframe src="http://www.facebook.com/plugins/like.php?href=http://dingleberry.me/2010/04/our-new-dashboard/&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font" scrolling="no" frameborder="0" style="border:none; overflow:hidden;height:32px;width:100px" allowTransparency="true"></iframe></li><li id="Google_p"><g:plusone annotation="bubble" href="index.html" size="medium"></g:plusone></li><li id="LinkedIn_Counter"><script src="http://platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="http://dingleberry.me/2010/04/our-new-dashboard/" data-counter="right"></script></li><li id="StumbleUpon_Counter"><script src="http://www.stumbleupon.com/hostedbadge.php?s=2&amp;r=http://dingleberry.me/2010/04/our-new-dashboard/"></script></li><li id="vuible_Counter"><a  title='Vuible.com | Share positive messages (images and videos only)'><img onClick='ipinit();' style='cursor:pointer' src='../../../wp-content/plugins/sociable/images/vuible.png'></a></li></ul></div><!-- End Sociable -->
+
+
+<p>Tags: <a href="../../../tag/dashboard/index.html" rel="tag">dashboard</a>, <a href="../../../tag/merlin/index.html" rel="tag">merlin</a>, <a href="../../../tag/nagios/index.html" rel="tag">nagios</a></p>
+
+
+
+
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">60 Responses to &#8220;Our new dashboard&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+
+		<li class="alt" id="comment-2071">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2071" title="">May 3rd, 2010 at 13:45</a> </small>
+
+			<p>If you dont want to show services that are scheduled for downtime on this dashboard, just change the sql on line 125ish to to the following</p>
+<p>select service.host_name,service.service_description,service.last_hard_state,service.last_hard_state_change,service.last_check from service,host,scheduled_downtime where host.host_name = service.host_name and service.last_hard_state in (1,2) and service.problem_has_been_acknowledged = 0 and host.problem_has_been_acknowledged = 0 and host.last_hard_state not like 1 and host.host_name not in (select distinct host_name from scheduled_downtime where start_time  unix_timestamp()) group by service.service_description order by service.last_hard_state desc</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2075">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2075" title="">May 6th, 2010 at 09:43</a> </small>
+
+			<p>I made an error in the group by clause, it should be : select service.host_name,service.service_description,service.last_hard_state,service.output, service.last_hard_state_change,service.last_check from service,host,scheduled_downtime where host.host_name = service.host_name and service.last_hard_state in (1,2,3) and service.problem_has_been_acknowledged = 0 and host.problem_has_been_acknowledged = 0 and host.last_hard_state not like 1 and host.host_name not in (select distinct host_name from scheduled_downtime where start_time  unix_timestamp()) group by service.host_name, service.service_description order by service.last_hard_state desc;</p>
+<p>update it or you might be missing a few hosts</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2145">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2145" title="">May 27th, 2010 at 08:52</a> </small>
+
+			<p>A guy changed the query to only show info from a certain contactgroup.<br />
+Here&#8217;s what he says (Thanks, Per!): </p>
+<p>I got it to work, but I had to add an index to the host_contactgroup table.</p>
+<p>W/O the index my query took 1,5 minutes adn we have some 800 hosts.</p>
+<p>Our query looks like this</p>
+<p>            $query = &#8220;select service.host_name, service.service_description,&#8221;;<br />
+            $query = $query.&#8221; service.last_hard_state, service.output, service.last_hard_state_change,&#8221;;<br />
+            $query = $query.&#8221; service.last_check&#8221;;<br />
+            $query = $query.&#8221; from service, host, scheduled_downtime&#8221;;<br />
+            $query = $query.&#8221; where service.host_name in&#8221;;<br />
+            $query = $query.&#8221; (select host.host_name from host&#8221;;<br />
+            $query = $query.&#8221; join host_contactgroup on host.id = host_contactgroup.host&#8221;;<br />
+            $query = $query.&#8221; join contactgroup on host_contactgroup.contactgroup = contactgroup.id&#8221;;<br />
+            $query = $query.&#8221; where contactgroup.contactgroup_name = &#8216;CONTACTGROUP&#8217;)&#8221;;<br />
+            $query = $query.&#8221; and host.host_name = service.host_name&#8221;;<br />
+            $query = $query.&#8221; and service.last_hard_state in (1, 2)&#8221;;<br />
+            $query = $query.&#8221; and service.problem_has_been_acknowledged = 0&#8243;;<br />
+            $query = $query.&#8221; and host.problem_has_been_acknowledged = 0&#8243;;<br />
+            $query = $query.&#8221; and host.last_hard_state not like 1&#8243;;<br />
+            $query = $query.&#8221; and host.host_name not in&#8221;;<br />
+            $query = $query.&#8221; (select distinct host_name from scheduled_downtime&#8221;;<br />
+            $query = $query.&#8221; where start_time  unix_timestamp())&#8221;;<br />
+            $query = $query.&#8221; group by service.host_name, service.service_description&#8221;;<br />
+            $query = $query.&#8221; order by service.last_hard_state desc&#8221;;</p>
+<p>The new index where created  like this<br />
+create index ix_contactgroup_host USING BTREE ON host_contactgroup (contactgroup,host);</p>
+<p>/Per</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2286">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>Justin Trouble</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2286" title="">July 6th, 2010 at 20:22</a> </small>
+
+			<p>Thanks so much for this really awesome dashboard monitor! It&#8217;s just what we needed.</p>
+<p>I have one question though&#8230;<br />
+Why on line 13 of merlin.php do you query to see if last_hard_state?</p>
+<p>last_hard_state doesn&#8217;t get set until a HARD state is triggered PLUS the time of the retry_interval! :-s</p>
+<p>If the retry interval is configured as 1 minute then the dashboard will only display the host down an extra 1 minute after you can see it down in the Nagios web interface.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2325">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>GQS</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2325" title="">July 15th, 2010 at 16:36</a> </small>
+
+			<p>Would it be possible to integrate an alert sound to the dashboard? So when an issue comes up it plays a alert sound.</p>
+<p>thks a lot</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2326">
+<img alt='' src='http://0.gravatar.com/avatar/acfba40678ac1d0a2c92fd900f600861?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Carlo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2326" title="">July 16th, 2010 at 09:45</a> </small>
+
+			<p>This looks great, but it&#8217;s not working for me.</p>
+<p>I&#8217;ve installed Merlin, edited merlin.php, however, nagios.php does not display any data.</p>
+<p>All that&#8217;s displayed is the countdown timer.</p>
+<p>Any ideas? Using nagios 3.2.1</p>
+<p>I can confirm that data is being written to the merlin database.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2340">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>Justin Trouble</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2340" title="">July 19th, 2010 at 17:27</a> </small>
+
+			<p>I&#8217;m trying to paste some code to let you have sounds with your alerts, but this comments thing won&#8217;t let me and just presents me with a blank screen :-/</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2341">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>mortis</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2341" title="">July 19th, 2010 at 18:29</a> </small>
+
+			<p>hmmm justin, maybe its too many chars for the comment or something. Try using pastebin.org or something (and select &#8220;retained forever&#8221;)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2343">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>Carlo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2343" title="">July 20th, 2010 at 06:35</a> </small>
+
+			<p>Any ideas why my dashboard is not displaying any alerts?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2344">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>mortis</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2344" title="">July 20th, 2010 at 07:45</a> </small>
+
+			<p>carlo, did you get your databaselogin info in merlin.php correct?<br />
+Are you sure merlin is working? Try go into mysql and see whats in the database. Are the tables empty? Did you run the import script in merlin? Also, nagios.php uses some fancy css stuff that might not work / will look bad ..in older browsers.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2345">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>Carlo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2345" title="">July 20th, 2010 at 09:33</a> </small>
+
+			<p>mortis, merlin.php database information is correct. merlind is running.</p>
+<p>You are correct &#8211; it seems there is no data within the merlin database.</p>
+<p>Which import script are you referring to?</p>
+<p>I followed the merlin quickstart guide below:<br />
+<a href="https://wiki.op5.org/merlin:docs:quickstart-debian5" rel="nofollow">https://wiki.op5.org/merlin:docs:quickstart-debian5</a></p>
+<p>Thanks in advance,</p>
+<p>Carlo</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2346">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2346" title="">July 20th, 2010 at 09:37</a> </small>
+
+			<p>in our setup its in /usr/local/nagios/addons/merlin/import.php<br />
+(you prolly gotta edit it and change user/password)</p>
+<p>but be sure that you still get host/service events updated in merlin after you run this initially.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2348">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2348" title="">July 20th, 2010 at 10:06</a> </small>
+
+			<p>Ok, I&#8217;ve put this on github now, if someone wants to make changes to it, or contribute with some new stuff.</p>
+<p><a href="http://github.com/mortis1337/nagios-dashboard" rel="nofollow">http://github.com/mortis1337/nagios-dashboard</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2349">
+<img alt='' src='http://0.gravatar.com/avatar/acfba40678ac1d0a2c92fd900f600861?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Carlo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2349" title="">July 20th, 2010 at 11:26</a> </small>
+
+			<p>morten, I have run import.php and can confirm that the database has been populated with data.</p>
+<p>I have already changed merlin.php to reflect the correct database credentials. </p>
+<p>Still no luck? Any ideas?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2350">
+<img alt='' src='http://0.gravatar.com/avatar/acfba40678ac1d0a2c92fd900f600861?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Carlo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2350" title="">July 20th, 2010 at 11:41</a> </small>
+
+			<p>Scratch that, restarted after running import.php and everything is working. </p>
+<p>Fantastic dashboard!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2351">
+<img alt='' src='http://0.gravatar.com/avatar/acfba40678ac1d0a2c92fd900f600861?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Carlo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2351" title="">July 20th, 2010 at 11:45</a> </small>
+
+			<p>Last question &#8211; how do I ensure hosts/service updates are reflected in merlin?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2352">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2352" title="">July 20th, 2010 at 12:12</a> </small>
+
+			<p>Carlo, I suggest you send an email to the merlin mailinglist as I&#8217;m not that familiar with merlin <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2514">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>foobar</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2514" title="">August 16th, 2010 at 15:22</a> </small>
+
+			<p>does a database populated by ndoutils theoretically store similar information? would be great to use that as an alternative backend for this nice dashboard. maybe I will have a look into it. thanks for your work!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2530">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>foobar</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2530" title="">August 19th, 2010 at 11:39</a> </small>
+
+			<p><a href="http://github.com/foobar0815/nagios-dashboard" rel="nofollow">http://github.com/foobar0815/nagios-dashboard</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2551">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2551" title="">August 22nd, 2010 at 12:49</a> </small>
+
+			<p>sweet, nice work <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2625">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>tenpin</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2625" title="">September 9th, 2010 at 15:53</a> </small>
+
+			<p>I am getting no output on nagios.php besides countdown timer and time.</p>
+<p>Database has data, I ran select statements from merlin.php by hand and get results, but if I run merlin.php from the command line I get an error:</p>
+<p>php -l ./merlin.php<br />
+PHP Parse error:  syntax error, unexpected T_ELSE in ./merlin.php on line 28<br />
+Errors parsing ./merlin.php</p>
+<p>I don&#8217;t have any unhandled host errors so it should print &#8220;All problem hosts has been acknowledged.&#8221; any suggestions?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2628">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2628" title="">September 10th, 2010 at 09:51</a> </small>
+
+			<p>tenpin what version of php are you running?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2630">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>tenpin</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2630" title="">September 10th, 2010 at 16:15</a> </small>
+
+			<p>php -version<br />
+PHP 5.3.3 (cli) (built: Jul 22 2010 17:12:45)<br />
+Copyright (c) 1997-2010 The PHP Group<br />
+Zend Engine v2.3.0, Copyright (c) 1998-2010 Zend Technologies</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2631">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2631" title="">September 10th, 2010 at 19:11</a> </small>
+
+			<p>oki, thats odd. Are you using the code from git? <a href="http://github.com/mortis1337/nagios-dashboard" rel="nofollow">http://github.com/mortis1337/nagios-dashboard</a></p>
+<p>ran the php syntax check here and get no errors.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2644">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>tenpin</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2644" title="">September 13th, 2010 at 16:58</a> </small>
+
+			<p>Ok, got it figured out. Was running php53 on RHEL from the remi repository, removed remi repo, installed IUS repo, downgraded php53 to php52 and now it works.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2740">
+<img alt='' src='http://1.gravatar.com/avatar/f54a2785c2215ab85c453f948e5d8e07?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Neil</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2740" title="">October 1st, 2010 at 10:53</a> </small>
+
+			<p>This is a great update to the original version.  The only change I&#8217;ve made internally is changing the SQL query for Unhandled service problems to sort DESC so that critical problems show up first <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2770">
+<img alt='' src='http://0.gravatar.com/avatar/2a4bf2f570a9ab4344adbd8fcc759c4c?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://ekodozor.ru/' rel='external nofollow' class='url'>qk4l</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2770" title="">October 5th, 2010 at 18:03</a> </small>
+
+			<p>Thank you for greate Dash!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2868">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>mferpan</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2868" title="">October 27th, 2010 at 15:39</a> </small>
+
+			<p>And if i am not using merling (not using any database), how could we integrate that frontend ?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2878">
+<img alt='' src='http://1.gravatar.com/avatar/14951b7ab2479c6754fd363ab5c27bdd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2878" title="">October 28th, 2010 at 19:01</a> </small>
+
+			<p>The dashboard in this article does not support reading .dat files. However &#8230;theres a similar (older) dashboard here <a href="../../../2009/11/nagios-operations-dashboard/index.html" rel="nofollow">http://dingleberry.me/2009/11/nagios-operations-dashboard/</a><br />
+and also if you are considering using ndoutils and not merlin ..you can check the fork of this dashboard here : <a href="http://github.com/foobar0815/nagios-dashboard/" rel="nofollow">http://github.com/foobar0815/nagios-dashboard/</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2893">
+<img alt='' src='http://0.gravatar.com/avatar/038e0e3532f48d1bd49d893ca76c0232?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>John R</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2893" title="">November 1st, 2010 at 15:17</a> </small>
+
+			<p>Help please&#8230; the unhandled services section on the dash is not populating and I am getting the folowing error in the deamon log:-</p>
+<p>Failed to connect to &#8216;merlin&#8217; at &#8216;localhost&#8217;:&#8217;0&#8242; as root:(null): 1045: Access denied for user &#8216;root&#8217;@'localhost&#8217; (using password: YES)</p>
+<p>Any advice would be appreciated</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2894">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>mortis</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2894" title="">November 1st, 2010 at 15:30</a> </small>
+
+			<p>John R : that is your mysql permissions.</p>
+<p>log in to mysql and do something like : grant all privileges on *.* to &#8216;root&#8217;@'localhost&#8217; identified by &#8216;yourpasswordhere&#8217;;</p>
+<p>and change the php file to have the same user/pass</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-2895">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>mortis</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2895" title="">November 1st, 2010 at 15:31</a> </small>
+
+			<p>yeah, and i wouldnt advise you to use &#8216;root&#8217; tho, as you could rather make a merlin user</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2896">
+<img alt='' src='http://0.gravatar.com/avatar/038e0e3532f48d1bd49d893ca76c0232?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>John R</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2896" title="">November 1st, 2010 at 16:10</a> </small>
+
+			<p>Thanks for the info Mortis, got a question though. The php file is it the import.php?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-3021">
+<img alt='' src='http://0.gravatar.com/avatar/43734d9b0c85e5414e398327fffdcb12?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Greg F</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3021" title="">February 9th, 2011 at 23:36</a> </small>
+
+			<p>Great dashboard.  I&#8217;ve written a mklivestatus backend for it but can&#8217;t seem to figure out how to upload files to the github.  Do I first create a fork of the nagios-dashboard project and upload to that?  My files are ready to upload as soon as I can figure out how to do it.  </p>
+<p>-greg</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-3022">
+<img alt='' src='http://0.gravatar.com/avatar/43734d9b0c85e5414e398327fffdcb12?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Greg F</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3022" title="">February 9th, 2011 at 23:47</a> </small>
+
+			<p>I&#8217;m having trouble with the dashboard displaying colors or text in IE 7 and 8. The headings and table structure is visible but all the table fields display white.  Any ideas or suggestions as to cause?</p>
+<p>Thanks, </p>
+<p>-greg</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-3023">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>mortis</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3023" title="">February 10th, 2011 at 00:42</a> </small>
+
+			<p>hey Greg, yep, suggestion as to cause is : IE is not meant to be used for internet. Download firefox and live happily ever after <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-3024">
+<img alt='' src='http://0.gravatar.com/avatar/43734d9b0c85e5414e398327fffdcb12?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Greg F</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3024" title="">February 10th, 2011 at 01:27</a> </small>
+
+			<p>Okay, I reread the blog and see where it says it requires FF 3.6, I take that to mean that IE does not work.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-3026">
+<img alt='' src='http://0.gravatar.com/avatar/43734d9b0c85e5414e398327fffdcb12?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Greg F</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3026" title="">February 10th, 2011 at 22:07</a> </small>
+
+			<p>Mortis, </p>
+<p>Is there a way to upload a livestatus.php file to allow your dashboard to work with mklivestatus without using a git client.  I&#8217;m not familiar with git at all and am hoping to avoid traveling down that road.  But I&#8217;d like to contribute this code to your project.  Please advise.</p>
+<p>Thanks, </p>
+<p>Greg F</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-3027">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>mortis</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3027" title="">February 10th, 2011 at 22:56</a> </small>
+
+			<p>A guy wrote support for ndoutils for this dashboard. He forked the dashboard on git and added his stuff. That is the adviced way to do it. If you dont feel like doing that, you could upload the file somewhere and give me the link, and i could upload it to git and give you credits for your work <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-3045">
+<img alt='' src='http://1.gravatar.com/avatar/9f34dc038a28b09a138dd4da7fa94062?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Matt P</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3045" title="">February 17th, 2011 at 15:57</a> </small>
+
+			<p>Hi,<br />
+This is a great dashboard and does exactly what we need however could anyone shed some light on the reason why it is only supported on Firefox as I am interested in seeing if we can get it operational on IE/Opera/Safari.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-3085">
+<img alt='' src='http://0.gravatar.com/avatar/8dda66a5c6f1961938fd483868d8efd6?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Joseph L</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3085" title="">March 5th, 2011 at 00:11</a> </small>
+
+			<p>Greg and Mortis,</p>
+<p>I would like to try the livestatus.php based on the mklivestatus method. Is there any new info about the livestatus.php? If there is a place to download the php it would be great. </p>
+<p>Thanks.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-3100">
+<img alt='' src='http://1.gravatar.com/avatar/b747fe8837b26cfbf15cf4d1762e33df?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>MrMe</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3100" title="">March 9th, 2011 at 12:24</a> </small>
+
+			<p>The dashboard featured on OP5 website, with added features by Ipnett AS:<br />
+<a href="http://www.op5.org/community/plugin-inventory/dasboards/dashboard" rel="nofollow">http://www.op5.org/community/plugin-inventory/dasboards/dashboard</a></p>
+<p>cool <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-3525">
+<img alt='' src='http://0.gravatar.com/avatar/4e7ceb76fe43da38188118b8194da8b2?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.rerhvrtzui.info/' rel='external nofollow' class='url'>Efrain Ireland</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3525" title="">June 18th, 2011 at 11:48</a> </small>
+
+			<p>Typically I do not submit on posts, but I may enjoy to say that this site seriously pressured me to get it done! Thanks, really great submit.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-3970">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>Dapper89</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-3970" title="">September 2nd, 2011 at 10:41</a> </small>
+
+			<p>Hey guys</p>
+<p>I am very very interested in the livestatus setup. Is there any way i can get hold of the livestatus.php file?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-4070">
+
+			<cite><a href='http://www.osties.com/?p=640' rel='external nofollow' class='url'>Nagios Operations Dashboard | Osties.com!</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4070" title="">October 8th, 2011 at 19:49</a> </small>
+
+			<p>[...] herramienta, pero esta nueva versión es para Nagios con Mysql, ya que la ultima usa el status.dat. Nueva Versión     Linux, Nagios, OtrosSysadmin!   &larr; Nagios 3.2.3 + Nagios Theme + Cacti en Debian 6 Squeeze [...]</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-4109">
+<img alt='' src='http://0.gravatar.com/avatar/a4a9d7f4f5e2cdb96b6e22237853ed72?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://twitter.com/BOK' rel='external nofollow' class='url'>BOK</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4109" title="">October 21st, 2011 at 11:23</a> </small>
+
+			<p>FYI &#8211; I created a &#8220;fork&#8221; for Icinga on Github<br />
+<a href="https://github.com/hbokh/icinga-dashboard" rel="nofollow">https://github.com/hbokh/icinga-dashboard</a><br />
+based on foobar&#8217;s ndoutils-code. This one uses ido2db instead.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-4110">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4110" title="">October 21st, 2011 at 11:55</a> </small>
+
+			<p>nice BOK <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-4516">
+<img alt='' src='http://0.gravatar.com/avatar/0203a7d1fe10a1327b1fa383df56e7c8?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Erik</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4516" title="">October 28th, 2011 at 10:34</a> </small>
+
+			<p>Would be nice if it would talk with mklivestatus, as I&#8217;m using that now.</p>
+<p>Any ideas about that?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-4517">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4517" title="">October 28th, 2011 at 10:49</a> </small>
+
+			<p>Erik, it currently asks a merlin-populated mysql-database, but if you use mklivestatus to populate mysql in the same way, that would work. If you wanna use mklivestatus directly, you&#8217;ll need to do a lot of coding i think <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-4530">
+<img alt='' src='http://1.gravatar.com/avatar/ded6a9daa372404d48749c19fa40c670?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>M N</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4530" title="">November 2nd, 2011 at 22:38</a> </small>
+
+			<p>is this in active development? and can you provide some documentation for customising this.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-4531">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4531" title="">November 2nd, 2011 at 23:00</a> </small>
+
+			<p>M N: check <a href="http://www.op5.org/community/plugin-inventory/dashboards/dashboard" rel="nofollow">http://www.op5.org/community/plugin-inventory/dashboards/dashboard</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-4662">
+
+			<cite><a href='http://www.it-slav.net/blogs/2011/03/09/nagios-dashboard-using-merlin-backend/' rel='external nofollow' class='url'>op5 Monitor or Nagios dashboard using Merlin backend | An It-Slave in the digital saltmine</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-4662" title="">December 8th, 2011 at 22:16</a> </small>
+
+			<p>[...] The original project place is <a href="index.html" rel="nofollow">http://dingleberry.me/2010/04/our-new-dashboard/</a> [...]</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-14783">
+<img alt='' src='http://0.gravatar.com/avatar/46548a2be8db4adfdc8bd5330d0b9fdb?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.themews.tv/' rel='external nofollow' class='url'>Mark Whaite</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-14783" title="">August 24th, 2012 at 12:58</a> </small>
+
+			<p>@tenpin I was having the same problem on Cent OS 6.3 using PHP 5.3. If you change the php.ini file and turn on short tags then the script works fine.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-14800">
+<img alt='' src='http://0.gravatar.com/avatar/6ca7516f51cdc0771895ec246b9710e2?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Fabrizio</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-14800" title="">August 29th, 2012 at 17:14</a> </small>
+
+			<p>Great!!!<br />
+Thank fro sharing this with the Nagios community!!</p>
+<p>Any idea to add sound on new event?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-14817">
+<img alt='' src='http://1.gravatar.com/avatar/1e32fdbaa297b132b90deefcdeb8b5f6?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>SBo</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-14817" title="">September 4th, 2012 at 16:27</a> </small>
+
+			<p>Great!! works fine, any idea about playing sounds when warning/critical ?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-14899">
+<img alt='' src='http://0.gravatar.com/avatar/aff349c42c8829e9bcff4f67768311d3?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.op5.com/' rel='external nofollow' class='url'>fnord</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-14899" title="">September 18th, 2012 at 15:09</a> </small>
+
+			<p>I&#8217;ve done some coding on this and collected a few patches from other people, so the dashboard now, among other things, works in most browsers and handles acknowledgement and downtime; my fork is at <a href="https://github.com/fnordpojk/merlin-dashboard" rel="nofollow">https://github.com/fnordpojk/merlin-dashboard</a> if you want to have a look. <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-16327">
+<img alt='' src='http://1.gravatar.com/avatar/b6e24f721122530523b6e37a18f69826?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>gaudijon</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-16327" title="">January 10th, 2013 at 19:08</a> </small>
+
+			<p>Hi,</p>
+<p>This great dashboard !!! <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /><br />
+I would like to have this one hostgroup and not all hosts on the dashboard?<br />
+is it possible?<br />
+What should I change?</p>
+<p>Thanks<br />
+gaudijon</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-16328">
+<img alt='' src='http://0.gravatar.com/avatar/066df2e4fb97410c4bd523082dc97170?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>morten</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-16328" title="">January 10th, 2013 at 19:18</a> </small>
+
+			<p>gaudijon, i guess you could modify the sql-sentances?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-32403">
+<img alt='' src='http://0.gravatar.com/avatar/a2014cc100d3005b34ad708fc781c571?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://site/' rel='external nofollow' class='url'>onetwofree</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-32403" title="">December 3rd, 2013 at 14:59</a> </small>
+
+			<p>I didn&#8217;t understand how it might be working<br />
+Do i need a mysql-server with nagios connected to it ? Or mysql need only for the dash ?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-101899">
+<img alt='' src='http://0.gravatar.com/avatar/c92b317fa3c072185711cf2843c982f9?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://github.com/gorantornqvist/merlin-bigscreen' rel='external nofollow' class='url'>gorantornqvist</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-101899" title="">August 12th, 2016 at 13:32</a> </small>
+
+			<p>Another fork that uses the OP5 Monitor REST API instead of mysql: <a href="https://github.com/gorantornqvist/merlin-bigscreen" rel="nofollow">https://github.com/gorantornqvist/merlin-bigscreen</a></p>
+
+
+		</li>
+
+	
+
+	
+
+	</ol>
+
+ 
+
+
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+
+<form action="http://dingleberry.me/wp-comments-post.php" method="post" id="commentform">
+
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name </small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) </small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="50%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="" />
+<input type="hidden" name="comment_post_ID" value="658" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="5e61f0f86e" /></p>
+
+</form>
+
+
+
+
+			   
+
+			   </div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	   
+
+		 
+
+		 </div>
+
+		 <!-- End Content -->
+
+		 
+
+		 <!-- Begin Sidebar -->
+		 <div id="sidebar">
+
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Tags</h3></div><div class="sidebar-content"><div class="tagcloud"><a href='../../../tag/apache/index.html' class='tag-link-35' title='3 topics' style='font-size: 10.153846153846pt;'>apache</a>
+<a href='../../../tag/apple/index.html' class='tag-link-74' title='4 topics' style='font-size: 11.948717948718pt;'>apple</a>
+<a href='../../../tag/appletv/index.html' class='tag-link-257' title='3 topics' style='font-size: 10.153846153846pt;'>appletv</a>
+<a href='../../../tag/atv/index.html' class='tag-link-266' title='3 topics' style='font-size: 10.153846153846pt;'>atv</a>
+<a href='../../../tag/authentication/index.html' class='tag-link-111' title='2 topics' style='font-size: 8pt;'>authentication</a>
+<a href='../../../tag/bigip/index.html' class='tag-link-234' title='3 topics' style='font-size: 10.153846153846pt;'>bigip</a>
+<a href='../../../tag/broadcom/index.html' class='tag-link-255' title='3 topics' style='font-size: 10.153846153846pt;'>broadcom</a>
+<a href='../../../tag/cfengine/index.html' class='tag-link-144' title='2 topics' style='font-size: 8pt;'>cfengine</a>
+<a href='../../../tag/check_http/index.html' class='tag-link-166' title='2 topics' style='font-size: 8pt;'>check_http</a>
+<a href='../../../tag/crystal/index.html' class='tag-link-263' title='4 topics' style='font-size: 11.948717948718pt;'>crystal</a>
+<a href='../../../tag/crystalhd/index.html' class='tag-link-259' title='4 topics' style='font-size: 11.948717948718pt;'>crystalhd</a>
+<a href='../../../tag/curl/index.html' class='tag-link-67' title='2 topics' style='font-size: 8pt;'>curl</a>
+<a href='../../../tag/dd/index.html' class='tag-link-17' title='2 topics' style='font-size: 8pt;'>dd</a>
+<a href='../../../tag/debian/index.html' class='tag-link-4' title='8 topics' style='font-size: 16.435897435897pt;'>debian</a>
+<a href='../../../tag/dell/index.html' class='tag-link-138' title='4 topics' style='font-size: 11.948717948718pt;'>dell</a>
+<a href='../../../tag/etch/index.html' class='tag-link-210' title='3 topics' style='font-size: 10.153846153846pt;'>etch</a>
+<a href='../../../tag/ext3/index.html' class='tag-link-12' title='2 topics' style='font-size: 8pt;'>ext3</a>
+<a href='../../../tag/firefox/index.html' class='tag-link-167' title='4 topics' style='font-size: 11.948717948718pt;'>firefox</a>
+<a href='../../../tag/firefuck/index.html' class='tag-link-208' title='3 topics' style='font-size: 10.153846153846pt;'>firefuck</a>
+<a href='../../../tag/funny/index.html' class='tag-link-182' title='4 topics' style='font-size: 11.948717948718pt;'>funny</a>
+<a href='../../../tag/hd/index.html' class='tag-link-264' title='4 topics' style='font-size: 11.948717948718pt;'>hd</a>
+<a href='../../../tag/iphone/index.html' class='tag-link-75' title='3 topics' style='font-size: 10.153846153846pt;'>iphone</a>
+<a href='../../../tag/kernel/index.html' class='tag-link-73' title='2 topics' style='font-size: 8pt;'>kernel</a>
+<a href='../../../tag/linux/index.html' class='tag-link-72' title='10 topics' style='font-size: 18.051282051282pt;'>linux</a>
+<a href='../../../tag/login/index.html' class='tag-link-150' title='2 topics' style='font-size: 8pt;'>login</a>
+<a href='../../../tag/monitoring/index.html' class='tag-link-29' title='11 topics' style='font-size: 18.769230769231pt;'>monitoring</a>
+<a href='../../../tag/mplayer/index.html' class='tag-link-55' title='3 topics' style='font-size: 10.153846153846pt;'>mplayer</a>
+<a href='../../../tag/mysql/index.html' class='tag-link-88' title='3 topics' style='font-size: 10.153846153846pt;'>mysql</a>
+<a href='../../../tag/nagios/index.html' class='tag-link-25' title='17 topics' style='font-size: 22pt;'>nagios</a>
+<a href='../../../tag/network/index.html' class='tag-link-94' title='2 topics' style='font-size: 8pt;'>network</a>
+<a href='../../../tag/osx/index.html' class='tag-link-163' title='3 topics' style='font-size: 10.153846153846pt;'>osx</a>
+<a href='../../../tag/ping/index.html' class='tag-link-81' title='3 topics' style='font-size: 10.153846153846pt;'>ping</a>
+<a href='../../../tag/plugins/index.html' class='tag-link-165' title='3 topics' style='font-size: 10.153846153846pt;'>plugins</a>
+<a href='../../../tag/rar/index.html' class='tag-link-57' title='2 topics' style='font-size: 8pt;'>rar</a>
+<a href='../../../tag/salt/index.html' class='tag-link-316' title='3 topics' style='font-size: 10.153846153846pt;'>salt</a>
+<a href='../../../tag/saltstack/index.html' class='tag-link-317' title='3 topics' style='font-size: 10.153846153846pt;'>saltstack</a>
+<a href='../../../tag/sarge/index.html' class='tag-link-113' title='2 topics' style='font-size: 8pt;'>sarge</a>
+<a href='../../../tag/slow/index.html' class='tag-link-158' title='2 topics' style='font-size: 8pt;'>slow</a>
+<a href='../../../tag/ssh/index.html' class='tag-link-109' title='2 topics' style='font-size: 8pt;'>ssh</a>
+<a href='../../../tag/tv/index.html' class='tag-link-271' title='3 topics' style='font-size: 10.153846153846pt;'>tv</a>
+<a href='../../../tag/ubuntu/index.html' class='tag-link-173' title='6 topics' style='font-size: 14.641025641026pt;'>ubuntu</a>
+<a href='../../../tag/varnish/index.html' class='tag-link-31' title='4 topics' style='font-size: 11.948717948718pt;'>varnish</a>
+<a href='../../../tag/video/index.html' class='tag-link-27' title='2 topics' style='font-size: 8pt;'>video</a>
+<a href='../../../tag/xbmc/index.html' class='tag-link-256' title='3 topics' style='font-size: 10.153846153846pt;'>xbmc</a>
+<a href='../../../tag/xen/index.html' class='tag-link-39' title='4 topics' style='font-size: 11.948717948718pt;'>xen</a></div>
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Links</h3></div><div class="sidebar-content">
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.debian.org/" title="Debian">Debian</a></li>
+<li><a href="http://www.usenix.org/lisa08/going" title="We are going to LISA &#8217;08">LISA &#8217;08</a></li>
+<li><a href="http://marcus.nordaaker.com/" title="marcus ramberg">marcus ramberg</a></li>
+
+	</ul>
+</div></div>
+<!-- WP Wall -->
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Wall</h3></div><div class="sidebar-content">
+<div id="wp_wall">
+		<div class="wallnav">
+					<img alt="Previous" id="img_left" src="../../../wp-content/plugins/wp-wall/i/left.png" />
+					<img alt="Next" id="img_right" src="../../../wp-content/plugins/wp-wall/i/right.png" />
+					  </div> 
+	<div id="wallcomments">
+			<div id="wp_latest">Latest on Thu, 04:38 pm</div><p class="wall-1 "><span class="wallauthor" title="Iliya#ivanov[IvanovRukidssqu,2,5] on 2020-07-02 16:38:51" >Iliya#ivanov[IvanovRukidssqu,2,5]</span><span class="wallcomment" title="Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 
+ 
+Установил софт  запрет входящих вызовов наборы остановились. 
+Что совершать с займом дальше предложите?" >: Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 [...]</span></p><p class="wall-2 wall-alt "><span class="wallauthor" title="Colton Ward on 2020-04-14 09:12:09" >Colton Ward</span><span class="wallcomment" title="Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that I did not want to purchase 
+any more products and spend more money and just wanted to 
+try out the cosmetic procedures I had purchased which was already $300.
+
+
+
+Once I was finally seen by the \   https://gome.com.cn" >: Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that [...]</span></p><p class="wall-3 "><span class="wallauthor" title="eticobysu on 2020-01-27 23:11:02" >eticobysu</span><span class="wallcomment" title="kategoriyab.ru" >: kategoriyab.ru</span></p><p class="wall-4 wall-alt "><span class="wallauthor" title="txcyperoz61 on 2019-12-17 21:41:07" >txcyperoz61</span><span class="wallcomment" title="Огромное тебе СПАСИБО" >: Огромное тебе СПАСИБО</span></p><p class="wall-5 "><span class="wallauthor" title="Dallas on 2019-10-30 06:16:11" >Dallas</span><span class="wallcomment" title="Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors chicago phentermine weight loss doctors chicago phentermine" >: Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors [...]</span></p><input type="hidden" name="wallpage" id="wallpage" value="1" /><input type="hidden" name="page_left" id="page_left" value="1" /><input type="hidden" name="page_right" id="page_right" value="2" />	</div> 
+
+	
+	
+		
+					
+			<p><a id="wall_post_toggle"> &raquo; Leave a reply</a></p>	
+		
+				
+	
+
+	<div id="wall_post">
+		<form action="http://dingleberry.me/wp-content/plugins/wp-wall/wp-wall-ajax.php" method="post" id="wallform">
+		
+						
+			<p>
+			<label for="wpwall_author"><small>Name</small></label><br/>
+			<input type="text" name="wpwall_author" id="wpwall_author" value=""  tabindex="11"  />
+			</p>
+			
+						
+						
+			<p>
+			<label for="wpwall_comment"><small>Comment</small></label><br/>
+			<textarea name="wpwall_comment" id="wpwall_comment" rows="3" cols="" tabindex="13" ></textarea>
+			</p>
+					
+			<p><input name="submit_wall_post" type="submit" id="submit_wall_post" tabindex="14" value="Submit" /></p>
+			
+		</form> 								
+	</div>
+	
+	<div id="wallresponse"></div>
+	
+</div>
+<br />
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Meta</h3></div><div class="sidebar-content">			<ul>
+						<li><a href="../../../wp-login.html">Log in</a></li>
+			<li><a href="../../../feed/index.html" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="../../../comments/feed/index.html" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>						</ul>
+</div></div><div class="sidebar-item">	          	 <div class="sidebar-item">
+				 <div class="sidebar-heading"><h3>Search</h3></div>
+				 <div class="sidebar-content">
+<form method="get" id="searchform" action="http://dingleberry.me/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="" />
+</div>
+</form>
+				</div>
+				</div></div></div>
+
+		 </div>
+		 <!-- End Sidebar -->
+<div id="footer">
+
+Copyright &copy; 2008.  Design by <a href="http://imanto.com/">imanto.com</a>.  Theme by <a href="http://www.themelab.com/">Theme Lab</a> and <a href="http://www.websiteoffice.com/">Online Marketing</a>.  Powered by <a href="http://wordpress.org/">WordPress</a>.
+
+33 queries in 0.317  seconds.
+
+   </div>
+
+   <!-- End Wrapper -->
+
+<script type='text/javascript' src='../../../wp-content/uploads/shadowbox-js/afc2df7514bde3dd091bff35b266117519ce.js?ver=3.0.3'></script>
+
+<!-- Begin Shadowbox JS v3.0.3.10 -->
+<!-- Selected Players: html, iframe, img, qt, swf, wmp -->
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		animate: true,
+		animateFade: true,
+		animSequence: "sync",
+		modal: false,
+		showOverlay: true,
+		overlayColor: "#000",
+		overlayOpacity: "0.8",
+		flashBgColor: "#000000",
+		autoplayMovies: true,
+		showMovieControls: true,
+		slideshowDelay: "0",
+		resizeDuration: "0.35",
+		fadeDuration: "0.35",
+		displayNav: true,
+		continuous: false,
+		displayCounter: true,
+		counterType: "default",
+		counterLimit: "10",
+		viewportPadding: "20",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		autoDimensions: false,
+		initialHeight: "160",
+		initialWidth: "320",
+		enableKeys: true,
+		skipSetup: false,
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0",
+		useSizzle: false
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+<!-- End Shadowbox JS -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5928000-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+
+<!-- Mirrored from dingleberry.me/2010/04/our-new-dashboard/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:27:40 GMT -->
+</html>

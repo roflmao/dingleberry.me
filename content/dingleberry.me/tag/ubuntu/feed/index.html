@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/ubuntu/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Compile xbmc with broadcom crystalhd support on linux</title>
+		<link>http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/</link>
+		<comments>http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/#comments</comments>
+		<pubDate>Mon, 30 Nov 2009 10:21:54 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[8.04]]></category>
+		<category><![CDATA[apple]]></category>
+		<category><![CDATA[appletv]]></category>
+		<category><![CDATA[atv]]></category>
+		<category><![CDATA[bcm70012]]></category>
+		<category><![CDATA[broadcom]]></category>
+		<category><![CDATA[compile]]></category>
+		<category><![CDATA[crystal]]></category>
+		<category><![CDATA[crystalhd]]></category>
+		<category><![CDATA[driver]]></category>
+		<category><![CDATA[hardy]]></category>
+		<category><![CDATA[hd]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[tv]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[xbmc]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=589</guid>
+		<description><![CDATA[Broadcom CrystalHD is a Mini-PCIe expansioncard to make your box do hardware decoding of HD video material (h264, vc1++) Got a old AppleTV which you dont use? Buy a CrystalHD chip on ebay for 30 dollars, and it will play 1080p for you Install Ubuntu 8.04 Hardy on your box, if you are going to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Broadcom CrystalHD is a Mini-PCIe expansioncard to make your box do hardware decoding of HD video material (h264, vc1++)<br />
+Got a old AppleTV which you dont use? Buy a CrystalHD chip on ebay for 30 dollars, and it will play 1080p for you <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>Install Ubuntu 8.04 Hardy on your box, if you are going to use an AppleTV you can follow the guide here:<br />
+<a href="http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/">http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/</a></p>
+<p>Download the xbmc crystalhd branch and the lib directory from the xdmx branch which has the necessary crystalhd include files:<br />
+<code>svn co -r 22347 https://xbmc.svn.sourceforge.net/svnroot/xbmc/branches/xdmx/XBMC/xbmc/lib/<br />
+svn co -r 25101 https://xbmc.svn.sourceforge.net/svnroot/xbmc/branches/crystalhd<br />
+</code><br />
+prepare the system for crystalhd support:<br />
+<code>mkdir /usr/include/crystalhd<br />
+cp -a lib/crystalhd/include/* /usr/include/crystalhd<br />
+cp /usr/include/crystalhd/windows/bc_drv_if.h /usr/include/crystalhd/bc_ldil_if.h<br />
+</code><br />
+Edit /usr/include/crystalhd/bc_dts_types.h and comment out line 59 so it looks like this:<br />
+<code>//typedef void          VOID;<br />
+</code><br />
+Copy the crystalhd include files to the crystalhd branch source:<br />
+<code>cp -a /usr/include/crystalhd crystalhd/xbmc/lib/<br />
+</code></p>
+<p>Download the bcm70012 source and build the module:<br />
+<code>wget http://www.norco.net.cn/UpLoadFile/Driver/bcm70012_linux_01142009.rar<br />
+unrar e bcm70012_linux_01142009.rar<br />
+tar xf bcm70012_linux_01142009<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+apt-get -f install<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+cd /usr/src/<br />
+m-a -t a-i bcm70012kmod<br />
+cd -<br />
+</code><br />
+Install the gstreamer plugin from the HP mini 110 distro (the file came with the driver download in the step above)<br />
+<code>dpkg -i --force-all gst-broadcom-70012_0.9.30_lpia.deb<br />
+</code></p>
+<p>Now follow the steps from the README.ubuntu file inside the crystalhd source:<br />
+<code>sudo aptitude install subversion make g++ gcc gawk pmount libtool nasm automake cmake gperf unzip bison libsdl-dev libsdl-image1.2-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev libfribidi-dev liblzo2-dev libfreetype6-dev libsqlite3-dev libogg-dev libasound-dev python-sqlite libglew-dev libcurl3 libcurl4-openssl-dev x11proto-xinerama-dev libxinerama-dev libxrandr-dev libxrender-dev libmad0-dev libogg-dev libvorbis-dev libsmbclient-dev libmysqlclient-dev libpcre3-dev libdbus-1-dev libhal-dev libhal-storage-dev libjasper-dev libfontconfig-dev libbz2-dev libboost-dev libfaac-dev libenca-dev libxt-dev libxtst-dev libxmu-dev libpng-dev libjpeg-dev libpulse-dev mesa-utils libcdio-dev libsamplerate-dev libmms-dev libmpeg3-dev libfaad-dev libflac-dev libiso9660-dev libass-dev libssl-dev</code></p>
+<p>On 8.04 and older versions, libmms is outdated and thus XBMC will not compile properly.<br />
+In this case you will have to manually compile the latest version.<br />
+<code>wget "http://launchpad.net/libmms/trunk/0.4/+download/libmms-0.4.tar.gz"<br />
+   tar zxvf libmms-0.4.tar.gz<br />
+   cd libmms-0.4<br />
+   ./configure --prefix=/usr<br />
+   make<br />
+   sudo make install<br />
+</code><br />
+After all deps has been installed and libmms has been compiled and installed you are ready to compile xbmc. cd to the crystalhd source and do:<br />
+<code>./bootstrap<br />
+./configure<br />
+make<br />
+make install<br />
+</code><br />
+Finito! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>POST-install tweaks:<br />
+<a href="http://xbmc.org/forum/showpost.php?p=447128&#038;postcount=15">Enable Pixel Buffer Objects</a><br />
+<a href="http://xbmc.org/forum/showpost.php?p=447551&#038;postcount=32">Start xbmc without loading Gnome</a><br />
+And some more AppleTV specific stuff:<br />
+<a href="http://xbmc.org/forum/showpost.php?p=447082&#038;postcount=12">Set fixed cpu frequency</a><br />
+<a href="http://code.google.com/p/atv-bootloader/wiki/PostMythbuntuHardy">Various fixes for Ubuntu on ATV</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/feed/</wfw:commentRss>
+		<slash:comments>14</slash:comments>
+		</item>
+		<item>
+		<title>Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder</title>
+		<link>http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/</link>
+		<comments>http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/#comments</comments>
+		<pubDate>Fri, 27 Nov 2009 13:08:37 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[1080p]]></category>
+		<category><![CDATA[appletv]]></category>
+		<category><![CDATA[atv]]></category>
+		<category><![CDATA[bcm70012]]></category>
+		<category><![CDATA[broadcom]]></category>
+		<category><![CDATA[crystal]]></category>
+		<category><![CDATA[crystalhd]]></category>
+		<category><![CDATA[hd]]></category>
+		<category><![CDATA[karmic]]></category>
+		<category><![CDATA[koala]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[xbmc]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=573</guid>
+		<description><![CDATA[UPDATE! &#8211; Karmic Koala uses a newer kernel which wont make the bcm driver work, use Ubuntu 8.04 Hardy in step 4, and your driver will work Confirmed 1080p playback on Apple TV with hardy! 1. build patchstick with http://code.google.com/p/atvusb-creator/ 2. boot atv with patchstick 3. Partition sda as per instructions: http://code.google.com/p/atv-bootloader/wiki/PartitioningLinux 4. Download netboot [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>UPDATE! &#8211; Karmic Koala uses a newer kernel which wont make the bcm driver work, use Ubuntu 8.04 Hardy in step 4, and your driver will work <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  Confirmed 1080p playback on Apple TV with hardy! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> </strong></p>
+<p>1. build patchstick with http://code.google.com/p/atvusb-creator/<br />
+2. boot atv with patchstick<br />
+3. Partition sda as per instructions:</p>
+<p>http://code.google.com/p/atv-bootloader/wiki/PartitioningLinux</p>
+<p>4. Download netboot http://no.archive.ubuntu.com/ubuntu/dists/karmic/main/installer-i386/current/images/netboot/netboot.tar.gz<br />
+4. Run netboot as per instructions under Netboot Install:</p>
+<p>http://code.google.com/p/atv-bootloader/wiki/BootingLiveCD</p>
+<p>5. Install karmic with sda4 = / and sda5 = swap<br />
+5.1 Remember to select sda4 as root filesystem with ext3 NOT ext4<br />
+6. Modify boot_linux.sh with something like the following:</p>
+<p><code>mount /dev/sda4 /tmp/<br />
+kexec --load /tmp/vmlinuz --initrd=/tmp/initrd.img --command-line="root=/dev/sda4 initrd=initrd.img vga=normal vesa video=vesafb"<br />
+umount /tmp/<br />
+kexec -e</code></p>
+<p>7. WORKING UBUNTU WOOHOO</p>
+<p>8. Download linux bcm70012 from:</p>
+<p>http://www.norco.net.cn/DownNews_Show.asp?ID=215</p>
+<p>Making system ready:<br />
+<code>aptitude install build-essential unrar<br />
+unrar e bcm70012_linux_01142009.rar<br />
+cd bcm70012_linux_01142009<br />
+mv bcm70012_linux_01142009 bcm70012_linux_01142009.tar<br />
+tar xf bcm70012_linux_01142009.tar<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+apt-get -f install<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+cd /usr/src/<br />
+m-a -t a-i bcm70012kmod<br />
+cd -<br />
+dpkg -i --force-all gst-broadcom-70012_0.9.30_lpia.deb</code></p>
+<p>22. WORKING bcm70012 !! WOHOO</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/feed/</wfw:commentRss>
+		<slash:comments>89</slash:comments>
+		</item>
+		<item>
+		<title>Play .rar files with mplayer v2.0: now with seeking</title>
+		<link>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/</link>
+		<comments>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/#comments</comments>
+		<pubDate>Sun, 09 Aug 2009 10:58:11 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mplayer]]></category>
+		<category><![CDATA[rar]]></category>
+		<category><![CDATA[rarfs]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=400</guid>
+		<description><![CDATA[It really started bothering me that its impossible to seek in media files when using my previous playrar script: Now im writing a bit more complex version which supports seeking! I got a tips about using rarfs, a FUSE based filesystem mounter. What it does is making your .rar archives into a virtual filesystem. (like [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>It really started bothering me that its impossible to seek in media files when using my <a href="http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/">previous playrar script</a>: </p>
+<p>Now im writing a bit more complex version which supports seeking!</p>
+<p>I got a tips about using <a href="http://sourceforge.net/projects/rarfs/">rarfs</a>, a <a href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> based filesystem mounter. What it does is making your .rar archives into a virtual filesystem. (like the .rar archive really isnt a archive, but real files on a filesystem)<br />
+This makes your media files seekable. (mkv,avi,iso(vob), younameit)</p>
+<p>Firstly you need to install rarfs on your system. You need to install some deps:<br />
+<code>sudo apt-get install automake1.9 libfuse-dev subversion</code><br />
+When you have done this, you are ready to checkout the svn tree on sourceforge:<br />
+<code>svn co https://rarfs.svn.sourceforge.net/svnroot/rarfs rarfs<br />
+cd rarfs/trunk/rarfs/<br />
+./configure &#038;&#038; make &#038;&#038; sudo make install</code><br />
+(seems here i got a error with doc/Makefile.in, borked release in trunk)<br />
+FIX: <code>touch doc/Makefile.in<br />
+./configure<br />
+make<br />
+sudo make install<br />
+ls -l /usr/local/bin/rarfs</code><br />
+If it returned your file in /usr/local/bin/rarfs we are good to go!</p>
+<p>Now we can mount a .rar file with the following command: rarfs bladdiblah.rar /tmp/rar<br />
+This seems a bit hard to type everytime you want to play a file, so we make a shellscript to fix this:<br />
+<code>#!/bin/bash<br />
+RARFILE=$1<br />
+TMPDIR="/tmp/playrar/"<br />
+RARFS="/usr/local/bin/rarfs"<br />
+if [ ! -d /tmp/playrar ]; then<br />
+mkdir -p /tmp/playrar<br />
+fi<br />
+$RARFS $RARFILE $TMPDIR<br />
+mplayer -fs $TMPDIR/`ls $TMPDIR`<br />
+fusermount -u $TMPDIR</code></p>
+<p>What this script does, is to mount the file, play the files inside the rar file, and then unmount the .rar archive.<br />
+You can easily wget this script: <a href='http://dingleberry.me/wp-content/uploads/2009/08/playrar.sh'>playrar.sh</a><br />
+Place it in $PATH and give it chmod +x playrar.sh (and change your media player as suited)</p>
+<p>This howto was intended to Ubuntu users, but should be done on other linux distributions as well (maybe OS X as well?)</p>
+<p>One step closer to easier movie playback <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Over 3,2 gb RAM with Ubuntu Desktop 32-bit</title>
+		<link>http://dingleberry.me/2009/08/over-32-gb-ram-with-ubuntu-desktop-32-bit/</link>
+		<comments>http://dingleberry.me/2009/08/over-32-gb-ram-with-ubuntu-desktop-32-bit/#comments</comments>
+		<pubDate>Thu, 06 Aug 2009 18:30:13 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[32bit]]></category>
+		<category><![CDATA[ram]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=389</guid>
+		<description><![CDATA[Ubuntu Desktop kernel (generic/desktop) doesnt support PAE (Physical Address Extension) To get PAE support and usage of more than 3,2 gb ram in 32bits kernelspace you have to install the server kernel: sudo apt-get install linux-headers-server linux-image-server Reboot, and whoops you can use all your RAM The alternative would be to install a 64-bit kernel, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Ubuntu Desktop kernel (generic/desktop) doesnt support PAE (<a href="http://en.wikipedia.org/wiki/Physical_Address_Extension">Physical Address Extension</a>)</p>
+<p>To get PAE support and usage of more than 3,2 gb ram in 32bits kernelspace you have to install the server kernel:<br />
+<code>sudo apt-get install linux-headers-server linux-image-server</code></p>
+<p>Reboot, and whoops you can use all your RAM <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>The alternative would be to install a 64-bit kernel, but you probably wouldnt want this on a desktop because of restricted drivers mostly only support 32-bit (and e.x. multimedia codecs/flash doesnt have good 64-bit support)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/over-32-gb-ram-with-ubuntu-desktop-32-bit/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>iPhone 3G 3.0 OS Tethering on Ubuntu Linux 9.04 via Bluetooth</title>
+		<link>http://dingleberry.me/2009/07/iphone-3g-3-0-os-tethering-on-ubuntu-linux-9-04-via-bluetooth/</link>
+		<comments>http://dingleberry.me/2009/07/iphone-3g-3-0-os-tethering-on-ubuntu-linux-9-04-via-bluetooth/#comments</comments>
+		<pubDate>Thu, 23 Jul 2009 11:08:29 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[bluetooth]]></category>
+		<category><![CDATA[iphone]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[tethering]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=380</guid>
+		<description><![CDATA[I have struggeled some with this shit until i came over a script called uit.sh: http://us.cooperlees.com/download.php?F=uit.sh.gz Download it, and do this to setup deps and config: gunzip uit.sh.gz &#038;&#038; chmod +x uit.sh &#038;&#038; sudo ./uit.sh -i After that just connect to your iphone tethering with: sudo ./uit.sh -c Disconnect: sudo ./uit.sh -d I had some [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I have struggeled some with this shit until i came over a script called uit.sh:</p>
+<p><a href="http://us.cooperlees.com/download.php?F=uit.sh.gz">http://us.cooperlees.com/download.php?F=uit.sh.gz</a></p>
+<p>Download it, and do this to setup deps and config:<br />
+<code>gunzip uit.sh.gz &#038;&#038; chmod +x uit.sh &#038;&#038; sudo ./uit.sh -i</code></p>
+<p>After that just connect to your iphone tethering with:<br />
+<code>sudo ./uit.sh -c</code></p>
+<p>Disconnect:<br />
+<code>sudo ./uit.sh -d</code></p>
+<p>I had some problems getting connection refused, this was because i had turned of 3g to save battery.<br />
+So keep that 3g ON if you want tethering!<br />
+You may also place the script in PATH to have it globally available, just remember to run the script as root/sudo.</p>
+<p>You may also get this to work with some fancy GUI SHIT like blueman, but i like terminal more.</p>
+<p>&#8220;We gotta create a GUI, so we can trace the ip&#8221;:<br />
+<a href="http://www.youtube.com/v/ygB0ZviqXac" rel="shadowbox[sbpost-380];player=swf;width=640;height=385;">http://www.youtube.com/v/ygB0ZviqXac</a></p>
+<p>Goddamn Visual Basic haxx0rz&#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/iphone-3g-3-0-os-tethering-on-ubuntu-linux-9-04-via-bluetooth/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Firefox is slow and crashes&#8230; ALL THE TIME!</title>
+		<link>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/</link>
+		<comments>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/#comments</comments>
+		<pubDate>Thu, 12 Mar 2009 10:30:53 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[add-ons]]></category>
+		<category><![CDATA[crashes]]></category>
+		<category><![CDATA[firebug]]></category>
+		<category><![CDATA[firecookie]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[plugins]]></category>
+		<category><![CDATA[profiles]]></category>
+		<category><![CDATA[slow]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[yslow]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=333</guid>
+		<description><![CDATA[I&#8217;ve recently become more and more and more and more and more and more annoyed with firefox. It is slow, it crashes (several times a day) and it is using ALOT of memory. This is ofcourse because of various plugins I added, but damnit &#8211; I need them! So what can you do if the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;ve recently become more and more and more and more and more and more annoyed with firefox. It is slow, it crashes (several times a day) and it is using ALOT of memory. This is ofcourse because of various plugins I added, but damnit &#8211; I need them! So what can you do if the plugins you so desperately need renders the browser itself unusable??? :S</p>
+<p>YOU CREATE SEPARATE PROFILES!!!</p>
+<p>I dont know why on gods green earth noone told me about this sooner..<br />
+You simply just add -P profilename to the firefox cmd. On my ubuntu the firefox launcher button had the following cmd:</p>
+<p>&#8220;firefox %u&#8221;, now it looks like this: &#8220;firefox %u -P firebug -no-remote&#8221;<br />
+In the above example I&#8217;m launching the profile I named &#8220;firebug&#8221;. In this profile I installed firebug, firecookie and the Yslow plugins. The &#8220;normal&#8221; launcher button has the &#8220;-P default&#8221; option to launch my &#8220;regular&#8221; firefox install.</p>
+<p>Additional firefox about:config adjustments i made:<br />
+1) Adjust the browser pipelining<br />
+1a) network.http.pipelining = true<br />
+1b) network.http.pipelining.maxrequests = 10<br />
+1c) network.http.proxy.pipelining = true<br />
+2) Turn off ALL caching<br />
+2a) browser.cache.disk.enable = false<br />
+2b) browser.cache.memory.enable = false<br />
+2c) browser.cache.offline.enable = false<br />
+2d) network.http.use-cache = false</p>
+<p>Be warned that with all caching turned off, sites that use for instance alot of tiny tiny &#8220;see-through&#8221; images to adjust their html layout AND using for instance mod-evasive in apache will block your ass for DOS attacking them. (as you will be requesting that little .gif ALOT of times over a very short period of time)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

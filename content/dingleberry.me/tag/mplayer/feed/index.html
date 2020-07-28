@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/mplayer/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Streaming DVB from Dreambox with mplayer</title>
+		<link>http://dingleberry.me/2009/10/streaming-dvb-from-dreambox-with-mplayer/</link>
+		<comments>http://dingleberry.me/2009/10/streaming-dvb-from-dreambox-with-mplayer/#comments</comments>
+		<pubDate>Tue, 13 Oct 2009 19:18:54 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dreambox]]></category>
+		<category><![CDATA[dvb]]></category>
+		<category><![CDATA[mplayer]]></category>
+		<category><![CDATA[streaming]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=511</guid>
+		<description><![CDATA[This is how you stream the dvbstream directly from your dreambox to your computer with mplayer: mplayer -cache 16000 "$(wget -q -O - http://root:passwordhereplx@ipofdreambox/video.m3u)" This is how it looks: Now you dont have to sit in the livingroom to watch your programmes, while nerding]]></description>
+				<content:encoded><![CDATA[<p>This is how you stream the dvbstream directly from your dreambox to your computer with mplayer:</p>
+<p><code>mplayer -cache 16000 "$(wget -q -O - http://root:passwordhereplx@ipofdreambox/video.m3u)"</code></p>
+<p>This is how it looks:<br />
+<a href="http://dingleberry.me/wp-content/uploads/2009/10/mplayerdreambox.png" rel="shadowbox[sbpost-511];player=img;"><img src="http://dingleberry.me/wp-content/uploads/2009/10/mplayerdreambox-300x158.png" alt="mplayer dreambox streaming" title="mplayer dreambox streaming" width="300" height="158" class="alignnone size-medium wp-image-512" /></a></p>
+<p>Now you dont have to sit in the livingroom to watch your programmes, while nerding <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/streaming-dvb-from-dreambox-with-mplayer/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Play .rar files with mplayer v2.0: now with seeking</title>
+		<link>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/</link>
+		<comments>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/#comments</comments>
+		<pubDate>Sun, 09 Aug 2009 10:58:11 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mplayer]]></category>
+		<category><![CDATA[rar]]></category>
+		<category><![CDATA[rarfs]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=400</guid>
+		<description><![CDATA[It really started bothering me that its impossible to seek in media files when using my previous playrar script: Now im writing a bit more complex version which supports seeking! I got a tips about using rarfs, a FUSE based filesystem mounter. What it does is making your .rar archives into a virtual filesystem. (like [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>It really started bothering me that its impossible to seek in media files when using my <a href="http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/">previous playrar script</a>: </p>
+<p>Now im writing a bit more complex version which supports seeking!</p>
+<p>I got a tips about using <a href="http://sourceforge.net/projects/rarfs/">rarfs</a>, a <a href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> based filesystem mounter. What it does is making your .rar archives into a virtual filesystem. (like the .rar archive really isnt a archive, but real files on a filesystem)<br />
+This makes your media files seekable. (mkv,avi,iso(vob), younameit)</p>
+<p>Firstly you need to install rarfs on your system. You need to install some deps:<br />
+<code>sudo apt-get install automake1.9 libfuse-dev subversion</code><br />
+When you have done this, you are ready to checkout the svn tree on sourceforge:<br />
+<code>svn co https://rarfs.svn.sourceforge.net/svnroot/rarfs rarfs<br />
+cd rarfs/trunk/rarfs/<br />
+./configure &#038;&#038; make &#038;&#038; sudo make install</code><br />
+(seems here i got a error with doc/Makefile.in, borked release in trunk)<br />
+FIX: <code>touch doc/Makefile.in<br />
+./configure<br />
+make<br />
+sudo make install<br />
+ls -l /usr/local/bin/rarfs</code><br />
+If it returned your file in /usr/local/bin/rarfs we are good to go!</p>
+<p>Now we can mount a .rar file with the following command: rarfs bladdiblah.rar /tmp/rar<br />
+This seems a bit hard to type everytime you want to play a file, so we make a shellscript to fix this:<br />
+<code>#!/bin/bash<br />
+RARFILE=$1<br />
+TMPDIR="/tmp/playrar/"<br />
+RARFS="/usr/local/bin/rarfs"<br />
+if [ ! -d /tmp/playrar ]; then<br />
+mkdir -p /tmp/playrar<br />
+fi<br />
+$RARFS $RARFILE $TMPDIR<br />
+mplayer -fs $TMPDIR/`ls $TMPDIR`<br />
+fusermount -u $TMPDIR</code></p>
+<p>What this script does, is to mount the file, play the files inside the rar file, and then unmount the .rar archive.<br />
+You can easily wget this script: <a href='http://dingleberry.me/wp-content/uploads/2009/08/playrar.sh'>playrar.sh</a><br />
+Place it in $PATH and give it chmod +x playrar.sh (and change your media player as suited)</p>
+<p>This howto was intended to Ubuntu users, but should be done on other linux distributions as well (maybe OS X as well?)</p>
+<p>One step closer to easier movie playback <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Play .rar files with vlc / mplayer</title>
+		<link>http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/</link>
+		<comments>http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/#comments</comments>
+		<pubDate>Mon, 13 Oct 2008 08:27:29 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mplayer]]></category>
+		<category><![CDATA[rar]]></category>
+		<category><![CDATA[unrar]]></category>
+		<category><![CDATA[vlc]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=104</guid>
+		<description><![CDATA[UPDATE: Ive made a more complex version of this post with seeking: http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/ Are you tired of having to unpack *.rar archives to watch them? There is a solution for us linux users. Firstly you should install unrar. On a debian or derivate: apt-get install unrar Then you should make a shell wrapper, e.x.: /usr/local/bin/playrar [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>UPDATE: Ive made a more complex version of this post with seeking: </strong><br />
+<a href="http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/">http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/</a></p>
+<p>Are you tired of having to unpack *.rar archives to watch them?<br />
+There is a solution for us linux users.</p>
+<p>Firstly you should install unrar.</p>
+<p>On a debian or derivate:<br />
+<code>apt-get install unrar</code></p>
+<p>Then you should make a shell wrapper, e.x.: <strong>/usr/local/bin/playrar</strong></p>
+<p>Make it look like something like this: (change mplayer to your preferrable videoplayer)</p>
+<p><code>unrar p -inul $1 | mplayer -</code></p>
+<p>And do a:<br />
+<code>chmod +x /usr/local/bin/playrar</code></p>
+<p>Now you can do a:<br />
+<code>playrar blablabla.rar</code></p>
+<p>And your video will be shown without unpacking it.<br />
+The only catch is that you can&#8217;t seek in the video if its multipart-rar archive.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+		</item>
+	</channel>
+</rss>

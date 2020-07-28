@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/jira/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Automatically create bugs in Jira with a Nagios eventhandler</title>
+		<link>http://dingleberry.me/2010/03/automatically-create-bugs-in-jira-with-a-nagios-eventhandler/</link>
+		<comments>http://dingleberry.me/2010/03/automatically-create-bugs-in-jira-with-a-nagios-eventhandler/#comments</comments>
+		<pubDate>Tue, 09 Mar 2010 13:51:22 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[eventhandler]]></category>
+		<category><![CDATA[jira]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=631</guid>
+		<description><![CDATA[The most important part about this is &#8230;.dont use it too often, but it CAN make sense on really critical events, like warnings/criticals on partitionspace. For instance, if your mysql server is running out of space on /var/lib/mysql and your operationsteam didnt see the WARNING/CRITICAL notification from Nagios, it might be a good idea to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>The most important part about this is  &#8230;.dont use it too often, but it CAN make sense on really critical events, like warnings/criticals on partitionspace. For instance, if your mysql server is running out of space on /var/lib/mysql and your operationsteam didnt see the WARNING/CRITICAL notification from <a href="http://www.nagios.org">Nagios</a>, it might be a good idea to have the bug created in <a href="http://www.atlassian.com/software/jira/">Jira</a> to make it even more visible. </p>
+<p>Here&#8217;s how you do it.<br />
+First of all, be sure to have <a href="http://nagios.sourceforge.net/docs/3_0/eventhandlers.html">eventhandlers</a> enabled in <a href="http://www.nagios.org">Nagios</a>.</p>
+<p>Configure your commands.cfg file to have something similar to this : </p>
+<p><code>define command{<br />
+        command_name    jira_eventhandler<br />
+        command_line    $USER1$/jira_eventhandler -a morten -s $SERVICESTATE$ -t $SERVICESTATETYPE$ -A $SERVICEATTEMPT$ -H $HOSTNAME$ -S $SERVICEDESC$<br />
+        }<br />
+</code></p>
+<p>Configure your services.cfg to have something similar to this :<br />
+<code>define service{<br />
+        use                             generic-service<br />
+        host_name                       myhost<br />
+        service_description             CHECK_DISK_ROOT<br />
+        is_volatile                     0<br />
+        max_check_attempts              3<br />
+        normal_check_interval           10<br />
+        retry_check_interval            1<br />
+        contact_groups                  linux-admins<br />
+        notification_period             24x7<br />
+        notification_options            c,w,r<br />
+        check_command                   check_remote_disk_nagios!10%!5%!/<br />
+        process_perf_data               1<br />
+        event_handler                   jira_eventhandler<br />
+        flap_detection_enabled          0<br />
+        }</code></p>
+<p>And be sure to have the jira_eventhandler script in place. You can download mine here : <a href='http://dingleberry.me/wp-content/uploads/2010/03/jira_eventhandler.txt'>jira_eventhandler</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/03/automatically-create-bugs-in-jira-with-a-nagios-eventhandler/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

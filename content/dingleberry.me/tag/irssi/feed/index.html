@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/irssi/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Tweaking irssi windowlist tabs</title>
+		<link>http://dingleberry.me/2009/09/tweaking-irssi-windowlist-tabs/</link>
+		<comments>http://dingleberry.me/2009/09/tweaking-irssi-windowlist-tabs/#comments</comments>
+		<pubDate>Fri, 04 Sep 2009 08:26:29 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[irssi]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=438</guid>
+		<description><![CDATA[http://anti.teamidiot.de provides a prettier windowlisting for irssi. Instead of getting a number for each window, you get the name of the channel or the name of the person you&#8217;re chatting with. This makes it easier to navigate and see where the action is going on. This is how to do it : mkdir -p ~/.irssi/scripts/autorun [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="http://anti.teamidiot.de">http://anti.teamidiot.de</a> provides a prettier windowlisting for irssi. Instead of getting a number for each window, you get the name of the channel or the name of the person you&#8217;re chatting with. This makes it easier to navigate and see where the action is going on.</p>
+<p>This is how to do it :<br />
+<code>mkdir -p ~/.irssi/scripts/autorun<br />
+cd ~/.irssi/scripts<br />
+wget http://anti.teamidiot.de/static/nei/*/Code/Irssi/adv_windowlist.pl<br />
+cd ~/.irssi/scripts/autorun<br />
+ln -s ../adv_windowlist.pl</code></p>
+<p>in irssi:<br />
+<code>/run autorun/adv_windowlist.pl<br />
+/set awl_display_key $Q%K|%n$H$C$S<br />
+/set awl_block -12<br />
+/statusbar window remove act</code><br />
+<img src="http://dingleberry.me/wp-content/uploads/2009/09/irssi-tweak-300x148.png" alt="irssi-tweak" width="300" height="148" class="alignnone size-medium wp-image-439" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/tweaking-irssi-windowlist-tabs/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

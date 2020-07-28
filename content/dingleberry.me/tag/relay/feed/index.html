@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/relay/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Setup smarthost with postfix</title>
+		<link>http://dingleberry.me/2008/10/setup-smarthost-with-postfix/</link>
+		<comments>http://dingleberry.me/2008/10/setup-smarthost-with-postfix/#comments</comments>
+		<pubDate>Thu, 16 Oct 2008 07:24:36 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[postfix]]></category>
+		<category><![CDATA[relay]]></category>
+		<category><![CDATA[smarthost]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=184</guid>
+		<description><![CDATA[Okey, so you have a server behind a ISP that blocks outgoing connections to port 25, or you simply want to route all mail through another smtp. What do you do? Smarthost is the answer. This can easily be done with postfix: apt-get install postfix libsasl2-modules mailx Edit postfix config: /etc/postfix/main.cf #here we use mail.whatever.com [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Okey, so you have a server behind a ISP that blocks outgoing connections to port 25, or you simply want to route all mail through another smtp. What do you do? Smarthost is the answer.</p>
+<p>This can easily be done with postfix:</p>
+<p><code>apt-get install postfix libsasl2-modules mailx</code></p>
+<p>Edit postfix config: <strong>/etc/postfix/main.cf</strong><br />
+<code>#here we use mail.whatever.com port 587, change as needed<br />
+relayhost = [mail.whatever.com]:587<br />
+#the next lines are only needed if you want to use tls and/or smtp auth on your relayhost<br />
+smtp_use_tls = yes<br />
+smtp_sasl_auth_enable = yes<br />
+smtp_sasl_password_maps = hash:/etc/postfix/smtp_auth<br />
+smtp_sasl_security_options = noanonymous</code></p>
+<p>Further for configuring smtp-auth, edit: <strong>/etc/postfix/smtp_auth</strong><br />
+<code>mail.whatever.com  username:your_secret_password</code></p>
+<p>Then you convert this to postfix hash table format and restart postfix:<br />
+<code>cd /etc/postfix<br />
+postmap smtp_auth<br />
+/etc/init.d/postfix restart</code></p>
+<p>Now to test the relay and tail your log file to see the connection go through:<br />
+<code>echo "no soup for you!" | mail your@mailadress.com<br />
+tail -f /var/log/mail.log<br />
+</code></p>
+<p>You can read more on smarthost @ <a href="http://en.wikipedia.org/wiki/Smarthost">Wikipedia</a><br />
+And we are done here!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/setup-smarthost-with-postfix/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

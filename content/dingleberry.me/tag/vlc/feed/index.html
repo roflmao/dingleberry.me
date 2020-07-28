@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/vlc/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Play .rar files with vlc / mplayer</title>
+		<link>http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/</link>
+		<comments>http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/#comments</comments>
+		<pubDate>Mon, 13 Oct 2008 08:27:29 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mplayer]]></category>
+		<category><![CDATA[rar]]></category>
+		<category><![CDATA[unrar]]></category>
+		<category><![CDATA[vlc]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=104</guid>
+		<description><![CDATA[UPDATE: Ive made a more complex version of this post with seeking: http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/ Are you tired of having to unpack *.rar archives to watch them? There is a solution for us linux users. Firstly you should install unrar. On a debian or derivate: apt-get install unrar Then you should make a shell wrapper, e.x.: /usr/local/bin/playrar [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>UPDATE: Ive made a more complex version of this post with seeking: </strong><br />
+<a href="http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/">http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/</a></p>
+<p>Are you tired of having to unpack *.rar archives to watch them?<br />
+There is a solution for us linux users.</p>
+<p>Firstly you should install unrar.</p>
+<p>On a debian or derivate:<br />
+<code>apt-get install unrar</code></p>
+<p>Then you should make a shell wrapper, e.x.: <strong>/usr/local/bin/playrar</strong></p>
+<p>Make it look like something like this: (change mplayer to your preferrable videoplayer)</p>
+<p><code>unrar p -inul $1 | mplayer -</code></p>
+<p>And do a:<br />
+<code>chmod +x /usr/local/bin/playrar</code></p>
+<p>Now you can do a:<br />
+<code>playrar blablabla.rar</code></p>
+<p>And your video will be shown without unpacking it.<br />
+The only catch is that you can&#8217;t seek in the video if its multipart-rar archive.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+		</item>
+	</channel>
+</rss>

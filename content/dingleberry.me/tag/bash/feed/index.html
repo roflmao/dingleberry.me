@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/bash/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Annoyed by the output of &#8220;locate&#8221;</title>
+		<link>http://dingleberry.me/2008/10/annoyed-by-the-output-of-locate/</link>
+		<comments>http://dingleberry.me/2008/10/annoyed-by-the-output-of-locate/#comments</comments>
+		<pubDate>Wed, 15 Oct 2008 00:08:01 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[locate]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=176</guid>
+		<description><![CDATA[I like to have colors and additional pr-file-info when searching files when not having the time to wait for &#8220;find&#8221; to complete. I made a silly little sh script, named it &#8220;clocate&#8221; and put it in my /usr/local/bin #!/bin/sh if [ -n $1 ]; then for fil in `locate $1`; do ls --color=auto -l $fil [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I like to have colors and additional pr-file-info when searching files when not having the time to wait for &#8220;find&#8221; to complete.<br />
+I made a silly little sh script, named it &#8220;clocate&#8221; and put it in my /usr/local/bin</p>
+<p><code>#!/bin/sh<br />
+if [ -n $1 ]; then<br />
+for fil in `locate $1`; do<br />
+ls --color=auto -l $fil<br />
+done<br />
+fi</code></p>
+<p>It does the job for me.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/annoyed-by-the-output-of-locate/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

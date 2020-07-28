@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/content/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Using Varnish ESI to include content from another host</title>
+		<link>http://dingleberry.me/2009/10/using-varnish-esi-to-include-content-from-another-host/</link>
+		<comments>http://dingleberry.me/2009/10/using-varnish-esi-to-include-content-from-another-host/#comments</comments>
+		<pubDate>Wed, 07 Oct 2009 07:29:58 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[content]]></category>
+		<category><![CDATA[esi]]></category>
+		<category><![CDATA[external]]></category>
+		<category><![CDATA[remote]]></category>
+		<category><![CDATA[varnish]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=495</guid>
+		<description><![CDATA[I want to include a .html element from otherhost.com on my website. This is how to do it With ESI (Edge Side Include) in varnish: On my webserver i have index.html. Inside this document i want to include externalcontent.html from otherhost.com. The html code which varnish needs to interpret looks like this: &#60;esi:include src="http://otherhost.com/externalcontent.html"/&#62; In [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I want to include a .html element from otherhost.com on my website. This is how to do it With ESI (Edge Side Include) in varnish:<br />
+On my webserver i have index.html. Inside this document i want to include externalcontent.html from otherhost.com. The html code which varnish needs to interpret looks like this:<br />
+<code>&lt;esi:include src="http://otherhost.com/externalcontent.html"/&gt;</code><br />
+In order to make varnish aware of the need to do esi processing you need the following in your varnish config:</p>
+<p>1. We need to define otherhost.com as a backend in order for varnish to know that it needs to fetch this content from another host: (the .host part needs to be the ip of the webserver for otherhost.com)<br />
+<code>backend otherbackend {<br />
+		.host = "1.2.3.4";<br />
+		.port = "80";<br />
+}</code></p>
+<p>2. Inside vcl_fetch:<br />
+Note: the req.url ~ &#8220;whatever&#8221; needs to reflect which pages needs esi processing)<br />
+<code>if (req.url ~ "index.html") {<br />
+  esi;<br />
+}</code></p>
+<p>3. Inside vcl_recv:<br />
+<code>if (req.http.host == "otherhost.com") {<br />
+  set req.backend = otherbackend;<br />
+}</code></p>
+<p>4. Restart varnish and you are done <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /><br />
+<code>/etc/init.d/varnish restart</code></p>
+<p>Reference:</p>
+<p>http://varnish.projects.linpro.no/browser/trunk/varnish-cache/bin/varnishtest/tests/e00006.vtc</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/using-varnish-esi-to-include-content-from-another-host/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

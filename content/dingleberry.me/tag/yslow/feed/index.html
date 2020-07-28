@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/yslow/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Firefox is slow and crashes&#8230; ALL THE TIME!</title>
+		<link>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/</link>
+		<comments>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/#comments</comments>
+		<pubDate>Thu, 12 Mar 2009 10:30:53 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[add-ons]]></category>
+		<category><![CDATA[crashes]]></category>
+		<category><![CDATA[firebug]]></category>
+		<category><![CDATA[firecookie]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[plugins]]></category>
+		<category><![CDATA[profiles]]></category>
+		<category><![CDATA[slow]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[yslow]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=333</guid>
+		<description><![CDATA[I&#8217;ve recently become more and more and more and more and more and more annoyed with firefox. It is slow, it crashes (several times a day) and it is using ALOT of memory. This is ofcourse because of various plugins I added, but damnit &#8211; I need them! So what can you do if the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;ve recently become more and more and more and more and more and more annoyed with firefox. It is slow, it crashes (several times a day) and it is using ALOT of memory. This is ofcourse because of various plugins I added, but damnit &#8211; I need them! So what can you do if the plugins you so desperately need renders the browser itself unusable??? :S</p>
+<p>YOU CREATE SEPARATE PROFILES!!!</p>
+<p>I dont know why on gods green earth noone told me about this sooner..<br />
+You simply just add -P profilename to the firefox cmd. On my ubuntu the firefox launcher button had the following cmd:</p>
+<p>&#8220;firefox %u&#8221;, now it looks like this: &#8220;firefox %u -P firebug -no-remote&#8221;<br />
+In the above example I&#8217;m launching the profile I named &#8220;firebug&#8221;. In this profile I installed firebug, firecookie and the Yslow plugins. The &#8220;normal&#8221; launcher button has the &#8220;-P default&#8221; option to launch my &#8220;regular&#8221; firefox install.</p>
+<p>Additional firefox about:config adjustments i made:<br />
+1) Adjust the browser pipelining<br />
+1a) network.http.pipelining = true<br />
+1b) network.http.pipelining.maxrequests = 10<br />
+1c) network.http.proxy.pipelining = true<br />
+2) Turn off ALL caching<br />
+2a) browser.cache.disk.enable = false<br />
+2b) browser.cache.memory.enable = false<br />
+2c) browser.cache.offline.enable = false<br />
+2d) network.http.use-cache = false</p>
+<p>Be warned that with all caching turned off, sites that use for instance alot of tiny tiny &#8220;see-through&#8221; images to adjust their html layout AND using for instance mod-evasive in apache will block your ass for DOS attacking them. (as you will be requesting that little .gif ALOT of times over a very short period of time)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/firefox-is-slow-and-crashes-all-the-time/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

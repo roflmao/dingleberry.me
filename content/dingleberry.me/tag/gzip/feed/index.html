@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/gzip/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>gzip support in check_http</title>
+		<link>http://dingleberry.me/2011/05/gzip-support-in-check_http/</link>
+		<comments>http://dingleberry.me/2011/05/gzip-support-in-check_http/#comments</comments>
+		<pubDate>Mon, 30 May 2011 08:51:13 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[1.4.15]]></category>
+		<category><![CDATA[check_http]]></category>
+		<category><![CDATA[gzip]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=702</guid>
+		<description><![CDATA[If you need gzip support in your nagios check_http plugin, here&#8217;s what you need to do. First of all, fetch the latest version (1.4.15) of the nagios-plugins : http://sourceforge.net/projects/nagiosplug/files/nagiosplug/1.4.15/ tar xzfv the downloaded file somewhere and enter the nagios-plugins-1.4.15/plugins directory&#8230; Here you&#8217;ll find the check_http.c sourcefile which needs to be patched. You can find the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>If you need gzip support in your nagios check_http plugin, here&#8217;s what you need to do.<br />
+First of all, fetch the latest version (1.4.15) of the nagios-plugins : </p>
+<p>http://sourceforge.net/projects/nagiosplug/files/nagiosplug/1.4.15/</p>
+<p>tar xzfv the downloaded file somewhere and enter the nagios-plugins-1.4.15/plugins directory&#8230;<br />
+Here you&#8217;ll find the check_http.c sourcefile which needs to be patched.<br />
+You can find the patch here : </p>
+<p>http://sourceforge.net/tracker/index.php?func=detail&#038;aid=3294169&#038;group_id=29880&#038;atid=397599</p>
+<p>patch the sourcefile with the patch command : patch check_http.c checkhttpgzipdeflate.patch<br />
+Go down one directory and run ./configure &amp;&amp; make<br />
+You&#8217;ll have a freshly compiled check_http plugin with gzip support in the plugins-directory.<br />
+Copy it to your nagios-plugins directory or wherever you keep maintained versions.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/05/gzip-support-in-check_http/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/jumboframe-jumbo-frame-network-ping-test/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Test your jumbo frame enabled network with ping</title>
+		<link>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/</link>
+		<comments>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/#comments</comments>
+		<pubDate>Thu, 03 Feb 2011 11:23:34 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[frame]]></category>
+		<category><![CDATA[jumbo]]></category>
+		<category><![CDATA[jumboframe]]></category>
+		<category><![CDATA[jumboframe jumbo frame network ping test]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[test]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=683</guid>
+		<description><![CDATA[ping -Mdo -s If it works: $ ping -Mdo -s 8001 10.0.20.26 PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data. 8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms 8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!) 8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms If it doesnt: $ ping -Mdo -s 2001 195.10.34.51 -c3 PING [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>ping -Mdo -s <size in bytes above 1500> <another ip on jumbo frame enabled network></p>
+<p>If it works:<br />
+$ ping -Mdo -s 8001 10.0.20.26<br />
+PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data.<br />
+8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms<br />
+8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!)<br />
+8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms</p>
+<p>If it doesnt:<br />
+$ ping -Mdo -s 2001 195.10.34.51 -c3<br />
+PING 195.10.34.51 (195.10.34.51) 2001(2029) bytes of data.<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

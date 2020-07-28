@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/salt/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Playing with SaltStack and external classifiers</title>
+		<link>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/</link>
+		<comments>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/#comments</comments>
+		<pubDate>Fri, 06 Jun 2014 17:38:05 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cmdb]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=731</guid>
+		<description><![CDATA[We have been discussing this a lot lately. How do we structure our SaltStack-config in a way that lets us do changes without possibly breaking abseloutly everything. Finding a good hierarchy is not always easy. How do we build it so that we can open it up later&#8230;. How can we manage to mostly leave [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We have been discussing this a lot lately. How do we structure our SaltStack-config in a way that lets us do changes without possibly breaking abseloutly everything. Finding a good hierarchy is not always easy. How do we build it so that we can open it up later&#8230;. How can we manage to mostly leave the top.sls file alone and how do we include the right config for the right minions without having to maintain a list of minions in the config and make it so large its unreadable.</p>
+<p>Turns out&#8230; the solution was pretty easy for us, as soon as we came up with the idea.</p>
+<p>We allready have an internally written CMDB-solution and we wanted to use that as an external classifier.<br />
+First we had to write a simple module that made pillars from the data in our CMDB. More about that some other time. This post is about the structure we went for.<br />
+Anyway, our cmdb-module creates pillars for all hosts containing hostname, status (dev,qa,prod) and product (or role if you prefer).<br />
+This will typically look like this for a dev-server:<br />
+<code><br />
+ourservername:<br />
+  status: development<br />
+  product: ourwebsite<br />
+</code></p>
+<p>So what we ended up with, was using file_roots in salt, matching each our environments like this:<br />
+(top.sls)<br />
+<code>base:<br />
+  "*"<br />
+    - somebasestuff<br />
+  "cmdb:status:prod*":<br />
+    - match: pillar<br />
+    - role<br />
+  "cmdb:status:qa":<br />
+    - match: pillar<br />
+    - role<br />
+  "cmdb:status:dev*":<br />
+    - match: pillar<br />
+    - role</code></p>
+<p>This will match the role.sls file in all 3 environments.<br />
+In all 3 environments we have 2 subfolders. &#8220;products&#8221; and &#8220;services&#8221;.<br />
+The &#8220;product&#8221; folders contain the state of the final product, using services<br />
+from the &#8220;services&#8221; folder. For instance, say you have a product called &#8220;yourwebsite&#8221;.<br />
+It will probably contain installation and configuration of web, cache and db. Those 3 are<br />
+reusable services under the services folder and doesnt change much.<br />
+In our role.sls we are now matching on the pillar &#8220;product&#8221; in our CMDB like this:</p>
+<p><code>include:<br />
+  - products/{{ pillar.get('cmdb', {}).get('product') }}</code></p>
+<p>What this will do, is look for the CMDB-value for &#8220;product&#8221; and then include the matching item in the products-folder &#8230;and so, we do not need to maintain the top.sls OR any hostnames in the salt-config. So far we think it is a good idea, but we will see in a few weeks if it actually lives up to our expectations. </p>
+<p>Anyways, figured I should share our thoughts. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>running nagiosplugins via saltstacks peer communicationsystem</title>
+		<link>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/</link>
+		<comments>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/#comments</comments>
+		<pubDate>Fri, 21 Mar 2014 20:11:49 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[nrpe]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+		<category><![CDATA[zmq]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=719</guid>
+		<description><![CDATA[So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So &#8230;my previous post was  similar to this, but you most likely dont want to run the salt-master and nagios on the same server, so I had to find a way to let the nagios-server execute its plugins on hosts via the salt-master. This can be done using the python client api and saltstacks own peer communication system.</p>
+<p>First of all, read this : <a title="http://docs.saltstack.com/ref/peer.html" href="http://docs.saltstack.com/ref/peer.html" target="_blank">http://docs.saltstack.com/ref/peer.html</a></p>
+<p>Then check out my wrapper here : <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py" target="_blank">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_saltpeer.py</a></p>
+<p>Yay! Now you can throw away NRPE forever and stop using ssh-keys for the nagiosuser if you are doing that allready.</p>
+<p>Nagiosplugins over zmq? I like it <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/03/running-nagiosplugins-via-saltstacks-peer-communication/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Running nagios-plugins via saltstack</title>
+		<link>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/</link>
+		<comments>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/#comments</comments>
+		<pubDate>Tue, 26 Nov 2013 11:15:25 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[icinga]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=715</guid>
+		<description><![CDATA[I&#8217;m so sick of maintaining NRPE-config on my servers, and I dont really want root-sshkeys all over the place. Recently I discovered saltstack and started to play with it a bit. I came up with the idea of running Nagios(or Icinga) on the same server as my salt-master and so I created a little wrapper [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;m so sick of maintaining NRPE-config on my servers, and I dont really want root-sshkeys all over the place. Recently I discovered saltstack and started to play with it a bit. I came up with the idea of running Nagios(or Icinga) on the same server as my salt-master and so I created a little wrapper that lets me run nagios-checks via saltstack.</p>
+<p>Here&#8217;s how it works.</p>
+<p>This is my little wrapper-script written in python: <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py">https://github.com/mortis1337/nagios-plugins/blob/master/check_by_salt.py</a></p>
+<p>The wrapper takes hostname, plugin and a timeoutvalue as arguments:</p>
+<p>$ python check_by_salt.py -H examplehost -p &#8220;/path/to/existing/nagiosplugin arg1 arg2&#8243; -t 10</p>
+<p>The wrapper imports salt and runs commands on minions with cmd.run_all and returns the output and the exitcode.</p>
+<p>For this to work as the nagios/icinga user, you will have to configure the client_acl for the user in the salt-master config, so go ahead and edit the master-configfile (default: /etc/salt/master)</p>
+<p>Search for &#8220;client_acl&#8221; in the file and add this :</p>
+<p>client_acl:<br />
+icinga:<br />
+- cmd.*</p>
+<p>Yeeaaaap, thats quite the security risk right there, but read up on how to limit what can be done with the cmd-state in salt and atleast it will be safer than using ssh-keys <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>check_by_salt in combination with <a title="https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py" href="https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py">https://github.com/mortis1337/nagios-plugins/blob/master/check_disk_generic.py</a> will instantly give you monitoring of all your disks with no clientside-configuration.</p>
+<p>Use it if you like it and feel free to improve it.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2013/11/running-nagios-plugins-via-saltstack/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

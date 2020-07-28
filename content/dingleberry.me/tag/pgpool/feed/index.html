@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/pgpool/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Setting up postgres loadbalancing on debian</title>
+		<link>http://dingleberry.me/2009/08/setting-up-postgres-loadbalancing-on-debian/</link>
+		<comments>http://dingleberry.me/2009/08/setting-up-postgres-loadbalancing-on-debian/#comments</comments>
+		<pubDate>Wed, 26 Aug 2009 11:29:54 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[pgpool]]></category>
+		<category><![CDATA[pgpool2]]></category>
+		<category><![CDATA[postgres]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=435</guid>
+		<description><![CDATA[There&#8217;s a few ways to do it, but I personally found pgpool2 to be very nice and easy to set up. Here&#8217;s a quick and dirty guide to get it up and running. First of all, you want your database backends to look exactly the same. So dump the database and restore it on your [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>There&#8217;s a few ways to do it, but I personally found pgpool2 to be very nice and easy to set up.<br />
+Here&#8217;s a quick and dirty guide to get it up and running.</p>
+<p>First of all, you want your database backends to look exactly the same.<br />
+So dump the database and restore it on your second server.<br />
+Make sure your postgres backends allows your pgpool host to connect to them.</p>
+<p>Pick a host where you wanna run pgtool2.</p>
+<p><code>apt-get install pgpool2</code></p>
+<p>It will automatically install a config file under <code>/etc/pgpool.conf</code> and start up pgpool2. Not very useful yet, since you need to do some configuring, so just kill it and open the config file for editing.<br />
+Note: pgpool has several config options that you can play with. I&#8217;m not gonna go through them here, but just show how to get the basics up and running.</p>
+<p>First of all, you need to config access to the master/system dbserver: </p>
+<p><code># system DB info<br />
+system_db_hostname = 'test-dbserver1'<br />
+system_db_port = 5432<br />
+system_db_dbname = 'pgpool'<br />
+system_db_schema = 'pgpool_catalog'<br />
+system_db_user = 'someuser'<br />
+system_db_password = 'md5hashedvalue'<br />
+</code></p>
+<p>To find your md5 hashed password value, you can just use the command pg_md5 :</p>
+<p><code>pg_md5 yourpasswordhere</code></p>
+<p>After that you should configure info about your backend servers : </p>
+<p><code>backend_hostname0 = 'test-dbserver1'<br />
+backend_port0 = 5432<br />
+backend_weight0 = 1<br />
+backend_hostname1 = 'test-dbserver2'<br />
+backend_port1 = 5432<br />
+backend_weight1 = 1<br />
+</code></p>
+<p>&#8230;.and that&#8217;s about it. Now fire up pgpool2 on your host by typing : </p>
+<p><code>pgpool -n -d</code></p>
+<p>This will start pgpool in the foreground and display all debug info about whats going on. Handy when checking if things work properly. If they do, you can restart it by typing : </p>
+<p><code>pgpool -f /etc/pgpool.conf</code></p>
+<p>If you want to turn on replication, just change the parameter to: </p>
+<p><code>replication_mode = true</code></p>
+<p>..and restart pgpool.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/setting-up-postgres-loadbalancing-on-debian/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

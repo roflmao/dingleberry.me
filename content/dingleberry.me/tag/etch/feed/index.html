@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/etch/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Backporting varnish from debian unstable/testing to etch</title>
+		<link>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/</link>
+		<comments>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/#comments</comments>
+		<pubDate>Wed, 07 Oct 2009 07:10:15 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[2.0.4]]></category>
+		<category><![CDATA[backporting]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[testing]]></category>
+		<category><![CDATA[unstable]]></category>
+		<category><![CDATA[varnish]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=491</guid>
+		<description><![CDATA[Recently i wanted to upgrade Varnish to latest stable &#8211; 2.0.4 on our debian etch boxes. Do you think debian has the latest version in the etch repos? Ofcourse not.. However, backporting turned out to be allmost too easy Here is how I did it; 1. Edit your /etc/apt/sources.list deb-src entry to reflect which debian [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Recently i wanted to upgrade Varnish to latest stable &#8211; 2.0.4 on our debian etch boxes. Do you think debian has the latest version in the etch repos? Ofcourse not.. However, backporting turned out to be allmost too easy <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  Here is how I did it;</p>
+<p>1. Edit your /etc/apt/sources.list deb-src entry to reflect which debian version you want to backport packages from. My entry looks like this:<br />
+<code>deb-src http://ftp.no.debian.org/debian/ unstable main non-free contrib</code><br />
+2. Download the source code from the repo:<br />
+<code>apt-get source varnish</code><br />
+3. Make sure you have all the deps needed:<br />
+<code>apt-get build-dep varnish</code><br />
+4. (might not be necessary) I was missing the fakeroot package:<br />
+<code>apt-get install fakeroot</code><br />
+5. Build the package(s):<br />
+<code>cd varnish-2.0.4<br />
+dpkg-buildpackage -rfakeroot -uc -b</code><br />
+6. And finally install your newly created packages:<br />
+<code>cd ..<br />
+dpkg -i *.deb</code></p>
+<p>Reference(s):<br />
+<a href="http://www.debian.org/doc/manuals/apt-howto/ch-sourcehandling.en.html">http://www.debian.org/doc/manuals/apt-howto/ch-sourcehandling.en.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Distupgrading debian etch to lenny, and upgrading postgres 8.1 to 8.3</title>
+		<link>http://dingleberry.me/2009/09/distupgrading-debian-etch-to-lenny-and-upgrading-postgres-8-1-to-8-3/</link>
+		<comments>http://dingleberry.me/2009/09/distupgrading-debian-etch-to-lenny-and-upgrading-postgres-8-1-to-8-3/#comments</comments>
+		<pubDate>Mon, 07 Sep 2009 11:33:10 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[8.1]]></category>
+		<category><![CDATA[8.3]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[lenny]]></category>
+		<category><![CDATA[postgres]]></category>
+		<category><![CDATA[upgrade]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=482</guid>
+		<description><![CDATA[Pretty straight forward. Edit your /etc/apt/sources.list. Substitute &#8220;etch&#8221; with &#8220;lenny&#8221;. apt-get update apt-get dist-upgrade This will upgrade the system to lenny. Verify with cat /etc/debian_version The upgrade will not upgrade postgres. You need to do this manually. apt-get install postgresql 8.3 will now be installed and configured to run on another port. 8.1 will still [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pretty straight forward.<br />
+Edit your <code>/etc/apt/sources.list</code>. Substitute &#8220;etch&#8221; with &#8220;lenny&#8221;. </p>
+<p><code>apt-get update</code><br />
+<code>apt-get dist-upgrade</code></p>
+<p>This will upgrade the system to lenny. Verify with<br />
+<code>cat /etc/debian_version</code></p>
+<p>The upgrade will not upgrade postgres. You need to do this manually.<br />
+<code>apt-get install postgresql</code><br />
+8.3 will now be installed and configured to run on another port. 8.1 will still remain on your system, and you need to manually migrate your 8.1 bases to 8.3. Thankfully they provide some scripts for this.Here&#8217;s how you do it.<br />
+First drop the automatically created cluster for 8.3</p>
+<p><code>g_dropcluster --stop 8.3 main</code></p>
+<p>then upgrade the 8.1 cluster to 8.3</p>
+<p><code>pg_upgradecluster -v 8.3 8.1 main</code></p>
+<p>This should change the 8.1 config to run on another port while 8.3 should be running on default.<br />
+Prolly smart to stop 8.1, start 8.3 and verify that you&#8217;re databases are working as they should ..before you go ahead and remove 8.1.</p>
+<p>If you run into some locales+postgres trouble with lenny. You should check your <code>/etc/locale.gen</code>, make sure the correct locales arent commented out,<br />
+and run <code>locale-gen</code>/<code>dpkg-reconfigure</code>. Then you should be able to start 8.1 again.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/distupgrading-debian-etch-to-lenny-and-upgrading-postgres-8-1-to-8-3/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Making Debian Etch boot with UUID, not hardcoded blockdevicename</title>
+		<link>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/</link>
+		<comments>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/#comments</comments>
+		<pubDate>Mon, 07 Sep 2009 07:08:26 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[blockdevice]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[uuid]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=475</guid>
+		<description><![CDATA[You got additional disk controllers in your server and the etch kernel is fucking up your devicenames from time to time. Suddenly when you reboot the etch kernel decides to make /dev/sda become /dev/sdf etc. Ubuntu has learned from this and they use UUID. This is a unique ID the filesystem becomes, and when you [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>You got additional disk controllers in your server and the etch kernel is fucking up your devicenames from time to time.<br />
+Suddenly when you reboot the etch kernel decides to make /dev/sda become /dev/sdf etc.<br />
+Ubuntu has learned from this and they use <a href="http://en.wikipedia.org/wiki/UUID">UUID</a>.<br />
+This is a unique ID the filesystem becomes, and when you boot, you really want to catch the right device for the root filesystem, or get a crappy Busybox shell.</p>
+<p>This is how you implement it on Debian Etch (and possibly Lenny, if its not default there either):</p>
+<p><code>fittafeis:~# /lib/udev/vol_id /dev/sda1<br />
+ID_FS_USAGE=filesystem<br />
+ID_FS_TYPE=ext3<br />
+ID_FS_VERSION=1.0<br />
+ID_FS_UUID=3abbdf59-4a9e-4be1-ac56-f474609e637c<br />
+ID_FS_LABEL=<br />
+ID_FS_LABEL_SAFE= </code></p>
+<p>Now edit this line in /boot/grub/menu.lst:</p>
+<p>From:  <code># kopt=root=/dev/sda1 ro</code><br />
+To: <code># kopt=root=UUID=3abbdf59-4a9e-4be1-ac56-f474609e637c ro </code></p>
+<p>Then run update-grub and it will update all your kernel entries using UUID <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

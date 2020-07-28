@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/dell/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Monitor Dell servers on Debian Squeeze with Nagios</title>
+		<link>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/</link>
+		<comments>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/#comments</comments>
+		<pubDate>Thu, 10 Feb 2011 07:57:20 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[dellomsa]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[squeeze]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=691</guid>
+		<description><![CDATA[Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0. I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc) I used some hours to try to get it working with a newer dellomsa but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Im just writing up this post because the dellomsa packages arent working with the new Debian Squeeze 6.0.</p>
+<p>I had problems with the omreport command not giving me info of ex memory/psu/cpu. (omreport chassis info said No sensors found etc)</p>
+<p>I used some hours to try to get it working with a newer dellomsa but that didnt work either.<br />
+Then i found some official Dell Ubuntu packages, which i found working excellent on Debian Squeeze as well:<br />
+<code>dpkg -P dellomsa #Make sure dellomsa isnt installed.<br />
+echo 'deb http://linux.dell.com/repo/community/deb/latest /' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list<br />
+apt-get update<br />
+apt-get install srvadmin-base smbios-utils</code></p>
+<p>You will also need the <a href="http://security.ubuntu.com/ubuntu/pool/universe/libs/libsmbios/libsmbios2_2.2.13-0ubuntu4_amd64.deb">libsmbios2_2.2.13-0ubuntu4_amd64.deb</a> from Ubuntu Lucid to get smbios stuff working.<br />
+<code>dpkg -i libsmbios2_2.2.13-0ubuntu4_amd64.deb<br />
+/etc/init.d/dataeng start #if this starts, omreport works!</code></p>
+<p>Now you have the newer Debian Squeeze Dell stuff working.</p>
+<p>We have deployed our hwmonitoring of our Dell servers with <a href="http://folk.uio.no/trondham/software/check_openmanage.html">check_openmanage </a> and<a href="http://www.nagios.org"> Nagios</a><br />
+Read more about the check_openmanage on the check_openmanage site (this is a great plugin btw!)</p>
+<p>Resources:<br />
+<a href="http://folk.uio.no/trondham/software/check_openmanage.html">http://folk.uio.no/trondham/software/check_openmanage.html</a><br />
+<a href="http://linux.dell.com/repo/community/deb/latest/">http://linux.dell.com/repo/community/deb/latest/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/monitor-dell-servers-on-debian-squeeze-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Upgrade your Dell PowerEdge/whatever servers firmware with CentOS LiveCD</title>
+		<link>http://dingleberry.me/2009/11/upgrade-your-dell-poweredgewhatever-servers-firmware-with-centos-livecd/</link>
+		<comments>http://dingleberry.me/2009/11/upgrade-your-dell-poweredgewhatever-servers-firmware-with-centos-livecd/#comments</comments>
+		<pubDate>Thu, 19 Nov 2009 14:05:11 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[centos]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[firmware]]></category>
+		<category><![CDATA[livecd]]></category>
+		<category><![CDATA[poweredge]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[rhel]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=565</guid>
+		<description><![CDATA[Yeah, Dell wont let you run their tools from any linux dist you want&#8230;It HAS to be a RHEL-like dist. Yes, i know you could do something like this. But if you dont feel frisky, and want to do it the right way&#8230;.Start by downloading this CentOS 5.4 ISO: http://mirror.hh.se/centos/5.4/isos/i386/CentOS-5.4-i386-LiveCD.iso Burn it and boot up [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Yeah, Dell wont let you run their tools from any linux dist you want&#8230;It HAS to be a RHEL-like dist.<br />
+Yes, i know you could do something like <a href="http://www.ducea.com/2007/08/27/dell-bios-firmware-updates-on-debian/">this</a>.<br />
+But if you dont feel frisky, and want to do it the right way&#8230;.Start by downloading this CentOS 5.4 ISO:<br />
+<a href="http://mirror.hh.se/centos/5.4/isos/i386/CentOS-5.4-i386-LiveCD.iso">http://mirror.hh.se/centos/5.4/isos/i386/CentOS-5.4-i386-LiveCD.iso<br />
+</a></p>
+<p>Burn it and boot up your server with F11, CDROM</p>
+<p>When all is up and youve got net, do these deps:<br />
+<code>yum install compat-libstdc++-33 procmail</code></p>
+<p>Place you .BIN file from Dell on a ftp/http whatever..<br />
+Ex.<br />
+<code>wget http://supereye.org/2950.BIN #The newest PowerEdge 2950 firmware</code></p>
+<p>Finally ready for flashing:<br />
+<code>chmod +x 2950.BIN &#038;&#038; ./2950.BIN</code></p>
+<p>Great success!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/upgrade-your-dell-poweredgewhatever-servers-firmware-with-centos-livecd/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Monitoring dell support contracts with Nagios</title>
+		<link>http://dingleberry.me/2009/10/monitoring-dell-support-contracts-with-nagios/</link>
+		<comments>http://dingleberry.me/2009/10/monitoring-dell-support-contracts-with-nagios/#comments</comments>
+		<pubDate>Mon, 12 Oct 2009 13:14:48 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=509</guid>
+		<description><![CDATA[A friend pointed me to this site a few days ago. A nice little nagios plugin to alert you when your dell support contracts are about to run out. http://ingvar.blog.linpro.no/2009/09/23/todays-sysadmin-tip-monitoring-dell-support-contracts/ Also check my comment to the post. You might want to add the following lines to the script : if [ -z $days ]; then [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>A friend pointed me to this site a few days ago. A nice little nagios plugin to alert you when your dell support contracts are about to run out.</p>
+<p><a href="http://ingvar.blog.linpro.no/2009/09/23/todays-sysadmin-tip-monitoring-dell-support-contracts/">http://ingvar.blog.linpro.no/2009/09/23/todays-sysadmin-tip-monitoring-dell-support-contracts/</a></p>
+<p>Also check my comment to the post. You might want to add the following lines to the script :</p>
+<p>if [ -z $days ]; then<br />
+echo “UNKNOWN: Could not retrieve info from support.dell.com.”<br />
+exit 3<br />
+fi</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/monitoring-dell-support-contracts-with-nagios/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Monitoring Dell hardware in Nagios on the Debian Etch 64bit Platform</title>
+		<link>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/</link>
+		<comments>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/#comments</comments>
+		<pubDate>Thu, 29 Jan 2009 10:56:05 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[hardware]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=273</guid>
+		<description><![CDATA[Getting Dell&#8217;s linux-software to work on other platforms than Redhat can be a bitch, but I was lucky to come across this article. Following those steps I had dellomsa up and running a couple of minutes later. Then I went to nagiosexchange and downloaded the perl script check_dell_sensors.pl. In this case I use check_by_ssh to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Getting Dell&#8217;s linux-software to work on other platforms than Redhat can be a bitch, but I was lucky to come across <a href="http://blog.zztopping.com/2008/04/29/dell-omsa-debian-64bit/">this</a> article. Following those steps I had dellomsa up and running a couple of minutes later.<br />
+Then I went to <a href="http://www.nagiosexchange.org">nagiosexchange</a> and downloaded the perl script <a href="http://www.nagiosexchange.org/cgi-bin/page.cgi?g=1923.html;d=1">check_dell_sensors.pl</a>.</p>
+<p>In this case I use check_by_ssh to run the check on each host, so here&#8217;s the <strong>command.cfg</strong> setup</p>
+<p><code>define command{<br />
+command_name    check_dell_sensors<br />
+command_line    $USER1$/check_by_ssh -l someuser -t 30 -H $HOSTADDRESS$ -C "/usr/lib/nagios/plugins/check_dell_sensors.pl"<br />
+}<br />
+</code></p>
+<p>and finally the <strong>services.cfg</strong></p>
+<p><code><br />
+define service{<br />
+use                             generic-service<br />
+hostgroup_name                  cfg_CHECK_DELL_SENSORS<br />
+service_description             CHECK_DELL_SENSORS<br />
+is_volatile                     0<br />
+max_check_attempts              3<br />
+normal_check_interval           5<br />
+retry_check_interval            1<br />
+contact_groups                  linux-admins<br />
+notification_period             24x7<br />
+notification_options            c,w,r<br />
+check_command                   check_dell_sensors<br />
+}<br />
+</code></p>
+<p>This will monitor your dell hardware on all hosts in your cfg_CHECK_DELL_SENSORS hostgroup, giving you an output like :<br />
+<code>/usr/lib/nagios/plugins/check_dell_sensors.pl<br />
+OK -- Hardware Log=Ok; Memory=Ok; Power Supplies=Ok; Processors=Ok; Temperatures=Ok; Voltages=Ok;</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/monitoring-dell-hardware-in-nagios-on-the-debian-etch-64bit-platform/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

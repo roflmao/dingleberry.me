@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/ping/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Test your jumbo frame enabled network with ping</title>
+		<link>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/</link>
+		<comments>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/#comments</comments>
+		<pubDate>Thu, 03 Feb 2011 11:23:34 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[frame]]></category>
+		<category><![CDATA[jumbo]]></category>
+		<category><![CDATA[jumboframe]]></category>
+		<category><![CDATA[jumboframe jumbo frame network ping test]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[test]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=683</guid>
+		<description><![CDATA[ping -Mdo -s If it works: $ ping -Mdo -s 8001 10.0.20.26 PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data. 8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms 8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!) 8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms If it doesnt: $ ping -Mdo -s 2001 195.10.34.51 -c3 PING [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>ping -Mdo -s <size in bytes above 1500> <another ip on jumbo frame enabled network></p>
+<p>If it works:<br />
+$ ping -Mdo -s 8001 10.0.20.26<br />
+PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data.<br />
+8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms<br />
+8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!)<br />
+8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms</p>
+<p>If it doesnt:<br />
+$ ping -Mdo -s 2001 195.10.34.51 -c3<br />
+PING 195.10.34.51 (195.10.34.51) 2001(2029) bytes of data.<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>free internet on cafes or airports with dnstunnel or icmp ping tunnel</title>
+		<link>http://dingleberry.me/2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/</link>
+		<comments>http://dingleberry.me/2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/#comments</comments>
+		<pubDate>Mon, 03 Nov 2008 13:58:48 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[airport]]></category>
+		<category><![CDATA[cafe]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[free]]></category>
+		<category><![CDATA[icmp]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[tunnel]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=203</guid>
+		<description><![CDATA[aptitude install libmime-base32-perl libwww-perl libnet-dns-perl to use this server as a http proxy (which is what we will do here), do the following as well: aptitude install privoxy wget http://www.doxpara.com/ozymandns_src_0.1.tgz tar xvzf ozymandns_src_0.1.tgz ./nomde.pl -i 0.0.0.0 hesten.XXXXXXXX.no on client, follow the same procedure to install packages and download scripts etc&#8230; to get a shell on [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><code>aptitude install libmime-base32-perl libwww-perl libnet-dns-perl</code><br />
+to use this server as a http proxy (which is what we will do here), do the following as well:<br />
+<code>aptitude install privoxy</code><br />
+<code>wget http://www.doxpara.com/ozymandns_src_0.1.tgz</code><br />
+<code>tar xvzf ozymandns_src_0.1.tgz</code><br />
+<code>./nomde.pl -i 0.0.0.0 hesten.XXXXXXXX.no</code><br />
+on client, follow the same procedure to install packages and download scripts etc&#8230;</p>
+<p>to get a shell on the dns server:<br />
+<code>ssh -C -o ProxyCommand="./droute.pl -v sshdns.hesten.XXXXXXXX.no" user@localhost</code><br />
+to use the proxy we installed on the dns server:<br />
+<code>ssh -C -o ProxyCommand="./droute.pl -v sshdns.hesten.XXXXXXXX.no" -NL 8118:localhost:8118 user@localhost</code><br />
+open a new window and :<br />
+<code>export http_proxy=http://localhost:8118</code><br />
+and launch your fav browser..</p>
+<p>For a full, and more thorough guide &#8211; check <a href="http://dnstunnel.de/">dnstunnel.de</a></p>
+<p>I never could get the icmp ping tunnel to work &#8211; which sux &#8211; because it supposedly had alot better throughput :s<br />
+Check the authors webpage for details regarding the project <a href="http://www.cs.uit.no/~daniels/PingTunnel/">here</a> &#8211; oh, and if you get it to work, please leave a comment <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How does pinging trackbacks and pingbacks work?</title>
+		<link>http://dingleberry.me/2008/10/how-does-pinging-trackbacks-and-pingbacks-work/</link>
+		<comments>http://dingleberry.me/2008/10/how-does-pinging-trackbacks-and-pingbacks-work/#comments</comments>
+		<pubDate>Tue, 14 Oct 2008 21:28:00 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[pingback]]></category>
+		<category><![CDATA[trackback]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=165</guid>
+		<description><![CDATA[I dont know, lets try it.. Check this cool link where you can test your trackback/pingbacks. Oki&#8230; couldnt get it to work right away&#8230; read more here]]></description>
+				<content:encoded><![CDATA[<p>I dont know, lets try it.. Check this cool <a href="http://www.tamba2.org.uk/wordpress/TestTrack/2008/10/14/testing-trackbacks-16/">link</a> where you can test your trackback/pingbacks.<br />
+<br />
+Oki&#8230; couldnt get it to work right away&#8230; read more <a href="http://codex.wordpress.org/Introduction_to_Blogging#Managing_Comments">here</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/how-does-pinging-trackbacks-and-pingbacks-work/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+	</channel>
+</rss>

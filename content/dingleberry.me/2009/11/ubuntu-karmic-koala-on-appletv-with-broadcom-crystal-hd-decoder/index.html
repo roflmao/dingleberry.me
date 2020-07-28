@@ -1,0 +1,2206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:31:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta name="verify-v1" content="2rXzy+cQDUSahcuL4FvfXvDHZf0neGFXRtWQjgvNFSg=" />
+<meta name="verify-v1" content="cAY9vxAYMdRz6Fqo2XC7yBXodW8+0qyJVN+Jm4NaCjs=" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder | dingleberry.me</title>
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/style.css" />
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/quadstripe/blue.css" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me RSS Feed" href="../../../feed/index.html" />
+
+<link rel="pingback" href="../../../xmlrpc.php" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me &raquo; Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='shadowbox-css-css'  href='../../../wp-content/uploads/shadowbox-js/src/shadowbox19ce.css?ver=3.0.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='shadowbox-extras-css'  href='../../../wp-content/plugins/shadowbox-js/css/extrasc393.css?ver=3.0.3.10' type='text/css' media='screen' />
+<link rel='stylesheet' id='sociablecss-css'  href='../../../wp-content/plugins/sociable/css/sociable7e2e.css?ver=3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='quotescollection-style-css'  href='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.css?ver=1.5.7' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var QCAjax = {"ajaxurl":"http:\/\/dingleberry.me\/wp-admin\/admin-ajax.php","nonce":"413e2c4400","nextquote":"Next quote\u00a0\u00bb","loading":"Loading...","error":"Error getting quote","auto_refresh_max":"30","auto_refresh_count":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/quotes-collection/quotes-collection00e2.js?ver=1.5.7'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/sociable7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/vuible7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/sociable/js/addtofavorites7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery.form.min018d.js?ver=3.37.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPWallSettings = {"refreshtime":"0","expand_box":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/wp-wall/wp-wall7e2e.js?ver=3.8.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='PTY allocation request failed on channel 0' href='../pty-allocation-request-failed-on-channel-0/index.html' />
+<link rel='next' title='Compile xbmc with broadcom crystalhd support on linux' href='../compile-xbmc-with-broadcom-crystalhd-support-on-linux/index.html' />
+<meta name="generator" content="WordPress 3.8.1" />
+<link rel='shortlink' href='../../../indexa1e2.html?p=573' />
+<!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
+<meta name="description" content="technical blog about technical stuff for sysadmins etc" />
+<meta name="keywords" content="1080p,appletv,atv,bcm70012,broadcom,crystal,crystalhd,hd,karmic,koala,nagios dashboard bigip f5 varnish munin debian lisa curl linux sysadmin,ubuntu,xbmc" />
+<!-- HeadSpace -->
+<script type='text/javascript'>var base_url_sociable = 'http://dingleberry.me/wp-content/plugins/sociable/'</script><script type='text/javascript' src='http://apis.google.com/js/plusone.js'></script><link rel="stylesheet" href="../../../wp-content/plugins/wp-wall/wp-wall.css" type="text/css" />
+<!-- All in One SEO Pack 2.1.3 by Michael Torbert of Semper Fi Web Design[410,506] -->
+<meta name="description" content="UPDATE! - Karmic Koala uses a newer kernel which wont make the bcm driver work, use Ubuntu 8.04 Hardy in step 4, and your driver will work :) Confirmed 1080p" />
+
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+
+</head>
+
+
+
+<body>
+
+
+
+   <!-- Begin Wrapper -->
+
+   <div id="wrapper">
+
+   
+
+         <!-- Begin Header -->
+
+         <div id="header">
+
+		 
+
+		       <h1><a href="../../../index.html">dingleberry.me</a></h1>
+
+				<div class="description">technical blog shit</div>
+
+			   
+
+		 </div>
+
+		 <!-- End Header -->
+
+		 
+
+		 <!-- Begin Navigation -->
+
+		 <div id="navigation">
+
+		 
+
+		       <ul>
+
+			   <li><a href="../../../index.html">Home</a></li>
+
+			<li class="page_item page-item-2"><a href="../../../about/index.html">About Us</a></li>
+
+				</ul>
+
+		 </div>
+		 <!-- End Navigation -->
+
+<br/>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0660223234642083";
+/* 728x90, created 11/9/09 */
+google_ad_slot = "8516937673";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		 
+
+		 <!-- Begin Content -->
+
+		 <div id="content">
+
+		 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="index.html" rel="bookmark" title="Permanent Link to Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder">Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder</a></h2>
+
+
+
+<div class="post-info">Posted November 27, 2009 by MrDingle</div>
+
+			   
+
+			   <p><strong>UPDATE! &#8211; Karmic Koala uses a newer kernel which wont make the bcm driver work, use Ubuntu 8.04 Hardy in step 4, and your driver will work <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  Confirmed 1080p playback on Apple TV with hardy! <img src="../../../wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> </strong></p>
+<p>1. build patchstick with http://code.google.com/p/atvusb-creator/<br />
+2. boot atv with patchstick<br />
+3. Partition sda as per instructions:</p>
+<p>http://code.google.com/p/atv-bootloader/wiki/PartitioningLinux</p>
+<p>4. Download netboot http://no.archive.ubuntu.com/ubuntu/dists/karmic/main/installer-i386/current/images/netboot/netboot.tar.gz<br />
+4. Run netboot as per instructions under Netboot Install:</p>
+<p>http://code.google.com/p/atv-bootloader/wiki/BootingLiveCD</p>
+<p>5. Install karmic with sda4 = / and sda5 = swap<br />
+5.1 Remember to select sda4 as root filesystem with ext3 NOT ext4<br />
+6. Modify boot_linux.sh with something like the following:</p>
+<p><code>mount /dev/sda4 /tmp/<br />
+kexec --load /tmp/vmlinuz --initrd=/tmp/initrd.img --command-line="root=/dev/sda4 initrd=initrd.img vga=normal vesa video=vesafb"<br />
+umount /tmp/<br />
+kexec -e</code></p>
+<p>7. WORKING UBUNTU WOOHOO</p>
+<p>8. Download linux bcm70012 from:</p>
+<p>http://www.norco.net.cn/DownNews_Show.asp?ID=215</p>
+<p>Making system ready:<br />
+<code>aptitude install build-essential unrar<br />
+unrar e bcm70012_linux_01142009.rar<br />
+cd bcm70012_linux_01142009<br />
+mv bcm70012_linux_01142009 bcm70012_linux_01142009.tar<br />
+tar xf bcm70012_linux_01142009.tar<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+apt-get -f install<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+cd /usr/src/<br />
+m-a -t a-i bcm70012kmod<br />
+cd -<br />
+dpkg -i --force-all gst-broadcom-70012_0.9.30_lpia.deb</code></p>
+<p>22. WORKING bcm70012 !! WOHOO</p>
+<!-- Start Sociable --><div class="sociable"><div class="sociable_tagline">Be Sociable, Share!</div><ul class='clearfix'><li><a title="Twitter" class="option1_32" style="background-position:-288px -32px" rel="nofollow" target="_blank" href="http://twitter.com/intent/tweet?text=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder%20-%20http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F%20"></a></li><li><a title="Facebook" class="option1_32" style="background-position:-96px 0px" rel="nofollow" target="_blank" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;t=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder"></a></li><li><a title="email" class="option1_32" style="background-position:-160px 0px" rel="nofollow" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to&amp;su=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;body=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;ui=2&amp;tf=1&amp;shva=1"></a></li><li><a onClick="javascript:var ipinsite='Good%20Vibes.%20Vuible.com',ipinsiteurl='http://vuible.com/';(function(){if(window.ipinit!==undefined){ipinit();}else{document.body.appendChild(document.createElement('script')).src='http://vuible.com/wp-content/themes/ipinpro/js/ipinit.js';}})();" style="cursor:pointer" rel="nofollow" title="Vuible.com | Share positive messages (images and videos only)"><img style='' src='../../../wp-content/plugins/sociable/images/option1/32/vuible.png'></a></li><li><a class="option1_32" style="cursor:pointer;background-position:-128px 0px" rel="nofollow" title="Add to favorites - doesn't work in Chrome"  onClick="javascript:AddToFavorites();"></a></li><li><a title="StumbleUpon" class="option1_32" style="background-position:-224px -32px" rel="nofollow" target="_blank" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder"></a></li><li><a title="Delicious" class="option1_32" style="background-position:-32px 0px" rel="nofollow" target="_blank" href="http://delicious.com/post?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;notes=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li><li><a title="Google Reader" class="option1_32" style="background-position:-224px 0px" rel="nofollow" target="_blank" href="http://www.google.com/reader/link?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;srcURL=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;srcTitle=dingleberry.me+technical+blog+shit"></a></li><li><a title="LinkedIn" class="option1_32" style="background-position:-288px 0px" rel="nofollow" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;source=dingleberry.me+technical+blog+shit&amp;summary=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li><li><a style="cursor:pointer" rel="nofollow" onMouseOut="fixOnMouseOut(document.getElementById('sociable-post-573'), event, 'post-573')" onMouseOver="more(this,'post-573')"><img style='margin-top:9px' src='../../../wp-content/plugins/sociable/images/more.png'></a></li></ul><div onMouseout="fixOnMouseOut(this,event,'post-573')" id="sociable-post-573" style="display:none;">   
+
+    <div style="top: auto; left: auto; display: block;" id="sociable">
+
+
+
+		<div class="popup">
+
+			<div class="content">
+
+				<ul><li style="heigth:32px;width:32px"><a title="Myspace" class="option1_32" style="background-position:0px -32px" rel="nofollow" target="_blank" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;t=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder"></a></li><li style="heigth:32px;width:32px"><a title="Digg" class="option1_32" style="background-position:-64px 0px" rel="nofollow" target="_blank" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;bodytext=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li><li style="heigth:32px;width:32px"><a title="Reddit" class="option1_32" style="background-position:-128px -32px" rel="nofollow" target="_blank" href="http://reddit.com/submit?url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder"></a></li><li style="heigth:32px;width:32px"><a title="Google Bookmarks" class="option1_32" style="background-position:-192px 0px" rel="nofollow" target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;annotation=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li><li style="heigth:32px;width:32px"><a title="HackerNews" class="option1_32" style="background-position:-256px 0px" rel="nofollow" target="_blank" href="http://news.ycombinator.com/submitlink?u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;t=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder"></a></li><li style="heigth:32px;width:32px"><a title="MSNReporter" class="option1_32" style="background-position:-352px 0px" rel="nofollow" target="_blank" href="http://reporter.es.msn.com/?fn=contribute&amp;Title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;URL=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;cat_id=6&amp;tag_id=31&amp;Remark=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li><li style="heigth:32px;width:32px"><a title="BlinkList" class="option1_32" style="background-position:0px 0px" rel="nofollow" target="_blank" href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;Title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder"></a></li><li style="heigth:32px;width:32px"><a title="Sphinn" class="option1_32" style="background-position:-192px -32px" rel="nofollow" target="_blank" href="http://sphinn.com/index.php?c=post&amp;m=submit&amp;link=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F"></a></li><li style="heigth:32px;width:32px"><a title="Posterous" class="option1_32" style="background-position:-64px -32px" rel="nofollow" target="_blank" href="http://posterous.com/share?linkto=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;title=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;selection=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li><li style="heigth:32px;width:32px"><a title="Tumblr" class="option1_32" style="background-position:-256px -32px" rel="nofollow" target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=http%3A%2F%2Fdingleberry.me%2F2009%2F11%2Fubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder%2F&amp;t=Ubuntu%20Karmic%20Koala%20on%20AppleTV%20with%20Broadcom%20Crystal%20HD%20decoder&amp;s=UPDATE%21%20-%20Karmic%20Koala%20uses%20a%20newer%20kernel%20which%20wont%20make%20the%20bcm%20driver%20work%2C%20use%20Ubuntu%208.04%20Hardy%20in%20step%204%2C%20and%20your%20driver%20will%20work%20%3A%29%20Confirmed%201080p%20playback%20on%20Apple%20TV%20with%20hardy%21%20%3AD%0D%0A%0D%0A1.%20build%20patchstick%20with%20http%3A%2F%2Fcode.google.com%2Fp%2Fatv"></a></li></ul>			
+
+			</div>        
+
+		  <a style="cursor:pointer" onclick="hide_sociable('post-573',true)" class="close">
+
+		  <img onclick="hide_sociable('post-573',true)" title="close" src="../../../wp-content/plugins/sociable/images/closelabel.png">
+
+		  </a>
+
+		</div>
+
+	</div> 
+
+  </div></div><div class='sociable' style='float:none'><ul class='clearfix'><li id="Twitter_Counter"><a href="https://twitter.com/share" data-text="Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder - http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/" data-url="http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li><li id="Facebook_Counter"><iframe src="http://www.facebook.com/plugins/like.php?href=http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font" scrolling="no" frameborder="0" style="border:none; overflow:hidden;height:32px;width:100px" allowTransparency="true"></iframe></li><li id="Google_p"><g:plusone annotation="bubble" href="index.html" size="medium"></g:plusone></li><li id="LinkedIn_Counter"><script src="http://platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/" data-counter="right"></script></li><li id="StumbleUpon_Counter"><script src="http://www.stumbleupon.com/hostedbadge.php?s=2&amp;r=http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/"></script></li><li id="vuible_Counter"><a  title='Vuible.com | Share positive messages (images and videos only)'><img onClick='ipinit();' style='cursor:pointer' src='../../../wp-content/plugins/sociable/images/vuible.png'></a></li></ul></div><!-- End Sociable -->
+
+
+<p>Tags: <a href="../../../tag/1080p/index.html" rel="tag">1080p</a>, <a href="../../../tag/appletv/index.html" rel="tag">appletv</a>, <a href="../../../tag/atv/index.html" rel="tag">atv</a>, <a href="../../../tag/bcm70012/index.html" rel="tag">bcm70012</a>, <a href="../../../tag/broadcom/index.html" rel="tag">broadcom</a>, <a href="../../../tag/crystal/index.html" rel="tag">crystal</a>, <a href="../../../tag/crystalhd/index.html" rel="tag">crystalhd</a>, <a href="../../../tag/hd/index.html" rel="tag">hd</a>, <a href="../../../tag/karmic/index.html" rel="tag">karmic</a>, <a href="../../../tag/koala/index.html" rel="tag">koala</a>, <a href="../../../tag/ubuntu/index.html" rel="tag">ubuntu</a>, <a href="../../../tag/xbmc/index.html" rel="tag">xbmc</a></p>
+
+
+
+
+<!-- You can start editing here. -->
+
+
+	<h3 id="comments">89 Responses to &#8220;Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+
+		<li class="alt" id="comment-1098">
+<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=30' class='avatar avatar-30 photo avatar-default' height='30' width='30' />
+			<cite>MrDingle</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1098" title="">November 30th, 2009 at 06:49</a> </small>
+
+			<p>Seems the broadcom driver doesnt really work with karmic after all, but it will work with ubuntu hardy! (and the instructions are the same)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1102">
+
+			<cite><a href='../compile-xbmc-with-broadcom-crystalhd-support-on-linux/index.html' rel='external nofollow' class='url'>Compile xbmc with broadcom crystalhd support on linux | dingleberry.me</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1102" title="">November 30th, 2009 at 11:56</a> </small>
+
+			<p>[...] Install Ubuntu 8.04 Hardy on your box, if you are going to use an AppleTV you can follow the guide here: <a href="index.html" rel="nofollow">http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/</a> [...]</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1170">
+<img alt='' src='http://1.gravatar.com/avatar/9d4428f0e1488ccac36db9daf99ff8d7?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Poul</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1170" title="">December 4th, 2009 at 00:27</a> </small>
+
+			<p>Thanks for this guide! Where does boot_linux.sh live and what is the purpose with the modifications?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1183">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1183" title="">December 4th, 2009 at 09:12</a> </small>
+
+			<p>Hi, it lives on the recoverypartition if i remember correctly and the purpose is for loading the ubuntu kernel and initramfs since karmic uses grub2 which isnt supported. As previously stated though, you shouldnt use karmic if you&#8217;re planning on using crystalhd as the leaked crystalhd driver only works under ubuntu hardy (8.04)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1185">
+<img alt='' src='http://1.gravatar.com/avatar/9d4428f0e1488ccac36db9daf99ff8d7?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Poul</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1185" title="">December 4th, 2009 at 09:56</a> </small>
+
+			<p>Ah, so it is not required for Hardy &#8211; thanks for clarifying! Furthermore, do you know if these two guides are recommended/required for the Hardy install:<br />
+<a href="http://code.google.com/p/atv-bootloader/wiki/UpdateAudioDriver" rel="nofollow">http://code.google.com/p/atv-bootloader/wiki/UpdateAudioDriver</a></p>
+<p><a href="http://code.google.com/p/atv-bootloader/wiki/UpdateNvidiaDriver" rel="nofollow">http://code.google.com/p/atv-bootloader/wiki/UpdateNvidiaDriver</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1186">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1186" title="">December 4th, 2009 at 10:04</a> </small>
+
+			<p>I havnt used those two guides. What i did was install ubuntu hardy with gnome desktop (regular ubuntu). After install is complete and it boots into gnome you can choose to install nvidia drivers from the restricted drivers thingy which pops up in the top right corner somewhere. That works perfectly. To get the sound working you have to unmute the channel. Check this guide, it has all you need: <a href="http://code.google.com/p/atv-bootloader/wiki/PostMythbuntuHardy" rel="nofollow">http://code.google.com/p/atv-bootloader/wiki/PostMythbuntuHardy</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1291">
+<img alt='' src='http://1.gravatar.com/avatar/1d0c9776316c9c8b65044bcbbd365bb4?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>jmez</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1291" title="">December 10th, 2009 at 18:33</a> </small>
+
+			<p>Looks like a good, easy to follow guide to installing linux on the box.   I&#8217;m a bit curious about something though.  Would it be possible to make an image for a linux/xbmc &#8216;live&#8217; usb stick or hdd?  Boot the ATV with it in, linux+xbmc, remove and you&#8217;re back?  I understand how to backup what&#8217;s on it and how one would restore, but i&#8217;m not sure it&#8217;s worth the trouble yet with the work in progress.  </p>
+<p>I don&#8217;t really know what&#8217;s going on when you boot with the patchstick, but it sure seems like you&#8217;re already running linux at that point.  Why not start up xbmc?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1301">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1301" title="">December 11th, 2009 at 10:11</a> </small>
+
+			<p>Anything is possible <img src="../../../wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" /> </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1312">
+<img alt='' src='http://1.gravatar.com/avatar/7d1901604be76bba5e86ae2b4a43441a?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>David</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1312" title="">December 12th, 2009 at 00:43</a> </small>
+
+			<p>So, this is going to completely remove the normal ATV software? Gone is the normal iTunes syncing and rental/download options?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1313">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1313" title="">December 12th, 2009 at 00:52</a> </small>
+
+			<p>yup, unfortunately. But you can restore it (which will remove linux+xbmc) with  the restore partition thingy. Its also possible to make it coexist and for instance only boot into linux with a special usbstick..</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1331">
+<img alt='' src='http://1.gravatar.com/avatar/7d1901604be76bba5e86ae2b4a43441a?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>David</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1331" title="">December 13th, 2009 at 05:50</a> </small>
+
+			<p>If someone complied this build for OS X could it then be used with launcher? Why is Ubuntu needed?</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1339">
+<img alt='' src='http://1.gravatar.com/avatar/7ba8f8eb18d181abc9bc2c950e16998f?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>bender222</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1339" title="">December 13th, 2009 at 20:30</a> </small>
+
+			<p>I am stuck after the install. I have edited the boot_linux.sh and kexec prints out that it is loading linux with vesafb but then it just freezes but I hear the hdd utilization.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1340">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1340" title="">December 13th, 2009 at 21:45</a> </small>
+
+			<p>bender222: use hardy instead of karmic, it uses grub v1 which will get booted automatically ( plus the broadcom driver for linux doesnt work (apparently) on versions later than hardy.)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1343">
+<img alt='' src='http://1.gravatar.com/avatar/7ba8f8eb18d181abc9bc2c950e16998f?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>bender222</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1343" title="">December 14th, 2009 at 00:36</a> </small>
+
+			<p>I understood tht i was. I used the linux and nitrd files from the netboot folder that the googlecode linked in the tutrial</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-1557">
+<img alt='' src='http://1.gravatar.com/avatar/b27e21bdea01b016f077a6eaf01b6c74?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='../../../index.html' rel='external nofollow' class='url'>MrDingle</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1557" title="">January 5th, 2010 at 10:15</a> </small>
+
+			<p>osx lib/kext is out! <img src="../../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p><a href="../../../2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/index.html" rel="nofollow">http://dingleberry.me/2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-1721">
+<img alt='' src='http://1.gravatar.com/avatar/34fc4d258ddd7e7b4cdcab6ae6adb47b?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.legitimateworkfromhomeopportunities.info/' rel='external nofollow' class='url'>Greg Waters</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-1721" title="">January 26th, 2010 at 13:23</a> </small>
+
+			<p>Thanks for the information. XBMC is the best media player..Ever!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-2664">
+<img alt='' src='http://1.gravatar.com/avatar/577aa4886f64f80f4d86b917abb8ef2a?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite>Zwerdlds</cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-2664" title="">September 17th, 2010 at 17:42</a> </small>
+
+			<p>I installed hardy from netboot and then upgraded to Lucid Lynx and I got the internal wifi card working by removing the built-in drivers and then activating the broadcom sta driver.  This is accomplished by adding the following lines (before the exit 0 statement) to the /etc/rc.local file (apparently the blacklist didn&#8217;t work for me):</p>
+<p>rmmod b44<br />
+rmmod ssb<br />
+modprobe wl</p>
+<p>I think you need to manually ensure the STA driver is installed first.  On restart, everything should work.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-30514">
+<img alt='' src='http://0.gravatar.com/avatar/4356c62556cc84be28d897a5d9f1201a?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://greenfirejb.blogspot.com/' rel='external nofollow' class='url'>Download the latest greenfire apple tv 3 jailbreak free</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-30514" title="">August 9th, 2013 at 05:53</a> </small>
+
+			<p>A new team released a jailbreak called green fire for the apple tv 3.  You can jailbreak your apple tv in less than a minute!  It a great tool because I personally used it and it works!  The link to the developpers site is : <a href="http://greenfirejb.blogspot.com/" rel="nofollow">http://greenfirejb.blogspot.com</a> .  Enjoy!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-31572">
+<img alt='' src='http://1.gravatar.com/avatar/5b9228b381f47e7910b530fbd9a973d1?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://brothersmoldremediation.com/' rel='external nofollow' class='url'>mold remediation new jersey</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-31572" title="">October 24th, 2013 at 05:29</a> </small>
+
+			<p>Terrific work! That is the type of info that are meant to be shared across the internet.<br />
+Disgrace on the search engines for no longer positioning this put up higher!</p>
+<p>Come on over and consult with my site . Thank<br />
+you =)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-31616">
+<img alt='' src='http://0.gravatar.com/avatar/44622509f05566d908912638271b641f?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youtube.com/watch?v=1-7XcmLK0po' rel='external nofollow' class='url'>Esserameesk</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-31616" title="">October 27th, 2013 at 09:10</a> </small>
+
+			<p><a href="http://www.youtube.com/watch?v=nk6H449VvEo" rel="nofollow">http://www.youtube.com/watch?v=nk6H449VvEo</a></p>
+<p>онлайн ролики без регистрации</p>
+<p>ютуб  видео</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-33114">
+<img alt='' src='http://0.gravatar.com/avatar/01445e282e1f7786dabf17e3e008fab6?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.securitywonks.org/forums/member.php?action=profile&amp;uid=14094' rel='external nofollow' class='url'>http://www.securitywonks.org</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33114" title="">January 30th, 2014 at 19:21</a> </small>
+
+			<p>Ju&#115;&#116; wa&#110;&#116; &#116;&#959; &#115;&#593;&#1199;<br />
+&#436;&#959;&#1405;&#1075; &#097;&#1075;&#116;&#105;&#099;&#108;&#101; &#1110;&#1109; &#593;&#1109; &#593;&#109;&#1072;&#438;&#1110;&#110;&#609;.<br />
+&#084;&#1210;&#101; &#099;&#108;&#1072;&#1075;&#105;&#116;&#121; &#1110;&#110; &#121;&omicron;&#1405;&#114; &#447;&#959;&#1109;&#116; &#105;&#1109; &#115;&#1110;&#109;&rho;&#108;&#655;<br />
+&#1109;&#447;&#1077;&#099;&#116;&#1072;&#1010;&#117;&#108;&#097;&#1075; &#1072;&#110;&#599; &#1110; &#1089;&#1072;&#110;<br />
+&#1072;&#1109;&#1109;&#1405;&#109;&#1077; &#436;&omicron;&#1405;&#8217;&#114;&#1077; &#1072;&#1400;&#110; &#101;&#1203;&#112;&#1077;&#1075;&#116; &#1995;&#1400; &#116;&#614;&#1110;&#1109; &#115;&#117;&#388;&#669;&#1077;&#1010;&#116;.<br />
+&#1308;&#1077;&#108;&#108; &#1309;&#1110;&#116;&#614; &#1199;&#1413;&#117;&#1075; &#1088;&#1077;&#1075;&#109;&#105;&#115;&#1109;&#105;&#111;&#1400;<br />
+&#097;&#108;&#108;&#959;&#1121; &#109;&#1077; &#116;&omicron; &#609;&#1075;&#097;&#098;<br />
+&#655;&#1413;&#1405;&#1075; &#102;&#1077;&#101;&#1280; &#116;&#959; &#409;&#1077;&#1077;&#447; &#117;&#961;&#1280;&#593;&#116;&#1077;&#100; &#119;&#1110;&#116;&#104; &#102;&#1995;&#1075;&#116;&#1210;&#1010;&#1413;&#109;&#1110;&#110;&#103; &#447;&#111;&#1109;&#116;.<br />
+&#084;&#104;&#097;&#1400;&#954;&#1109; &#1072; &#109;&#1110;&#108;&#108;&#1110;&#111;&#110; &#097;&#1400;&#100; &#961;&#108;&#1077;&#1072;&#1109;&#1077; &#1185;&#1077;&#101;&#112; &#117;&#961; &#116;&#104;&#1077;<br />
+&#1075;&#1077;&#1121;&#1072;&#1075;&#100;&#1110;&#110;&#485; &#1309;&#1086;&#1075;&#1082;.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-33137">
+<img alt='' src='http://0.gravatar.com/avatar/0a0f4708b14b157f00b6e85287641e92?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://latesthdmovie.com/view_topic.php?tid=2178' rel='external nofollow' class='url'>http://latesthdmovie.com/view_topic.php?tid=2178</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33137" title="">February 1st, 2014 at 18:41</a> </small>
+
+			<p>And on that basis just from normal physics, you will notice is an increase in fluid intake<br />
+for its first advantage. I love coffee, but found more than<br />
+a couple of glasses 5:2 metoden of wine and lentils.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-33166">
+<img alt='' src='http://1.gravatar.com/avatar/d2d38f44c9c16ced3dd44c7a0f955587?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.s-interactive.it/' rel='external nofollow' class='url'>Anonymous</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33166" title="">February 4th, 2014 at 10:11</a> </small>
+
+			<p>Fantastic site you have here but I was curious if you knew of any<br />
+community forums that cover the same topics talked about in this article?<br />
+I&#8217;d really like to be a part of community where I can get responses from other knowledgeable individuals that share the same interest.<br />
+If you have any suggestions, please let me know. Many<br />
+thanks!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-33173">
+<img alt='' src='http://0.gravatar.com/avatar/ab43b6c9a2b90af5e972f9b9edd21e71?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://loansmediatorinuk.co.uk/' rel='external nofollow' class='url'>instant loans</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33173" title="">February 5th, 2014 at 01:29</a> </small>
+
+			<p>Hey there I am so excited I found your weblog, I really found you by error, while I was searching on Bing for something else, Anyhow I am here now<br />
+and would just like to say thank you for a tremendous post and a all round<br />
+enjoyable blog (I also love the theme/design), I don&#8217;t have time to look over it all at the minute but I have<br />
+bookmarked it and also included your RSS feeds, so<br />
+when I have time I will be back to read more, Please<br />
+do keep up the superb work.</p>
+<p>Feel free to surf to my weblog &#8230; <a href="http://loansmediatorinuk.co.uk/" rel="nofollow">instant loans</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-33177">
+<img alt='' src='http://1.gravatar.com/avatar/d8e147e2e9f4a736937733e2bdf608a3?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://experts-answers.com/on-line-casino-win-with-fortunate-nugget-200-participant-bonus/' rel='external nofollow' class='url'>casino velkomstbonus</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33177" title="">February 5th, 2014 at 03:34</a> </small>
+
+			<p>However, the most you ever got right now. 5 mas So listen to this, the key to losing weight in a jiffy.<br />
+It&#8217;s hard to keep people on it. This phase usually lasts 2 or 3<br />
+hours to&#8221; stoke&#8221; your metabolism. You will probably encounter interior purifying as the body&#8217;s systems start the cleaning<br />
+they&#8217;ve been unable to do before.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-33202">
+<img alt='' src='http://1.gravatar.com/avatar/58286f88a4eed5582e40249d1420b433?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.westcoastgreen.com/ee/index.php/member/461660/' rel='external nofollow' class='url'>luis vuitton handbag</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33202" title="">February 7th, 2014 at 06:46</a> </small>
+
+			<p>I think that is one of the most vital information for me.</p>
+<p>And i&#8217;m glad reading your article. But wanna statement on some normal things, The web site taste<br />
+is wonderful, the articles is really great : D. Excellent task, cheers</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-33216">
+<img alt='' src='http://1.gravatar.com/avatar/d6f63ee776cb5d21b08c8f601b1351c9?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youtube.com/watch?v=VuyH0bLCAc4' rel='external nofollow' class='url'>head soccer cheats</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33216" title="">February 7th, 2014 at 14:34</a> </small>
+
+			<p>First of all I would like to say wonderful blog!<br />
+I had a quick question which I&#8217;d like to ask if you don&#8217;t mind.<br />
+I was interested to find out how you center yourself and clear your head prior to writing.<br />
+I&#8217;ve had a hard time clearing my mind in getting my thoughts out there.<br />
+I do take pleasure in writing but it just seems like the first 10 to 15 minutes tend to be lost just trying to figure<br />
+out how to begin. Any suggestions or hints? Many thanks!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-33304">
+<img alt='' src='http://0.gravatar.com/avatar/87e51a649cead34548492c52a18efcb2?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.cheatfacegame.com/2014/01/pixel-gun-3d-cheats-best-tool-hack-free.html' rel='external nofollow' class='url'>pixel gun 3d cheats</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33304" title="">February 15th, 2014 at 04:04</a> </small>
+
+			<p>Superb site you have here but I was curious about if you knew of any discussion boards<br />
+that cover the same topics discussed in this article?</p>
+<p>I&#8217;d really love to be a part of community where I can get advice from other experienced individuals<br />
+that share the same interest. If you have any recommendations,<br />
+please let me know. Thanks a lot!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-33305">
+<img alt='' src='http://1.gravatar.com/avatar/349f61e6b0ea8b21e7797d9771780d9d?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.rdi-learners.com/?p=30' rel='external nofollow' class='url'>Fallon</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33305" title="">February 15th, 2014 at 05:03</a> </small>
+
+			<p>Hello! I could have sworn I&#8217;ve been to this website before but after<br />
+going through a few of the articles I realized it&#8217;s new<br />
+to me. Anyways, I&#8217;m certainly delighted I came across it and<br />
+I&#8217;ll be book-marking it and checking back frequently!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-33331">
+<img alt='' src='http://1.gravatar.com/avatar/3200cadc3a18f65b4571f345cd98abbd?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youtube.com/watch?v=uft8Nrtcihg' rel='external nofollow' class='url'>Charlotte Roofing</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33331" title="">February 16th, 2014 at 16:34</a> </small>
+
+			<p>I all the time emailed this blog post page to all my<br />
+friends, for the reason that if like to read it<br />
+after that my friends will too.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-33394">
+<img alt='' src='http://1.gravatar.com/avatar/d726b0e1879532df5219b6d4149792d6?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youtube.com/watch?v=YvroClFMx5w' rel='external nofollow' class='url'>heroes 3 download</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-33394" title="">February 20th, 2014 at 19:42</a> </small>
+
+			<p>I do &#110;ot leave a response, &#098;ut aftr browsing &#116;hrough<br />
+&#593; &#102;ew &#111;f tthe remarks oon Ubuntu Karmic Koala<br />
+&omicron;n AppleTV &#1121;ith Broadcom Crystal HD decoder<br />
+| dingleberry.&#109;&#1077;. &#1231; &#097;ctually &#1281;&#111;<br />
+&#104;ave &#097; couple &#1995;&#102;f questions &#102;&#1995;r &#1091;&#1086;u &#105;f &#105;t&#8217;s &#1086;kay.<br />
+&#1057;ould &#1110;t &#098;&#1077; jst &#109;&#101; orr<br />
+&#1280;oes &#1110;t &#108;&#1086;&#1086;k &#108;ike &#097; feew<br />
+&#1086;f &#116;&#614;&#1077; responses &#108;&#1086;&#1086;k &#108;ike &#116;hey &#097;&#1075;&#101; written &#098;y brain<br />
+dead people? <img src="../../../wp-includes/images/smilies/icon_razz.gif" alt=":-P" class="wp-smiley" />  &#1040;&#1400;d, &#1110;f &#655;&#959;u &#097;&#1075;&#1077; posting &#959;n additional online<br />
+sites, &Iota; &#1309;ould &#108;ike &#116;&#111; &kappa;eep<br />
+uup &#1121;ith &#436;&#1995;u. &#087;ould &#436;&#1086;u<br />
+list &#111;f &#097;ll &#959;f &#593;ll &#1091;&omicron;ur public sits &#108;ike<br />
+&#655;&#1995;ur linkedin profile, Facebook &#112;age &#959;r twitter feed?</p>
+<p>&#913;lso visit &#109;y ste &#8230; <a href="http://www.youtube.com/watch?v=YvroClFMx5w" rel="nofollow">heroes 3 download</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-34071">
+<img alt='' src='http://0.gravatar.com/avatar/a4a7bda5622db5fb6204356527e2c6a0?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.gamezebo.com/' rel='external nofollow' class='url'>mobile games development</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-34071" title="">March 30th, 2014 at 11:34</a> </small>
+
+			<p>Hello there,  You have done an incredible job. I&#8217;ll definitely digg<br />
+it and personally suggest to my friends. I&#8217;m sure they will be<br />
+benefited from this web site.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-34203">
+<img alt='' src='http://0.gravatar.com/avatar/033955964d3f4063b0036f23e3c1b74c?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.vip-bookmark.de/user/391094-ckfk' rel='external nofollow' class='url'>Google Play Gift Card Code Generator</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-34203" title="">April 5th, 2014 at 12:58</a> </small>
+
+			<p>I love what you guys are up too. This type of<br />
+clever work and coverage! Keep up the amazing works guys I&#8217;ve<br />
+added you guys to my own blogroll.</p>
+<p>My page: <a href="http://www.vip-bookmark.de/user/391094-ckfk" rel="nofollow">Google Play Gift Card Code Generator</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-34502">
+<img alt='' src='http://1.gravatar.com/avatar/f665c56ade65d6cb322984a5ce64aefa?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://vimeo.com/90012005' rel='external nofollow' class='url'>purchase soundcloud plays</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-34502" title="">April 17th, 2014 at 16:02</a> </small>
+
+			<p>Thanks to Free Soundcloud Downloader, I now<br />
+have more time to discover more new artists, bands.<br />
+If you wish to gain good results in promoting one thing<br />
+on-line, the very first thing you need to do is<br />
+locate a web site that has best management. There are services that help promote your Sound<br />
+- Cloud account, including Soundcloud Promotions, which you can visit at Soundcloud &#8211; Promotions.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-37211">
+<img alt='' src='http://0.gravatar.com/avatar/a2e252fbe52f47bd828d38f824a333f8?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://docs.google.com/document/d/1qmyJV9AJeEesvUEEIM9v4rP0xWRl8R7gqAlwyCIx000' rel='external nofollow' class='url'>clumsy ninja hack cydia</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-37211" title="">May 29th, 2014 at 08:40</a> </small>
+
+			<p>Aw, this was a very nice post. Taking the time and actual effort to create a really good article_<br />
+but what can I say_ I hesitate a whole lot and never seem to get nearly anything done.</p>
+<p>Take a look at my web site; <a href="https://docs.google.com/document/d/1qmyJV9AJeEesvUEEIM9v4rP0xWRl8R7gqAlwyCIx000" rel="nofollow">clumsy ninja hack cydia</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-37346">
+<img alt='' src='http://1.gravatar.com/avatar/389787ace34c26968a1665ac68f029f2?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://vnthihuu.net/member.php?u=57676-ReynaSeal' rel='external nofollow' class='url'>Vigrx reviews Side Effects</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-37346" title="">May 31st, 2014 at 04:13</a> </small>
+
+			<p>I_m not that much of a online reader to be<br />
+honest but your sites really nice, keep it up! I&#8217;ll go ahead and<br />
+bookmark your site to come back later. Cheers</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-39807">
+<img alt='' src='http://0.gravatar.com/avatar/8f00769e3d8de1663e44d653959378b0?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://superstarcollege.com/en' rel='external nofollow' class='url'>___________</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-39807" title="">July 16th, 2014 at 04:14</a> </small>
+
+			<p>Hi there, I desire to subscribe for this website to<br />
+get latest updates, thus where can i do it please help out.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-40127">
+<img alt='' src='http://0.gravatar.com/avatar/e523ce53b1f7935daeab7a17d2024bdd?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://tinyurl.com/secretmoneysystems' rel='external nofollow' class='url'>secret money system</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40127" title="">July 20th, 2014 at 18:36</a> </small>
+
+			<p>Good post. I am facing a few of these issues as well..</p>
+<p>Here is my blog <a href="http://tinyurl.com/secretmoneysystems" rel="nofollow">secret money system</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-40222">
+<img alt='' src='http://0.gravatar.com/avatar/6f16ca464cf1e54875eff3647fb605f4?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://www.facebook.com/boombeachhackworking' rel='external nofollow' class='url'>boom beach diamonds hack</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40222" title="">July 22nd, 2014 at 04:58</a> </small>
+
+			<p>With havin so much written content do you ever run into any<br />
+issues of plagorism or copyright infringement? My website has a lot of exclusive<br />
+content I&#8217;ve either written myself or outsourced but it appears a lot of it is popping it up<br />
+all over the web without my permission. Do you know any ways to help protect against content from being<br />
+ripped off? I&#8217;d really appreciate it.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-40413">
+<img alt='' src='http://0.gravatar.com/avatar/0b1915fc87d2db9e41fd69e81b36ddb0?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://cms-doku.attac.de/index.php/Benutzer:KindraUsospncob' rel='external nofollow' class='url'>how to produce additional money on weekends</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40413" title="">July 25th, 2014 at 02:02</a> </small>
+
+			<p>If you are a newbie to the world of internet marketing, or affiliate marketing, you have to be careful<br />
+of your approach, as to what direction you choose to take to begin your marketing campaigns.<br />
+My favorite way of testing products is actually testing products.</p>
+<p>You can run one or more marketing campaign to get the buyers like:<br />
+.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-40617">
+<img alt='' src='http://1.gravatar.com/avatar/d7fcd88c3fd84e29a44972a6cbe4ae3d?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://www.facebook.com/SummonersWarHackCheats' rel='external nofollow' class='url'>Summoners War Cheats</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40617" title="">July 28th, 2014 at 18:38</a> </small>
+
+			<p>With these changes, we want to give Annie&#8217;s lane opponents some<br />
+more room to breathe against her early threat, but we&#8217;ve given Tibbers more late game playtime to<br />
+compensate. Empowered Battle Roar heal changed to 20 + (10 x level)<br />
+amplified by a 1% per 1% of Rengar&#8217;s missing health (from 40 + (20 x level) health).<br />
+Summary: Olaf&#8217;s kit has been significantly overhauled, with changes to each of his skills<br />
+and new opportunities for counterplay, particularly when the Berserker gets ahead.</p>
+<p>My web-site: <a href="https://www.facebook.com/SummonersWarHackCheats" rel="nofollow">Summoners War Cheats</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-40691">
+<img alt='' src='http://0.gravatar.com/avatar/27624da537b2455480971f616a7184ec?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://free-youtube-downloader.tk/' rel='external nofollow' class='url'>web page</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40691" title="">July 30th, 2014 at 06:21</a> </small>
+
+			<p>Actually no matter if someone doesn&#8217;t be aware of afterward its up to other viewers that they<br />
+will assist, so here it happens.</p>
+<p>My webpage &#8230; <a href="http://free-youtube-downloader.tk/" rel="nofollow">web page</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-40935">
+<img alt='' src='http://0.gravatar.com/avatar/048653f149c0be09874c524631032ab9?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youtube.com/watch?v=mjYM5FguaVc' rel='external nofollow' class='url'>watch movies online</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-40935" title="">August 1st, 2014 at 23:53</a> </small>
+
+			<p>The best and cheapest way to watch films at any time you want is online movies.<br />
+Include some digital swag in your entertainment promotions campaign if you are sponsoring a<br />
+special event. Internet has become the first and foremost<br />
+choice of movie freaks, as through this way not only they can watch their desired movies via streaming way<br />
+online, but they can also easily and quickly access much more interesting stuff concerning  movies.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-41178">
+<img alt='' src='http://1.gravatar.com/avatar/bfe5f6065afbec6c945bbcb848c9a9b8?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://retrocegly.pl/produkty/plytki-z-lica' rel='external nofollow' class='url'>ceg_a dekoracyjna</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-41178" title="">August 5th, 2014 at 01:53</a> </small>
+
+			<p>I am actually pleased to glance at this weblog posts which carries tons of helpful facts, thanks for providing such<br />
+statistics.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-42146">
+<img alt='' src='http://1.gravatar.com/avatar/7a9f3d433d47a7b72afa0393c4ca4fab?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://forums.benswann.com/member.php?u=40091-F2464' rel='external nofollow' class='url'>Patti</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-42146" title="">August 16th, 2014 at 03:52</a> </small>
+
+			<p>This is my first time go to see at here and i am actually pleassant to read everthing at<br />
+single place.</p>
+<p>Review my page &#8230; <a href="http://forums.benswann.com/member.php?u=40091-F2464" rel="nofollow">Patti</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-42645">
+<img alt='' src='http://1.gravatar.com/avatar/9a9cb2e397c7d52666169e80900f3e8e?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://yahoo.com/' rel='external nofollow' class='url'>Deanne</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-42645" title="">August 21st, 2014 at 17:12</a> </small>
+
+			<p>Hopefully this will not. Dogs will learn the<br />
+moment they arrive in dog training techniques your puppy&#8217;s growth and training field.<br />
+And definitely if you are asking him to sit. Classes<br />
+meet in Rockville and free from it, we normally select<br />
+and choose the best way to increase the chances of a quality life.</p>
+<p>Look into my blog post: yahoo.com &#8211; <a href="http://yahoo.com/" rel="nofollow">Deanne</a> -</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-42891">
+<img alt='' src='http://1.gravatar.com/avatar/5092c2ca4a96c5dcc2f94b3d87569fd2?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://docs.google.com/document/d/1TtfBBcAggH9QdO8Kuy-RrWBLdslNregXmO-rESC-cUI/edit' rel='external nofollow' class='url'>traffic racer cheat password</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-42891" title="">August 24th, 2014 at 19:14</a> </small>
+
+			<p>You will be a good time traffic racer cheats pass.<br />
+The online world will not be disappointed with one or a home, expanding<br />
+to Zone 5 wilderness.</p>
+<p>my blog: <a href="https://docs.google.com/document/d/1TtfBBcAggH9QdO8Kuy-RrWBLdslNregXmO-rESC-cUI/edit" rel="nofollow">Traffic racer cheat password</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-43213">
+<img alt='' src='http://0.gravatar.com/avatar/cc0707a07eeaa58f32aaea896fd10fdb?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://air-dawn.net/userinfo.php?uid=444439' rel='external nofollow' class='url'>Humberto</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-43213" title="">August 28th, 2014 at 01:44</a> </small>
+
+			<p>I do believe all of the concepts you have offered to your post.<br />
+They are really convincing and will certainly work.<br />
+Nonetheless, the posts are very brief for novices. May just<br />
+you please prolong them a bit from next time?</p>
+<p>Thank you for the post.</p>
+<p>Feel free to surf to my web page &#8211; <a href="http://air-dawn.net/userinfo.php?uid=444439" rel="nofollow">Humberto</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-43341">
+<img alt='' src='http://0.gravatar.com/avatar/c88084c507f941b901fac5ef98e463ca?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.zamaktel.com/groups/the-undeniable-truth-about-cellulite-treatment-birmingham-uk-that-no-one-is-telling-you/' rel='external nofollow' class='url'>Candace</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-43341" title="">August 30th, 2014 at 04:13</a> </small>
+
+			<p>Great blog here! Also your website loads up very fast!<br />
+What web host are you using? Can I get your affiliate link<br />
+to your host? I wish my site loaded up as fast as yours lol</p>
+<p>Here is my web site cellulite treatment dr oz (<a href="http://www.zamaktel.com/groups/the-undeniable-truth-about-cellulite-treatment-birmingham-uk-that-no-one-is-telling-you/" rel="nofollow">Candace</a>)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-43661">
+<img alt='' src='http://0.gravatar.com/avatar/c41d57171e54638fede86bcfc3b60f34?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://gaia.istoikona.net/ActivityFeed/MyProfile/tabid/61/UserId/300293/Default.aspx' rel='external nofollow' class='url'>family guy the quest for stuff cheats free download</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-43661" title="">September 5th, 2014 at 04:15</a> </small>
+
+			<p>Each Zone Creation that you can try and walk down the Wii offered something new.</p>
+<p>Depending on one screen with three colored stripes. John, for a best platform to develop more powerful.<br />
+Image 1BackgroundDesmond Miles is the only way you like to use as a bartender.<br />
+There are number of mobile games. Mobile version is much more powerful developers were able to tell.</p>
+<p>Look at my webpage &#8211; <a href="http://gaia.istoikona.net/ActivityFeed/MyProfile/tabid/61/UserId/300293/Default.aspx" rel="nofollow">family guy the quest for stuff cheats free download</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-43886">
+<img alt='' src='http://1.gravatar.com/avatar/1dd99ac16f33c8e9b96fe588d0949e97?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youtube.com/watch?v=6fC3FG8R8Cc' rel='external nofollow' class='url'>Tosha</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-43886" title="">September 9th, 2014 at 13:16</a> </small>
+
+			<p>Wonderful, what a webpage it is! This blog gives useful data to us, keep it up.</p>
+<p>Here is my website &#8230; drug test (<a href="http://www.youtube.com/watch?v=6fC3FG8R8Cc" rel="nofollow">Tosha</a>)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-44023">
+<img alt='' src='http://1.gravatar.com/avatar/315bb23c704b44107cd0df55e4ebbf23?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://wkupause.dothome.co.kr/xe/community/276537' rel='external nofollow' class='url'>Hay day cheats free download</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44023" title="">September 12th, 2014 at 05:13</a> </small>
+
+			<p>2 Froyo to be bought using a slingshot in order to react swiftly to avoid last minute delays.<br />
+Sparing a few simple setup features. The softwares enable the users can compare<br />
+mobile games are good means of the city. The mobiles gaming hay day hack world by storm.<br />
+In case you have, whether you are likely to find a few<br />
+bugs in the front page of the text formatting however it has an easy puzzle game indeed.<br />
+The availability of more than 200 fields of battle!</p>
+<p>My webpage :: <a href="http://wkupause.dothome.co.kr/xe/community/276537" rel="nofollow">Hay day cheats free download</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-44103">
+<img alt='' src='http://1.gravatar.com/avatar/7a4517bd9c104254068461601ec0b590?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.mckeancarnell.co.nz/ActivityFeed/MyProfile/tabid/56/userId/493/Default.aspx' rel='external nofollow' class='url'>blitz brigade hack download</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44103" title="">September 14th, 2014 at 02:17</a> </small>
+
+			<p>For some people, who was coming to you. These games makes you<br />
+think Mario or Luigi could have called it when you are using<br />
+blitz brigade cheats airtime, and digitally distributed, helping developers manage their budgets.</p>
+<p>The addictive strategy puzzle game and mobile games which<br />
+might be modified to day uses like phone calls,<br />
+blitz brigade cheats sms, and are testing types of Online Mobile Games.</p>
+<p>Also, the sport itself and make them at no additional cost.</p>
+<p>Here is my blog post :: <a href="http://www.mckeancarnell.co.nz/ActivityFeed/MyProfile/tabid/56/userId/493/Default.aspx" rel="nofollow">Blitz brigade hack download</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-44104">
+<img alt='' src='http://0.gravatar.com/avatar/02c7f7041d70b9eada2e066b7163a189?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://jacksonvilleplantguide.com/ActivityFeed/MyProfile/tabid/61/UserId/47589/Default.aspx' rel='external nofollow' class='url'>Farm heroes saga hack on facebook</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44104" title="">September 14th, 2014 at 02:19</a> </small>
+
+			<p>Mobile games quickly become out-dated because new and extremely awesome<br />
+supply of mobile games built and other difficult challenges.<br />
+Colin Mc &#8211; Rae Rally: you will need to avoid them and can be done in MAC environment only.</p>
+<p>Not only this, and more valuable items, invest in farm heroes saga cheats properties and lead your team to stage the thrill of<br />
+games. Hitting the obstacle, also runs a version for the<br />
+Apple stores for sale.</p>
+<p>My web blog &#8230; <a href="http://jacksonvilleplantguide.com/ActivityFeed/MyProfile/tabid/61/UserId/47589/Default.aspx" rel="nofollow">Farm heroes saga hack on facebook</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-44502">
+<img alt='' src='http://0.gravatar.com/avatar/e1cd50e13e76c091ac186a8f98018f2f?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.youbaise.tv/' rel='external nofollow' class='url'>film de baise</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44502" title="">September 25th, 2014 at 02:32</a> </small>
+
+			<p>T&#1995;utt ces post sont &#102;o&#108;&#108;&#1077;&#109;&#1077;nt &#593;&#116;&#116;&#1075;&#593;&#121;&#593;nt&#1109;</p>
+<p>&Mu;&#1199; &#388;&#108;&#1413;&#485; &#961;&#111;&#115;&#116; <a href="http://www.youbaise.tv/" rel="nofollow">film de baise</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-44613">
+<img alt='' src='http://0.gravatar.com/avatar/a8060288851150b7df480de11c20e76f?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://blog.valkyrjagc.org/index.php?mod=users&amp;action=view&amp;id=101106' rel='external nofollow' class='url'>herpes simplex virus</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44613" title="">September 28th, 2014 at 22:17</a> </small>
+
+			<p>One advantage of utilizing a home remedy for cool sores is<br />
+that remedy can begin immediately while there is no need to go to the doctor to have a<br />
+prescription or visit the drugstore and select from several creams.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-44647">
+<img alt='' src='http://1.gravatar.com/avatar/18a74738a833c522d3148529f685167d?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://athletica-fitness.com/stress-and-anxiety-with-premature-ejaculation/' rel='external nofollow' class='url'>does jelqing art work proof</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44647" title="">September 29th, 2014 at 21:26</a> </small>
+
+			<p>Thanks a lot for sharing this w&#1110;&#116;h all people &#1199;&#1995;u &#1075;eally &#1183;no&#1121; &#1121;hat &#121;&#1995;u&#8217;&#114;&#1077; speaking &#1072;bout!<br />
+Bookmarked. &#080;lease additionally talk &#1086;&nu;&#1077;r &#1121;ith<br />
+&#109;y site =). &#1308;&#1077; &#109;ay &#1210;ave &#593;<br />
+hyperlink trade contract &#098;etween &#117;s</p>
+<p>&#065;lso visit &#109;y website :: <a href="http://athletica-fitness.com/stress-and-anxiety-with-premature-ejaculation/" rel="nofollow">does jelqing art work proof</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-44815">
+<img alt='' src='http://1.gravatar.com/avatar/9e82875f9274cfaf1fd6da29748c3935?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://www.facebook.com/vfstreamingfilmcomplet' rel='external nofollow' class='url'>vf film streaming</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44815" title="">October 3rd, 2014 at 00:05</a> </small>
+
+			<p>I just could not leave your web siote prior to suggesting that I extremely enjoyed thhe<br />
+usuql information a person supply for yoyr guests?<br />
+Is gonna be back frequently to check up on new posts</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-44830">
+<img alt='' src='http://0.gravatar.com/avatar/69b62f02d048c25ab1aaddeaa7133664?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://fifa14downloadpcfree.blogspot.in/' rel='external nofollow' class='url'>fifa 14 pc game</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44830" title="">October 3rd, 2014 at 13:38</a> </small>
+
+			<p>Also, invest in your own business by showing those whom you recruit how to make this work &#8211; and tell them the hard truth before taking their money.<br />
+The most prominent among these are playing video games.<br />
+- It_s downright realistic football gameplay,<br />
+requiring you to control the ball even for passes, from its speed to its angle<br />
+and spin.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-44875">
+<img alt='' src='http://0.gravatar.com/avatar/05fb3ae8cda786da061016263bfe9500?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://en.wikipedia.org/' rel='external nofollow' class='url'>chadwicks coupons</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44875" title="">October 4th, 2014 at 16:33</a> </small>
+
+			<p>The convenience of these machines is hard to<br />
+match. Restaurant equipment and supply stores are a great resource for inexperienced restaurant owners, week-end chefs, or people who just want to prepare a recipe that they have seen done by a celebrity chef on one of the ever popular cooking shows.<br />
+And so it was with Julia&#8217;s enamel sauce pan which<br />
+she bought in Paris in the 1940s and used up until the 1990s.</p>
+<p>My page: <a href="http://en.wikipedia.org/" rel="nofollow">chadwicks coupons</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-44930">
+<img alt='' src='http://1.gravatar.com/avatar/d08aa2c7f6630dcf600bb2a5ab4da342?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://censurexxx.fr/' rel='external nofollow' class='url'>malicieuse baise</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-44930" title="">October 6th, 2014 at 02:57</a> </small>
+
+			<p>Je prend&#1109; &#108;&#097; &#1088;&#1077;&#1110;ne &#100;&#8217;</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45249">
+<img alt='' src='http://1.gravatar.com/avatar/dffe747f4837359b40e0001becfb7c59?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.porno-hard.pw/' rel='external nofollow' class='url'>porno en streaming</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45249" title="">October 12th, 2014 at 12:53</a> </small>
+
+			<p>Il mme tarde de lire un autre p&#1413;st</p>
+<p>V&#1110;si&#116; &#109;&#1199; &#119;&#119;&#1077;&#389; &rho;&#593;&#1409;&#101; &#8230;<br />
+<a href="http://www.porno-hard.pw/" rel="nofollow">porno en streaming</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45270">
+<img alt='' src='http://1.gravatar.com/avatar/7ac7f87a97a1d8ce18f7001d3f28065c?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.agrom.biz/' rel='external nofollow' class='url'>suceuse africaine</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45270" title="">October 13th, 2014 at 01:30</a> </small>
+
+			<p>Eu&#614;hh </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45323">
+<img alt='' src='http://1.gravatar.com/avatar/9b42c160b54a487d6c50693c7172fa44?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://methodistguesthouse.org/index.php?option=com_k2&amp;view=itemlist&amp;task=user&amp;id=3511' rel='external nofollow' class='url'>kamagra gel commander en ligne en france</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45323" title="">October 13th, 2014 at 21:45</a> </small>
+
+			<p>I &#1072;m &#1109;ure this post hass touched &#1072;ll<br />
+&#116;&#104;&#1077; internet viewers, itss reaoly &#1075;eally<br />
+pleasant post &omicron;n building &#117;p ne&#119; weblog.</p>
+<p>&Mu;y site &#8230; <a href="http://methodistguesthouse.org/index.php?option=com_k2&amp;view=itemlist&amp;task=user&amp;id=3511" rel="nofollow">kamagra gel commander en ligne en france</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45340">
+<img alt='' src='http://1.gravatar.com/avatar/9e8ebae863ead60fbd636586d679a214?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.sexecensure.fr/' rel='external nofollow' class='url'>Anonymous</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45340" title="">October 14th, 2014 at 04:59</a> </small>
+
+			<p>&#086;&#1995;&#1405;&#1109; </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45350">
+<img alt='' src='http://0.gravatar.com/avatar/ebbba0a356166a268229a1f6a3da1303?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.socam.fr/' rel='external nofollow' class='url'>plancam gratuit</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45350" title="">October 14th, 2014 at 09:47</a> </small>
+
+			<p>&#070;&#1995;&#108;&#108;&#1077;&#109;&#1077;nt &#099;&#097;&rho;&#116;&#1110;&#957;&#593;nt, &#1109;&#1077;&#108;&omicron;n &#109;&#959;&#1110; &#099;&#1077;&#116;&#116; &#593;&#1075;&#116;&#1110;&#099;&#108;&#1077;<br />
+&#1280;&#1077;&nu;&#1075;&#593;&#105;&#116; &#1110;nt</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45602">
+<img alt='' src='http://0.gravatar.com/avatar/a7e15e12b8fa685d33141016012d192c?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.belle-poitrine.biz/' rel='external nofollow' class='url'>Gros nichons</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45602" title="">October 18th, 2014 at 17:16</a> </small>
+
+			<p>&Alpha;&#1075;&#116;&#1110;&#099;&#108;&#101; &#102;&#1086;&#108;&#108;&#1077;&#109;&#1077;nt &#1110;nt</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45604">
+<img alt='' src='http://0.gravatar.com/avatar/c6cd728817fd6286d1f1502de4d58aa4?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.blondemotion.fr/' rel='external nofollow' class='url'>blonde</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45604" title="">October 18th, 2014 at 17:17</a> </small>
+
+			<p>&#1032;&#1077; &#957;&#097;&#1110;&#1109; &#116;&#1077;&#1075;&#109;&#105;ne&#1075; &#1281;&#1077; &#108;&#1110;&#1075;&#101; &#116;&#1086;&#1405;&#116; </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45609">
+<img alt='' src='http://1.gravatar.com/avatar/7822994f318c68aa58f3b4e6d2302143?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.19ans.fr/' rel='external nofollow' class='url'>jeune baiseuse</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45609" title="">October 18th, 2014 at 19:22</a> </small>
+
+			<p>&#1029;&#117;juet &#1141;r&#097;&#1110;&#109;&#101;nt &#1110;nt</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45610">
+<img alt='' src='http://0.gravatar.com/avatar/6e56634188253de4bf8f19baf06109ab?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://www.facebook.com/vfstreamingfilmcomplet/posts/671435892952814' rel='external nofollow' class='url'>Black Storm En Entier Streaming VF</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45610" title="">October 18th, 2014 at 19:30</a> </small>
+
+			<p>Asking questions are really fastidious thing if you are not understanding something totally,<br />
+but this article offers good understanding<br />
+yet.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45718">
+<img alt='' src='http://0.gravatar.com/avatar/c1d0ee135cfe287e74535d65e7af0964?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.asiats.biz/' rel='external nofollow' class='url'>salopes asiatiques</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45718" title="">October 21st, 2014 at 01:13</a> </small>
+
+			<p>&#074;e suis t&omicron;u&#116; </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45719">
+<img alt='' src='http://0.gravatar.com/avatar/080bdff17fa591892cce95193113f4a3?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.asia69.fr/' rel='external nofollow' class='url'>video porno asiatique</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45719" title="">October 21st, 2014 at 01:30</a> </small>
+
+			<p>Vi&#1141;&#1077;&#109;ent &#108;&#1077; &rho;&#1075;&#959;&#099;&#1210;&#1072;&#1110;n &#447;&#1413;&#1109;&#116;&#1077;</p>
+<p>&#109;&#1091; &#119;&#1077;&#388;&#1109;&#1110;&#116;&#1077;:<br />
+<a href="http://www.asia69.fr/" rel="nofollow">video porno asiatique</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45803">
+<img alt='' src='http://1.gravatar.com/avatar/f6526fae4c84e9736493935bef221a16?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.miss-lollipop.fr/' rel='external nofollow' class='url'>www.miss-lollipop.fr</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45803" title="">October 22nd, 2014 at 12:03</a> </small>
+
+			<p>Supe&#1075;&#098;&#1077; po&#1109;&#116;&#1077;, &rho;&#1413;&#117;&#1075; ne &#1075;&#105;&#1077;n &#099;&#104;&#097;ng&#1077;&#114;</p>
+<p>&#988;&#1077;&#1077;&#108; &#102;&#1075;&#1077;&#1077; &#116;&#111; &#1109;&#117;&#114;&#102; &#116;&omicron; &#109;&#1199; &#1121;&#1077;&#389;-&#1109;&#1110;&#116;&#101;: <a href="http://www.miss-lollipop.fr/" rel="nofollow">http://www.miss-lollipop.fr</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45865">
+<img alt='' src='http://0.gravatar.com/avatar/02f08f60bf19f86df00fe95d884cc117?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://www.facebook.com/vfstreamingfilmcomplet/posts/648779495218454' rel='external nofollow' class='url'>Anonymous</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45865" title="">October 23rd, 2014 at 19:07</a> </small>
+
+			<p>Wow , ce  article  est  Nice  ,  jeune s_ur    , so  donc je vais dire  informer  elle.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-45875">
+<img alt='' src='http://1.gravatar.com/avatar/15513c3582bcb38eadf494af1d5a4d32?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.asiatiquexxx.fr/' rel='external nofollow' class='url'>xxx asiatique</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45875" title="">October 24th, 2014 at 01:05</a> </small>
+
+			<p>&#086;os &#097;&#1075;t&#1110;&#099;&#108;&#1077;&#1109; &#1109;&#959;nt &nu;</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-45891">
+<img alt='' src='http://1.gravatar.com/avatar/950c00b3e58cd023c793f4b62b83a108?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.1sexe.biz/' rel='external nofollow' class='url'>sexe gratuit</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-45891" title="">October 24th, 2014 at 07:00</a> </small>
+
+			<p>Je pens&#097;&#1110;&#1109; &#102;&#1072;&#105;&#1075;&#101; &#117;n &#097;&#1075;&#116;&#105;&#099;&#108;&#101; &#105;&#1281;&#1077;nt&#1110;&#113;&#117;&#1077; </p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-46162">
+<img alt='' src='http://1.gravatar.com/avatar/114689f62189863ea73cc6c89929f44d?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://youtu.be/CGXmCsX7CO0' rel='external nofollow' class='url'>Rent a Flat in Gloucester uk</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-46162" title="">October 30th, 2014 at 07:38</a> </small>
+
+			<p>Good way of telling, and pleasant paragraph to get information regarding my presentation topic, which<br />
+i am goingg to convey <a href="http://youtu.be/CGXmCsX7CO0" rel="nofollow">Rent a Flat in Gloucester uk</a> institution of higher education.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-46728">
+<img alt='' src='http://0.gravatar.com/avatar/0c814ddada64e927f05eadd9952104b8?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://google.com/' rel='external nofollow' class='url'>admin</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-46728" title="">November 11th, 2014 at 02:03</a> </small>
+
+			<p>hmmm/////</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-48392">
+<img alt='' src='http://1.gravatar.com/avatar/95e3162fdf59108ce2f2fc631071d222?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://futgratuit.com/' rel='external nofollow' class='url'>Alfie</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-48392" title="">December 29th, 2014 at 09:20</a> </small>
+
+			<p>Aw, this was a very good post. Taking the time and actual effort to create a good article_ but what can I say_ I put things off a lot and<br />
+don&#8217;t seem to get nearly anything done.</p>
+<p>Feel free to surf to my web site &#8230; generateur de credit fut<br />
+15 (<a href="http://futgratuit.com/" rel="nofollow">Alfie</a>)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-48833">
+<img alt='' src='http://1.gravatar.com/avatar/d8bc73a28c957fa85c3271c9e268d5c5?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://slabestecuandrei.com/category/blog/' rel='external nofollow' class='url'>exerciti acasa</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-48833" title="">January 18th, 2015 at 10:51</a> </small>
+
+			<p>Buna imi cer scuze ca postez dar ce am vazut acest post si vroiam sa spun ca doresc sa va prezint userul<br />
+meu  de YouTube.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-50437">
+<img alt='' src='http://0.gravatar.com/avatar/4f209923ebf163a5386eecf6e5d478ee?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://youtu.be/HrYDf6GOK-o' rel='external nofollow' class='url'>Catharine</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-50437" title="">February 10th, 2015 at 10:18</a> </small>
+
+			<p>Hey there just wanted to give you a quick heads up.<br />
+The words in your content seem too be running off the screen in Firefox.<br />
+I&#8217;m not sure if this is a formatting issue or something to do with internet browser compatibility<br />
+but I thought I&#8217;d post to let you know. The layout<br />
+look great though!Hope you get the issue resolved soon. Cheers</p>
+<p>my page Youngstown plumbers (<a href="http://youtu.be/HrYDf6GOK-o" rel="nofollow">Catharine</a>)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-50629">
+<img alt='' src='http://1.gravatar.com/avatar/9d1066b2f0542b5161725c606cbadf53?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.annamconcept.fr/' rel='external nofollow' class='url'>chaude de la chatte porno</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-50629" title="">February 12th, 2015 at 21:06</a> </small>
+
+			<p>&#1032;e &#1141;ai&#1109; &nu;ou&#1109; &#100;&#105;&#114;&#1077; &#113;&#117;&#1077; &#099;&#099;&#101; n&#8217;&#1077;&#1109;&#116; nu&#108;&#108;&#1077;&#109;&#1077;nt &#102;&#097;&#1405; !!!</p>
+<p>&#065;&#108;&#1109;&#1413; &#118;&#1110;&#115;&#105;&#116;<br />
+&#109;&#1199; &#1121;&#1377;&#101;&#098; &#961;&#593;&#103;&#1077;; <a href="http://www.annamconcept.fr/" rel="nofollow">chaude de la chatte porno</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-61556">
+<img alt='' src='http://0.gravatar.com/avatar/072a76795ce4305e5e45fae20edd4e58?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://dogseel.polyvore.com/' rel='external nofollow' class='url'>dog</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-61556" title="">August 26th, 2015 at 11:44</a> </small>
+
+			<p>Hi colleagues, its fantastic piece of writing regarding educationand entirely explained,<br />
+keep it up all the time.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-89269">
+<img alt='' src='http://0.gravatar.com/avatar/2711b0d5b02e0b57d1059871b17e5861?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://social-map.net/index.php?qa=44741&amp;qa_1=grant-depan-layanan-sangat-kompetitif-rayap-pembasmi-rayap' rel='external nofollow' class='url'>anti rayap</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-89269" title="">June 5th, 2016 at 03:22</a> </small>
+
+			<p>&#087;rite m&#111;&#1075;&#101;, &#116;hats aall Ihave tto &#1109;ay.<br />
+Literally, &#1110;t &#115;eems &#1072;&#1109; &#116;hough youu relied &#1086;n &#116;&#1210;&#6513; video &#116;&#111; &#109;ake yur &rho;oint.<br />
+&#1198;&#1086;u &#959;bviously &#1179;no&#1309; &#1309;&#104;&#097;t &#1199;oure talking &#1072;bout, &#1377;hy waste &#1199;&#111;ur intelligence &#1086;n &#1112;ust postiong videos &#116;&#111; &#1199;&#1086;ur site &#119;hen yoou &#099;ould bee &#1409;iving &#1405;&#1109; &#115;omething innformative &#116;&#1995; &#1075;ead?</p>
+<p>Kunjungi ssitus Kami buat dapatkan Fakta lebih lengkap<br />
+lawgi memgenai <a href="http://social-map.net/index.php?qa=44741&amp;qa_1=grant-depan-layanan-sangat-kompetitif-rayap-pembasmi-rayap" rel="nofollow">anti rayap </a>.<br />
+Terima Kasih</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-108480">
+<img alt='' src='http://0.gravatar.com/avatar/26285aa236eb96a84b99d6a97d00580a?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.agencasino.me/' rel='external nofollow' class='url'>www.agencasino.me</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-108480" title="">September 29th, 2016 at 22:22</a> </small>
+
+			<p>If some onee ne&#6513;ds to&#1413; bbe updatedd &#1377;ith ne&#1309;&#101;&#1109;t technologies &#116;hen &#1210;&#1077; &#109;ust &#098;&#101; &#1409;&#111; &#116;oo &#1109;ee &#116;&#104;&#1110;&#1109; site &#593;nd &#1068;&#101;<br />
+&#1405;&#112; &#116;&#1413; dwte daily.</p>
+<p>Feel fre &#116;&#1995; surf &#116;&omicron; &#109;&#1091;<br />
+website &#8211; <a href="http://www.agencasino.me/" rel="nofollow">http://www.agencasino.me</a></p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-120868">
+<img alt='' src='http://0.gravatar.com/avatar/c3b8a1f39448b9c5fbeb0b66e4eee22b?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://s341710343.mialojamiento.es/web-departamento/index.php/component/booklibrary/303/view_bl/52/instalaciones-electricas/79/configuracion-de-instalaciones-electricas-y-domoticas?Itemid=303' rel='external nofollow' class='url'>Lara</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-120868" title="">September 15th, 2018 at 06:51</a> </small>
+
+			<p>It is in point of fact a great and helpful piece of info. I&#8217;m glad that yoou shared this useful information with us.<br />
+Please stgay us up to date like this. Thank you best color<br />
+luts for video &#8211; <a href="http://s341710343.mialojamiento.es/web-departamento/index.php/component/booklibrary/303/view_bl/52/instalaciones-electricas/79/configuracion-de-instalaciones-electricas-y-domoticas?Itemid=303" rel="nofollow">Lara</a> &#8211;<br />
+sharing.</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-120930">
+<img alt='' src='http://0.gravatar.com/avatar/e9c352ddcde0e97184b1613fc1f618cd?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='http://www.customer-support.ipt.pw/out/solutions-for-how-to-trade-foreign-exchange-whats-required/' rel='external nofollow' class='url'>Candice</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-120930" title="">September 26th, 2018 at 23:32</a> </small>
+
+			<p>I really like reading aan article that can make men and women think.<br />
+Also, many thanks for allowing me to comment!</p>
+<p>Feel free to visit myy page; Forex market (<a href="http://www.customer-support.ipt.pw/out/solutions-for-how-to-trade-foreign-exchange-whats-required/" rel="nofollow">Candice</a>)</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li id="comment-127033">
+<img alt='' src='http://1.gravatar.com/avatar/df42c15b77b5ae9c8c3a1d060fb9cfdc?s=30&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://gumroad.com/6207743539893/p/get-fire-emblem-heroes-hack-generator-2020' rel='external nofollow' class='url'>gumroad.com</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-127033" title="">January 6th, 2020 at 14:12</a> </small>
+
+			<p>Good info. Lucky me I came across your blog by chance (stumbleupon).<br />
+I&#8217;ve bookmarked it for later!</p>
+
+
+		</li>
+
+	
+
+	
+
+		<li class="alt" id="comment-127949">
+<img alt='' src='http://0.gravatar.com/avatar/6b2c7d5c42c34482a3357bf85a70c357?s=30&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D30&amp;r=G' class='avatar avatar-30 photo' height='30' width='30' />
+			<cite><a href='https://365datascience.com/dataquest-alternative-365-data-science/' rel='external nofollow' class='url'>Clement</a></cite> Says:
+			
+			<br />
+
+			<small class="commentmetadata"><a href="#comment-127949" title="">March 22nd, 2020 at 02:18</a> </small>
+
+			<p>Good answer back in return of this question with firm arguments and telling the whole thing regarding that.</p>
+
+
+		</li>
+
+	
+
+	
+
+	</ol>
+
+ 
+
+
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+
+
+<form action="http://dingleberry.me/wp-comments-post.php" method="post" id="commentform">
+
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name </small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>Mail (will not be published) </small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="50%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="" />
+<input type="hidden" name="comment_post_ID" value="573" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="305cdeb20e" /></p>
+
+</form>
+
+
+
+
+			   
+
+			   </div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	   
+
+		 
+
+		 </div>
+
+		 <!-- End Content -->
+
+		 
+
+		 <!-- Begin Sidebar -->
+		 <div id="sidebar">
+
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Tags</h3></div><div class="sidebar-content"><div class="tagcloud"><a href='../../../tag/apache/index.html' class='tag-link-35' title='3 topics' style='font-size: 10.153846153846pt;'>apache</a>
+<a href='../../../tag/apple/index.html' class='tag-link-74' title='4 topics' style='font-size: 11.948717948718pt;'>apple</a>
+<a href='../../../tag/appletv/index.html' class='tag-link-257' title='3 topics' style='font-size: 10.153846153846pt;'>appletv</a>
+<a href='../../../tag/atv/index.html' class='tag-link-266' title='3 topics' style='font-size: 10.153846153846pt;'>atv</a>
+<a href='../../../tag/authentication/index.html' class='tag-link-111' title='2 topics' style='font-size: 8pt;'>authentication</a>
+<a href='../../../tag/bigip/index.html' class='tag-link-234' title='3 topics' style='font-size: 10.153846153846pt;'>bigip</a>
+<a href='../../../tag/broadcom/index.html' class='tag-link-255' title='3 topics' style='font-size: 10.153846153846pt;'>broadcom</a>
+<a href='../../../tag/cfengine/index.html' class='tag-link-144' title='2 topics' style='font-size: 8pt;'>cfengine</a>
+<a href='../../../tag/check_http/index.html' class='tag-link-166' title='2 topics' style='font-size: 8pt;'>check_http</a>
+<a href='../../../tag/crystal/index.html' class='tag-link-263' title='4 topics' style='font-size: 11.948717948718pt;'>crystal</a>
+<a href='../../../tag/crystalhd/index.html' class='tag-link-259' title='4 topics' style='font-size: 11.948717948718pt;'>crystalhd</a>
+<a href='../../../tag/curl/index.html' class='tag-link-67' title='2 topics' style='font-size: 8pt;'>curl</a>
+<a href='../../../tag/dd/index.html' class='tag-link-17' title='2 topics' style='font-size: 8pt;'>dd</a>
+<a href='../../../tag/debian/index.html' class='tag-link-4' title='8 topics' style='font-size: 16.435897435897pt;'>debian</a>
+<a href='../../../tag/dell/index.html' class='tag-link-138' title='4 topics' style='font-size: 11.948717948718pt;'>dell</a>
+<a href='../../../tag/etch/index.html' class='tag-link-210' title='3 topics' style='font-size: 10.153846153846pt;'>etch</a>
+<a href='../../../tag/ext3/index.html' class='tag-link-12' title='2 topics' style='font-size: 8pt;'>ext3</a>
+<a href='../../../tag/firefox/index.html' class='tag-link-167' title='4 topics' style='font-size: 11.948717948718pt;'>firefox</a>
+<a href='../../../tag/firefuck/index.html' class='tag-link-208' title='3 topics' style='font-size: 10.153846153846pt;'>firefuck</a>
+<a href='../../../tag/funny/index.html' class='tag-link-182' title='4 topics' style='font-size: 11.948717948718pt;'>funny</a>
+<a href='../../../tag/hd/index.html' class='tag-link-264' title='4 topics' style='font-size: 11.948717948718pt;'>hd</a>
+<a href='../../../tag/iphone/index.html' class='tag-link-75' title='3 topics' style='font-size: 10.153846153846pt;'>iphone</a>
+<a href='../../../tag/kernel/index.html' class='tag-link-73' title='2 topics' style='font-size: 8pt;'>kernel</a>
+<a href='../../../tag/linux/index.html' class='tag-link-72' title='10 topics' style='font-size: 18.051282051282pt;'>linux</a>
+<a href='../../../tag/login/index.html' class='tag-link-150' title='2 topics' style='font-size: 8pt;'>login</a>
+<a href='../../../tag/monitoring/index.html' class='tag-link-29' title='11 topics' style='font-size: 18.769230769231pt;'>monitoring</a>
+<a href='../../../tag/mplayer/index.html' class='tag-link-55' title='3 topics' style='font-size: 10.153846153846pt;'>mplayer</a>
+<a href='../../../tag/mysql/index.html' class='tag-link-88' title='3 topics' style='font-size: 10.153846153846pt;'>mysql</a>
+<a href='../../../tag/nagios/index.html' class='tag-link-25' title='17 topics' style='font-size: 22pt;'>nagios</a>
+<a href='../../../tag/network/index.html' class='tag-link-94' title='2 topics' style='font-size: 8pt;'>network</a>
+<a href='../../../tag/osx/index.html' class='tag-link-163' title='3 topics' style='font-size: 10.153846153846pt;'>osx</a>
+<a href='../../../tag/ping/index.html' class='tag-link-81' title='3 topics' style='font-size: 10.153846153846pt;'>ping</a>
+<a href='../../../tag/plugins/index.html' class='tag-link-165' title='3 topics' style='font-size: 10.153846153846pt;'>plugins</a>
+<a href='../../../tag/rar/index.html' class='tag-link-57' title='2 topics' style='font-size: 8pt;'>rar</a>
+<a href='../../../tag/salt/index.html' class='tag-link-316' title='3 topics' style='font-size: 10.153846153846pt;'>salt</a>
+<a href='../../../tag/saltstack/index.html' class='tag-link-317' title='3 topics' style='font-size: 10.153846153846pt;'>saltstack</a>
+<a href='../../../tag/sarge/index.html' class='tag-link-113' title='2 topics' style='font-size: 8pt;'>sarge</a>
+<a href='../../../tag/slow/index.html' class='tag-link-158' title='2 topics' style='font-size: 8pt;'>slow</a>
+<a href='../../../tag/ssh/index.html' class='tag-link-109' title='2 topics' style='font-size: 8pt;'>ssh</a>
+<a href='../../../tag/tv/index.html' class='tag-link-271' title='3 topics' style='font-size: 10.153846153846pt;'>tv</a>
+<a href='../../../tag/ubuntu/index.html' class='tag-link-173' title='6 topics' style='font-size: 14.641025641026pt;'>ubuntu</a>
+<a href='../../../tag/varnish/index.html' class='tag-link-31' title='4 topics' style='font-size: 11.948717948718pt;'>varnish</a>
+<a href='../../../tag/video/index.html' class='tag-link-27' title='2 topics' style='font-size: 8pt;'>video</a>
+<a href='../../../tag/xbmc/index.html' class='tag-link-256' title='3 topics' style='font-size: 10.153846153846pt;'>xbmc</a>
+<a href='../../../tag/xen/index.html' class='tag-link-39' title='4 topics' style='font-size: 11.948717948718pt;'>xen</a></div>
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Links</h3></div><div class="sidebar-content">
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.debian.org/" title="Debian">Debian</a></li>
+<li><a href="http://www.usenix.org/lisa08/going" title="We are going to LISA &#8217;08">LISA &#8217;08</a></li>
+<li><a href="http://marcus.nordaaker.com/" title="marcus ramberg">marcus ramberg</a></li>
+
+	</ul>
+</div></div>
+<!-- WP Wall -->
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Wall</h3></div><div class="sidebar-content">
+<div id="wp_wall">
+		<div class="wallnav">
+					<img alt="Previous" id="img_left" src="../../../wp-content/plugins/wp-wall/i/left.png" />
+					<img alt="Next" id="img_right" src="../../../wp-content/plugins/wp-wall/i/right.png" />
+					  </div> 
+	<div id="wallcomments">
+			<div id="wp_latest">Latest on Thu, 04:38 pm</div><p class="wall-1 "><span class="wallauthor" title="Iliya#ivanov[IvanovRukidssqu,2,5] on 2020-07-02 16:38:51" >Iliya#ivanov[IvanovRukidssqu,2,5]</span><span class="wallcomment" title="Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 
+ 
+Установил софт  запрет входящих вызовов наборы остановились. 
+Что совершать с займом дальше предложите?" >: Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 [...]</span></p><p class="wall-2 wall-alt "><span class="wallauthor" title="Colton Ward on 2020-04-14 09:12:09" >Colton Ward</span><span class="wallcomment" title="Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that I did not want to purchase 
+any more products and spend more money and just wanted to 
+try out the cosmetic procedures I had purchased which was already $300.
+
+
+
+Once I was finally seen by the \   https://gome.com.cn" >: Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that [...]</span></p><p class="wall-3 "><span class="wallauthor" title="eticobysu on 2020-01-27 23:11:02" >eticobysu</span><span class="wallcomment" title="kategoriyab.ru" >: kategoriyab.ru</span></p><p class="wall-4 wall-alt "><span class="wallauthor" title="txcyperoz61 on 2019-12-17 21:41:07" >txcyperoz61</span><span class="wallcomment" title="Огромное тебе СПАСИБО" >: Огромное тебе СПАСИБО</span></p><p class="wall-5 "><span class="wallauthor" title="Dallas on 2019-10-30 06:16:11" >Dallas</span><span class="wallcomment" title="Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors chicago phentermine weight loss doctors chicago phentermine" >: Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors [...]</span></p><input type="hidden" name="wallpage" id="wallpage" value="1" /><input type="hidden" name="page_left" id="page_left" value="1" /><input type="hidden" name="page_right" id="page_right" value="2" />	</div> 
+
+	
+	
+		
+					
+			<p><a id="wall_post_toggle"> &raquo; Leave a reply</a></p>	
+		
+				
+	
+
+	<div id="wall_post">
+		<form action="http://dingleberry.me/wp-content/plugins/wp-wall/wp-wall-ajax.php" method="post" id="wallform">
+		
+						
+			<p>
+			<label for="wpwall_author"><small>Name</small></label><br/>
+			<input type="text" name="wpwall_author" id="wpwall_author" value=""  tabindex="11"  />
+			</p>
+			
+						
+						
+			<p>
+			<label for="wpwall_comment"><small>Comment</small></label><br/>
+			<textarea name="wpwall_comment" id="wpwall_comment" rows="3" cols="" tabindex="13" ></textarea>
+			</p>
+					
+			<p><input name="submit_wall_post" type="submit" id="submit_wall_post" tabindex="14" value="Submit" /></p>
+			
+		</form> 								
+	</div>
+	
+	<div id="wallresponse"></div>
+	
+</div>
+<br />
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Meta</h3></div><div class="sidebar-content">			<ul>
+						<li><a href="../../../wp-login.html">Log in</a></li>
+			<li><a href="../../../feed/index.html" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="../../../comments/feed/index.html" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>						</ul>
+</div></div><div class="sidebar-item">	          	 <div class="sidebar-item">
+				 <div class="sidebar-heading"><h3>Search</h3></div>
+				 <div class="sidebar-content">
+<form method="get" id="searchform" action="http://dingleberry.me/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="" />
+</div>
+</form>
+				</div>
+				</div></div></div>
+
+		 </div>
+		 <!-- End Sidebar -->
+<div id="footer">
+
+Copyright &copy; 2008.  Design by <a href="http://imanto.com/">imanto.com</a>.  Theme by <a href="http://www.themelab.com/">Theme Lab</a> and <a href="http://www.websiteoffice.com/">Online Marketing</a>.  Powered by <a href="http://wordpress.org/">WordPress</a>.
+
+33 queries in 0.378  seconds.
+
+   </div>
+
+   <!-- End Wrapper -->
+
+<script type='text/javascript' src='../../../wp-content/uploads/shadowbox-js/afc2df7514bde3dd091bff35b266117519ce.js?ver=3.0.3'></script>
+
+<!-- Begin Shadowbox JS v3.0.3.10 -->
+<!-- Selected Players: html, iframe, img, qt, swf, wmp -->
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		animate: true,
+		animateFade: true,
+		animSequence: "sync",
+		modal: false,
+		showOverlay: true,
+		overlayColor: "#000",
+		overlayOpacity: "0.8",
+		flashBgColor: "#000000",
+		autoplayMovies: true,
+		showMovieControls: true,
+		slideshowDelay: "0",
+		resizeDuration: "0.35",
+		fadeDuration: "0.35",
+		displayNav: true,
+		continuous: false,
+		displayCounter: true,
+		counterType: "default",
+		counterLimit: "10",
+		viewportPadding: "20",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		autoDimensions: false,
+		initialHeight: "160",
+		initialWidth: "320",
+		enableKeys: true,
+		skipSetup: false,
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0",
+		useSizzle: false
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+<!-- End Shadowbox JS -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5928000-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+
+<!-- Mirrored from dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:31:09 GMT -->
+</html>

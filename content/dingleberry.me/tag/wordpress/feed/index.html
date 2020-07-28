@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/wordpress/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>mod_security2 blocking wp-admin</title>
+		<link>http://dingleberry.me/2008/10/mod_security2-blocking-wp-admin/</link>
+		<comments>http://dingleberry.me/2008/10/mod_security2-blocking-wp-admin/#comments</comments>
+		<pubDate>Wed, 08 Oct 2008 20:37:12 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[mod_security]]></category>
+		<category><![CDATA[mod_security2]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=35</guid>
+		<description><![CDATA[mod_security2 seems to block wp-admin when trying to post: “Method Not Implemented POST to /wp-admin/post.php not supported.” From the mod_security audit file: [08/Oct/2008:22:29:32 +0200] [dingleberry.me/sid#83ee2f0][rid#8616950][/wp-admin/post.php][1] Access denied with code 501 (phase 2). Pattern match "(?:\b(?:\.(?:ht(?:access&#124;passwd&#124;group)&#124;www_?acl)&#124;global\.asa&#124;httpd\.conf&#124;boot\.ini)\b&#124;\/etc\/)" at ARGS:content. [file "/etc/modsecurity2/modsecurity_crs_40_generic_attacks.conf"] [line "114"] [id "950005"] [msg "Remote File Access Attempt"] [data "/etc/"] [severity "CRITICAL"] [tag "WEB_ATTACK/FILE_INJECTION"] The [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>mod_security2 seems to block wp-admin when trying to post:</p>
+<p><code>“Method Not Implemented POST to /wp-admin/post.php not supported.”</code></p>
+<p>From the mod_security audit file:<br />
+<code>[08/Oct/2008:22:29:32 +0200] [dingleberry.me/sid#83ee2f0][rid#8616950][/wp-admin/post.php][1] Access denied with code 501 (phase 2). Pattern match "(?:\b(?:\.(?:ht(?:access|passwd|group)|www_?acl)|global\.asa|httpd\.conf|boot\.ini)\b|\/etc\/)" at ARGS:content. [file "/etc/modsecurity2/modsecurity_crs_40_generic_attacks.conf"] [line "114"] [id "950005"] [msg "Remote File Access Attempt"] [data "/etc/"] [severity "CRITICAL"] [tag "WEB_ATTACK/FILE_INJECTION"]</code></p>
+<p>The solution was to add this to the virtualhost:<br />
+<code>SecRuleInheritance Off</code></p>
+<p>Guess its got pros and cons on being to strict on the security. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/mod_security2-blocking-wp-admin/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

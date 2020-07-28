@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/linux/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Retrieving files from a broken harddrive on linux</title>
+		<link>http://dingleberry.me/2014/04/retrieving-files-from-a-broken-harddrive-on-linux/</link>
+		<comments>http://dingleberry.me/2014/04/retrieving-files-from-a-broken-harddrive-on-linux/#comments</comments>
+		<pubDate>Fri, 25 Apr 2014 13:36:04 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dd]]></category>
+		<category><![CDATA[ddrescue]]></category>
+		<category><![CDATA[dmesg]]></category>
+		<category><![CDATA[e2fsck]]></category>
+		<category><![CDATA[harddrive]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[mdadm]]></category>
+		<category><![CDATA[mke2fs]]></category>
+		<category><![CDATA[raid]]></category>
+		<category><![CDATA[superblock]]></category>
+		<category><![CDATA[testdisk]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=725</guid>
+		<description><![CDATA[We recently had some trouble with a software raid (raid1 in this case) that was set up with mdadm. Dmesg showed that the drive had errors and so we replaced it. After the disk was replaced the other disk also started reporting errors and fsck would tell us that the superblock was fucked up and [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We recently had some trouble with a software raid (raid1 in this case) that was set up with mdadm. Dmesg showed that the drive had errors and so we replaced it. After the disk was replaced the other disk also started reporting errors and fsck would tell us that the superblock was fucked up and couldnt be read.</p>
+<p>First thing we did was to dd the broken disk to the new one using <a href="http://www.gnu.org/software/ddrescue/">ddrescue .</a></p>
+<p>We tried rebuilding it by finding backup superblocks :<br />
+<code>mke2fs -n /dev/sdb1 # lists superblocks</code><br />
+<code>e2fsck -b number_from_output_above /dev/sdb1</code><br />
+While the above works in many cases, it didnt help us. All the superblocks where gone.</p>
+<p>Thankfully we came across a tool named <a href="http://www.cgsecurity.org/wiki/TestDisk_Download">TestDisk</a> that let us view and copy the data from the disk. Check it out, it&#8217;s awesome <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/04/retrieving-files-from-a-broken-harddrive-on-linux/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Nvidia and invalid checksum for EDID (Xorg-issues)</title>
+		<link>http://dingleberry.me/2010/06/nvidia-and-invalid-checksum-for-edid-xorg-issues/</link>
+		<comments>http://dingleberry.me/2010/06/nvidia-and-invalid-checksum-for-edid-xorg-issues/#comments</comments>
+		<pubDate>Mon, 14 Jun 2010 06:34:46 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[edid]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[nvidia]]></category>
+		<category><![CDATA[xorg]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=667</guid>
+		<description><![CDATA[Having troubles installing a DVI splitter through a HDMI converter on our Jira-dashboard i found that the splitter made the EDID(Extended display identification data) fancy automagically validation shit fucked up and made the screen falling back to 640&#215;480. This made me shat brix. After alot of googling i found a faboulous trigger called IgnoreEDIDChecksum that [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Having troubles installing a DVI splitter through a HDMI converter on our Jira-dashboard i found that the splitter made the EDID(Extended display identification data) fancy automagically validation shit fucked up and made the screen falling back to 640&#215;480.<br />
+This made me shat brix.</p>
+<p>After alot of googling i found a faboulous trigger called <strong>IgnoreEDIDChecksum</strong> that i put under the Screen section in the xorg.conf.</p>
+<p>Hurrayh for new fancy automagic-probe-validation-fuckups</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/06/nvidia-and-invalid-checksum-for-edid-xorg-issues/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>CrystalHD AppleTV OSX kext lib is ready for download</title>
+		<link>http://dingleberry.me/2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/</link>
+		<comments>http://dingleberry.me/2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/#comments</comments>
+		<pubDate>Tue, 05 Jan 2010 09:14:40 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[apple]]></category>
+		<category><![CDATA[appletv]]></category>
+		<category><![CDATA[atv]]></category>
+		<category><![CDATA[broadcom]]></category>
+		<category><![CDATA[crystal]]></category>
+		<category><![CDATA[crystalhd]]></category>
+		<category><![CDATA[hd]]></category>
+		<category><![CDATA[kext]]></category>
+		<category><![CDATA[lib]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[open]]></category>
+		<category><![CDATA[osx]]></category>
+		<category><![CDATA[source]]></category>
+		<category><![CDATA[tv]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/</guid>
+		<description><![CDATA[Yay, Finally we have osx support for broadcoms crystal hd! This means it is now possible to keep the existing Apple TV os AND run xbmc with CrystalHD hd video acceleration Scott Davilla finally made his efforts in porting the broadcom open source linux crystalhd driver to osx lib and kext available to the public [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Yay, Finally we have osx support for broadcoms crystal hd! This means it is now possible to keep the existing Apple TV os AND run xbmc with CrystalHD hd video acceleration <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>Scott Davilla finally made his efforts in porting the broadcom open source linux crystalhd driver to osx lib and kext available to the public <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>More info on Davillas efforts <a href="http://code.google.com/p/crystalhd-for-osx/">here</a><br />
+Visit <a href="http://www.broadcom.com/products/features/crystal_hd.php">broadcom</a> for more info on Crystal HD and check <a href="http://www.broadcom.com/support/crystal_hd/">here</a> for windows and linux driver downloads.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/01/crystalhd-appletv-osx-kext-lib-is-ready-for-download/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Compile xbmc with broadcom crystalhd support on linux</title>
+		<link>http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/</link>
+		<comments>http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/#comments</comments>
+		<pubDate>Mon, 30 Nov 2009 10:21:54 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[8.04]]></category>
+		<category><![CDATA[apple]]></category>
+		<category><![CDATA[appletv]]></category>
+		<category><![CDATA[atv]]></category>
+		<category><![CDATA[bcm70012]]></category>
+		<category><![CDATA[broadcom]]></category>
+		<category><![CDATA[compile]]></category>
+		<category><![CDATA[crystal]]></category>
+		<category><![CDATA[crystalhd]]></category>
+		<category><![CDATA[driver]]></category>
+		<category><![CDATA[hardy]]></category>
+		<category><![CDATA[hd]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[tv]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[xbmc]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=589</guid>
+		<description><![CDATA[Broadcom CrystalHD is a Mini-PCIe expansioncard to make your box do hardware decoding of HD video material (h264, vc1++) Got a old AppleTV which you dont use? Buy a CrystalHD chip on ebay for 30 dollars, and it will play 1080p for you Install Ubuntu 8.04 Hardy on your box, if you are going to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Broadcom CrystalHD is a Mini-PCIe expansioncard to make your box do hardware decoding of HD video material (h264, vc1++)<br />
+Got a old AppleTV which you dont use? Buy a CrystalHD chip on ebay for 30 dollars, and it will play 1080p for you <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>Install Ubuntu 8.04 Hardy on your box, if you are going to use an AppleTV you can follow the guide here:<br />
+<a href="http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/">http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/</a></p>
+<p>Download the xbmc crystalhd branch and the lib directory from the xdmx branch which has the necessary crystalhd include files:<br />
+<code>svn co -r 22347 https://xbmc.svn.sourceforge.net/svnroot/xbmc/branches/xdmx/XBMC/xbmc/lib/<br />
+svn co -r 25101 https://xbmc.svn.sourceforge.net/svnroot/xbmc/branches/crystalhd<br />
+</code><br />
+prepare the system for crystalhd support:<br />
+<code>mkdir /usr/include/crystalhd<br />
+cp -a lib/crystalhd/include/* /usr/include/crystalhd<br />
+cp /usr/include/crystalhd/windows/bc_drv_if.h /usr/include/crystalhd/bc_ldil_if.h<br />
+</code><br />
+Edit /usr/include/crystalhd/bc_dts_types.h and comment out line 59 so it looks like this:<br />
+<code>//typedef void          VOID;<br />
+</code><br />
+Copy the crystalhd include files to the crystalhd branch source:<br />
+<code>cp -a /usr/include/crystalhd crystalhd/xbmc/lib/<br />
+</code></p>
+<p>Download the bcm70012 source and build the module:<br />
+<code>wget http://www.norco.net.cn/UpLoadFile/Driver/bcm70012_linux_01142009.rar<br />
+unrar e bcm70012_linux_01142009.rar<br />
+tar xf bcm70012_linux_01142009<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+apt-get -f install<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+cd /usr/src/<br />
+m-a -t a-i bcm70012kmod<br />
+cd -<br />
+</code><br />
+Install the gstreamer plugin from the HP mini 110 distro (the file came with the driver download in the step above)<br />
+<code>dpkg -i --force-all gst-broadcom-70012_0.9.30_lpia.deb<br />
+</code></p>
+<p>Now follow the steps from the README.ubuntu file inside the crystalhd source:<br />
+<code>sudo aptitude install subversion make g++ gcc gawk pmount libtool nasm automake cmake gperf unzip bison libsdl-dev libsdl-image1.2-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev libfribidi-dev liblzo2-dev libfreetype6-dev libsqlite3-dev libogg-dev libasound-dev python-sqlite libglew-dev libcurl3 libcurl4-openssl-dev x11proto-xinerama-dev libxinerama-dev libxrandr-dev libxrender-dev libmad0-dev libogg-dev libvorbis-dev libsmbclient-dev libmysqlclient-dev libpcre3-dev libdbus-1-dev libhal-dev libhal-storage-dev libjasper-dev libfontconfig-dev libbz2-dev libboost-dev libfaac-dev libenca-dev libxt-dev libxtst-dev libxmu-dev libpng-dev libjpeg-dev libpulse-dev mesa-utils libcdio-dev libsamplerate-dev libmms-dev libmpeg3-dev libfaad-dev libflac-dev libiso9660-dev libass-dev libssl-dev</code></p>
+<p>On 8.04 and older versions, libmms is outdated and thus XBMC will not compile properly.<br />
+In this case you will have to manually compile the latest version.<br />
+<code>wget "http://launchpad.net/libmms/trunk/0.4/+download/libmms-0.4.tar.gz"<br />
+   tar zxvf libmms-0.4.tar.gz<br />
+   cd libmms-0.4<br />
+   ./configure --prefix=/usr<br />
+   make<br />
+   sudo make install<br />
+</code><br />
+After all deps has been installed and libmms has been compiled and installed you are ready to compile xbmc. cd to the crystalhd source and do:<br />
+<code>./bootstrap<br />
+./configure<br />
+make<br />
+make install<br />
+</code><br />
+Finito! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>POST-install tweaks:<br />
+<a href="http://xbmc.org/forum/showpost.php?p=447128&#038;postcount=15">Enable Pixel Buffer Objects</a><br />
+<a href="http://xbmc.org/forum/showpost.php?p=447551&#038;postcount=32">Start xbmc without loading Gnome</a><br />
+And some more AppleTV specific stuff:<br />
+<a href="http://xbmc.org/forum/showpost.php?p=447082&#038;postcount=12">Set fixed cpu frequency</a><br />
+<a href="http://code.google.com/p/atv-bootloader/wiki/PostMythbuntuHardy">Various fixes for Ubuntu on ATV</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/compile-xbmc-with-broadcom-crystalhd-support-on-linux/feed/</wfw:commentRss>
+		<slash:comments>14</slash:comments>
+		</item>
+		<item>
+		<title>How to speedup Firefox by VACUUM&#8217;ing FF&#8217;s sqlite databases</title>
+		<link>http://dingleberry.me/2009/09/how-to-speedup-firefox-by-vacuuming-ffs-sqlite-databases/</link>
+		<comments>http://dingleberry.me/2009/09/how-to-speedup-firefox-by-vacuuming-ffs-sqlite-databases/#comments</comments>
+		<pubDate>Fri, 04 Sep 2009 09:02:51 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[firefuck]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[sqlite3]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=446</guid>
+		<description><![CDATA[Firefox easily often gets like Hersheys&#8217;s Syrup. What may help is to cleanup the SQlite3 databases Firefox uses to store _SHIT_ First see that you have sqlite3 installed: apt-get install sqlite3 Then stop/kill/murder all your firefox procs. Run the following from a console: for i in $(find ~/.mozilla -type f -name '*.sqlite' -print);do sqlite3 $i [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Firefox easily often gets like Hersheys&#8217;s Syrup.<br />
+What may help is to cleanup the SQlite3 databases Firefox uses to store _SHIT_</p>
+<p>First see that you have sqlite3 installed:<br />
+<code>apt-get install sqlite3</code></p>
+<p>Then <strong>stop</strong>/<strong>kill</strong>/<strong>murder</strong> all your firefox procs.</p>
+<p>Run the following from a console:<br />
+<code>for i in $(find ~/.mozilla -type f -name '*.sqlite' -print);do sqlite3 $i "VACUUM;";done</code></p>
+<p>Most garbage in your firefox databases should now be clean. Fire it up again.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/how-to-speedup-firefox-by-vacuuming-ffs-sqlite-databases/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>New local root hole in linux kernel in kernels back to 2001</title>
+		<link>http://dingleberry.me/2009/08/new-local-root-hole-in-linux-kernel-in-kernels-back-to-2001/</link>
+		<comments>http://dingleberry.me/2009/08/new-local-root-hole-in-linux-kernel-in-kernels-back-to-2001/#comments</comments>
+		<pubDate>Fri, 14 Aug 2009 07:15:40 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[exploit]]></category>
+		<category><![CDATA[kernel]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[local]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=423</guid>
+		<description><![CDATA[UPDATE: This exploit doesnt seem to affect my Debian Lenny, anyone else tried? Someone please confirm if the temp-fix does NOT work. http://blog.cr0.org/2009/08/linux-null-pointer-dereference-due-to.html http://www.theregister.co.uk/2009/08/14/critical_linux_bug/ Second time this summer linux kernel experiences big security holes. *shrug* And this time around its for _ALL_ kernels all the way back to 2001. Proposed temp-fix: #!/bin/bash # temp-fix until [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>UPDATE: This exploit doesnt seem to affect my Debian Lenny, anyone else tried? Someone please confirm if the temp-fix does NOT work.</strong></p>
+<p><a href="http://blog.cr0.org/2009/08/linux-null-pointer-dereference-due-to.html">http://blog.cr0.org/2009/08/linux-null-pointer-dereference-due-to.html</a><br />
+<a href="http://www.theregister.co.uk/2009/08/14/critical_linux_bug/">http://www.theregister.co.uk/2009/08/14/critical_linux_bug/</a></p>
+<p>Second time this summer linux kernel experiences big security holes. *shrug*<br />
+And this time around its for _ALL_ kernels all the way back to 2001.</p>
+<p>Proposed temp-fix:<br />
+<code>#!/bin/bash<br />
+# temp-fix until patched for<br />
+# http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2692<br />
+# http://www.theregister.co.uk/2009/08/14/critical_linux_bug/<br />
+cd /lib/modules/$(uname -r)/kernel/ &#038;&#038; \<br />
+for i in \<br />
+net/ipx/ipx.ko \<br />
+net/irda/irda.ko net/x25/x25.ko \<br />
+net/ax25/ax25.ko \<br />
+net/bluetooth/bluetooth.ko \<br />
+net/sctp/sctp.ko \<br />
+drivers/net/pppoe.ko \<br />
+drivers/net/pppox.ko;<br />
+do rm -f $i;done</code></p>
+<p>This should hopefully solve this security hole until debian/other dists releases updates.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/new-local-root-hole-in-linux-kernel-in-kernels-back-to-2001/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Juniper Netscreen IPsec VPN Client for Linux</title>
+		<link>http://dingleberry.me/2009/08/juniper-netscreen-ipsec-vpn-client-for-linux/</link>
+		<comments>http://dingleberry.me/2009/08/juniper-netscreen-ipsec-vpn-client-for-linux/#comments</comments>
+		<pubDate>Fri, 07 Aug 2009 06:46:10 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ipsec]]></category>
+		<category><![CDATA[juniper]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[netscreen]]></category>
+		<category><![CDATA[shrew]]></category>
+		<category><![CDATA[vpn]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=394</guid>
+		<description><![CDATA[So we needed a VPN client for our Netscreen IPsec setup. After much googling and hard hours of configs, it seemed impossible. Until we discovered shrew: http://www.shrew.net apt-get install ike ike-qtgui Do some kernel tweaks to make the tunnel work: sysctl -e net.ipv4.conf.all.rp_filter=0 sysctl -e net.ipv4.conf.default.rp_filter=0 sysctl -e net.ipv4.conf.eth0.rp_filter=0 Put it in /etc/sysctl.conf for loading [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>So we needed a VPN client for our Netscreen IPsec setup.<br />
+After much googling and hard hours of configs, it seemed impossible.</p>
+<p>Until we discovered shrew: <a href="http://www.shrew.net">http://www.shrew.net</a></p>
+<p><code>apt-get install ike ike-qtgui</code></p>
+<p>Do some kernel tweaks to make the tunnel work:<br />
+<code>sysctl -e net.ipv4.conf.all.rp_filter=0<br />
+sysctl -e net.ipv4.conf.default.rp_filter=0<br />
+sysctl -e net.ipv4.conf.eth0.rp_filter=0</code></p>
+<p>Put it in /etc/sysctl.conf for loading on boots:<br />
+<code>net.ipv4.conf.default.rp_filter=0<br />
+net.ipv4.conf.all.rp_filter=0<br />
+net.ipv4.conf.eth0.rp_filter=0</code></p>
+<p>Also make sure iked is running: <code>/etc/init.d/ike restart</code></p>
+<p>Then make your config in shrew from credentials from your hairy juniper netscreen admin and &#8230;CONNECT!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/juniper-netscreen-ipsec-vpn-client-for-linux/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>iPhone 3G 3.0 OS Tethering on Ubuntu Linux 9.04 via Bluetooth</title>
+		<link>http://dingleberry.me/2009/07/iphone-3g-3-0-os-tethering-on-ubuntu-linux-9-04-via-bluetooth/</link>
+		<comments>http://dingleberry.me/2009/07/iphone-3g-3-0-os-tethering-on-ubuntu-linux-9-04-via-bluetooth/#comments</comments>
+		<pubDate>Thu, 23 Jul 2009 11:08:29 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[bluetooth]]></category>
+		<category><![CDATA[iphone]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[tethering]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=380</guid>
+		<description><![CDATA[I have struggeled some with this shit until i came over a script called uit.sh: http://us.cooperlees.com/download.php?F=uit.sh.gz Download it, and do this to setup deps and config: gunzip uit.sh.gz &#038;&#038; chmod +x uit.sh &#038;&#038; sudo ./uit.sh -i After that just connect to your iphone tethering with: sudo ./uit.sh -c Disconnect: sudo ./uit.sh -d I had some [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I have struggeled some with this shit until i came over a script called uit.sh:</p>
+<p><a href="http://us.cooperlees.com/download.php?F=uit.sh.gz">http://us.cooperlees.com/download.php?F=uit.sh.gz</a></p>
+<p>Download it, and do this to setup deps and config:<br />
+<code>gunzip uit.sh.gz &#038;&#038; chmod +x uit.sh &#038;&#038; sudo ./uit.sh -i</code></p>
+<p>After that just connect to your iphone tethering with:<br />
+<code>sudo ./uit.sh -c</code></p>
+<p>Disconnect:<br />
+<code>sudo ./uit.sh -d</code></p>
+<p>I had some problems getting connection refused, this was because i had turned of 3g to save battery.<br />
+So keep that 3g ON if you want tethering!<br />
+You may also place the script in PATH to have it globally available, just remember to run the script as root/sudo.</p>
+<p>You may also get this to work with some fancy GUI SHIT like blueman, but i like terminal more.</p>
+<p>&#8220;We gotta create a GUI, so we can trace the ip&#8221;:<br />
+<a href="http://www.youtube.com/v/ygB0ZviqXac" rel="shadowbox[sbpost-380];player=swf;width=640;height=385;">http://www.youtube.com/v/ygB0ZviqXac</a></p>
+<p>Goddamn Visual Basic haxx0rz&#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/iphone-3g-3-0-os-tethering-on-ubuntu-linux-9-04-via-bluetooth/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Linux Kernel 2.6.27 released</title>
+		<link>http://dingleberry.me/2008/10/linux-kernel-2627-released/</link>
+		<comments>http://dingleberry.me/2008/10/linux-kernel-2627-released/#comments</comments>
+		<pubDate>Tue, 14 Oct 2008 12:51:46 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[kernel]]></category>
+		<category><![CDATA[linux]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=137</guid>
+		<description><![CDATA[A little bit late, but hey on the October 9th, 2.6.27 got released! Are you one of us normal flesh and bones people not understanding crapshit of the changelogs and whats new in the kernel? Then you should check out Kernel Newbies Of rather nice features in this new kernel: - new fs specially optimized [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>A little bit late, but hey on the October 9th, 2.6.27 got released!<br />
+Are you one of us normal flesh and bones people not understanding crapshit of the changelogs and whats new in the kernel?<br />
+Then you should check out <a href="http://kernelnewbies.org/LinuxChanges">Kernel Newbies</a></p>
+<p>Of rather nice features in this new kernel:<br />
+- new fs specially optimized for flash based units(SSD etc.) called UBIFS<br />
+- XEN support for saving/restoring VMs<br />
+- improved video camera support<br />
+- support for the Intel wireless 5000 series and RTL8187B network cards,<br />
+- a new ath9k driver<br />
+- alternative hibernation implementation based on kexec/kdump<br />
+- more new drivers +++ much more fixes and improvements</p>
+<p>This kernel will be integrated in Ubuntu 8.10 released in the end of October.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/linux-kernel-2627-released/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>A baby named Linux</title>
+		<link>http://dingleberry.me/2008/10/a-baby-named-linux/</link>
+		<comments>http://dingleberry.me/2008/10/a-baby-named-linux/#comments</comments>
+		<pubDate>Mon, 13 Oct 2008 09:13:17 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[baby]]></category>
+		<category><![CDATA[linux]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=114</guid>
+		<description><![CDATA[Now ive seen it all: A baby named Linux Newspaper article (Swedish) Poor kid, he will be like the prime target for every bully out there. There is actually four persons in Sweden named Linux, whats wrong with them? Who would call their baby Windows? Hell, the baby would be killed before getting the age [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Now ive seen it all: <a href="http://www.linux.com/feature/149992"><br />
+A baby named Linux</a><br />
+<a href="http://hd.se/skane/2008/08/13/datanoerd-doepte-sonen-till-linux/">Newspaper article (Swedish)</a></p>
+<p>Poor kid, he will be like the prime target for every bully out there.<br />
+There is actually four persons in Sweden named Linux, whats wrong with them?<br />
+Who would call their baby Windows? Hell, the baby would be killed before getting the age of kindergarden.</p>
+<p>Lets keep geekstuff and babynames apart <img src="http://dingleberry.me/wp-includes/images/smilies/icon_rolleyes.gif" alt=":roll:" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/a-baby-named-linux/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

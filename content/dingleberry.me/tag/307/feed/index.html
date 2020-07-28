@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/307/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>307 Temporary Redirect, to myself. Lets hope the image is done next time around</title>
+		<link>http://dingleberry.me/2010/11/307-temporary-redirect-to-myself-lets-hope-the-image-is-done-next-time-around/</link>
+		<comments>http://dingleberry.me/2010/11/307-temporary-redirect-to-myself-lets-hope-the-image-is-done-next-time-around/#comments</comments>
+		<pubDate>Tue, 02 Nov 2010 10:13:21 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[307]]></category>
+		<category><![CDATA[drupal]]></category>
+		<category><![CDATA[imagecache]]></category>
+		<category><![CDATA[loop]]></category>
+		<category><![CDATA[redirect]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=678</guid>
+		<description><![CDATA[Funny FAIL-bug in the drupal imagecache module. Last night we had some serious trouble with our sites and witnessed the requests on our loadbalancers going from 1k to 10k pr second. From our graphs we found out which site was being hammered and then checked varnishtop to see what was going on. 2 missing images [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Funny FAIL-bug in the drupal imagecache module. Last night we had some serious trouble with our sites and witnessed the requests on our loadbalancers going from 1k to 10k pr second. From our graphs we found out which site was being hammered and then checked varnishtop to see what was going on. 2 missing images were causing a 307 temporary redirect. We fixed it fast by touching the missing files and the traffic went away. Today we did some research into what was going on, and with firebug we found out that the page was trying to redirect to it self and fetch the same missing image over and over. Here&#8217;s the rather naughty code in the imagecachemodule :</p>
+<p><code><br />
+if (file_exists($lockfile)) {<br />
+watchdog('imagecache', 'ImageCache already generating: %dst, Lock file: %tmp.', array('%dst' =&gt; $dst, '%tmp' =&gt; $lockfile), WATCHDOG_NOTICE);<br />
+// 307 Temporary Redirect, to myself. Lets hope the image is done next time around.<br />
+header('Location: '. request_uri(), TRUE, 307);<br />
+exit;<br />
+}<br />
+</code></p>
+<p>Now imagine if the image &#8220;doesnt exist the next time around&#8221;.<br />
+FAIL!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/11/307-temporary-redirect-to-myself-lets-hope-the-image-is-done-next-time-around/feed/</wfw:commentRss>
+		<slash:comments>52</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/lenny/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Distupgrading debian etch to lenny, and upgrading postgres 8.1 to 8.3</title>
+		<link>http://dingleberry.me/2009/09/distupgrading-debian-etch-to-lenny-and-upgrading-postgres-8-1-to-8-3/</link>
+		<comments>http://dingleberry.me/2009/09/distupgrading-debian-etch-to-lenny-and-upgrading-postgres-8-1-to-8-3/#comments</comments>
+		<pubDate>Mon, 07 Sep 2009 11:33:10 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[8.1]]></category>
+		<category><![CDATA[8.3]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[lenny]]></category>
+		<category><![CDATA[postgres]]></category>
+		<category><![CDATA[upgrade]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=482</guid>
+		<description><![CDATA[Pretty straight forward. Edit your /etc/apt/sources.list. Substitute &#8220;etch&#8221; with &#8220;lenny&#8221;. apt-get update apt-get dist-upgrade This will upgrade the system to lenny. Verify with cat /etc/debian_version The upgrade will not upgrade postgres. You need to do this manually. apt-get install postgresql 8.3 will now be installed and configured to run on another port. 8.1 will still [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pretty straight forward.<br />
+Edit your <code>/etc/apt/sources.list</code>. Substitute &#8220;etch&#8221; with &#8220;lenny&#8221;. </p>
+<p><code>apt-get update</code><br />
+<code>apt-get dist-upgrade</code></p>
+<p>This will upgrade the system to lenny. Verify with<br />
+<code>cat /etc/debian_version</code></p>
+<p>The upgrade will not upgrade postgres. You need to do this manually.<br />
+<code>apt-get install postgresql</code><br />
+8.3 will now be installed and configured to run on another port. 8.1 will still remain on your system, and you need to manually migrate your 8.1 bases to 8.3. Thankfully they provide some scripts for this.Here&#8217;s how you do it.<br />
+First drop the automatically created cluster for 8.3</p>
+<p><code>g_dropcluster --stop 8.3 main</code></p>
+<p>then upgrade the 8.1 cluster to 8.3</p>
+<p><code>pg_upgradecluster -v 8.3 8.1 main</code></p>
+<p>This should change the 8.1 config to run on another port while 8.3 should be running on default.<br />
+Prolly smart to stop 8.1, start 8.3 and verify that you&#8217;re databases are working as they should ..before you go ahead and remove 8.1.</p>
+<p>If you run into some locales+postgres trouble with lenny. You should check your <code>/etc/locale.gen</code>, make sure the correct locales arent commented out,<br />
+and run <code>locale-gen</code>/<code>dpkg-reconfigure</code>. Then you should be able to start 8.1 again.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/distupgrading-debian-etch-to-lenny-and-upgrading-postgres-8-1-to-8-3/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Debian Lenny, Xen and live migration using iscsi storage backend</title>
+		<link>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/</link>
+		<comments>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/#comments</comments>
+		<pubDate>Fri, 10 Jul 2009 08:02:47 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[block-iscsi]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[lenny]]></category>
+		<category><![CDATA[xen]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=369</guid>
+		<description><![CDATA[After alot of google-ing for iscsi powered live migration i found references to these two block-iscsi scripts: http://kinkrsoftware.nl/contrib/xen/block-iscsi http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi However none of them worked &#8220;out of the box&#8221; with Debian Lenny. After alot of messing around with adding debug output in the scripts i found the script in the first link to work when i [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>After alot of google-ing for iscsi powered live migration i found references to these two block-iscsi scripts:</p>
+<p><a href="http://kinkrsoftware.nl/contrib/xen/block-iscsi">http://kinkrsoftware.nl/contrib/xen/block-iscsi</a><br />
+<a href="http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi">http://www.suse.de/~garloff/linux/xen/scripts/block-iscsi</a></p>
+<p>However none of them worked &#8220;out of the box&#8221; with Debian Lenny. After alot of messing around with adding debug output in the scripts i found the script in the first link to work when i changed the path to iscsiadm from /usr/sbin to /usr/bin (since the open-iscsi lenny package installs iscsiadm to /usr/bin) and when using the following in my VMs .cfg:</p>
+<p><code>disk = [ 'iscsi:iqn.2006-01.com.openfiler:tsn.64b04dcbd835,hda1,w' ]</code></p>
+<p>Dont forget to stick the block-iscsi script in /etc/xen/scripts and chmod +x ! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/debian-lenny-xen-and-live-migration-using-iscsi-storage-backend/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/cookies/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Varnish &amp; Cookies</title>
+		<link>http://dingleberry.me/2008/10/varnish-cookies/</link>
+		<comments>http://dingleberry.me/2008/10/varnish-cookies/#comments</comments>
+		<pubDate>Fri, 10 Oct 2008 13:08:36 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cookies]]></category>
+		<category><![CDATA[varnish]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=75</guid>
+		<description><![CDATA[By default Varnish passes requests with cookies to the backend. It is not recommended, but in some cases it is necessary to cache requests with cookies too. This can be done by adding the following to the config file : sub vcl_recv { if(req.http.Cookie) { lookup; } } This might result in some trouble for [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>By default <a title="Varnish" href="http://varnish.projects.linpro.no/" target="_blank">Varnish</a> passes requests with cookies to the backend.</p>
+<p>It is not recommended, but in some cases it is necessary to cache requests with cookies too.</p>
+<p>This can be done by adding the following to the config file :<br />
+<code>sub vcl_recv {<br />
+if(req.http.Cookie) {<br />
+        lookup;<br />
+        }<br />
+}<br />
+</code></p>
+<p>This might result in some trouble for logged in users who needs unchached content. You can match a cookie and pass it to the backend like this (also inside vcl_recv):</p>
+<p><code>if (req.http.Cookie ~ "yourcookie") {<br />
+pass;<br />
+}<br />
+</code></p>
+<p>Instead of the name of the cookie, you could also use the content of it as Varnish reads the entire cookie header.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/varnish-cookies/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

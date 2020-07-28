@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/encoding/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Encoding iPod touch/iPhone/PSP video from CLI</title>
+		<link>http://dingleberry.me/2009/03/encoding-ipod-touchiphonepsp-video-from-cli/</link>
+		<comments>http://dingleberry.me/2009/03/encoding-ipod-touchiphonepsp-video-from-cli/#comments</comments>
+		<pubDate>Tue, 17 Mar 2009 10:17:57 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[avi]]></category>
+		<category><![CDATA[encoding]]></category>
+		<category><![CDATA[ffmpeg]]></category>
+		<category><![CDATA[iphone]]></category>
+		<category><![CDATA[ipod]]></category>
+		<category><![CDATA[mp4]]></category>
+		<category><![CDATA[psp]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=342</guid>
+		<description><![CDATA[These goddamn video players a.k.a. ipod/iphone/psp wont play .avi straight from the box. They need to be converted to some stupid mp4 format to get played. Now usually ppl use some stupid windows/mac GUI tool to do all of this, and then letting their computer grind these jobs. We have a solution for your server/linuxbox/whatever: [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>These goddamn video players a.k.a. ipod/iphone/psp wont play .avi straight from the box.<br />
+They need to be converted to some stupid mp4 format to get played.<br />
+Now usually ppl use some stupid windows/mac GUI tool to do all of this, and then letting their computer grind these jobs.<br />
+We have a solution for your server/linuxbox/whatever:</p>
+<p>Lets say you have a directory of .avi files you want to convert to .mp4 format, we use ffmpeg and a for loop to do this:<br />
+To setup ffmpeg you gotta solve that yourself. Here is a tip if you use ubuntu:<br />
+<a href="http://juliensimon.blogspot.com/2008/12/howto-compiling-ffmpeg-x264-mp3-xvid.html">http://juliensimon.blogspot.com/2008/12/howto-compiling-ffmpeg-x264-mp3-xvid.html</a></p>
+<p>iPod Touch/iPhone:<code>for i in *.avi;do ffmpeg -i $i input -acodec aac -ab 128kb -vcodec mpeg4 -b 1200kb -mbd 2 -flags +4mv+trell -aic 2 -cmp 2 -subcmp 2 -s 320x180 -title X $i.mp4;done</code></p>
+<p>PSP:<code>for i in *.avi;do ffmpeg -i $i -b 300 -s 320x240 -vcodec xvid -ab 32 -ar 24000 -acodec aac $i.mp4;done</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/03/encoding-ipod-touchiphonepsp-video-from-cli/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

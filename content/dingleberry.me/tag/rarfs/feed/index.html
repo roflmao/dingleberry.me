@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/rarfs/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Play .rar files with mplayer v2.0: now with seeking</title>
+		<link>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/</link>
+		<comments>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/#comments</comments>
+		<pubDate>Sun, 09 Aug 2009 10:58:11 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mplayer]]></category>
+		<category><![CDATA[rar]]></category>
+		<category><![CDATA[rarfs]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=400</guid>
+		<description><![CDATA[It really started bothering me that its impossible to seek in media files when using my previous playrar script: Now im writing a bit more complex version which supports seeking! I got a tips about using rarfs, a FUSE based filesystem mounter. What it does is making your .rar archives into a virtual filesystem. (like [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>It really started bothering me that its impossible to seek in media files when using my <a href="http://dingleberry.me/2008/10/play-rar-files-with-vlc-mplayer/">previous playrar script</a>: </p>
+<p>Now im writing a bit more complex version which supports seeking!</p>
+<p>I got a tips about using <a href="http://sourceforge.net/projects/rarfs/">rarfs</a>, a <a href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> based filesystem mounter. What it does is making your .rar archives into a virtual filesystem. (like the .rar archive really isnt a archive, but real files on a filesystem)<br />
+This makes your media files seekable. (mkv,avi,iso(vob), younameit)</p>
+<p>Firstly you need to install rarfs on your system. You need to install some deps:<br />
+<code>sudo apt-get install automake1.9 libfuse-dev subversion</code><br />
+When you have done this, you are ready to checkout the svn tree on sourceforge:<br />
+<code>svn co https://rarfs.svn.sourceforge.net/svnroot/rarfs rarfs<br />
+cd rarfs/trunk/rarfs/<br />
+./configure &#038;&#038; make &#038;&#038; sudo make install</code><br />
+(seems here i got a error with doc/Makefile.in, borked release in trunk)<br />
+FIX: <code>touch doc/Makefile.in<br />
+./configure<br />
+make<br />
+sudo make install<br />
+ls -l /usr/local/bin/rarfs</code><br />
+If it returned your file in /usr/local/bin/rarfs we are good to go!</p>
+<p>Now we can mount a .rar file with the following command: rarfs bladdiblah.rar /tmp/rar<br />
+This seems a bit hard to type everytime you want to play a file, so we make a shellscript to fix this:<br />
+<code>#!/bin/bash<br />
+RARFILE=$1<br />
+TMPDIR="/tmp/playrar/"<br />
+RARFS="/usr/local/bin/rarfs"<br />
+if [ ! -d /tmp/playrar ]; then<br />
+mkdir -p /tmp/playrar<br />
+fi<br />
+$RARFS $RARFILE $TMPDIR<br />
+mplayer -fs $TMPDIR/`ls $TMPDIR`<br />
+fusermount -u $TMPDIR</code></p>
+<p>What this script does, is to mount the file, play the files inside the rar file, and then unmount the .rar archive.<br />
+You can easily wget this script: <a href='http://dingleberry.me/wp-content/uploads/2009/08/playrar.sh'>playrar.sh</a><br />
+Place it in $PATH and give it chmod +x playrar.sh (and change your media player as suited)</p>
+<p>This howto was intended to Ubuntu users, but should be done on other linux distributions as well (maybe OS X as well?)</p>
+<p>One step closer to easier movie playback <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/08/play-rar-files-with-mplayer-v2-0-now-with-seeking/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

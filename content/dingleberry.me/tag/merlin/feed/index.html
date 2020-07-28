@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/merlin/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Our new dashboard</title>
+		<link>http://dingleberry.me/2010/04/our-new-dashboard/</link>
+		<comments>http://dingleberry.me/2010/04/our-new-dashboard/#comments</comments>
+		<pubDate>Wed, 28 Apr 2010 12:32:07 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dashboard]]></category>
+		<category><![CDATA[merlin]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=658</guid>
+		<description><![CDATA[The old dashboard we used earlier had a couple of issues. It showed all SOFT nagios states and it also listed every service pr host that was down. Since it&#8217;s pretty obvious that a service is down on a host that is down, we wanted to change that. Instead of continuing the rather hard work [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="http://dingleberry.me/2009/11/nagios-operations-dashboard/">The old dashboard</a> we used earlier had a couple of issues. It showed all SOFT nagios states and it also listed every service pr host that was down. Since it&#8217;s pretty obvious that a service is down on a host that is down, we wanted to change that. Instead of continuing the rather hard work of changing the dirty status.dat parsing, we just dropped that project and checked out <a href="http://www.op5.org/community/projects/merlin">Merlin</a>. Once installed and configured correctly, merlin will enable an eventbrokermodule in the nagiosconfig and update merlins mysql database via the eventbroker. The database contains all hosts and statuses state changes and so on, so this is what we ended up with : (Pic of our current dashboard in our office)</p>
+<p><a href="http://dingleberry.me/wp-content/uploads/2010/04/dashern1.jpg" rel="shadowbox[sbpost-658];player=img;"><img class="alignnone size-medium wp-image-660" src="http://dingleberry.me/wp-content/uploads/2010/04/dashern1-300x225.jpg" alt="dashern" width="300" height="225" /></a></p>
+<p>This dashboard lists only hosts that are down and not acknowledged in nagios in its upper left corner. Then there&#8217;s a little tactical overview in the upper right corner (this will have more info shortly) and finally all unhandled serviceproblem listed below. Exactly what we want.</p>
+<p>The bottom &#8220;toolbar&#8221; is transparent and has a countdown timer for page refresh and shows the current time.<br />
+Thanks again to Jonas, for the design!</p>
+<p>You can download the files from git : <a title="https://github.com/mortis1337/nagios-dashboard" href="https://github.com/mortis1337/nagios-dashboard" target="_blank">https://github.com/mortis1337/nagios-dashboard</a><br />
+Just change the login info in merlin.php to match your merlin database and it should run smoothly.</p>
+<p>Note: The dashboard needs firefox 3.6.<br />
+Enjoy.</p>
+<p>http://dingleberry.me/2010/04/our-new-dashboard/</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2010/04/our-new-dashboard/feed/</wfw:commentRss>
+		<slash:comments>60</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/mysql/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Mysql authentication backwards compability</title>
+		<link>http://dingleberry.me/2009/09/mysql-authentication-backwards-compability/</link>
+		<comments>http://dingleberry.me/2009/09/mysql-authentication-backwards-compability/#comments</comments>
+		<pubDate>Fri, 04 Sep 2009 11:34:46 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[sarge]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=453</guid>
+		<description><![CDATA[Had an issue today where an old mysql-client on debian sarge failed to connect to a newer mysql-server on debian etch. I was happy to find out that it&#8217;s easily fixed : update mysql.user set password=OLD_PASSWORD('supahsecretpassword') where user='theuser' and host='some-ip-address'; then just : flush privileges; and you&#8217;re gooooood to goooooooooo]]></description>
+				<content:encoded><![CDATA[<p>Had an issue today where an old mysql-client on debian sarge failed to connect to a newer mysql-server on debian etch.</p>
+<p>I was happy to find out that it&#8217;s easily fixed : </p>
+<p><code>update mysql.user set password=OLD_PASSWORD('supahsecretpassword') where user='theuser' and host='some-ip-address';</code></p>
+<p>then just :</p>
+<p><code>flush privileges;</code></p>
+<p>and you&#8217;re gooooood  to goooooooooo <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/mysql-authentication-backwards-compability/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>MySQL DB sizes</title>
+		<link>http://dingleberry.me/2009/01/mysql-db-sizes/</link>
+		<comments>http://dingleberry.me/2009/01/mysql-db-sizes/#comments</comments>
+		<pubDate>Thu, 22 Jan 2009 09:32:29 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[database]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[optimize]]></category>
+		<category><![CDATA[size]]></category>
+		<category><![CDATA[table]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=252</guid>
+		<description><![CDATA[Wondering how big your database is, and whats taking up the space? Im running a Bacula server for backing up about 50 servers, and the MySQL dump of the db is 10gb. Im wondering, what the hell is all this shit, which table is the large one etc. mysql> SELECT concat(table_schema,'.',table_name),concat(round(table_rows/1000000,2),'M') rows,concat(round(data_length/(1024*1024*1024),2),'G') DATA,concat(round(index_length/(1024*1024*1024),2),'G') idx,concat(round((data_length+index_length)/(1024*1024*1024),2),'G') total_size,round(index_length/data_length,2) [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Wondering how big your database is, and whats taking up the space?</p>
+<p>Im running a Bacula server for backing up about 50 servers, and the MySQL dump of the db is 10gb.<br />
+Im wondering, what the hell is all this shit, which table is the large one etc.</p>
+<p><code>mysql> SELECT<br />
+concat(table_schema,'.',table_name),concat(round(table_rows/1000000,2),'M')<br />
+rows,concat(round(data_length/(1024*1024*1024),2),'G')<br />
+DATA,concat(round(index_length/(1024*1024*1024),2),'G')<br />
+idx,concat(round((data_length+index_length)/(1024*1024*1024),2),'G')<br />
+total_size,round(index_length/data_length,2)<br />
+idxfrac FROM information_schema.TABLES ORDER BY data_length+index_length DESC LIMIT 10;</code></p>
+<p>This will save your life, then run:<br />
+<code>mysql> OPTIMIZE TABLE bacula.File;</code></p>
+<p>And let the cleanup begin <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/01/mysql-db-sizes/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Setting up mysql replication</title>
+		<link>http://dingleberry.me/2008/10/setting-up-mysql-replication/</link>
+		<comments>http://dingleberry.me/2008/10/setting-up-mysql-replication/#comments</comments>
+		<pubDate>Wed, 15 Oct 2008 03:04:16 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[replication]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=178</guid>
+		<description><![CDATA[This is actually pretty easy. It is well documented here, but I&#8217;ve made a quicklist : Edit my.cnf on the master. It should contain : server-id = 1 log-bin=mysql-bin Edit the my.cnf on the slave. It should contain : server-id = 2 First grant access to a replication user on the master server: GRANT REPLICATION [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>This is actually pretty easy. It is well documented <a href="http://dev.mysql.com/doc/refman/5.0/en/replication.html">here</a>, but I&#8217;ve made a quicklist :</p>
+<p>Edit my.cnf on the master. It should contain :<br />
+<code>server-id               = 1<br />
+log-bin=mysql-bin</code></p>
+<p>Edit the my.cnf on the slave. It should contain :<br />
+<code>server-id               = 2</code></p>
+<p>First grant access to a replication user on the master server:<br />
+<code>GRANT REPLICATION SLAVE ON *.* TO 'repl'@'slavehost.example.com' IDENTIFIED BY 'password';</code></p>
+<p>Lock the master:<br />
+<code>FLUSH TABLES WITH READ LOCK;</code></p>
+<p>Get the master status for later use :<br />
+<code>SHOW MASTER STATUS;</code></p>
+<p>Dump the master db with mysqldump:<br />
+<code>$ mysqldump mybase &gt; mybase_out.sql</code></p>
+<p>Import the master base on the slave :<br />
+<code>$ mysql mybase &lt; mybase_out.sql </code></p>
+<p>Set the master info on the slave :<br />
+<code>CHANGE MASTER TO MASTER_HOST='masterhost.example.com', MASTER_USER='repl', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=13963;</code></p>
+<p>Start up the slave :<br />
+<code>START SLAVE;</code></p>
+<p>And finally release the master lock by exiting your mysql session.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/setting-up-mysql-replication/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

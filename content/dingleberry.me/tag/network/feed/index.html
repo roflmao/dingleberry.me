@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/network/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Test your jumbo frame enabled network with ping</title>
+		<link>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/</link>
+		<comments>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/#comments</comments>
+		<pubDate>Thu, 03 Feb 2011 11:23:34 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[frame]]></category>
+		<category><![CDATA[jumbo]]></category>
+		<category><![CDATA[jumboframe]]></category>
+		<category><![CDATA[jumboframe jumbo frame network ping test]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[test]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=683</guid>
+		<description><![CDATA[ping -Mdo -s If it works: $ ping -Mdo -s 8001 10.0.20.26 PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data. 8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms 8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!) 8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms If it doesnt: $ ping -Mdo -s 2001 195.10.34.51 -c3 PING [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>ping -Mdo -s <size in bytes above 1500> <another ip on jumbo frame enabled network></p>
+<p>If it works:<br />
+$ ping -Mdo -s 8001 10.0.20.26<br />
+PING 10.0.20.26 (10.0.20.26) 8001(8029) bytes of data.<br />
+8009 bytes from 10.0.20.26: icmp_req=1 ttl=64 time=0.450 ms<br />
+8009 bytes from 10.0.20.26: icmp_req=2 ttl=64 time=0.468 ms (DUP!)<br />
+8009 bytes from 10.0.20.26: icmp_req=3 ttl=64 time=0.447 ms</p>
+<p>If it doesnt:<br />
+$ ping -Mdo -s 2001 195.10.34.51 -c3<br />
+PING 195.10.34.51 (195.10.34.51) 2001(2029) bytes of data.<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)<br />
+From XX.XX.XX.XX icmp_seq=1 Frag needed and DF set (mtu = 1500)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2011/02/test-your-jumbo-frame-enabled-network-with-ping/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>I just installed a new debian etch box with dhcp, changed the /etc/network/interfaces to a static setup and now /etc/init.d/network restart does not work&#8230;.</title>
+		<link>http://dingleberry.me/2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/</link>
+		<comments>http://dingleberry.me/2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/#comments</comments>
+		<pubDate>Fri, 17 Oct 2008 09:28:01 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[ifdown]]></category>
+		<category><![CDATA[ifup]]></category>
+		<category><![CDATA[init script]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[networking]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=194</guid>
+		<description><![CDATA[gah&#8230; We use FAI to auto install our debian servers. It installs the system with dhcp and when it reboots for the first time the box comes perfectly online. However, I want the box to have a static address and so far this is a manual operations in our setup. So i change my /etc/network/interfaces [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>gah&#8230; We use <a href="http://www.informatik.uni-koeln.de/fai/">FAI</a> to auto install our debian servers. It installs the system with dhcp and when it reboots for the first time the box comes perfectly online. However, I want the box to have a static address and so far this is a manual operations in our setup. So i change my /etc/network/interfaces file to reflect a static setup, something like:</p>
+<p><code>host:~# cat /etc/network/interfaces<br />
+# The loopback network interface<br />
+auto lo<br />
+iface lo inet loopback<br />
+<br />
+# The primary network interface<br />
+allow-hotplug eth0<br />
+iface eth0 inet static<br />
+        address 192.168.1.250<br />
+        netmask 255.255.255.0<br />
+        network 192.168.1.0<br />
+        broadcast 192.168.1.255<br />
+        gateway 192.168.1.1<br />
+</code><br />
+I just copy/pasted this setup from another box on the same network and changed the &#8220;address&#8221; field. And then i issued:</p>
+<p><code>host:~# /etc/init.d/networking restart<br />
+Reconfiguring network interfaces...done.<br />
+</code><br />
+Hmmm nothing happens&#8230; Lets take a peak in the init.d script and see what the hell it does:</p>
+<p><code>host:~# cat /etc/init.d/networking<br />
+#!/bin/sh -e<br />
+### BEGIN INIT INFO<br />
+# Provides:          networking<br />
+# Required-Start:    mountkernfs ifupdown $local_fs<br />
+# Required-Stop:     ifupdown $local_fs<br />
+# Default-Start:     S<br />
+# Default-Stop:      0 6<br />
+# Short-Description: Raise network interfaces.<br />
+### END INIT INFO<br />
+<br />
+PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin"<br />
+<br />
+[ -x /sbin/ifup ] || exit 0<br />
+<br />
+. /lib/lsb/init-functions<br />
+<br />
+spoofprotect_rp_filter() {<br />
+    [ -e /proc/sys/net/ipv4/conf/all/rp_filter ] || return 1<br />
+    RC=0<br />
+    for f in /proc/sys/net/ipv4/conf/*/rp_filter; do<br />
+	echo 1 > $f || RC=1<br />
+    done<br />
+    return $RC<br />
+}<br />
+<br />
+spoofprotect() {<br />
+    log_action_begin_msg "Setting up IP spoofing protection"<br />
+    if spoofprotect_rp_filter; then<br />
+	log_action_end_msg 0 "rp_filter"<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+ip_forward() {<br />
+    log_action_begin_msg "Enabling packet forwarding"<br />
+    if echo 1 > /proc/sys/net/ipv4/ip_forward; then<br />
+        log_action_end_msg 0<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+syncookies() {<br />
+    log_action_begin_msg "Enabling TCP SYN cookies"<br />
+    if echo 1 > /proc/sys/net/ipv4/tcp_syncookies; then<br />
+        log_action_end_msg 0<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+doopt() {<br />
+    optname=$1<br />
+    default=$2<br />
+    opt=`grep "^$optname=" /etc/network/options || true`<br />
+    if [ -z "$opt" ]; then<br />
+	opt="$optname=$default"<br />
+    fi<br />
+    optval=${opt#$optname=}<br />
+    if [ "$optval" = "yes" ]; then<br />
+	eval $optname<br />
+    fi<br />
+}<br />
+<br />
+process_options() {<br />
+    [ -e /etc/network/options ] || return 0<br />
+    log_warning_msg "/etc/network/options is deprecated (see README.Debian of netbase)."<br />
+    doopt spoofprotect yes<br />
+    doopt syncookies no<br />
+    doopt ip_forward no<br />
+}<br />
+<br />
+case "$1" in<br />
+start)<br />
+	process_options<br />
+	log_action_begin_msg "Configuring network interfaces"<br />
+	if ifup -a; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+stop)<br />
+	if sed -n 's/^[^ ]* \([^ ]*\) \([^ ]*\) .*$/\2/p' /proc/mounts |<br />
+		grep -qE '^(nfs[1234]?|smbfs|ncp|ncpfs|coda|cifs)$'; then<br />
+	    log_warning_msg "not deconfiguring network interfaces: network shares still mounted."<br />
+	    exit 0<br />
+	fi<br />
+<br />
+	log_action_begin_msg "Deconfiguring network interfaces"<br />
+	if ifdown -a --exclude=lo; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+force-reload|restart)<br />
+	process_options<br />
+	log_action_begin_msg "Reconfiguring network interfaces"<br />
+	ifdown -a --exclude=lo || true<br />
+	if ifup -a --exclude=lo; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+*)<br />
+	echo "Usage: /etc/init.d/networking {start|stop|restart|force-reload}"<br />
+	exit 1<br />
+	;;<br />
+esac<br />
+<br />
+exit 0<br />
+</code><br />
+The interesting part is the restart|reload function:</p>
+<p><code>	log_action_begin_msg "Reconfiguring network interfaces"<br />
+	ifdown -a --exclude=lo || true<br />
+	if ifup -a --exclude=lo; then<br />
+</code><br />
+Oki so lets try to issue these commands manually and see what happens:</p>
+<p><code>host:~# ifdown eth0<br />
+ifdown: interface eth0 not configured<br />
+</code><br />
+&#8230;. *sigh*. Now what, I just configured it&#8230; Its time to look at some other boxes where this doesnt happen. And I find that some boxes does not have the &#8220;allow-hotplug eth0&#8243;, but instead just &#8220;auto eth0&#8243;. So I changed my setup to the following:</p>
+<p><code>host:~# cat /etc/network/interfaces<br />
+# The loopback network interface<br />
+auto lo<br />
+iface lo inet loopback<br />
+<br />
+# The primary network interface<br />
+auto eth0<br />
+iface eth0 inet static<br />
+        address 192.168.1.250<br />
+        netmask 255.255.255.0<br />
+        network 192.168.1.0<br />
+        broadcast 192.168.1.255<br />
+        gateway 192.168.1.1<br />
+</code><br />
+And what do you know&#8230;. IT WORKED!!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

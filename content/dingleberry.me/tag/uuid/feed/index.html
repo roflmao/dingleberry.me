@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/uuid/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Making Debian Etch boot with UUID, not hardcoded blockdevicename</title>
+		<link>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/</link>
+		<comments>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/#comments</comments>
+		<pubDate>Mon, 07 Sep 2009 07:08:26 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[blockdevice]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[uuid]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=475</guid>
+		<description><![CDATA[You got additional disk controllers in your server and the etch kernel is fucking up your devicenames from time to time. Suddenly when you reboot the etch kernel decides to make /dev/sda become /dev/sdf etc. Ubuntu has learned from this and they use UUID. This is a unique ID the filesystem becomes, and when you [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>You got additional disk controllers in your server and the etch kernel is fucking up your devicenames from time to time.<br />
+Suddenly when you reboot the etch kernel decides to make /dev/sda become /dev/sdf etc.<br />
+Ubuntu has learned from this and they use <a href="http://en.wikipedia.org/wiki/UUID">UUID</a>.<br />
+This is a unique ID the filesystem becomes, and when you boot, you really want to catch the right device for the root filesystem, or get a crappy Busybox shell.</p>
+<p>This is how you implement it on Debian Etch (and possibly Lenny, if its not default there either):</p>
+<p><code>fittafeis:~# /lib/udev/vol_id /dev/sda1<br />
+ID_FS_USAGE=filesystem<br />
+ID_FS_TYPE=ext3<br />
+ID_FS_VERSION=1.0<br />
+ID_FS_UUID=3abbdf59-4a9e-4be1-ac56-f474609e637c<br />
+ID_FS_LABEL=<br />
+ID_FS_LABEL_SAFE= </code></p>
+<p>Now edit this line in /boot/grub/menu.lst:</p>
+<p>From:  <code># kopt=root=/dev/sda1 ro</code><br />
+To: <code># kopt=root=UUID=3abbdf59-4a9e-4be1-ac56-f474609e637c ro </code></p>
+<p>Then run update-grub and it will update all your kernel entries using UUID <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/making-debian-etch-boot-with-uuid-not-hardcoded-blockdevicename/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

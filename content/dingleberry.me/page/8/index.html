@@ -1,0 +1,989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from dingleberry.me/page/8/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:33:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta name="verify-v1" content="2rXzy+cQDUSahcuL4FvfXvDHZf0neGFXRtWQjgvNFSg=" />
+<meta name="verify-v1" content="cAY9vxAYMdRz6Fqo2XC7yBXodW8+0qyJVN+Jm4NaCjs=" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>dingleberry.me - technical blog shit - Part 8</title>
+
+<link rel="stylesheet" type="text/css" href="../../wp-content/themes/quadstripe/style.css" />
+
+<link rel="stylesheet" type="text/css" href="../../wp-content/themes/quadstripe/blue.css" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title="dingleberry.me RSS Feed" href="../../feed/index.html" />
+
+<link rel="pingback" href="../../xmlrpc.php" />
+
+
+
+<link rel='stylesheet' id='shadowbox-css-css'  href='../../wp-content/uploads/shadowbox-js/src/shadowbox19ce.css?ver=3.0.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='shadowbox-extras-css'  href='../../wp-content/plugins/shadowbox-js/css/extrasc393.css?ver=3.0.3.10' type='text/css' media='screen' />
+<link rel='stylesheet' id='sociablecss-css'  href='../../wp-content/plugins/sociable/css/sociable7e2e.css?ver=3.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='quotescollection-style-css'  href='../../wp-content/plugins/quotes-collection/quotes-collection00e2.css?ver=1.5.7' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery3e5a.js?ver=1.10.2'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var QCAjax = {"ajaxurl":"http:\/\/dingleberry.me\/wp-admin\/admin-ajax.php","nonce":"413e2c4400","nextquote":"Next quote\u00a0\u00bb","loading":"Loading...","error":"Error getting quote","auto_refresh_max":"30","auto_refresh_count":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/plugins/quotes-collection/quotes-collection00e2.js?ver=1.5.7'></script>
+<script type='text/javascript' src='../../wp-content/plugins/sociable/js/sociable7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/sociable/js/vuible7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/sociable/js/addtofavorites7e2e.js?ver=3.8.1'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery.form.min018d.js?ver=3.37.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPWallSettings = {"refreshtime":"0","expand_box":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-wall/wp-wall7e2e.js?ver=3.8.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.8.1" />
+<!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
+<meta name="description" content="technical blog about technical stuff for sysadmins etc" />
+<meta name="keywords" content="nagios dashboard bigip f5 varnish munin debian lisa curl linux sysadmin" />
+<!-- HeadSpace -->
+<script type='text/javascript'>var base_url_sociable = 'http://dingleberry.me/wp-content/plugins/sociable/'</script><script type='text/javascript' src='http://apis.google.com/js/plusone.js'></script><link rel="stylesheet" href="../../wp-content/plugins/wp-wall/wp-wall.css" type="text/css" />
+<!-- All in One SEO Pack 2.1.3 by Michael Torbert of Semper Fi Web Design[410,484] -->
+<link rel='prev' href='../7/index.html' />
+<link rel='next' href='../9/index.html' />
+
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+
+</head>
+
+
+
+<body>
+
+
+
+   <!-- Begin Wrapper -->
+
+   <div id="wrapper">
+
+   
+
+         <!-- Begin Header -->
+
+         <div id="header">
+
+		 
+
+		       <h1><a href="../../index.html">dingleberry.me</a></h1>
+
+				<div class="description">technical blog shit</div>
+
+			   
+
+		 </div>
+
+		 <!-- End Header -->
+
+		 
+
+		 <!-- Begin Navigation -->
+
+		 <div id="navigation">
+
+		 
+
+		       <ul>
+
+			   <li><a href="../../index.html">Home</a></li>
+
+			<li class="page_item page-item-2"><a href="../../about/index.html">About Us</a></li>
+
+				</ul>
+
+		 </div>
+		 <!-- End Navigation -->
+
+<br/>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0660223234642083";
+/* 728x90, created 11/9/09 */
+google_ad_slot = "8516937673";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		 
+
+		 <!-- Begin Content -->
+
+		 <div id="content">
+
+		 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/index.html" rel="bookmark" title="Permanent Link to free internet on cafes or airports with dnstunnel or icmp ping tunnel">free internet on cafes or airports with dnstunnel or icmp ping tunnel</a></h2>
+
+
+
+<div class="post-info">Posted November 3, 2008 by MrDingle</div>
+
+			   
+
+			   <p><code>aptitude install libmime-base32-perl libwww-perl libnet-dns-perl</code><br />
+to use this server as a http proxy (which is what we will do here), do the following as well:<br />
+<code>aptitude install privoxy</code><br />
+<code>wget http://www.doxpara.com/ozymandns_src_0.1.tgz</code><br />
+<code>tar xvzf ozymandns_src_0.1.tgz</code><br />
+<code>./nomde.pl -i 0.0.0.0 hesten.XXXXXXXX.no</code><br />
+on client, follow the same procedure to install packages and download scripts etc&#8230;</p>
+<p>to get a shell on the dns server:<br />
+<code>ssh -C -o ProxyCommand="./droute.pl -v sshdns.hesten.XXXXXXXX.no" user@localhost</code><br />
+to use the proxy we installed on the dns server:<br />
+<code>ssh -C -o ProxyCommand="./droute.pl -v sshdns.hesten.XXXXXXXX.no" -NL 8118:localhost:8118 user@localhost</code><br />
+open a new window and :<br />
+<code>export http_proxy=http://localhost:8118</code><br />
+and launch your fav browser..</p>
+<p>For a full, and more thorough guide &#8211; check <a href="http://dnstunnel.de/">dnstunnel.de</a></p>
+<p>I never could get the icmp ping tunnel to work &#8211; which sux &#8211; because it supposedly had alot better throughput :s<br />
+Check the authors webpage for details regarding the project <a href="http://www.cs.uit.no/~daniels/PingTunnel/">here</a> &#8211; oh, and if you get it to work, please leave a comment <img src="../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+
+<p>Tags: <a href="../../tag/airport/index.html" rel="tag">airport</a>, <a href="../../tag/cafe/index.html" rel="tag">cafe</a>, <a href="../../tag/dns/index.html" rel="tag">dns</a>, <a href="../../tag/free/index.html" rel="tag">free</a>, <a href="../../tag/icmp/index.html" rel="tag">icmp</a>, <a href="../../tag/internet/index.html" rel="tag">internet</a>, <a href="../../tag/ping/index.html" rel="tag">ping</a>, <a href="../../tag/tunnel/index.html" rel="tag">tunnel</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/11/free-internet-on-cafes-or-airports-with-dnstunnel-or-icmp-ping-tunnel/index.html#comments">No Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/index.html" rel="bookmark" title="Permanent Link to I just installed a new debian etch box with dhcp, changed the /etc/network/interfaces to a static setup and now /etc/init.d/network restart does not work&#8230;.">I just installed a new debian etch box with dhcp, changed the /etc/network/interfaces to a static setup and now /etc/init.d/network restart does not work&#8230;.</a></h2>
+
+
+
+<div class="post-info">Posted October 17, 2008 by MrDingle</div>
+
+			   
+
+			   <p>gah&#8230; We use <a href="http://www.informatik.uni-koeln.de/fai/">FAI</a> to auto install our debian servers. It installs the system with dhcp and when it reboots for the first time the box comes perfectly online. However, I want the box to have a static address and so far this is a manual operations in our setup. So i change my /etc/network/interfaces file to reflect a static setup, something like:</p>
+<p><code>host:~# cat /etc/network/interfaces<br />
+# The loopback network interface<br />
+auto lo<br />
+iface lo inet loopback<br />
+<br />
+# The primary network interface<br />
+allow-hotplug eth0<br />
+iface eth0 inet static<br />
+        address 192.168.1.250<br />
+        netmask 255.255.255.0<br />
+        network 192.168.1.0<br />
+        broadcast 192.168.1.255<br />
+        gateway 192.168.1.1<br />
+</code><br />
+I just copy/pasted this setup from another box on the same network and changed the &#8220;address&#8221; field. And then i issued:</p>
+<p><code>host:~# /etc/init.d/networking restart<br />
+Reconfiguring network interfaces...done.<br />
+</code><br />
+Hmmm nothing happens&#8230; Lets take a peak in the init.d script and see what the hell it does:</p>
+<p><code>host:~# cat /etc/init.d/networking<br />
+#!/bin/sh -e<br />
+### BEGIN INIT INFO<br />
+# Provides:          networking<br />
+# Required-Start:    mountkernfs ifupdown $local_fs<br />
+# Required-Stop:     ifupdown $local_fs<br />
+# Default-Start:     S<br />
+# Default-Stop:      0 6<br />
+# Short-Description: Raise network interfaces.<br />
+### END INIT INFO<br />
+<br />
+PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin"<br />
+<br />
+[ -x /sbin/ifup ] || exit 0<br />
+<br />
+. /lib/lsb/init-functions<br />
+<br />
+spoofprotect_rp_filter() {<br />
+    [ -e /proc/sys/net/ipv4/conf/all/rp_filter ] || return 1<br />
+    RC=0<br />
+    for f in /proc/sys/net/ipv4/conf/*/rp_filter; do<br />
+	echo 1 > $f || RC=1<br />
+    done<br />
+    return $RC<br />
+}<br />
+<br />
+spoofprotect() {<br />
+    log_action_begin_msg "Setting up IP spoofing protection"<br />
+    if spoofprotect_rp_filter; then<br />
+	log_action_end_msg 0 "rp_filter"<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+ip_forward() {<br />
+    log_action_begin_msg "Enabling packet forwarding"<br />
+    if echo 1 > /proc/sys/net/ipv4/ip_forward; then<br />
+        log_action_end_msg 0<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+syncookies() {<br />
+    log_action_begin_msg "Enabling TCP SYN cookies"<br />
+    if echo 1 > /proc/sys/net/ipv4/tcp_syncookies; then<br />
+        log_action_end_msg 0<br />
+    else<br />
+	log_action_end_msg 1<br />
+    fi<br />
+}<br />
+<br />
+doopt() {<br />
+    optname=$1<br />
+    default=$2<br />
+    opt=`grep "^$optname=" /etc/network/options || true`<br />
+    if [ -z "$opt" ]; then<br />
+	opt="$optname=$default"<br />
+    fi<br />
+    optval=${opt#$optname=}<br />
+    if [ "$optval" = "yes" ]; then<br />
+	eval $optname<br />
+    fi<br />
+}<br />
+<br />
+process_options() {<br />
+    [ -e /etc/network/options ] || return 0<br />
+    log_warning_msg "/etc/network/options is deprecated (see README.Debian of netbase)."<br />
+    doopt spoofprotect yes<br />
+    doopt syncookies no<br />
+    doopt ip_forward no<br />
+}<br />
+<br />
+case "$1" in<br />
+start)<br />
+	process_options<br />
+	log_action_begin_msg "Configuring network interfaces"<br />
+	if ifup -a; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+stop)<br />
+	if sed -n 's/^[^ ]* \([^ ]*\) \([^ ]*\) .*$/\2/p' /proc/mounts |<br />
+		grep -qE '^(nfs[1234]?|smbfs|ncp|ncpfs|coda|cifs)$'; then<br />
+	    log_warning_msg "not deconfiguring network interfaces: network shares still mounted."<br />
+	    exit 0<br />
+	fi<br />
+<br />
+	log_action_begin_msg "Deconfiguring network interfaces"<br />
+	if ifdown -a --exclude=lo; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+force-reload|restart)<br />
+	process_options<br />
+	log_action_begin_msg "Reconfiguring network interfaces"<br />
+	ifdown -a --exclude=lo || true<br />
+	if ifup -a --exclude=lo; then<br />
+	    log_action_end_msg $?<br />
+	else<br />
+	    log_action_end_msg $?<br />
+	fi<br />
+	;;<br />
+<br />
+*)<br />
+	echo "Usage: /etc/init.d/networking {start|stop|restart|force-reload}"<br />
+	exit 1<br />
+	;;<br />
+esac<br />
+<br />
+exit 0<br />
+</code><br />
+The interesting part is the restart|reload function:</p>
+<p><code>	log_action_begin_msg "Reconfiguring network interfaces"<br />
+	ifdown -a --exclude=lo || true<br />
+	if ifup -a --exclude=lo; then<br />
+</code><br />
+Oki so lets try to issue these commands manually and see what happens:</p>
+<p><code>host:~# ifdown eth0<br />
+ifdown: interface eth0 not configured<br />
+</code><br />
+&#8230;. *sigh*. Now what, I just configured it&#8230; Its time to look at some other boxes where this doesnt happen. And I find that some boxes does not have the &#8220;allow-hotplug eth0&#8243;, but instead just &#8220;auto eth0&#8243;. So I changed my setup to the following:</p>
+<p><code>host:~# cat /etc/network/interfaces<br />
+# The loopback network interface<br />
+auto lo<br />
+iface lo inet loopback<br />
+<br />
+# The primary network interface<br />
+auto eth0<br />
+iface eth0 inet static<br />
+        address 192.168.1.250<br />
+        netmask 255.255.255.0<br />
+        network 192.168.1.0<br />
+        broadcast 192.168.1.255<br />
+        gateway 192.168.1.1<br />
+</code><br />
+And what do you know&#8230;. IT WORKED!!</p>
+
+
+
+<p>Tags: <a href="../../tag/debian/index.html" rel="tag">debian</a>, <a href="../../tag/ifdown/index.html" rel="tag">ifdown</a>, <a href="../../tag/ifup/index.html" rel="tag">ifup</a>, <a href="../../tag/init-script/index.html" rel="tag">init script</a>, <a href="../../tag/network/index.html" rel="tag">network</a>, <a href="../../tag/networking/index.html" rel="tag">networking</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/i-just-installed-a-new-debian-etch-box-with-dhcp-changed-the-etcnetworkinterfaces-to-a-static-setup-and-now-etcinitdnetwork-restart-does-not-work/index.html#comments">1 Comment</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/setup-smarthost-with-postfix/index.html" rel="bookmark" title="Permanent Link to Setup smarthost with postfix">Setup smarthost with postfix</a></h2>
+
+
+
+<div class="post-info">Posted October 16, 2008 by MrBerry</div>
+
+			   
+
+			   <p>Okey, so you have a server behind a ISP that blocks outgoing connections to port 25, or you simply want to route all mail through another smtp. What do you do? Smarthost is the answer.</p>
+<p>This can easily be done with postfix:</p>
+<p><code>apt-get install postfix libsasl2-modules mailx</code></p>
+<p>Edit postfix config: <strong>/etc/postfix/main.cf</strong><br />
+<code>#here we use mail.whatever.com port 587, change as needed<br />
+relayhost = [mail.whatever.com]:587<br />
+#the next lines are only needed if you want to use tls and/or smtp auth on your relayhost<br />
+smtp_use_tls = yes<br />
+smtp_sasl_auth_enable = yes<br />
+smtp_sasl_password_maps = hash:/etc/postfix/smtp_auth<br />
+smtp_sasl_security_options = noanonymous</code></p>
+<p>Further for configuring smtp-auth, edit: <strong>/etc/postfix/smtp_auth</strong><br />
+<code>mail.whatever.com  username:your_secret_password</code></p>
+<p>Then you convert this to postfix hash table format and restart postfix:<br />
+<code>cd /etc/postfix<br />
+postmap smtp_auth<br />
+/etc/init.d/postfix restart</code></p>
+<p>Now to test the relay and tail your log file to see the connection go through:<br />
+<code>echo "no soup for you!" | mail your@mailadress.com<br />
+tail -f /var/log/mail.log<br />
+</code></p>
+<p>You can read more on smarthost @ <a href="http://en.wikipedia.org/wiki/Smarthost">Wikipedia</a><br />
+And we are done here!</p>
+
+
+
+<p>Tags: <a href="../../tag/postfix/index.html" rel="tag">postfix</a>, <a href="../../tag/relay/index.html" rel="tag">relay</a>, <a href="../../tag/smarthost/index.html" rel="tag">smarthost</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/setup-smarthost-with-postfix/index.html#comments">No Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/setting-up-mysql-replication/index.html" rel="bookmark" title="Permanent Link to Setting up mysql replication">Setting up mysql replication</a></h2>
+
+
+
+<div class="post-info">Posted October 15, 2008 by morten</div>
+
+			   
+
+			   <p>This is actually pretty easy. It is well documented <a href="http://dev.mysql.com/doc/refman/5.0/en/replication.html">here</a>, but I&#8217;ve made a quicklist :</p>
+<p>Edit my.cnf on the master. It should contain :<br />
+<code>server-id               = 1<br />
+log-bin=mysql-bin</code></p>
+<p>Edit the my.cnf on the slave. It should contain :<br />
+<code>server-id               = 2</code></p>
+<p>First grant access to a replication user on the master server:<br />
+<code>GRANT REPLICATION SLAVE ON *.* TO 'repl'@'slavehost.example.com' IDENTIFIED BY 'password';</code></p>
+<p>Lock the master:<br />
+<code>FLUSH TABLES WITH READ LOCK;</code></p>
+<p>Get the master status for later use :<br />
+<code>SHOW MASTER STATUS;</code></p>
+<p>Dump the master db with mysqldump:<br />
+<code>$ mysqldump mybase &gt; mybase_out.sql</code></p>
+<p>Import the master base on the slave :<br />
+<code>$ mysql mybase &lt; mybase_out.sql </code></p>
+<p>Set the master info on the slave :<br />
+<code>CHANGE MASTER TO MASTER_HOST='masterhost.example.com', MASTER_USER='repl', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=13963;</code></p>
+<p>Start up the slave :<br />
+<code>START SLAVE;</code></p>
+<p>And finally release the master lock by exiting your mysql session.</p>
+
+
+
+<p>Tags: <a href="../../tag/mysql/index.html" rel="tag">mysql</a>, <a href="../../tag/replication/index.html" rel="tag">replication</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/setting-up-mysql-replication/index.html#comments">No Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/annoyed-by-the-output-of-locate/index.html" rel="bookmark" title="Permanent Link to Annoyed by the output of &#8220;locate&#8221;">Annoyed by the output of &#8220;locate&#8221;</a></h2>
+
+
+
+<div class="post-info">Posted October 15, 2008 by morten</div>
+
+			   
+
+			   <p>I like to have colors and additional pr-file-info when searching files when not having the time to wait for &#8220;find&#8221; to complete.<br />
+I made a silly little sh script, named it &#8220;clocate&#8221; and put it in my /usr/local/bin</p>
+<p><code>#!/bin/sh<br />
+if [ -n $1 ]; then<br />
+for fil in `locate $1`; do<br />
+ls --color=auto -l $fil<br />
+done<br />
+fi</code></p>
+<p>It does the job for me.</p>
+
+
+
+<p>Tags: <a href="../../tag/bash/index.html" rel="tag">bash</a>, <a href="../../tag/locate/index.html" rel="tag">locate</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/annoyed-by-the-output-of-locate/index.html#comments">4 Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/nifty-page-to-check-your-ip-host-proxy-and-referer-information/index.html" rel="bookmark" title="Permanent Link to Nifty page to check your ip, host, proxy and referer information">Nifty page to check your ip, host, proxy and referer information</a></h2>
+
+
+
+<div class="post-info">Posted October 14, 2008 by MrDingle</div>
+
+			   
+
+			   <p>For complete info use <a href="http://ipid.shat.net/">this</a> link, for ip lookup only &#8211; without frames and other shit, nice for scripting etc &#8211; use <a href="http://ipid.shat.net/iponly/">this</a> link instead.</p>
+
+
+
+<p>Tags: <a href="../../tag/host/index.html" rel="tag">host</a>, <a href="../../tag/information/index.html" rel="tag">information</a>, <a href="../../tag/ip/index.html" rel="tag">ip</a>, <a href="../../tag/proxy/index.html" rel="tag">proxy</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/nifty-page-to-check-your-ip-host-proxy-and-referer-information/index.html#comments">No Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/how-does-pinging-trackbacks-and-pingbacks-work/index.html" rel="bookmark" title="Permanent Link to How does pinging trackbacks and pingbacks work?">How does pinging trackbacks and pingbacks work?</a></h2>
+
+
+
+<div class="post-info">Posted October 14, 2008 by MrDingle</div>
+
+			   
+
+			   <p>I dont know, lets try it.. Check this cool <a href="http://www.tamba2.org.uk/wordpress/TestTrack/2008/10/14/testing-trackbacks-16/">link</a> where you can test your trackback/pingbacks.<br />
+<br />
+Oki&#8230; couldnt get it to work right away&#8230; read more <a href="http://codex.wordpress.org/Introduction_to_Blogging#Managing_Comments">here</a></p>
+
+
+
+<p>Tags: <a href="../../tag/ping/index.html" rel="tag">ping</a>, <a href="../../tag/pingback/index.html" rel="tag">pingback</a>, <a href="../../tag/trackback/index.html" rel="tag">trackback</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/how-does-pinging-trackbacks-and-pingbacks-work/index.html#comments">5 Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/new-macbooks-released/index.html" rel="bookmark" title="Permanent Link to New Macbooks released!">New Macbooks released!</a></h2>
+
+
+
+<div class="post-info">Posted October 14, 2008 by MrBerry</div>
+
+			   
+
+			   <p>Hehey, yet another Apple event!<br />
+Now theyve released a new Macbook and Macbook Pro.<br />
+The design is quite different from the old one: black new slim keyboard, black finish, new touchpad and aluminium casing:</p>
+<p><img src="../../wp-content/uploads/2008/10/macbookpro-300x207.png" alt="New Apple Macbook Pro" /></p>
+<p>The old Macbook style is deprecated, they now only have aluminum cases and they all have the same layout.<br />
+On the technical side they included multi-touch touchpad, more powerful cpu and new Nvidia graphics chipsets!</p>
+<p>Theyve also upgraded the specs on the Macbook Air: better graphics card, new harddrive and new monitorconnection.</p>
+<p>Check out more @ gizmodo: <a href="http://gizmodo.com/5063271/hands-on-with-macbook-pro-2008">Hands on New Macbook Pro</a></p>
+<p>My money are already burning inside my pockets <img src="../../wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+
+
+
+<p>Tags: <a href="../../tag/apple-macbook/index.html" rel="tag">apple macbook</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/new-macbooks-released/index.html#comments">1 Comment</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/apple-iphone-isuck/index.html" rel="bookmark" title="Permanent Link to Apple iPhone = iSuck?">Apple iPhone = iSuck?</a></h2>
+
+
+
+<div class="post-info">Posted October 14, 2008 by MrDingle</div>
+
+			   
+
+			   <p>A friend of mine who decided AGAINST buying an iphone &#8211; he went with a HTC touch pro instead &#8211; pasted <a href="http://www.informationweek.com/news/personal_tech/iphone/showArticle.jhtml;jsessionid=LVNAJYQ0DXTU2QSNDLOSKHSCJUNN2JVN?articleID=210603331&amp;cid=tab_art_tele">this</a> link to me today followed by saying something like &#8220;HAHA isuck&#8221;.</p>
+<p>As the majority of dingleberry&#8217;s admins currently have the iphone 3g, I&#8217;d say that most of whats in this article doesnt apply to us &#8211; we live in Norway, or we simply disagree. However, the iphone&#8217;s reception is not very good. I have to lean out a window in my girlfriends flat in order to have a &#8220;normal&#8221; conversation&#8230;. A quick peak in the <a href="http://discussions.apple.com/thread.jspa?threadID=1676266&amp;tstart=0">apple forums</a> says the most..</p>
+<p><code>This thread is a continuation of<br />
+iPhone 3G Reception Problems? You're Not Alone,<br />
+iPhone 3G Reception Problems? You're Not Alone - Continued, and<br />
+iPhone 3G Reception Problems? You're Not Alone - Continued,<br />
+which have been locked. The threads were too long and some browsers were timing out. The above links go back to the original threads.Thank you.<br />
+Apple Discussions Hosts</code></p>
+
+
+
+<p>Tags: <a href="../../tag/apple/index.html" rel="tag">apple</a>, <a href="../../tag/iphone/index.html" rel="tag">iphone</a>, <a href="../../tag/problem/index.html" rel="tag">problem</a>, <a href="../../tag/reception/index.html" rel="tag">reception</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/apple-iphone-isuck/index.html#comments">3 Comments</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+	 
+
+				<!-- Start Post -->
+
+		 
+
+		       <div class="post">
+
+			   
+
+			   <h2><a href="../../2008/10/linux-kernel-2627-released/index.html" rel="bookmark" title="Permanent Link to Linux Kernel 2.6.27 released">Linux Kernel 2.6.27 released</a></h2>
+
+
+
+<div class="post-info">Posted October 14, 2008 by MrBerry</div>
+
+			   
+
+			   <p>A little bit late, but hey on the October 9th, 2.6.27 got released!<br />
+Are you one of us normal flesh and bones people not understanding crapshit of the changelogs and whats new in the kernel?<br />
+Then you should check out <a href="http://kernelnewbies.org/LinuxChanges">Kernel Newbies</a></p>
+<p>Of rather nice features in this new kernel:<br />
+- new fs specially optimized for flash based units(SSD etc.) called UBIFS<br />
+- XEN support for saving/restoring VMs<br />
+- improved video camera support<br />
+- support for the Intel wireless 5000 series and RTL8187B network cards,<br />
+- a new ath9k driver<br />
+- alternative hibernation implementation based on kexec/kdump<br />
+- more new drivers +++ much more fixes and improvements</p>
+<p>This kernel will be integrated in Ubuntu 8.10 released in the end of October.</p>
+
+
+
+<p>Tags: <a href="../../tag/kernel/index.html" rel="tag">kernel</a>, <a href="../../tag/linux/index.html" rel="tag">linux</a></p>
+			   
+
+			   </div>
+
+			   
+
+			   <div class="info-box"><a href="../../2008/10/linux-kernel-2627-released/index.html#comments">1 Comment</a></div>
+
+			   
+
+			   <!-- End Post -->
+
+
+
+
+
+
+<div class="clear">
+
+<div class="alignleft"><a href="../9/index.html" >&laquo; Older Entries</a></div>
+
+			<div class="alignright"><a href="../7/index.html" >Newer Entries &raquo;</a></div>
+
+</div>
+
+
+
+		   
+
+		 
+
+		 </div>
+
+		 <!-- End Content -->
+
+		 
+
+		 <!-- Begin Sidebar -->
+		 <div id="sidebar">
+
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Tags</h3></div><div class="sidebar-content"><div class="tagcloud"><a href='../../tag/apache/index.html' class='tag-link-35' title='3 topics' style='font-size: 10.153846153846pt;'>apache</a>
+<a href='../../tag/apple/index.html' class='tag-link-74' title='4 topics' style='font-size: 11.948717948718pt;'>apple</a>
+<a href='../../tag/appletv/index.html' class='tag-link-257' title='3 topics' style='font-size: 10.153846153846pt;'>appletv</a>
+<a href='../../tag/atv/index.html' class='tag-link-266' title='3 topics' style='font-size: 10.153846153846pt;'>atv</a>
+<a href='../../tag/authentication/index.html' class='tag-link-111' title='2 topics' style='font-size: 8pt;'>authentication</a>
+<a href='../../tag/bigip/index.html' class='tag-link-234' title='3 topics' style='font-size: 10.153846153846pt;'>bigip</a>
+<a href='../../tag/broadcom/index.html' class='tag-link-255' title='3 topics' style='font-size: 10.153846153846pt;'>broadcom</a>
+<a href='../../tag/cfengine/index.html' class='tag-link-144' title='2 topics' style='font-size: 8pt;'>cfengine</a>
+<a href='../../tag/check_http/index.html' class='tag-link-166' title='2 topics' style='font-size: 8pt;'>check_http</a>
+<a href='../../tag/crystal/index.html' class='tag-link-263' title='4 topics' style='font-size: 11.948717948718pt;'>crystal</a>
+<a href='../../tag/crystalhd/index.html' class='tag-link-259' title='4 topics' style='font-size: 11.948717948718pt;'>crystalhd</a>
+<a href='../../tag/curl/index.html' class='tag-link-67' title='2 topics' style='font-size: 8pt;'>curl</a>
+<a href='../../tag/dd/index.html' class='tag-link-17' title='2 topics' style='font-size: 8pt;'>dd</a>
+<a href='../../tag/debian/index.html' class='tag-link-4' title='8 topics' style='font-size: 16.435897435897pt;'>debian</a>
+<a href='../../tag/dell/index.html' class='tag-link-138' title='4 topics' style='font-size: 11.948717948718pt;'>dell</a>
+<a href='../../tag/etch/index.html' class='tag-link-210' title='3 topics' style='font-size: 10.153846153846pt;'>etch</a>
+<a href='../../tag/ext3/index.html' class='tag-link-12' title='2 topics' style='font-size: 8pt;'>ext3</a>
+<a href='../../tag/firefox/index.html' class='tag-link-167' title='4 topics' style='font-size: 11.948717948718pt;'>firefox</a>
+<a href='../../tag/firefuck/index.html' class='tag-link-208' title='3 topics' style='font-size: 10.153846153846pt;'>firefuck</a>
+<a href='../../tag/funny/index.html' class='tag-link-182' title='4 topics' style='font-size: 11.948717948718pt;'>funny</a>
+<a href='../../tag/hd/index.html' class='tag-link-264' title='4 topics' style='font-size: 11.948717948718pt;'>hd</a>
+<a href='../../tag/iphone/index.html' class='tag-link-75' title='3 topics' style='font-size: 10.153846153846pt;'>iphone</a>
+<a href='../../tag/kernel/index.html' class='tag-link-73' title='2 topics' style='font-size: 8pt;'>kernel</a>
+<a href='../../tag/linux/index.html' class='tag-link-72' title='10 topics' style='font-size: 18.051282051282pt;'>linux</a>
+<a href='../../tag/login/index.html' class='tag-link-150' title='2 topics' style='font-size: 8pt;'>login</a>
+<a href='../../tag/monitoring/index.html' class='tag-link-29' title='11 topics' style='font-size: 18.769230769231pt;'>monitoring</a>
+<a href='../../tag/mplayer/index.html' class='tag-link-55' title='3 topics' style='font-size: 10.153846153846pt;'>mplayer</a>
+<a href='../../tag/mysql/index.html' class='tag-link-88' title='3 topics' style='font-size: 10.153846153846pt;'>mysql</a>
+<a href='../../tag/nagios/index.html' class='tag-link-25' title='17 topics' style='font-size: 22pt;'>nagios</a>
+<a href='../../tag/network/index.html' class='tag-link-94' title='2 topics' style='font-size: 8pt;'>network</a>
+<a href='../../tag/osx/index.html' class='tag-link-163' title='3 topics' style='font-size: 10.153846153846pt;'>osx</a>
+<a href='../../tag/ping/index.html' class='tag-link-81' title='3 topics' style='font-size: 10.153846153846pt;'>ping</a>
+<a href='../../tag/plugins/index.html' class='tag-link-165' title='3 topics' style='font-size: 10.153846153846pt;'>plugins</a>
+<a href='../../tag/rar/index.html' class='tag-link-57' title='2 topics' style='font-size: 8pt;'>rar</a>
+<a href='../../tag/salt/index.html' class='tag-link-316' title='3 topics' style='font-size: 10.153846153846pt;'>salt</a>
+<a href='../../tag/saltstack/index.html' class='tag-link-317' title='3 topics' style='font-size: 10.153846153846pt;'>saltstack</a>
+<a href='../../tag/sarge/index.html' class='tag-link-113' title='2 topics' style='font-size: 8pt;'>sarge</a>
+<a href='../../tag/slow/index.html' class='tag-link-158' title='2 topics' style='font-size: 8pt;'>slow</a>
+<a href='../../tag/ssh/index.html' class='tag-link-109' title='2 topics' style='font-size: 8pt;'>ssh</a>
+<a href='../../tag/tv/index.html' class='tag-link-271' title='3 topics' style='font-size: 10.153846153846pt;'>tv</a>
+<a href='../../tag/ubuntu/index.html' class='tag-link-173' title='6 topics' style='font-size: 14.641025641026pt;'>ubuntu</a>
+<a href='../../tag/varnish/index.html' class='tag-link-31' title='4 topics' style='font-size: 11.948717948718pt;'>varnish</a>
+<a href='../../tag/video/index.html' class='tag-link-27' title='2 topics' style='font-size: 8pt;'>video</a>
+<a href='../../tag/xbmc/index.html' class='tag-link-256' title='3 topics' style='font-size: 10.153846153846pt;'>xbmc</a>
+<a href='../../tag/xen/index.html' class='tag-link-39' title='4 topics' style='font-size: 11.948717948718pt;'>xen</a></div>
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Links</h3></div><div class="sidebar-content">
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.debian.org/" title="Debian">Debian</a></li>
+<li><a href="http://www.usenix.org/lisa08/going" title="We are going to LISA &#8217;08">LISA &#8217;08</a></li>
+<li><a href="http://marcus.nordaaker.com/" title="marcus ramberg">marcus ramberg</a></li>
+
+	</ul>
+</div></div>
+<!-- WP Wall -->
+<div class="sidebar-item"><div class="sidebar-heading"><h3>Wall</h3></div><div class="sidebar-content">
+<div id="wp_wall">
+		<div class="wallnav">
+					<img alt="Previous" id="img_left" src="../../wp-content/plugins/wp-wall/i/left.png" />
+					<img alt="Next" id="img_right" src="../../wp-content/plugins/wp-wall/i/right.png" />
+					  </div> 
+	<div id="wallcomments">
+			<div id="wp_latest">Latest on Thu, 04:38 pm</div><p class="wall-1 "><span class="wallauthor" title="Iliya#ivanov[IvanovRukidssqu,2,5] on 2020-07-02 16:38:51" >Iliya#ivanov[IvanovRukidssqu,2,5]</span><span class="wallcomment" title="Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 
+ 
+Установил софт  запрет входящих вызовов наборы остановились. 
+Что совершать с займом дальше предложите?" >: Мое почтение. 
+Располагаю кредитная карта в Гранит банк на сумму 195000 
+Перестал гасить потому что украли деньги. Нынче трезвонят и пугают и просят возвратить 1400 [...]</span></p><p class="wall-2 wall-alt "><span class="wallauthor" title="Colton Ward on 2020-04-14 09:12:09" >Colton Ward</span><span class="wallcomment" title="Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that I did not want to purchase 
+any more products and spend more money and just wanted to 
+try out the cosmetic procedures I had purchased which was already $300.
+
+
+
+Once I was finally seen by the \   https://gome.com.cn" >: Bought a groupon for botox and filler. Waited for 
+over two hours for my procedure. During the consultation I 
+clearly explained to the woman that [...]</span></p><p class="wall-3 "><span class="wallauthor" title="eticobysu on 2020-01-27 23:11:02" >eticobysu</span><span class="wallcomment" title="kategoriyab.ru" >: kategoriyab.ru</span></p><p class="wall-4 wall-alt "><span class="wallauthor" title="txcyperoz61 on 2019-12-17 21:41:07" >txcyperoz61</span><span class="wallcomment" title="Огромное тебе СПАСИБО" >: Огромное тебе СПАСИБО</span></p><p class="wall-5 "><span class="wallauthor" title="Dallas on 2019-10-30 06:16:11" >Dallas</span><span class="wallcomment" title="Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors chicago phentermine weight loss doctors chicago phentermine" >: Thanks in support of sharing such a pleasant idea, article is fastidious, thats why i have read it entirely
+weight loss doctors chicago phentermine
+weight loss doctors [...]</span></p><input type="hidden" name="wallpage" id="wallpage" value="1" /><input type="hidden" name="page_left" id="page_left" value="1" /><input type="hidden" name="page_right" id="page_right" value="2" />	</div> 
+
+	
+	
+		
+					
+			<p><a id="wall_post_toggle"> &raquo; Leave a reply</a></p>	
+		
+				
+	
+
+	<div id="wall_post">
+		<form action="http://dingleberry.me/wp-content/plugins/wp-wall/wp-wall-ajax.php" method="post" id="wallform">
+		
+						
+			<p>
+			<label for="wpwall_author"><small>Name</small></label><br/>
+			<input type="text" name="wpwall_author" id="wpwall_author" value=""  tabindex="11"  />
+			</p>
+			
+						
+						
+			<p>
+			<label for="wpwall_comment"><small>Comment</small></label><br/>
+			<textarea name="wpwall_comment" id="wpwall_comment" rows="3" cols="" tabindex="13" ></textarea>
+			</p>
+					
+			<p><input name="submit_wall_post" type="submit" id="submit_wall_post" tabindex="14" value="Submit" /></p>
+			
+		</form> 								
+	</div>
+	
+	<div id="wallresponse"></div>
+	
+</div>
+<br />
+</div></div><div class="sidebar-item"><div class="sidebar-heading"><h3>Meta</h3></div><div class="sidebar-content">			<ul>
+						<li><a href="../../wp-login.html">Log in</a></li>
+			<li><a href="../../feed/index.html" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="../../comments/feed/index.html" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>						</ul>
+</div></div><div class="sidebar-item">	          	 <div class="sidebar-item">
+				 <div class="sidebar-heading"><h3>Search</h3></div>
+				 <div class="sidebar-content">
+<form method="get" id="searchform" action="http://dingleberry.me/">
+<div><input type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="" />
+</div>
+</form>
+				</div>
+				</div></div></div>
+
+		 </div>
+		 <!-- End Sidebar -->
+<div id="footer">
+
+Copyright &copy; 2008.  Design by <a href="http://imanto.com/">imanto.com</a>.  Theme by <a href="http://www.themelab.com/">Theme Lab</a> and <a href="http://www.websiteoffice.com/">Online Marketing</a>.  Powered by <a href="http://wordpress.org/">WordPress</a>.
+
+34 queries in 0.194  seconds.
+
+   </div>
+
+   <!-- End Wrapper -->
+
+<script type='text/javascript' src='../../wp-content/uploads/shadowbox-js/afc2df7514bde3dd091bff35b266117519ce.js?ver=3.0.3'></script>
+
+<!-- Begin Shadowbox JS v3.0.3.10 -->
+<!-- Selected Players: html, iframe, img, qt, swf, wmp -->
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		animate: true,
+		animateFade: true,
+		animSequence: "sync",
+		modal: false,
+		showOverlay: true,
+		overlayColor: "#000",
+		overlayOpacity: "0.8",
+		flashBgColor: "#000000",
+		autoplayMovies: true,
+		showMovieControls: true,
+		slideshowDelay: "0",
+		resizeDuration: "0.35",
+		fadeDuration: "0.35",
+		displayNav: true,
+		continuous: false,
+		displayCounter: true,
+		counterType: "default",
+		counterLimit: "10",
+		viewportPadding: "20",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		autoDimensions: false,
+		initialHeight: "160",
+		initialWidth: "320",
+		enableKeys: true,
+		skipSetup: false,
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0",
+		useSizzle: false
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+<!-- End Shadowbox JS -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5928000-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+
+<!-- Mirrored from dingleberry.me/page/8/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Jul 2020 09:33:51 GMT -->
+</html>

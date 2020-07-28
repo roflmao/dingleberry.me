@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/cmdb/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Playing with SaltStack and external classifiers</title>
+		<link>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/</link>
+		<comments>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/#comments</comments>
+		<pubDate>Fri, 06 Jun 2014 17:38:05 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cmdb]]></category>
+		<category><![CDATA[salt]]></category>
+		<category><![CDATA[saltstack]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=731</guid>
+		<description><![CDATA[We have been discussing this a lot lately. How do we structure our SaltStack-config in a way that lets us do changes without possibly breaking abseloutly everything. Finding a good hierarchy is not always easy. How do we build it so that we can open it up later&#8230;. How can we manage to mostly leave [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>We have been discussing this a lot lately. How do we structure our SaltStack-config in a way that lets us do changes without possibly breaking abseloutly everything. Finding a good hierarchy is not always easy. How do we build it so that we can open it up later&#8230;. How can we manage to mostly leave the top.sls file alone and how do we include the right config for the right minions without having to maintain a list of minions in the config and make it so large its unreadable.</p>
+<p>Turns out&#8230; the solution was pretty easy for us, as soon as we came up with the idea.</p>
+<p>We allready have an internally written CMDB-solution and we wanted to use that as an external classifier.<br />
+First we had to write a simple module that made pillars from the data in our CMDB. More about that some other time. This post is about the structure we went for.<br />
+Anyway, our cmdb-module creates pillars for all hosts containing hostname, status (dev,qa,prod) and product (or role if you prefer).<br />
+This will typically look like this for a dev-server:<br />
+<code><br />
+ourservername:<br />
+  status: development<br />
+  product: ourwebsite<br />
+</code></p>
+<p>So what we ended up with, was using file_roots in salt, matching each our environments like this:<br />
+(top.sls)<br />
+<code>base:<br />
+  "*"<br />
+    - somebasestuff<br />
+  "cmdb:status:prod*":<br />
+    - match: pillar<br />
+    - role<br />
+  "cmdb:status:qa":<br />
+    - match: pillar<br />
+    - role<br />
+  "cmdb:status:dev*":<br />
+    - match: pillar<br />
+    - role</code></p>
+<p>This will match the role.sls file in all 3 environments.<br />
+In all 3 environments we have 2 subfolders. &#8220;products&#8221; and &#8220;services&#8221;.<br />
+The &#8220;product&#8221; folders contain the state of the final product, using services<br />
+from the &#8220;services&#8221; folder. For instance, say you have a product called &#8220;yourwebsite&#8221;.<br />
+It will probably contain installation and configuration of web, cache and db. Those 3 are<br />
+reusable services under the services folder and doesnt change much.<br />
+In our role.sls we are now matching on the pillar &#8220;product&#8221; in our CMDB like this:</p>
+<p><code>include:<br />
+  - products/{{ pillar.get('cmdb', {}).get('product') }}</code></p>
+<p>What this will do, is look for the CMDB-value for &#8220;product&#8221; and then include the matching item in the products-folder &#8230;and so, we do not need to maintain the top.sls OR any hostnames in the salt-config. So far we think it is a good idea, but we will see in a few weeks if it actually lives up to our expectations. </p>
+<p>Anyways, figured I should share our thoughts. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2014/06/playing-with-saltstack-and-external-classifiers/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Ideas of CMDB, cfengine and nagios integration</title>
+		<link>http://dingleberry.me/2009/07/ideas-of-cmdb-cfengine-and-nagios-integration/</link>
+		<comments>http://dingleberry.me/2009/07/ideas-of-cmdb-cfengine-and-nagios-integration/#comments</comments>
+		<pubDate>Fri, 03 Jul 2009 09:07:45 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cfengine]]></category>
+		<category><![CDATA[cmdb]]></category>
+		<category><![CDATA[nagios]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=366</guid>
+		<description><![CDATA[For a while we’ve been discussing how we can become as lazy as possible when it comes to systemadministration, and this time we’ve made a quite neat integration between our homemade CMDB, cfengine and nagios. Here’s the idea: First of all, nobody likes to manually update a CMDB. Also its never really possible to maintain [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>For a while we’ve been discussing how we can become as lazy as possible when it comes to systemadministration, and this time we’ve made a quite neat integration between our homemade CMDB, cfengine and nagios.</p>
+<p>Here’s the idea:</p>
+<p>First of all, nobody likes to manually update a CMDB. Also its never really possible to maintain it in a way that makes its info become obsolete after some time. This is why we made a script, cfcmdb, that is triggered from cfengine on every host. This script fills the CMDB database with all sort of info from tools like dmidecode and also from standard commandline tools. (Memory, networkingcards, os version, cpu, vendor etc etc). So now our CMDB pretty much keeps itself up to date.</p>
+<p>Lately we came up with the idea to fill our CMDB with cfengine classes information. So adding to the cfcmdb script mentioned above :</p>
+<p>cfagent –no-splay -p -v | grep Defined</p>
+<p>..and a little perl split and join, we now have all the classes in our CMDB bount to hostid’s.</p>
+<p>Cool. On our nagios-server, we made another script, cmdb2nagios, which takes the parameters “hosts”, “hostgroups” or “services”.</p>
+<p>cmdb2nagios hosts : creates the nagios host-config file</p>
+<p>cmdb2nagios hostgroups : creates the nagios hostgroup-config file</p>
+<p>cmdb2nagios services : creates the servicefile</p>
+<p>The services parsing is quite nice now, cause we can automatically monitor any services set up with cfengine. Lets say we have a bunch of hosts installed with cfengine and cfengine tells them to have apache2 running. That means that this will be part of a cfengine class, that will be available in our CMDB.</p>
+<p>Example of cmdb2nagios service parsing :</p>
+<p>[snip]</p>
+<p>$sql = “select hosts.name from hosts,classes where classes.name = ‘class_apache’ and hosts.hostid = classes.hostid”;<br />
+$execute = $connect-&gt;query($sql) or die “wtf? it didnt work …check syntax.”;<br />
+my @servicehosts;<br />
+while (@results = $execute-&gt;fetchrow()) {<br />
+push(@servicehosts, $results[0]);<br />
+}</p>
+<p>$hosts = join(”,”,@servicehosts);<br />
+print “define service{\n”;<br />
+print “\tuse\t\t\tgeneric-service\n”;<br />
+print “\thost_name\t\t” . $hosts . “\n”;<br />
+print “\tservice_description\tcfg_CHECK_APACHE\n”;<br />
+print “\tis_volatile\t\t0\n”;<br />
+print “\tmax_check_attempts\t1\n”;<br />
+print “\tnormal_check_interval\t5\n”;<br />
+print “\tretry_check_interval\t1\n”;<br />
+print “\tcontact_groups\t\tlinux-admins\n”;<br />
+print “\tnotification_period\t24×7\n”;<br />
+print “\tnotification_options\tc,w,r\n”;<br />
+print “\tprocess_perf_data\t1\n”;<br />
+print “\tcheck_command\t\tcheck_apache\n”;<br />
+print “\t}\n\n”;<br />
+[snip]</p>
+<p>As you can see, monitoring apache will be applied to all hosts running apache.</p>
+<p>This leaves us to really only having to  maintain our cfengine configuration, while the CMDB is auto-updated and the nagios-config is auto-parsed.</p>
+<p>Also our eventhandlers in nagios tells cfengine to do this and that, so now we can sit back, enjoy a coffee and watch this show.</p>
+<p>(see previous post about eventhandlers and cfengine : http://www.sladder.org/?p=261)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/07/ideas-of-cmdb-cfengine-and-nagios-integration/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

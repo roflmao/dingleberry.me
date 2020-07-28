@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/testing/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Backporting varnish from debian unstable/testing to etch</title>
+		<link>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/</link>
+		<comments>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/#comments</comments>
+		<pubDate>Wed, 07 Oct 2009 07:10:15 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[2.0.4]]></category>
+		<category><![CDATA[backporting]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[etch]]></category>
+		<category><![CDATA[testing]]></category>
+		<category><![CDATA[unstable]]></category>
+		<category><![CDATA[varnish]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=491</guid>
+		<description><![CDATA[Recently i wanted to upgrade Varnish to latest stable &#8211; 2.0.4 on our debian etch boxes. Do you think debian has the latest version in the etch repos? Ofcourse not.. However, backporting turned out to be allmost too easy Here is how I did it; 1. Edit your /etc/apt/sources.list deb-src entry to reflect which debian [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Recently i wanted to upgrade Varnish to latest stable &#8211; 2.0.4 on our debian etch boxes. Do you think debian has the latest version in the etch repos? Ofcourse not.. However, backporting turned out to be allmost too easy <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  Here is how I did it;</p>
+<p>1. Edit your /etc/apt/sources.list deb-src entry to reflect which debian version you want to backport packages from. My entry looks like this:<br />
+<code>deb-src http://ftp.no.debian.org/debian/ unstable main non-free contrib</code><br />
+2. Download the source code from the repo:<br />
+<code>apt-get source varnish</code><br />
+3. Make sure you have all the deps needed:<br />
+<code>apt-get build-dep varnish</code><br />
+4. (might not be necessary) I was missing the fakeroot package:<br />
+<code>apt-get install fakeroot</code><br />
+5. Build the package(s):<br />
+<code>cd varnish-2.0.4<br />
+dpkg-buildpackage -rfakeroot -uc -b</code><br />
+6. And finally install your newly created packages:<br />
+<code>cd ..<br />
+dpkg -i *.deb</code></p>
+<p>Reference(s):<br />
+<a href="http://www.debian.org/doc/manuals/apt-howto/ch-sourcehandling.en.html">http://www.debian.org/doc/manuals/apt-howto/ch-sourcehandling.en.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/10/backporting-varnish-from-debian-unstabletesting-to-etch/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

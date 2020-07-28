@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/post/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Monitoring web apps using html forms for logging in</title>
+		<link>http://dingleberry.me/2009/02/monitoring-web-apps-using-html-forms-for-logging-in/</link>
+		<comments>http://dingleberry.me/2009/02/monitoring-web-apps-using-html-forms-for-logging-in/#comments</comments>
+		<pubDate>Wed, 18 Feb 2009 19:27:20 +0000</pubDate>
+		<dc:creator><![CDATA[morten]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[authentication]]></category>
+		<category><![CDATA[forms]]></category>
+		<category><![CDATA[html]]></category>
+		<category><![CDATA[login]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[nagios]]></category>
+		<category><![CDATA[post]]></category>
+		<category><![CDATA[variables]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=287</guid>
+		<description><![CDATA[Several times I&#8217;ve wanted to monitor if login actually works on webapplications that uses html forms for user validation. Today I made a simple bash nagios plugin to do that. It uses curl and checks it&#8217;s output. Curl supports POST variables. The plugin also checks the unixtime before and after the curl command is being [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Several times I&#8217;ve wanted to monitor if login actually works on webapplications that uses html forms for user validation. Today I made a simple bash nagios plugin to do that. It uses curl and checks it&#8217;s output. Curl supports POST variables.<br />
+The plugin also checks the unixtime before and after the curl command is being run, then does and expr to find the diff and makes nagios performance data of it.</p>
+<p>Feel free to copy paste the code and use it for your own purpose.</p>
+<p><code>#!/bin/sh<br />
+#my %ERRORS=('OK'=&amp;gt;0,'WARNING'=&amp;gt;1,'CRITICAL'=&amp;gt;2,'UNKNOWN'=&amp;gt;3,'DEPENDENT'=&amp;gt;4);<br />
+#This is what we get after a successful login<br />
+MATCH="bladiblah successful login bladiblah"<br />
+#delete the tmp file before writing a new one<br />
+rm /tmp/login_check<br />
+#Grab the unixtime before the command runs<br />
+BEFORE=`date +%s`<br />
+#Login to the app<br />
+/usr/bin/curl -H "host: example.com" -F mail="mail@example.com" -F userPassword="fail" http://111.111.111.111 -o /tmp/login_check &amp;gt; /dev/null 2&amp;gt;&amp;amp;1<br />
+#Grab the unixtime after the command have been run<br />
+AFTER=`date +%s`<br />
+DIFF=`/usr/bin/expr $AFTER - $BEFORE`<br />
+#Check tmp file if it matches our successful login<br />
+CHECK=`grep "$MATCH" /tmp/login_check`<br />
+if [ "$CHECK" = "$MATCH" ]; then<br />
+#WIN!!<br />
+echo "OK. Login successful. | response=$DIFF"<br />
+exit 0<br />
+else<br />
+#FAIL!!<br />
+echo "CRITICAL. Login failed."<br />
+exit 2<br />
+</code></p>
+<p>And as always, sorry about the wordpress formating of the code.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/02/monitoring-web-apps-using-html-forms-for-logging-in/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

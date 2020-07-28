@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/koala/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Ubuntu Karmic Koala on AppleTV with Broadcom Crystal HD decoder</title>
+		<link>http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/</link>
+		<comments>http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/#comments</comments>
+		<pubDate>Fri, 27 Nov 2009 13:08:37 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[1080p]]></category>
+		<category><![CDATA[appletv]]></category>
+		<category><![CDATA[atv]]></category>
+		<category><![CDATA[bcm70012]]></category>
+		<category><![CDATA[broadcom]]></category>
+		<category><![CDATA[crystal]]></category>
+		<category><![CDATA[crystalhd]]></category>
+		<category><![CDATA[hd]]></category>
+		<category><![CDATA[karmic]]></category>
+		<category><![CDATA[koala]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[xbmc]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=573</guid>
+		<description><![CDATA[UPDATE! &#8211; Karmic Koala uses a newer kernel which wont make the bcm driver work, use Ubuntu 8.04 Hardy in step 4, and your driver will work Confirmed 1080p playback on Apple TV with hardy! 1. build patchstick with http://code.google.com/p/atvusb-creator/ 2. boot atv with patchstick 3. Partition sda as per instructions: http://code.google.com/p/atv-bootloader/wiki/PartitioningLinux 4. Download netboot [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><strong>UPDATE! &#8211; Karmic Koala uses a newer kernel which wont make the bcm driver work, use Ubuntu 8.04 Hardy in step 4, and your driver will work <img src="http://dingleberry.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />  Confirmed 1080p playback on Apple TV with hardy! <img src="http://dingleberry.me/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> </strong></p>
+<p>1. build patchstick with http://code.google.com/p/atvusb-creator/<br />
+2. boot atv with patchstick<br />
+3. Partition sda as per instructions:</p>
+<p>http://code.google.com/p/atv-bootloader/wiki/PartitioningLinux</p>
+<p>4. Download netboot http://no.archive.ubuntu.com/ubuntu/dists/karmic/main/installer-i386/current/images/netboot/netboot.tar.gz<br />
+4. Run netboot as per instructions under Netboot Install:</p>
+<p>http://code.google.com/p/atv-bootloader/wiki/BootingLiveCD</p>
+<p>5. Install karmic with sda4 = / and sda5 = swap<br />
+5.1 Remember to select sda4 as root filesystem with ext3 NOT ext4<br />
+6. Modify boot_linux.sh with something like the following:</p>
+<p><code>mount /dev/sda4 /tmp/<br />
+kexec --load /tmp/vmlinuz --initrd=/tmp/initrd.img --command-line="root=/dev/sda4 initrd=initrd.img vga=normal vesa video=vesafb"<br />
+umount /tmp/<br />
+kexec -e</code></p>
+<p>7. WORKING UBUNTU WOOHOO</p>
+<p>8. Download linux bcm70012 from:</p>
+<p>http://www.norco.net.cn/DownNews_Show.asp?ID=215</p>
+<p>Making system ready:<br />
+<code>aptitude install build-essential unrar<br />
+unrar e bcm70012_linux_01142009.rar<br />
+cd bcm70012_linux_01142009<br />
+mv bcm70012_linux_01142009 bcm70012_linux_01142009.tar<br />
+tar xf bcm70012_linux_01142009.tar<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+apt-get -f install<br />
+dpkg -i bcm70012kmod-source_0.9.30_all.deb<br />
+cd /usr/src/<br />
+m-a -t a-i bcm70012kmod<br />
+cd -<br />
+dpkg -i --force-all gst-broadcom-70012_0.9.30_lpia.deb</code></p>
+<p>22. WORKING bcm70012 !! WOHOO</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/ubuntu-karmic-koala-on-appletv-with-broadcom-crystal-hd-decoder/feed/</wfw:commentRss>
+		<slash:comments>89</slash:comments>
+		</item>
+	</channel>
+</rss>

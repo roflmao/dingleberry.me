@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/fsck/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Howto resize an ext2/3 filesystem on a partition or an image of a partition</title>
+		<link>http://dingleberry.me/2008/10/howto-resize-an-ext2-or-ext3-filesystem-on-a-partition-or-an-image-of-a-partition-or-hdd/</link>
+		<comments>http://dingleberry.me/2008/10/howto-resize-an-ext2-or-ext3-filesystem-on-a-partition-or-an-image-of-a-partition-or-hdd/#comments</comments>
+		<pubDate>Wed, 08 Oct 2008 12:51:24 +0000</pubDate>
+		<dc:creator><![CDATA[MrDingle]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dd]]></category>
+		<category><![CDATA[ext2]]></category>
+		<category><![CDATA[ext3]]></category>
+		<category><![CDATA[filesystem]]></category>
+		<category><![CDATA[fsck]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[partition]]></category>
+		<category><![CDATA[resize]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=15</guid>
+		<description><![CDATA[Unmount disk or image umount /dev/sda1 fsck -n /dev/sda1 Next we remove the journal from /dev/sda1, thus turning it into an ext2 partition: tune2fs -O ^has_journal /dev/sda1 And fsck again.. e2fsck -f /dev/sda1 Now we resize our file system with resize2fs. resize2fs can resize ext2 file systems, but not ext3 file systems, that&#8217;s why we [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Unmount disk or image<br />
+<code>umount /dev/sda1<br />
+fsck -n /dev/sda1</code></p>
+<p>Next we remove the journal from /dev/sda1, thus turning it into an ext2 partition:<br />
+<code>tune2fs -O ^has_journal /dev/sda1</code></p>
+<p>And fsck again..<br />
+<code>e2fsck -f /dev/sda1</code></p>
+<p>Now we resize our file system with resize2fs. resize2fs can resize ext2 file systems, but not ext3 file systems, that&#8217;s why we had to turn /dev/sda1 to ext2. Currently, 4.1GB are used on /dev/sda1 (see the df -h output above), So it&#8217;s safe to shrink it from 10GB to about 6GB (if you make it smaller than 4.1GB, you will lose data!). Therefore we run<br />
+<code>resize2fs /dev/sda1 6000M</code></p>
+<p>Aaaaand fsck again&#8230;<br />
+<code>fsck -n /dev/sda1</code></p>
+<p>Then we create the journal on our new /dev/sda1, thus turning it into an ext3 partition again:<br />
+<code>tune2fs -j /dev/sda1</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2008/10/howto-resize-an-ext2-or-ext3-filesystem-on-a-partition-or-an-image-of-a-partition-or-hdd/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

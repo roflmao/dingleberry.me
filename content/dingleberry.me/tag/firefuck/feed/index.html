@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/firefuck/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Firefox 3.5 &#8211; making firefuck start in fullscreen mode</title>
+		<link>http://dingleberry.me/2009/11/firefox-3-5-making-firefuck-start-in-fullscreen-mode/</link>
+		<comments>http://dingleberry.me/2009/11/firefox-3-5-making-firefuck-start-in-fullscreen-mode/#comments</comments>
+		<pubDate>Wed, 04 Nov 2009 11:18:59 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[extension]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[firefuck]]></category>
+		<category><![CDATA[fullscreen]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=536</guid>
+		<description><![CDATA[I want firefox to start in fullscreen mode. This is apperantly not supported by default in firefox. Install this plugin: http://www.krickelkrackel.de/autohide/autohide.xpi Now you can launch firefox: /usr/bin/firefox-3.5 -fullscreen]]></description>
+				<content:encoded><![CDATA[<p>I want firefox to start in fullscreen mode.<br />
+This is apperantly not supported by default in firefox.</p>
+<p>Install this plugin: <a href="http://www.krickelkrackel.de/autohide/autohide.xpi">http://www.krickelkrackel.de/autohide/autohide.xpi</a></p>
+<p>Now you can launch firefox:<br />
+<code>/usr/bin/firefox-3.5 -fullscreen</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/firefox-3-5-making-firefuck-start-in-fullscreen-mode/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Firefox 3.5 &#8211; making &#8220;Well, this is embarrasing&#8221; go away</title>
+		<link>http://dingleberry.me/2009/11/firefox-3-5-making-well-this-is-embarrasing-go-away/</link>
+		<comments>http://dingleberry.me/2009/11/firefox-3-5-making-well-this-is-embarrasing-go-away/#comments</comments>
+		<pubDate>Wed, 04 Nov 2009 07:58:11 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[firefuck]]></category>
+		<category><![CDATA[session]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=532</guid>
+		<description><![CDATA[The session handling in firefuck could be quite wearing sometimes. This is how you disable this function: about:config Change these to false: browser.sessionstore.resume_from_crash browser.sessionstore.resume_session_once]]></description>
+				<content:encoded><![CDATA[<p>The session handling in firefuck could be quite wearing sometimes.</p>
+<p>This is how you disable this function:</p>
+<p><code>about:config</code></p>
+<p>Change these to <strong>false</strong>:</p>
+<p><code>browser.sessionstore.resume_from_crash<br />
+browser.sessionstore.resume_session_once</code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/firefox-3-5-making-well-this-is-embarrasing-go-away/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How to speedup Firefox by VACUUM&#8217;ing FF&#8217;s sqlite databases</title>
+		<link>http://dingleberry.me/2009/09/how-to-speedup-firefox-by-vacuuming-ffs-sqlite-databases/</link>
+		<comments>http://dingleberry.me/2009/09/how-to-speedup-firefox-by-vacuuming-ffs-sqlite-databases/#comments</comments>
+		<pubDate>Fri, 04 Sep 2009 09:02:51 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[firefuck]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[sqlite3]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=446</guid>
+		<description><![CDATA[Firefox easily often gets like Hersheys&#8217;s Syrup. What may help is to cleanup the SQlite3 databases Firefox uses to store _SHIT_ First see that you have sqlite3 installed: apt-get install sqlite3 Then stop/kill/murder all your firefox procs. Run the following from a console: for i in $(find ~/.mozilla -type f -name '*.sqlite' -print);do sqlite3 $i [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Firefox easily often gets like Hersheys&#8217;s Syrup.<br />
+What may help is to cleanup the SQlite3 databases Firefox uses to store _SHIT_</p>
+<p>First see that you have sqlite3 installed:<br />
+<code>apt-get install sqlite3</code></p>
+<p>Then <strong>stop</strong>/<strong>kill</strong>/<strong>murder</strong> all your firefox procs.</p>
+<p>Run the following from a console:<br />
+<code>for i in $(find ~/.mozilla -type f -name '*.sqlite' -print);do sqlite3 $i "VACUUM;";done</code></p>
+<p>Most garbage in your firefox databases should now be clean. Fire it up again.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/09/how-to-speedup-firefox-by-vacuuming-ffs-sqlite-databases/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

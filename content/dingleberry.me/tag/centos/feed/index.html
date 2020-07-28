@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dingleberry.me &#187; dingleberry.me &#8211; technical blog shit</title>
+	<atom:link href="http://dingleberry.me/tag/centos/feed/" rel="self" type="application/rss+xml" />
+	<link>http://dingleberry.me</link>
+	<description>technical blog shit</description>
+	<lastBuildDate>Fri, 06 Jun 2014 17:38:05 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<item>
+		<title>Upgrade your Dell PowerEdge/whatever servers firmware with CentOS LiveCD</title>
+		<link>http://dingleberry.me/2009/11/upgrade-your-dell-poweredgewhatever-servers-firmware-with-centos-livecd/</link>
+		<comments>http://dingleberry.me/2009/11/upgrade-your-dell-poweredgewhatever-servers-firmware-with-centos-livecd/#comments</comments>
+		<pubDate>Thu, 19 Nov 2009 14:05:11 +0000</pubDate>
+		<dc:creator><![CDATA[MrBerry]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[centos]]></category>
+		<category><![CDATA[dell]]></category>
+		<category><![CDATA[firmware]]></category>
+		<category><![CDATA[livecd]]></category>
+		<category><![CDATA[poweredge]]></category>
+		<category><![CDATA[redhat]]></category>
+		<category><![CDATA[rhel]]></category>
+
+		<guid isPermaLink="false">http://dingleberry.me/?p=565</guid>
+		<description><![CDATA[Yeah, Dell wont let you run their tools from any linux dist you want&#8230;It HAS to be a RHEL-like dist. Yes, i know you could do something like this. But if you dont feel frisky, and want to do it the right way&#8230;.Start by downloading this CentOS 5.4 ISO: http://mirror.hh.se/centos/5.4/isos/i386/CentOS-5.4-i386-LiveCD.iso Burn it and boot up [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Yeah, Dell wont let you run their tools from any linux dist you want&#8230;It HAS to be a RHEL-like dist.<br />
+Yes, i know you could do something like <a href="http://www.ducea.com/2007/08/27/dell-bios-firmware-updates-on-debian/">this</a>.<br />
+But if you dont feel frisky, and want to do it the right way&#8230;.Start by downloading this CentOS 5.4 ISO:<br />
+<a href="http://mirror.hh.se/centos/5.4/isos/i386/CentOS-5.4-i386-LiveCD.iso">http://mirror.hh.se/centos/5.4/isos/i386/CentOS-5.4-i386-LiveCD.iso<br />
+</a></p>
+<p>Burn it and boot up your server with F11, CDROM</p>
+<p>When all is up and youve got net, do these deps:<br />
+<code>yum install compat-libstdc++-33 procmail</code></p>
+<p>Place you .BIN file from Dell on a ftp/http whatever..<br />
+Ex.<br />
+<code>wget http://supereye.org/2950.BIN #The newest PowerEdge 2950 firmware</code></p>
+<p>Finally ready for flashing:<br />
+<code>chmod +x 2950.BIN &#038;&#038; ./2950.BIN</code></p>
+<p>Great success!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://dingleberry.me/2009/11/upgrade-your-dell-poweredgewhatever-servers-firmware-with-centos-livecd/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

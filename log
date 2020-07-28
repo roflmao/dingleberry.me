@@ -1,0 +1,22 @@
+--2020-07-28 10:44:54--  http://www.dingleberry.me/
+Resolving www.dingleberry.me (www.dingleberry.me)... 188.226.135.206
+Connecting to www.dingleberry.me (www.dingleberry.me)|188.226.135.206|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://dingleberry.me/ [following]
+--2020-07-28 10:44:57--  http://dingleberry.me/
+Resolving dingleberry.me (dingleberry.me)... 188.226.135.206
+Reusing existing connection to www.dingleberry.me:80.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘www.dingleberry.me/index.html’
+
+     0K .......... .......... .......... ..........             330K=0,1s
+
+Last-modified header missing -- time-stamps turned off.
+2020-07-28 10:44:57 (330 KB/s) - ‘www.dingleberry.me/index.html’ saved [41967]
+
+FINISHED --2020-07-28 10:44:57--
+Total wall clock time: 2,7s
+Downloaded: 1 files, 41K in 0,1s (330 KB/s)
+Converting links in www.dingleberry.me/index.html... 4-0
+Converted links in 1 files in 0,003 seconds.
